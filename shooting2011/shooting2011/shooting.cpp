@@ -3,6 +3,7 @@
 Shooting::Shooting(){
   gameClock = 0;
   fpsTimer = GetNowCount();
+  heros.push_back( Hero());
 }
 
 void Shooting::calibrateFps(){
@@ -25,8 +26,8 @@ void Shooting::draw(){
   // 画面を初期化(真っ黒にする)
   ClearDrawScreen() ;
 
-  for (int i=0; i<(int)bullets.size(); i++) bullets[i].draw();
-  hero.draw();
+  for (int i=0; i<(int)HeroheroBullets.size(); i++) HeroheroBullets[i].draw();
+  for (int i=0; i<(int)heros.size(); i++) heros[i].draw();
   for (int i=0; i<(int)enemys.size(); i++) enemys[i].draw();
 
   // 裏画面の内容を表画面にコピーする
@@ -38,9 +39,11 @@ void Shooting::action(){
   gameClock++;
   // ボール君
 	{
-    hero.move();
-    if( hero.fire()) bullets.push_back( Bullet( hero.getPosx(), hero.getPosy()));
-    hero.transitionState();
+    for (int i=0; i<(int)heros.size(); i++){
+      heros[i].move();
+      if( heros[i].fire()) HeroheroBullets.push_back( HeroBullet( heros[i].getPosx(), heros[i].getPosy()));
+      heros[i].transitionState();
+    }
   }
   // 四角君
   {
@@ -55,10 +58,10 @@ void Shooting::action(){
   }
   // 弾
   {
-    for (int i=0; i<(int)bullets.size(); i++) bullets[i].move();
-    for (int i=0; i<(int)bullets.size(); i++){
-      if( !bullets[i].isValid()) {
-        bullets.erase( bullets.begin()+i);
+    for (int i=0; i<(int)HeroheroBullets.size(); i++) HeroheroBullets[i].move();
+    for (int i=0; i<(int)HeroheroBullets.size(); i++){
+      if( !HeroheroBullets[i].isValid()) {
+        HeroheroBullets.erase( HeroheroBullets.begin()+i);
         i--;
       }
     }

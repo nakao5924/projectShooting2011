@@ -82,7 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="bullet.cpp" />
+    <ClCompile Include="heroBullet.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="hero.cpp" />
     <ClCompile Include="main.cpp" />

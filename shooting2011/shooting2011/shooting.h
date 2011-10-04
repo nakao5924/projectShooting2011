@@ -7,9 +7,9 @@
 class Shooting{
   int gameClock;
   int fpsTimer;
-  Hero hero;
+  vector<Hero> heros;
   vector<Enemy> enemys;
-  vector<Bullet> bullets;
+  vector<HeroBullet> HeroheroBullets;
 
   void draw();
   void calibrateFps();

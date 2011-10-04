@@ -35,13 +35,13 @@ public:
   bool isValid();
 };
 
-class Bullet{
+class HeroBullet{
   int posx, posy;
   int graphic;
   int size;
 
 public:
-  Bullet( int x, int y);
+  HeroBullet( int x, int y);
   void move();
 	void draw();
   bool isValid();
