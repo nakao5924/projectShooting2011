@@ -5,15 +5,18 @@ Enemy::Enemy( const EnemyData &data){
   graphic = LoadGraph( "../graphic/Sikaku.png" );
   posx = data.posx;
   posy = data.posy;
+  mp = data.moveType;
   size = 64;
 }
 
 void Enemy::move(){
-  posy += 3;
+	pair<double,double> nextpos = pair<double,double>(mp->action(posx,posy));
+	posx = nextpos.first;
+	posy = nextpos.second;
 }
 
 void Enemy::fire(){
-  ;
+	//ap->action();
 }
 
 void Enemy::action(){
