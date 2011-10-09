@@ -1,7 +1,7 @@
 #include "MovingObject.h"
 
 HeroBullet::HeroBullet( int x, int y){
-  graphic = LoadGraph( "../graphic/HeroBullet.bmp" ) ;
+  graphic = LoadGraph( "../graphic/heroBullet.bmp" ) ;
   posx = x;
   posy = y;
   size = 8;

@@ -26,7 +26,7 @@ void Shooting::draw(){
   // ‰æ–Ê‚ğ‰Šú‰»(^‚Á•‚É‚·‚é)
   ClearDrawScreen() ;
 
-  for (int i=0; i<(int)HeroheroBullets.size(); i++) HeroheroBullets[i].draw();
+  for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i].draw();
   for (int i=0; i<(int)heros.size(); i++) heros[i].draw();
   for (int i=0; i<(int)enemys.size(); i++) enemys[i].draw();
 
@@ -41,7 +41,7 @@ void Shooting::action(){
 	{
     for (int i=0; i<(int)heros.size(); i++){
       heros[i].move();
-      if( heros[i].fire()) HeroheroBullets.push_back( HeroBullet( heros[i].getPosx(), heros[i].getPosy()));
+      if( heros[i].fire()) heroBullets.push_back( HeroBullet( heros[i].getPosx(), heros[i].getPosy()));
       heros[i].transitionState();
     }
   }
@@ -58,10 +58,10 @@ void Shooting::action(){
   }
   // ’e
   {
-    for (int i=0; i<(int)HeroheroBullets.size(); i++) HeroheroBullets[i].move();
-    for (int i=0; i<(int)HeroheroBullets.size(); i++){
-      if( !HeroheroBullets[i].isValid()) {
-        HeroheroBullets.erase( HeroheroBullets.begin()+i);
+    for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i].move();
+    for (int i=0; i<(int)heroBullets.size(); i++){
+      if( !heroBullets[i].isValid()) {
+        heroBullets.erase( heroBullets.begin()+i);
         i--;
       }
     }

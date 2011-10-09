@@ -9,7 +9,7 @@ class Shooting{
   int fpsTimer;
   vector<Hero> heros;
   vector<Enemy> enemys;
-  vector<HeroBullet> HeroheroBullets;
+  vector<HeroBullet> heroBullets;
 
   void draw();
   void calibrateFps();
