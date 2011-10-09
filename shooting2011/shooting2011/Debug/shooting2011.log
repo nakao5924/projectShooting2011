@@ -1,26 +1,20 @@
-﻿2011/10/07 16:53:32 にビルドを開始しました。
-     1>ノード 2 上のプロジェクト "C:\Users\arai\Documents\github\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
+﻿2011/10/09 8:43:58 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
          "Debug\shooting2011.unsuccessfulbuild" のタッチ タスクを実行しています。
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt enemy.cpp hero.cpp heroBullet.cpp lissajous.cpp main.cpp shooting.cpp straight.cpp
-         straight.cpp
-         shooting.cpp
-         main.cpp
-         lissajous.cpp
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt enemy.cpp heroBullet.cpp
          heroBullet.cpp
-     1>c1xx : fatal error C1083: ソース ファイルを開けません。'heroBullet.cpp': No such file or directory
-         hero.cpp
          enemy.cpp
-     1>c:\users\arai\documents\github\shooting2011\shooting2011\enemy.cpp(8): error C2440: '=' : 'const int' から 'MovePattern *' に変換できません。
+     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(8): error C2440: '=' : 'const int' から 'MovePattern *' に変換できません。
                  整数型からポインター型への変換には reinterpret_cast、C スタイル キャストまたは関数スタイル キャストが必要です。
-     1>c:\users\arai\documents\github\shooting2011\shooting2011\enemy.cpp(28): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
-     1>c:\users\arai\documents\github\shooting2011\shooting2011\enemy.cpp(28): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
-     1>c:\users\arai\documents\github\shooting2011\shooting2011\enemy.cpp(32): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
-     1>c:\users\arai\documents\github\shooting2011\shooting2011\enemy.cpp(32): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(28): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(28): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(32): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(32): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
          コードを生成中...
-     1>プロジェクト "C:\Users\arai\Documents\github\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが終了しました -- 失敗。
+     1>プロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが終了しました -- 失敗。
 
 ビルドに失敗しました。
 
-経過時間 00:00:10.24
+経過時間 00:00:06.17
