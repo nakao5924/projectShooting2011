@@ -1,20 +1,20 @@
-﻿2011/10/09 8:43:58 にビルドを開始しました。
-     1>ノード 2 上のプロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
+﻿2011/10/09 13:22:53 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\arai\Desktop\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
-         "Debug\shooting2011.unsuccessfulbuild" のタッチ タスクを実行しています。
+         "AlwaysCreate" が指定されたため "Debug\shooting2011.unsuccessfulbuild" を作成しています。
        ClCompile:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt enemy.cpp heroBullet.cpp
-         heroBullet.cpp
-         enemy.cpp
-     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(8): error C2440: '=' : 'const int' から 'MovePattern *' に変換できません。
-                 整数型からポインター型への変換には reinterpret_cast、C スタイル キャストまたは関数スタイル キャストが必要です。
-     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(28): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
-     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(28): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
-     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(32): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
-     1>c:\cygwin\home\nakao\github\projectshooting2011\shooting2011\shooting2011\enemy.cpp(32): warning C4244: '引数' : 'double' から 'int' への変換です。データが失われる可能性があります。
-         コードを生成中...
-     1>プロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが終了しました -- 失敗。
+         すべての出力が最新のものです。
+       ManifestResourceCompile:
+         すべての出力が最新のものです。
+       Link:
+         すべての出力が最新のものです。
+       Manifest:
+         すべての出力が最新のものです。
+       FinalizeBuildStatus:
+         ファイル "Debug\shooting2011.unsuccessfulbuild" を削除しています。
+         "Debug\shooting2011.lastbuildstate" のタッチ タスクを実行しています。
+     1>プロジェクト "C:\Users\arai\Desktop\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが完了しました。
 
-ビルドに失敗しました。
+ビルドに成功しました。
 
-経過時間 00:00:06.17
+経過時間 00:00:00.14
