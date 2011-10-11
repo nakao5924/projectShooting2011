@@ -1,25 +1,22 @@
 #ifndef __STAGEDATA_H__
 #define __STAGEDATA_H__
-
-const int ENEMY_NUM = 10;
+#include"movePattern.h"
+const int ENEMY_NUM = 1;
 struct EnemyData{
   int popUpTime;
   int posx, posy;
-  int moveType;
+	MovePattern *moveType;
   int fireType;
+	EnemyData(int pt,int px,int py,MovePattern *mp){
+		popUpTime = pt;
+		posx = px;
+		posy = py;
+		moveType = mp;
+	}
 };
 
 const EnemyData enemyDatas[] = {
-  {0, 10, 0, 1, 0},
-  {10, 20, 0, 1, 0},
-  {20, 30, 0, 1, 0},
-  {60, 60, 0, 1, 0},
-  {70, 70, 0, 1, 0},
-  {80, 80, 0, 1, 0},
-  {150, 40, 0, 1, 0},
-  {150, 600, 0, 1, 0},
-  {210, 70, 0, 1, 0},
-  {210, 570, 0, 1, 0},
+	EnemyData(0,60,60,new MovePatternLissajous(160,160,100,0.06,0,50,0.1,0))
 };
 
 #endif

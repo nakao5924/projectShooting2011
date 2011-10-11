@@ -1,6 +1,6 @@
 #include "something.h"
 
-bool isInStage( int x, int y){
+bool isInStage( double x, double y){
   return 0<=x && x<=WINDOW_WIDTH && 0<=y && y<=WINDOW_HEIGHT;
 }
 bool isInStage( int x, int y, int size){

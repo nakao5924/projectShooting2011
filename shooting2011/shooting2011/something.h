@@ -3,7 +3,7 @@
 
 #include "main.h"
 
-bool isInStage( int x, int y);
+bool isInStage( double x, double y);
 bool isInStage( int x, int y, int size);
 
 #endif

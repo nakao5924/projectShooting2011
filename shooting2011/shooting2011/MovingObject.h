@@ -2,6 +2,9 @@
 #define __MOVINGOBJECT_H__
 #include "main.h"
 #include "stageData.h"
+#include "attackPattern.h"
+#include "movePattern.h"
+
 //class MovingObject{
 //}
 
@@ -22,9 +25,12 @@ public:
 };
 
 class Enemy{
-  int posx, posy;
+  double posx, posy;
   int graphic;
   int size;
+  MovePattern *mp;
+  AttackPattern *ap;
+
   void move();
   void fire();
 

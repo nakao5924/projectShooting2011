@@ -85,13 +85,19 @@
     <ClCompile Include="heroBullet.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="hero.cpp" />
+    <ClCompile Include="lissajous.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovingObject.cpp" />
     <ClCompile Include="shooting.cpp" />
     <ClCompile Include="something.cpp" />
+    <ClCompile Include="stage.cpp" />
+    <ClCompile Include="straight.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="attackPattern.h" />
+    <ClInclude Include="background.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="movePattern.h" />
     <ClInclude Include="MovingObject.h" />
     <ClInclude Include="shooting.h" />
     <ClInclude Include="something.h" />

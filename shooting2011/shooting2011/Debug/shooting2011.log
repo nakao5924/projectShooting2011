@@ -1,4 +1,4 @@
-﻿2011/10/04 18:28:58 にビルドを開始しました。
+﻿2011/10/09 15:38:21 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
          "AlwaysCreate" が指定されたため "Debug\shooting2011.unsuccessfulbuild" を作成しています。
@@ -12,10 +12,13 @@
          Debug\heroBullet.obj
          Debug\enemy.obj
          Debug\hero.obj
+         Debug\lissajous.obj
          Debug\main.obj
          Debug\MovingObject.obj
          Debug\shooting.obj
          Debug\something.obj
+         Debug\stage.obj
+         Debug\straight.obj
        Manifest:
          C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\shooting2011.exe.embed.manifest" /manifest Debug\shooting2011.exe.intermediate.manifest
          すべての出力が最新のものです。
@@ -29,4 +32,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:05.51
+経過時間 00:00:04.35
