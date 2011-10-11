@@ -1,4 +1,4 @@
-#include "MovingObject.h"
+#include "movingObject.h"
 
 Hero::Hero(){
   graphic = LoadGraph( "../graphic/Ball.png" ) ;
@@ -29,7 +29,7 @@ bool Hero::fire(){
 }
 
 void Hero::draw(){
-  DrawGraph( posx - size/2, posy - size/2, graphic, true);
+  DrawGraph( SIDE_WIDTH + posx - size/2, posy - size/2, graphic, true);
 }
 
 void Hero::transitionState(){

@@ -1,35 +1,36 @@
-﻿2011/10/09 15:38:21 にビルドを開始しました。
-     1>ノード 2 上のプロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
+﻿2011/10/11 22:15:17 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "U:\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
          "AlwaysCreate" が指定されたため "Debug\shooting2011.unsuccessfulbuild" を作成しています。
        ClCompile:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt heroBullet.cpp
-         heroBullet.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt shooting.cpp
+         shooting.cpp
        ManifestResourceCompile:
          すべての出力が最新のものです。
        Link:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Debug\shooting2011.exe" /INCREMENTAL /NOLOGO /LIBPATH:../dxlib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\shooting2011.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Debug\shooting2011.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Debug\shooting2011.lib" /MACHINE:X86 Debug\shooting2011.exe.embed.manifest.res
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"U:\projectShooting2011\shooting2011\Debug\shooting2011.exe" /INCREMENTAL /NOLOGO /LIBPATH:../dxlib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\shooting2011.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"U:\projectShooting2011\shooting2011\Debug\shooting2011.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"U:\projectShooting2011\shooting2011\Debug\shooting2011.lib" /MACHINE:X86 Debug\shooting2011.exe.embed.manifest.res
          Debug\heroBullet.obj
          Debug\enemy.obj
          Debug\hero.obj
          Debug\lissajous.obj
          Debug\main.obj
-         Debug\MovingObject.obj
+         Debug\movingObject.obj
          Debug\shooting.obj
          Debug\something.obj
          Debug\stage.obj
          Debug\straight.obj
+         Debug\systemData.obj
        Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\shooting2011.exe.embed.manifest" /manifest Debug\shooting2011.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\shooting2011.exe.embed.manifest" /manifest Debug\shooting2011.exe.intermediate.manifest
          すべての出力が最新のものです。
        LinkEmbedManifest:
          すべての出力が最新のものです。
-         shooting2011.vcxproj -> C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Debug\shooting2011.exe
+         shooting2011.vcxproj -> U:\projectShooting2011\shooting2011\Debug\shooting2011.exe
        FinalizeBuildStatus:
          ファイル "Debug\shooting2011.unsuccessfulbuild" を削除しています。
          "Debug\shooting2011.lastbuildstate" のタッチ タスクを実行しています。
-     1>プロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが完了しました。
+     1>プロジェクト "U:\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが完了しました。
 
 ビルドに成功しました。
 
-経過時間 00:00:04.35
+経過時間 00:00:06.24

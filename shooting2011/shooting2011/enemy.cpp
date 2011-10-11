@@ -1,4 +1,4 @@
-#include "MovingObject.h"
+#include "movingObject.h"
 #include "stageData.h"
 
 Enemy::Enemy( const EnemyData &data){
@@ -29,6 +29,6 @@ bool Enemy::isValid(){
 }
 
 void Enemy::draw(){
-  DrawGraph( posx - size/2, posy - size/2, graphic, true);
+  DrawGraph( SIDE_WIDTH + posx - size/2, posy - size/2, graphic, true);
 }
 

@@ -1,8 +1,9 @@
 #ifndef __SHOOTING_H_
 #define __SHOOTING_H_
 #include "main.h"
-#include "MovingObject.h"
+#include "movingObject.h"
 #include "stageData.h"
+#include "systemData.h"
 
 class Shooting{
   int gameClock;
@@ -10,9 +11,11 @@ class Shooting{
   vector<Hero> heros;
   vector<Enemy> enemys;
   vector<HeroBullet> heroBullets;
+  SystemData systemData;
 
-  void draw();
+  void addHero();
   void calibrateFps();
+  void draw();
   void popUp();
 
 public:

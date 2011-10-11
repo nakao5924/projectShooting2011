@@ -1,4 +1,4 @@
-#include "MovingObject.h"
+#include "movingObject.h"
 
 HeroBullet::HeroBullet( int x, int y){
   graphic = LoadGraph( "../graphic/heroBullet.bmp" ) ;

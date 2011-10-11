@@ -3,7 +3,10 @@
 Shooting::Shooting(){
   gameClock = 0;
   fpsTimer = GetNowCount();
-  heros.push_back( Hero());
+  addHero();
+  addHero();
+  addHero();
+  addHero();
 }
 
 void Shooting::calibrateFps(){
@@ -29,6 +32,7 @@ void Shooting::draw(){
   for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i].draw();
   for (int i=0; i<(int)heros.size(); i++) heros[i].draw();
   for (int i=0; i<(int)enemys.size(); i++) enemys[i].draw();
+  systemData.draw();
 
   // 裏画面の内容を表画面にコピーする
   ScreenFlip();
@@ -70,4 +74,11 @@ void Shooting::action(){
   draw();
   calibrateFps();
 }
+
+void Shooting::addHero()
+{
+	heros.push_back( Hero());
+	systemData.addHero();
+}
+
 
