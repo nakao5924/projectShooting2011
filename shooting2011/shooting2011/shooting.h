@@ -1,25 +1,28 @@
 #ifndef __SHOOTING_H_
 #define __SHOOTING_H_
-#include "main.h"
-#include "movingObject.h"
 #include "stageData.h"
 #include "systemData.h"
+#include "hero.h"
+#include "enemy.h"
+#include "heroBullet.h"
+// #include "enemyBullet.h"
 
 class Shooting{
+  friend class ShootingAccessor;
   int gameClock;
   int fpsTimer;
-  vector<Hero> heros;
-  vector<Enemy> enemys;
-  vector<HeroBullet> heroBullets;
+  vector<Hero *> heros;
+  vector<Enemy *> enemys;
+  vector<HeroBullet *> heroBullets;
   SystemData systemData;
 
-  void addHero();
   void calibrateFps();
   void draw();
   void popUp();
 
 public:
   Shooting();
+  ~Shooting();
   void action();
 };
 

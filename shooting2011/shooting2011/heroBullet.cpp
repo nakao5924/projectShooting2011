@@ -1,21 +1,19 @@
-#include "movingObject.h"
+#include "main.h"
+#include "heroBullet.h"
 
-HeroBullet::HeroBullet( int x, int y){
+HeroBullet::HeroBullet( double x, double y, double vx, double vy, int type){
   graphic = LoadGraph( "../graphic/heroBullet.bmp" ) ;
-  posx = x;
-  posy = y;
-  size = 8;
+  graphicRect = Rect(x, y, 8, 8);
+  hitRect = Rect(x, y, 4, 8);
+  movePattern = new MovePatternStraight(vx, vy);
+  heroType = type;
 }
 
-void HeroBullet::move(){
-  posy -= 8;
-}
-
-void HeroBullet::draw(){
-  DrawGraph( posx - size/2, posy - size/2, graphic, true);
+HeroBullet::~HeroBullet(){
+  delete movePattern;
 }
 
 bool HeroBullet::isValid(){
-  return isInStage( posx, posy, size);
+  return isInStage( graphicRect);
 }
 

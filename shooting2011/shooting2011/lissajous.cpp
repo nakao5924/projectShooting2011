@@ -1,3 +1,4 @@
+#include "main.h"
 #include "movePattern.h"
 MovePatternLissajous::MovePatternLissajous(double cx,double cy,
 		double _ampx,double _freqx,double _deltax,

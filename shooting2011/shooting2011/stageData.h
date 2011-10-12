@@ -4,10 +4,10 @@
 const int ENEMY_NUM = 1;
 struct EnemyData{
   int popUpTime;
-  int posx, posy;
+  double posx, posy;
 	MovePattern *moveType;
   int fireType;
-	EnemyData(int pt,int px,int py,MovePattern *mp){
+	EnemyData(int pt,double px,double py,MovePattern *mp){
 		popUpTime = pt;
 		posx = px;
 		posy = py;

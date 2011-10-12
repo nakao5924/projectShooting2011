@@ -1,8 +1,12 @@
+// all cpp files include "main.h" at first line !!
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
 #include <vector>
+#include <algorithm>
+#include <cmath>
 #include "DxLib.h"
+#include "rect.h"
 #include "something.h"
 using namespace std;
 

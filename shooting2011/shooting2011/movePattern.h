@@ -1,6 +1,5 @@
 #ifndef __MOVEPATTERN_H__
 #define __MOVEPATTERN_H__
-#include "main.h"
 class MovePattern{
 public:
 	//¡‚ÌÀ•W‚ğó‚¯æ‚Á‚ÄŸ‚ÌÀ•W‚ğpair‚Å•Ô‚·
@@ -11,9 +10,12 @@ class MovePatternUniformlyAcceleratedLinearMotion : public MovePattern{
 public:
 	double vx,vy,v,theta,ax,ay;
 	int frame;
-	MovePatternUniformlyAcceleratedLinearMotion(double vx,double vy,double a);
+	MovePatternUniformlyAcceleratedLinearMotion(double vx,double vy,double a = 0);
 	pair<double,double> action(double,double);
 };
+
+typedef MovePatternUniformlyAcceleratedLinearMotion MovePatternStraight;
+
 class MovePatternLissajous : public MovePattern{
 public:
 	double ampx,freqx,deltax;
@@ -23,5 +25,10 @@ public:
 	int frame;
 	MovePatternLissajous(double,double,double,double,double,double,double,double);
 	pair<double,double> action(double,double);
+};
+
+class MovePatternHero : public MovePattern{
+public:
+  pair<double,double> action(double,double);
 };
 #endif

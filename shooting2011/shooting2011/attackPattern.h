@@ -1,3 +1,5 @@
+// firePattern ? nakao
+
 #ifndef __ATTACKPATTERN_H__
 #define __ATTACKPATTERN_H__
 

@@ -1,56 +1,30 @@
 #ifndef __MOVINGOBJECT_H__
 #define __MOVINGOBJECT_H__
-#include "main.h"
-#include "stageData.h"
-#include "attackPattern.h"
+#include "attackPattern.h" 
 #include "movePattern.h"
 
-//class MovingObject{
-//}
+//#include "firePattern.h"
 
-class Hero{
-  int posx, posy;
-  int graphic;
-  int size;
-  int fireWait;
+class MovingObject{
+protected:
+  int graphic; //check
+  Rect graphicRect;
+  Rect hitRect;
+  MovePattern* movePattern;
+  //FirePattern* firePattern;
 
-public:
-  Hero();
-  int getPosx(){ return posx;};
-  int getPosy(){ return posy;};
-  void move();
-  bool fire();
-	void draw();
-  void transitionState();
-};
-
-class Enemy{
-  double posx, posy;
-  int graphic;
-  int size;
-  MovePattern *mp;
-  AttackPattern *ap;
-
+private:
   void move();
   void fire();
 
 public:
-  Enemy( const EnemyData&);
+  Rect getGraphicRect();
+  Rect getHitRect();
   void action();
-	void draw();
-  bool isValid();
+  void draw();
+  virtual ~MovingObject();
 };
 
-class HeroBullet{
-  int posx, posy;
-  int graphic;
-  int size;
 
-public:
-  HeroBullet( int x, int y);
-  void move();
-	void draw();
-  bool isValid();
-};
 
 #endif

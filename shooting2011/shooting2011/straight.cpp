@@ -1,3 +1,4 @@
+#include "main.h"
 #include "movePattern.h"
 
 MovePatternUniformlyAcceleratedLinearMotion::MovePatternUniformlyAcceleratedLinearMotion(double _vx,double _vy,double _a){

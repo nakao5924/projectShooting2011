@@ -1,11 +1,5 @@
-
 #ifndef __SYSTEMDATA_H__
 #define __SYSTEMDATA_H__
-
-#include<vector>
-using namespace std;
-
-#include "movingObject.h"
 
 struct textPosition{
   int lifePosX0;
