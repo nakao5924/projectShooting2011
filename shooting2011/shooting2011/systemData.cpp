@@ -3,7 +3,7 @@
 
 SystemData::SystemData() {
 	COLOR_BLACK = GetColor(0, 0, 0);
-	COLOR_GREY = GetColor(128, 128, 128);
+	COLOR_GREY = GetColor(64, 64, 64);
 	COLOR_WHITE = GetColor(255, 255, 255);
 }
 
@@ -27,6 +27,9 @@ void SystemData::draw() {
 	int color = COLOR_WHITE;
 
 	DrawBox(SIDE_WIDTH, 0, SIDE_WIDTH + STAGE_WIDTH, STAGE_HEIGHT, COLOR_WHITE, FALSE);
+	DrawBox(0, 0, SIDE_WIDTH, STAGE_HEIGHT, COLOR_GREY, TRUE);
+	DrawBox(SIDE_WIDTH + STAGE_WIDTH, 0, WINDOW_WIDTH, STAGE_HEIGHT, COLOR_GREY, TRUE);
+	//DrawBox(SIDE_WIDTH, 0, SIDE_WIDTH + STAGE_WIDTH, STAGE_HEIGHT, COLOR_WHITE, FALSE);
 
 	for(int i=0; i<(int)lifes.size(); i++) {
 			DrawString(textPositions[i].lifePosX0, textPositions[i].lifePosY0, "Life:", color);
