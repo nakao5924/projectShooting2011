@@ -82,6 +82,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="graphicPattern.cpp" />
+    <ClCompile Include="graphicResource.cpp" />
     <ClCompile Include="heroBullet.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="hero.cpp" />
@@ -101,6 +103,8 @@
     <ClInclude Include="attackPattern.h" />
     <ClInclude Include="background.h" />
     <ClInclude Include="enemy.h" />
+    <ClInclude Include="graphicPattern.h" />
+    <ClInclude Include="graphicResource.h" />
     <ClInclude Include="hero.h" />
     <ClInclude Include="heroBullet.h" />
     <ClInclude Include="main.h" />
