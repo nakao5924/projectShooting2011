@@ -1,3 +1,4 @@
+#include "main.h"
 #include "graphicResource.h"
 
 // コンストラクタ
@@ -11,7 +12,7 @@ int GraphicResource::get(const string &path) {
 
 int GraphicResource::get(const string &path, bool forceFlg) {
   int id = this->graphics[path];
-  return !!id ? (forceFlg ? -1 : this->load(path)) : id;
+  return !id ? (forceFlg ? this->load(path) : -1) : id;
 };
 
 int GraphicResource::load(const string &path) {
