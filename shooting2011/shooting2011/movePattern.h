@@ -14,7 +14,7 @@ public:
 	pair<double,double> action(double,double);
 };
 
-typedef MovePatternUniformlyAcceleratedLinearMotion MovePatternStraight;
+typedef MovePatternUniformlyAcceleratedLinearMotion MovePatternStraight;  //nakao
 
 class MovePatternLissajous : public MovePattern{
 public:
