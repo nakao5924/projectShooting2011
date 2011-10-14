@@ -2,12 +2,14 @@
 #define __MOVINGOBJECT_H__
 #include "attackPattern.h" 
 #include "movePattern.h"
+#include "graphicPattern.h"
 
 //#include "firePattern.h"
 
 class MovingObject{
 protected:
   int graphic; //check
+  vector<GraphicPattern> graPattern;
   Rect graphicRect;
   Rect hitRect;
   MovePattern* movePattern;

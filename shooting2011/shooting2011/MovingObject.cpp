@@ -10,8 +10,13 @@ void MovingObject::action(){
 }
 
 void MovingObject::draw(){
-  DrawGraph( static_cast<int>(SIDE_WIDTH + graphicRect.x - graphicRect.width/2), 
-    static_cast<int>(graphicRect.y - graphicRect.height/2), graphic, true);
+  if (graPattern.empty()) {
+    DrawGraph( static_cast<int>(SIDE_WIDTH + graphicRect.x - graphicRect.width/2), 
+      static_cast<int>(graphicRect.y - graphicRect.height/2), graphic, true);
+  } else {
+    DrawGraph( static_cast<int>(SIDE_WIDTH + graphicRect.x - graphicRect.width/2), 
+      static_cast<int>(graphicRect.y - graphicRect.height/2), graPattern[0].getDrawImage(), true);
+  }
 }
 
 void MovingObject::move(){

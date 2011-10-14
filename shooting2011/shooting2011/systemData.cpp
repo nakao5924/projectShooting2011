@@ -8,7 +8,7 @@ SystemData::SystemData() {
 }
 
 void SystemData::addHero() {
-	lifes.push_back(1);
+	lifes.push_back(0);
 	scores.push_back(0);
 }
 
@@ -27,8 +27,8 @@ void SystemData::draw() {
 	int color = COLOR_WHITE;
 
 	DrawBox(SIDE_WIDTH, 0, SIDE_WIDTH + STAGE_WIDTH, STAGE_HEIGHT, COLOR_WHITE, FALSE);
-	DrawBox(0, 0, SIDE_WIDTH, STAGE_HEIGHT, COLOR_GREY, TRUE);
-	DrawBox(SIDE_WIDTH + STAGE_WIDTH, 0, WINDOW_WIDTH, STAGE_HEIGHT, COLOR_GREY, TRUE);
+	DrawBox(0, 0, SIDE_WIDTH, STAGE_HEIGHT, COLOR_BLACK, TRUE);
+	DrawBox(SIDE_WIDTH + STAGE_WIDTH, 0, WINDOW_WIDTH, STAGE_HEIGHT, COLOR_BLACK, TRUE);
 	//DrawBox(SIDE_WIDTH, 0, SIDE_WIDTH + STAGE_WIDTH, STAGE_HEIGHT, COLOR_WHITE, FALSE);
 
 	for(int i=0; i<(int)lifes.size(); i++) {
