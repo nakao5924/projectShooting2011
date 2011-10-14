@@ -1,16 +1,9 @@
-﻿2011/10/14 16:09:46 にビルドを開始しました。
+﻿2011/10/14 16:21:59 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "U:\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
          "AlwaysCreate" が指定されたため "Debug\shooting2011.unsuccessfulbuild" を作成しています。
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp shooting.cpp shootingAccessor.cpp systemData.cpp
-         systemData.cpp
-         コードを生成中...
-         コンパイル中...
-         shootingAccessor.cpp
-         shooting.cpp
-         main.cpp
-         コードを生成中...
+         すべての出力が最新のものです。
        ManifestResourceCompile:
          すべての出力が最新のものです。
        Link:
@@ -31,6 +24,7 @@
          Debug\stage.obj
          Debug\straight.obj
          Debug\systemData.obj
+         LINK : 前回のインクリメンタル リンクで U:\projectShooting2011\shooting2011\Debug\shooting2011.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\shooting2011.exe.embed.manifest" /manifest Debug\shooting2011.exe.intermediate.manifest
          すべての出力が最新のものです。
@@ -44,4 +38,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:14.18
+経過時間 00:00:05.28
