@@ -1,6 +1,6 @@
 #include "main.h"
 #include "shootingAccessor.h"
-#include "attackPattern.h"
+#include "firePattern.h"
 
 Shooting *ShootingAccessor::_shooting;
 

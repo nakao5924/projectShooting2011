@@ -1,7 +1,7 @@
 #include "main.h"
 #include "hero.h"
 
-Hero::Hero(){
+Hero::Hero(int _heroId,int dir){
   graphic = LoadGraph( "../graphic/Ball.png" );
 
   // Debug@neon
@@ -14,6 +14,27 @@ Hero::Hero(){
 
   movePattern = new MovePatternHero();
 
+	//createFirePattern start////////////////////////////////////////////////////
+	vector<MovePattern *> vmptmp;
+	if(dir==0){
+		vmptmp.push_back(new MovePatternUniformlyAcceleratedLinearMotion(0,-3,0));
+		firePattern = new FirePatternHero(vmptmp,5);//up
+	}
+	if(dir==1){
+		vmptmp.push_back(new MovePatternUniformlyAcceleratedLinearMotion(0,3,0));
+		firePattern = new FirePatternHero(vmptmp,5);//down
+	}
+	if(dir==2){
+		vmptmp.push_back(new MovePatternUniformlyAcceleratedLinearMotion(-3,0,0));
+		firePattern = new FirePatternHero(vmptmp,5);//left
+	}
+	if(dir==3){
+		vmptmp.push_back(new MovePatternUniformlyAcceleratedLinearMotion(3,0,0));
+		firePattern = new FirePatternHero(vmptmp,5);//right
+	}
+	//createFirePattern end/////////////////////////////////////////////////////
+
+	heroId = _heroId;
 //  fireWait = 0;
 }
 

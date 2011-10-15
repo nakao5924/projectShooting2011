@@ -1,7 +1,7 @@
 #ifndef __STAGEDATA_H__
 #define __STAGEDATA_H__
 #include"movePattern.h"
-const int ENEMY_NUM = 1;
+const int ENEMY_NUM = 0;
 struct EnemyData{
   int popUpTime;
   double posx, posy;
@@ -15,8 +15,8 @@ struct EnemyData{
 	}
 };
 
-const EnemyData enemyDatas[] = {
-	EnemyData(0,60,60,new MovePatternLissajous(160,160,100,0.06,0,50,0.1,0))
-};
+/*const EnemyData enemyDatas[] = {
+	//EnemyData(0,60,60,new MovePatternLissajous(160,160,100,0.06,0,50,0.1,0))
+};*/
 
 #endif

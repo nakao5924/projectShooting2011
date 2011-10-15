@@ -7,6 +7,7 @@ class Enemy : public MovingObject{
 private:
 
 public:
+	int hp;
   Enemy( const EnemyData&);
   ~Enemy();
 //  int getPosx(){ return posx;}

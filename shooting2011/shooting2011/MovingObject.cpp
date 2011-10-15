@@ -1,5 +1,6 @@
 #include "main.h"
 #include "movingObject.h"
+#include "shootingAccessor.h"
 
 Rect MovingObject::getGraphicRect(){ return graphicRect; }
 Rect MovingObject::getHitRect(){ return hitRect; }
@@ -29,6 +30,7 @@ void MovingObject::move(){
 }
 
 void MovingObject::fire(){
+	firePattern->action(this);
 }
 
 MovingObject::~MovingObject(){}

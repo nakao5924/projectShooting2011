@@ -6,10 +6,10 @@ Shooting::Shooting(){
   gameClock = 0;
   fpsTimer = GetNowCount();
   ShootingAccessor::setShooting(this);
-  ShootingAccessor::addHero(new Hero());
-  ShootingAccessor::addHero(new Hero());
-  ShootingAccessor::addHero(new Hero());
-  ShootingAccessor::addHero(new Hero());
+  ShootingAccessor::addHero(new Hero(0,0));
+  ShootingAccessor::addHero(new Hero(1,1));
+  ShootingAccessor::addHero(new Hero(2,2));
+  ShootingAccessor::addHero(new Hero(3,3));
 }
 
 Shooting::~Shooting(){
@@ -33,11 +33,11 @@ void Shooting::calibrateFps(){
 }
 
 void Shooting::popUp(){
-  for (int i=0; i<ENEMY_NUM; i++){
+/*  for (int i=0; i<ENEMY_NUM; i++){
     if( enemyDatas[i].popUpTime == gameClock){
       ShootingAccessor::addEnemy( new Enemy( enemyDatas[i]));
     }
-  }
+  }*/
 }
 
 void Shooting::draw(){
