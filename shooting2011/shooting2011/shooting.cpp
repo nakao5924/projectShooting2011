@@ -6,10 +6,10 @@ Shooting::Shooting(){
   gameClock = 0;
   fpsTimer = GetNowCount();
   ShootingAccessor::setShooting(this);
-  ShootingAccessor::addHero(new Hero(0,0));
-  ShootingAccessor::addHero(new Hero(1,1));
-  ShootingAccessor::addHero(new Hero(2,2));
-  ShootingAccessor::addHero(new Hero(3,3));
+  ShootingAccessor::addHero(new Hero(0,0), new Input());
+  ShootingAccessor::addHero(new Hero(1,1), new Input());
+  ShootingAccessor::addHero(new Hero(2,2), new Input());
+  ShootingAccessor::addHero(new Hero(3,3), new Input());
 }
 
 Shooting::~Shooting(){

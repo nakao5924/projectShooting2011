@@ -92,6 +92,7 @@
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="hero.cpp" />
     <ClCompile Include="heroMove.cpp" />
+    <ClCompile Include="input.cpp" />
     <ClCompile Include="lissajous.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="movingObject.cpp" />
@@ -113,6 +114,7 @@
     <ClInclude Include="graphicResource.h" />
     <ClInclude Include="hero.h" />
     <ClInclude Include="heroBullet.h" />
+    <ClInclude Include="input.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="movePattern.h" />
     <ClInclude Include="movingObject.h" />

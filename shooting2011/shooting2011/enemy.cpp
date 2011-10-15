@@ -2,9 +2,9 @@
 #include "enemy.h"
 
 Enemy::Enemy( const EnemyData &data){
-  graphic = LoadGraph( "../graphic/Sikaku.png" );
-  graphicRect = Rect( data.posx, data.posy, 64, 64);
-  hitRect = Rect( data.posx, data.posy, 64, 64);
+  graphic = LoadGraph( "../graphic/Hero0.bmp" );
+  graphicRect = Rect( data.posx, data.posy, 32, 32);
+  hitRect = Rect( data.posx, data.posy, 32, 32);
   movePattern = data.moveType;
 	firePattern = data.fireType;
   hp = 5;

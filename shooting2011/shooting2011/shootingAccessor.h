@@ -5,6 +5,7 @@
 #include "hero.h"
 #include "enemy.h"
 #include "heroBullet.h"
+#include "input.h"
 // #include "enemyBullet.h"
 
 class ShootingAccessor{
@@ -15,7 +16,8 @@ public:
   static void addHeroBullet(HeroBullet *);
   static void addEnemyBullet(EnemyBullet *);
   static void addEnemy(Enemy *);
-  static void addHero(Hero *);
+  static void addHero(Hero *, Input *input);
+  static Input getInput(int heroIndex);
 };
 
 #endif // __SHOOTINGACCESSOR_H__

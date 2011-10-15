@@ -6,6 +6,7 @@
 #include "enemy.h"
 #include "heroBullet.h"
 #include "enemyBullet.h"
+#include "input.h"
 
 class Shooting{
   friend class ShootingAccessor;
@@ -14,7 +15,8 @@ class Shooting{
   vector<Hero *> heros;
   vector<Enemy *> enemys;
   vector<HeroBullet *> heroBullets;
-	vector<EnemyBullet *> enemyBullets;
+  vector<EnemyBullet *> enemyBullets;
+  vector<Input *> inputs;
   SystemData systemData;
 
   void calibrateFps();
