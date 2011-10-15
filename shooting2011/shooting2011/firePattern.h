@@ -4,10 +4,11 @@
 class MovingObject;
 
 class FirePattern{
-public:
+private:
 	virtual bool isFire()=0;
+public:
 	virtual void action(MovingObject *self)=0;
-	virtual ~FirePattern(){};
+	virtual ~FirePattern(){}
 };
 
 class FirePatternEnemy : public FirePattern{
@@ -17,21 +18,22 @@ class FirePatternEnemy : public FirePattern{
 	bool loop;
 	int curFrame;
 	int index;
+	bool isFire();
 public:
 	FirePatternEnemy(const vector<int> &fs,const vector<vector<MovePattern *> > &_vvmp,int _maxFrame,bool _loop);
-	bool isFire();
 	void action(MovingObject *self);
 	~FirePatternEnemy();
 };
 
 class FirePatternHero : public FirePattern{
-public:
-	FirePatternHero(const vector<MovePattern *> &_vm,int _interval);
+private:
 	bool isFire();
-	vector<MovePattern *> vm;
+public:
+	FirePatternHero(int _interval,int _heroId,int _shotType);
 	void action(MovingObject *self);
 	~FirePatternHero();
 
+	int shotType;
 	int interval;
 	int curFrame;
 	int heroId;
@@ -39,9 +41,10 @@ public:
 };
 
 class FirePatternNone : public FirePattern{
+private:
+	bool isFire();
 public:
 	FirePatternNone();
-	bool isFire();
 	
 	void action(MovingObject *self);
 	~FirePatternNone();

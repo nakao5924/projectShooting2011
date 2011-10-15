@@ -5,9 +5,10 @@
 #include "rect.h"
 #include "firePattern.h"
 #include "shootingAccessor.h"
-FirePatternHero::FirePatternHero(const vector<MovePattern *> &_vm,int _interval){
-	vm = _vm;
+FirePatternHero::FirePatternHero(int _interval,int _heroId,int _shotType){
 	interval = _interval;
+	heroId = _heroId;
+	shotType = _shotType;
 	curFrame = 0;
 	keyPushFlag = false;
 }
@@ -32,8 +33,17 @@ bool FirePatternHero::isFire( ){
 void FirePatternHero::action(MovingObject *self){
 	if(isFire()){
 		Rect r = self->getHitRect();
-		for(int i=0;i<vm.size();i++){ 
-			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,vm[i],heroId));
+		if(shotType==0){
+			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,-8,0,heroId));//up
+		}
+		else if(shotType==1){
+			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,8,0,heroId));//down
+		}
+		else if(shotType==2){
+			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,0,-8,heroId));//left
+		}
+		else if(shotType==3){
+			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,0,8,heroId));//right
 		}
 	}
 }

@@ -6,7 +6,7 @@ class HeroBullet : public MovingObject{
 private:
   int heroType;
 public:
-  HeroBullet( double x, double y, MovePattern *mp, int heroType);
+  HeroBullet( double x, double y, double vx,double vy, int heroType);
   ~HeroBullet();
 //  int getPosx(){ return posx;}
 //  int getPosy(){ return posy;}

@@ -37,4 +37,9 @@ void FirePatternEnemy::action(MovingObject *){
 	}*/
 }
 FirePatternEnemy::~FirePatternEnemy(){
+	for(int i=0;i<vvmp.size();i++){
+		for(vector<MovePattern *>::iterator j = vvmp[i].begin();j!=vvmp[i].end();j++){
+			delete *j;
+		}
+	}
 }
