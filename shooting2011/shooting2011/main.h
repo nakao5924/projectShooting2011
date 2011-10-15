@@ -15,5 +15,7 @@ const int WINDOW_HEIGHT = 600;
 const int STAGE_WIDTH = 400;
 const int STAGE_HEIGHT = 600;
 const int SIDE_WIDTH = 200;
+const double PI = acos(-1.0);
+
 
 #endif

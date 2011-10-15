@@ -11,18 +11,16 @@ public:
 	virtual ~FirePattern(){}
 };
 
-class FirePatternEnemy : public FirePattern{
-	vector<int> frames;
-	vector<vector<MovePattern *> > vvmp;
-	int maxFrame;
-	bool loop;
+class FirePatternAllRangeTimeRag : public FirePattern{
+	double dtheta,curTheta;
+	double v;
+	int interval;
 	int curFrame;
-	int index;
 	bool isFire();
 public:
-	FirePatternEnemy(const vector<int> &fs,const vector<vector<MovePattern *> > &_vvmp,int _maxFrame,bool _loop);
+	FirePatternAllRangeTimeRag(double _dtheta,double _startTheta,double _v,int _interval);
 	void action(MovingObject *self);
-	~FirePatternEnemy();
+	~FirePatternAllRangeTimeRag();
 };
 
 class FirePatternHero : public FirePattern{

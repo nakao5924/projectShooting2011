@@ -6,6 +6,7 @@ Enemy::Enemy( const EnemyData &data){
   graphicRect = Rect( data.posx, data.posy, 64, 64);
   hitRect = Rect( data.posx, data.posy, 64, 64);
   movePattern = data.moveType;
+	firePattern = data.fireType;
 }
 
 Enemy::~Enemy(){

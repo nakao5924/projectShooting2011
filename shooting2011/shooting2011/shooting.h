@@ -14,6 +14,7 @@ class Shooting{
   vector<Hero *> heros;
   vector<Enemy *> enemys;
   vector<HeroBullet *> heroBullets;
+	vector<EnemyBullet *> enemyBullets;
   SystemData systemData;
 
   void calibrateFps();

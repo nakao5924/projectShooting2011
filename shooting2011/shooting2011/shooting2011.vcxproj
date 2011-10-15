@@ -83,7 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="enemyBullet.cpp" />
-    <ClCompile Include="FirePatternEnemy.cpp" />
+    <ClCompile Include="allRangeTimeRag.cpp" />
     <ClCompile Include="FirePatternHero.cpp" />
     <ClCompile Include="FirePatternNone.cpp" />
     <ClCompile Include="graphicPattern.cpp" />

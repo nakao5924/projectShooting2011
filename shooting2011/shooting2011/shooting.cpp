@@ -33,11 +33,11 @@ void Shooting::calibrateFps(){
 }
 
 void Shooting::popUp(){
-/*  for (int i=0; i<ENEMY_NUM; i++){
+  for (int i=0; i<ENEMY_NUM; i++){
     if( enemyDatas[i].popUpTime == gameClock){
       ShootingAccessor::addEnemy( new Enemy( enemyDatas[i]));
     }
-  }*/
+  }
 }
 
 void Shooting::draw(){
@@ -47,6 +47,7 @@ void Shooting::draw(){
   for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i]->draw();
   for (int i=0; i<(int)heros.size(); i++) heros[i]->draw();
   for (int i=0; i<(int)enemys.size(); i++) enemys[i]->draw();
+	for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->draw();
   systemData.draw();
 
   // 裏画面の内容を表画面にコピーする
@@ -80,6 +81,13 @@ void Shooting::action(){
     for (int i=0; i<(int)heroBullets.size(); i++){
       if( !heroBullets[i]->isValid()) {
         heroBullets.erase( heroBullets.begin()+i);
+        i--;
+      }
+    }
+		for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->action();
+    for (int i=0; i<(int)enemyBullets.size(); i++){
+      if( !enemyBullets[i]->isValid()) {
+        enemyBullets.erase( enemyBullets.begin()+i);
         i--;
       }
     }

@@ -2,11 +2,12 @@
 #include "movingObject.h"
 #include "enemyBullet.h"
 
-EnemyBullet::EnemyBullet( double x, double y, double vx, double vy){
+EnemyBullet::EnemyBullet( double x, double y, MovePattern *mp,FirePattern *fp){
   graphic = LoadGraph( "../graphic/heroBullet.bmp" ) ;
   graphicRect = Rect(x, y, 8, 8);
   hitRect = Rect(x, y, 4, 8);
-  movePattern = new MovePatternStraight(vx, vy);
+  movePattern = mp;
+	firePattern = fp;
 }
 
 EnemyBullet::~EnemyBullet(){
