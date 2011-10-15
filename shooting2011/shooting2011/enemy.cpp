@@ -7,6 +7,7 @@ Enemy::Enemy( const EnemyData &data){
   hitRect = Rect( data.posx, data.posy, 64, 64);
   movePattern = data.moveType;
 	firePattern = data.fireType;
+  hp = 5;
 }
 
 Enemy::~Enemy(){
@@ -17,3 +18,10 @@ bool Enemy::isValid(){
   return isInStage( graphicRect);
 }
 
+int Enemy::getHp(){
+  return hp;
+}
+
+void Enemy::addHp( int d){
+  hp += d;
+}

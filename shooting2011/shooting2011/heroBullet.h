@@ -4,12 +4,11 @@
 
 class HeroBullet : public MovingObject{
 private:
-  int heroType;
+  int heroId;
 public:
-  HeroBullet( double x, double y, double vx,double vy, int heroType);
+  HeroBullet( double x, double y, double vx,double vy, int heroId);
   ~HeroBullet();
-//  int getPosx(){ return posx;}
-//  int getPosy(){ return posy;}
+  int getHeroId();
   bool isValid();
 };
 

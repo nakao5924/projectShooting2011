@@ -2,6 +2,10 @@
 #include "movingObject.h"
 #include "shootingAccessor.h"
 
+MovingObject::MovingObject(){
+  status = VALID;
+}
+
 Rect MovingObject::getGraphicRect(){ return graphicRect; }
 Rect MovingObject::getHitRect(){ return hitRect; }
 
@@ -34,3 +38,12 @@ void MovingObject::fire(){
 }
 
 MovingObject::~MovingObject(){}
+
+int MovingObject::getStatus(){
+  return status;
+}
+
+void MovingObject::setStatus( int _status){
+  status = _status;
+}
+

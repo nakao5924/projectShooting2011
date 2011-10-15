@@ -4,6 +4,13 @@
 #include "graphicPattern.h"
 #include "firePattern.h"
 
+enum{
+  INVALID,
+  VALID,
+  EXPLOSION,
+  REBIRTH
+};
+
 class MovingObject{
 protected:
   int graphic; //check
@@ -16,13 +23,17 @@ protected:
 private:
   void move();
   void fire();
+  int status;
 
 public:
+  MovingObject();
+  virtual ~MovingObject();
   Rect getGraphicRect();
   Rect getHitRect();
   void action();
   void draw();
-  virtual ~MovingObject();
+  int getStatus();
+  void setStatus( int status);
 };
 
 

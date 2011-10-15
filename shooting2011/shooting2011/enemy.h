@@ -8,6 +8,8 @@ private:
 
 public:
 	int hp;
+  int getHp();
+  void addHp( int d);
   Enemy( const EnemyData&);
   ~Enemy();
 //  int getPosx(){ return posx;}
