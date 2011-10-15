@@ -13,4 +13,3 @@ pair<double,double> MovePatternHero::action( double posx, double posy){
 
   return make_pair( posx, posy);
 }
-

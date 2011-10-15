@@ -6,6 +6,7 @@ class Hero : public MovingObject{
 //  int fireWait;
 
 public:
+	int heroType;
   Hero();
   ~Hero();
 //  int getPosx(){ return posx;}

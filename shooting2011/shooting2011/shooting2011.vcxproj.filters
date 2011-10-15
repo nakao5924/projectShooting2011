@@ -16,6 +16,9 @@
     <Filter Include="ソース ファイル\MovePatterns">
       <UniqueIdentifier>{7013d8aa-fde2-49f7-88c2-cc088058d2f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\FirePatterns">
+      <UniqueIdentifier>{25018188-8c90-47ba-a0ff-ed808ad223a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,6 +69,15 @@
     <ClCompile Include="graphicResource.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="FirePatternEnemy.cpp">
+      <Filter>ソース ファイル\FirePatterns</Filter>
+    </ClCompile>
+    <ClCompile Include="FirePatternHero.cpp">
+      <Filter>ソース ファイル\FirePatterns</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyBullet.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -114,6 +126,12 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="graphicResource.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyBullet.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="firePattern.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

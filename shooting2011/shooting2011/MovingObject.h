@@ -1,10 +1,8 @@
 #ifndef __MOVINGOBJECT_H__
 #define __MOVINGOBJECT_H__
-#include "attackPattern.h" 
 #include "movePattern.h"
 #include "graphicPattern.h"
-
-//#include "firePattern.h"
+#include "firePattern.h"
 
 class MovingObject{
 protected:
@@ -13,7 +11,7 @@ protected:
   Rect graphicRect;
   Rect hitRect;
   MovePattern* movePattern;
-  //FirePattern* firePattern;
+  FirePattern* firePattern;
 
 private:
   void move();

@@ -5,7 +5,7 @@
 #include "hero.h"
 #include "enemy.h"
 #include "heroBullet.h"
-// #include "enemyBullet.h"
+#include "enemyBullet.h"
 
 class Shooting{
   friend class ShootingAccessor;
