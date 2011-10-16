@@ -14,7 +14,7 @@ private:
 	void init();
 	PatternType *getCurrentPattern();
 	void countUp();
-	bool isFire(){} // atode kesu
+	bool isFire(){return false;} // atode kesu
 public:
 	PatternComposer();
 	~PatternComposer();

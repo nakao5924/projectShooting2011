@@ -34,8 +34,8 @@ void Shooting::calibrateFps(){
 
 void Shooting::popUp(){
   for (int i=0; i<ENEMY_NUM; i++){
-    if( enemyDatas[i].popUpTime == gameClock){
-      ShootingAccessor::addEnemy( new Enemy( enemyDatas[i]));
+    if( enemyDatas[i]->popUpTime == gameClock){
+      ShootingAccessor::addEnemy( new Enemy( *enemyDatas[i]));
     }
   }
 }

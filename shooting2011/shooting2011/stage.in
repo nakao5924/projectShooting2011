@@ -1,13 +1,37 @@
 <make>
-movelr
-streight 1 0 time
-streight 0 1
+  movelr
+  streight 1 0 10
+  streight 0 1 10
 </make>
 <make>
-hoge
-movelr
-movelr
-<enemy>
-0 60 60 movelr fire
-</enemy>
+  hoge
+  movelr
+  movelr
 </make>
+<make>
+  enemylist
+  <enemy>
+    0 60 60 movelr none 10
+  </enemy>
+  <enemy>
+    0 50 60 movelr none 10
+  </enemy>
+</make>
+enemylist
+<make>
+  lis
+  lissajous 160 160 100 0.06 0 50 0.1 0 10
+</make>
+<make>
+  arange
+  allrange 0.05 0 1 5 10
+</make>
+<enemy>
+  0 60 60 lis arange
+</enemy>
+<enemy>
+  0 100 60 streight 0 1 10 arange
+</enemy>
+<enemy>
+  0 60 100 movelr arange
+</enemy>

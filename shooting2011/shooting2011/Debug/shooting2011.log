@@ -1,32 +1,14 @@
-﻿10/16/2011 5:39:55 PM にビルドを開始しました。
-     1>ノード 2 上のプロジェクト "C:\Users\tianyao\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
+﻿2011/10/17 4:30:20 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "U:\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
          "AlwaysCreate" が指定されたため "Debug\shooting2011.unsuccessfulbuild" を作成しています。
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt FirePatternHero.cpp FirePatternNone.cpp allRangeTimeRag.cpp enemy.cpp enemyBullet.cpp hero.cpp heroBullet.cpp heroMove.cpp lissajous.cpp main.cpp movingObject.cpp shooting.cpp shootingAccessor.cpp stageDate.cpp straight.cpp
-         straight.cpp
-         lissajous.cpp
-         heroMove.cpp
-         allRangeTimeRag.cpp
-         FirePatternNone.cpp
-         FirePatternHero.cpp
-         コードを生成中...
-         コンパイル中...
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stageDate.cpp
          stageDate.cpp
-         shootingAccessor.cpp
-         shooting.cpp
-         movingObject.cpp
-         main.cpp
-         enemy.cpp
-         コードを生成中...
-         スキップ中... (関連する変更は検出されませんでした)
-         heroBullet.cpp
-         hero.cpp
-         enemyBullet.cpp
        ManifestResourceCompile:
          すべての出力が最新のものです。
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tianyao\projectShooting2011\shooting2011\Debug\shooting2011.exe" /INCREMENTAL /NOLOGO /LIBPATH:../dxlib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\shooting2011.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\tianyao\projectShooting2011\shooting2011\Debug\shooting2011.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tianyao\projectShooting2011\shooting2011\Debug\shooting2011.lib" /MACHINE:X86 Debug\shooting2011.exe.embed.manifest.res
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"U:\projectShooting2011\shooting2011\Debug\shooting2011.exe" /INCREMENTAL /NOLOGO /LIBPATH:../dxlib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\shooting2011.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"U:\projectShooting2011\shooting2011\Debug\shooting2011.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"U:\projectShooting2011\shooting2011\Debug\shooting2011.lib" /MACHINE:X86 Debug\shooting2011.exe.embed.manifest.res
          Debug\enemyBullet.obj
          Debug\allRangeTimeRag.obj
          Debug\FirePatternHero.obj
@@ -50,16 +32,16 @@
          Debug\straight.obj
          Debug\systemData.obj
        Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\shooting2011.exe.embed.manifest" /manifest Debug\shooting2011.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\shooting2011.exe.embed.manifest" /manifest Debug\shooting2011.exe.intermediate.manifest
          すべての出力が最新のものです。
        LinkEmbedManifest:
          すべての出力が最新のものです。
-         shooting2011.vcxproj -> C:\Users\tianyao\projectShooting2011\shooting2011\Debug\shooting2011.exe
+         shooting2011.vcxproj -> U:\projectShooting2011\shooting2011\Debug\shooting2011.exe
        FinalizeBuildStatus:
          ファイル "Debug\shooting2011.unsuccessfulbuild" を削除しています。
          "Debug\shooting2011.lastbuildstate" のタッチ タスクを実行しています。
-     1>プロジェクト "C:\Users\tianyao\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが完了しました。
+     1>プロジェクト "U:\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが完了しました。
 
 ビルドに成功しました。
 
-経過時間 00:00:17.80
+経過時間 00:00:11.48

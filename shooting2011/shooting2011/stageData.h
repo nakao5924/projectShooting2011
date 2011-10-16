@@ -2,6 +2,8 @@
 
 #ifndef __STAGEDATA_H__
 #define __STAGEDATA_H__
+#include <deque>
+using namespace std;
 #include"movePattern.h"
 #include"firePattern.h"
 #include "patternComposer.h"
@@ -19,5 +21,5 @@ struct EnemyData{
 		fireType = fp;
 	}
 };
-extern const EnemyData enemyDatas[];
+extern const deque<EnemyData*> enemyDatas;
 #endif

@@ -5,7 +5,7 @@ class MovingObject;
 
 class FirePattern{
 private:
-	virtual bool isFire()=0;
+	virtual bool isFire() = 0;
 public:
 	virtual void action(MovingObject *owner) = 0;
 	virtual ~FirePattern(){}
