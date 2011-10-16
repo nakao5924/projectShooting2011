@@ -12,9 +12,10 @@ using namespace std;
 
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
-const int STAGE_WIDTH = 400;
+const int STAGE_WIDTH = 600;
 const int STAGE_HEIGHT = 600;
-const int SIDE_WIDTH = 200;
+const int SIDE_WIDTH = 0;
+
 const double PI = acos(-1.0);
 
 
