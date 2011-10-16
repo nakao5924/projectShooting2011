@@ -7,8 +7,8 @@ class PatternComposer : public PatternType{
 	// GraphicPattern ‚à“ü‚ê‚ç‚ê‚é‚æ‚¤‚É‚µ‚½‚¢‚È (ƒ`ƒ‰
 
 private:
-	vector<pair<int, PatternType *> > patterns;
-	typename vector<pair<int, PatternType *> >::iterator currentPattern;
+	deque<pair<int, PatternType *> > patterns;
+	typename deque<pair<int, PatternType *> >::iterator currentPattern;
 	int frameCounter;
 	bool isInitialized;
 	void init();

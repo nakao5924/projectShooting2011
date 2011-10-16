@@ -14,6 +14,6 @@ public:
 };
 class Stage{
 public:
-	vector<Scene> scenes;
+	deque<Scene> scenes;
 };
 #endif 

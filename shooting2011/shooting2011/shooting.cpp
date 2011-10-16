@@ -13,13 +13,13 @@ Shooting::Shooting(){
 }
 
 Shooting::~Shooting(){
-  for(vector<Hero *>::iterator i = heros.begin(); i != heros.end(); ++i){
+  for(deque<Hero *>::iterator i = heros.begin(); i != heros.end(); ++i){
     delete *i;
   }
-  for(vector<Enemy *>::iterator i = enemys.begin(); i != enemys.end(); ++i){
+  for(deque<Enemy *>::iterator i = enemys.begin(); i != enemys.end(); ++i){
     delete *i;
   }
-  for(vector<HeroBullet *>::iterator i = heroBullets.begin(); i != heroBullets.end(); ++i){
+  for(deque<HeroBullet *>::iterator i = heroBullets.begin(); i != heroBullets.end(); ++i){
     delete *i;
   }
 }
@@ -57,6 +57,10 @@ void Shooting::draw(){
 void Shooting::action(){
   popUp();
   gameClock++;
+
+  //begin getKeyInput test////////li
+  inputs[0]->getKeyInput();
+  //end getKeyInput test////////
 
   // action
 	{

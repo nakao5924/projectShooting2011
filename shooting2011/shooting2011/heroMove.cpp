@@ -2,17 +2,21 @@
 #include "movePattern.h"
 #include "shootingAccessor.h"
 
+MovePatternHero::MovePatternHero(int _heroId){
+	heroId = _heroId;
+}
 
-pair<double,double> MovePatternHero::action(double posx, double posy){
-//	Input input = ShootingAccessor::getInput(0);
-	if( CheckHitKey( KEY_INPUT_UP ) == 1 ) posy -= 3;
-	if( CheckHitKey( KEY_INPUT_DOWN ) == 1 ) posy += 3;
-	if( CheckHitKey( KEY_INPUT_LEFT ) == 1 ) posx -= 3;
-	if( CheckHitKey( KEY_INPUT_RIGHT ) == 1 ) posx += 3;
-	if( posx < 0 ) posx = 0;
-	if( posx > STAGE_WIDTH) posx = STAGE_WIDTH;
-	if( posy < 0 ) posy = 0;
-	if( posy > STAGE_HEIGHT) posy = STAGE_HEIGHT;
-
-  return make_pair( posx, posy);
+void MovePatternHero::action(MovingObject *owner){
+	Input input = ShootingAccessor::getInput(heroId);
+	double x0 = owner -> getHitRect().x;
+	double y0 = owner -> getHitRect().y;
+	if( input.up() ) y0 -= 3;
+	if( input.down() ) y0 += 3;
+	if( input.left() ) x0 -= 3;
+	if( input.right() ) x0 += 3;
+	if( x0 < 0 ) x0 = 0;
+	if( x0 > STAGE_WIDTH) x0 = (double)STAGE_WIDTH;
+	if( y0 < 0 ) y0 = 0;
+	if( y0 > STAGE_HEIGHT) y0 = (double)STAGE_HEIGHT;
+	owner -> setPosition(x0, y0);
 }

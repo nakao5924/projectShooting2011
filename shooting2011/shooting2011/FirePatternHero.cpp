@@ -13,8 +13,8 @@ FirePatternHero::FirePatternHero(int _interval,int _heroId,int _shotType){
 	keyPushFlag = false;
 }
 
-bool FirePatternHero::isFire( ){
-	bool keyFlag = (CheckHitKey(KEY_INPUT_Z)==1);
+bool FirePatternHero::isFire() {
+	bool keyFlag = ( ShootingAccessor::getInput(heroId).buttonA() );
 	if(keyFlag){
 		if(!keyPushFlag){
 			keyPushFlag = true;
@@ -30,9 +30,9 @@ bool FirePatternHero::isFire( ){
 	return keyPushFlag=false;
 }
 
-void FirePatternHero::action(MovingObject *self){
+void FirePatternHero::action(MovingObject *owner){
 	if(isFire()){
-		Rect r = self->getHitRect();
+		Rect r = owner->getHitRect();
 		if(shotType==0){
 			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,-8,0,heroId));//up
 		}

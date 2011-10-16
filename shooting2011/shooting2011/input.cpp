@@ -2,8 +2,9 @@
 #include "main.h"
 #include "input.h"
 
-Input::Input() {
-}
+Input::Input() {}
+
+Input::~Input() {}
 
 void Input::getKeyInput() {
 	isUp = (CheckHitKey( KEY_INPUT_UP ) == 1);

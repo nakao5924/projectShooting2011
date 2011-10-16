@@ -17,9 +17,9 @@ bool FirePatternAllRangeTimeRag::isFire(){
 	curFrame=(curFrame+1)%interval;
 	return ret;
 }
-void FirePatternAllRangeTimeRag::action(MovingObject *self){
+void FirePatternAllRangeTimeRag::action(MovingObject *owner){
 	if(isFire()){
-		Rect r = self->getHitRect();
+		Rect r = owner->getHitRect();
 		ShootingAccessor::addEnemyBullet(new EnemyBullet(r.x,r.y,new MovePatternUniformlyAcceleratedLinearMotion(v*cos(curTheta),v*sin(curTheta),0.01),new FirePatternNone()));
 		curTheta+=dtheta;
 		if(dtheta >= PI*2) dtheta-=PI*2;

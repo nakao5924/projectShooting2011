@@ -25,7 +25,7 @@ void SystemData::addScore(int heroId, int dScore)
 
 void SystemData::draw() {
 	int color = COLOR_WHITE;
-	int strWidthLife, strWidthScore;
+	//int strWidthLife, strWidthScore;
 
 	DrawBox(SIDE_WIDTH, 0, SIDE_WIDTH + STAGE_WIDTH, STAGE_HEIGHT, COLOR_WHITE, FALSE);
 	DrawBox(0, 0, SIDE_WIDTH, STAGE_HEIGHT, COLOR_BLACK, TRUE);
@@ -36,11 +36,11 @@ void SystemData::draw() {
 
 
 	for(int i=0; i<(int)lifes.size(); i++) {
-			strWidthLife = GetDrawFormatStringWidth("%02d", lifes[i]);
-			strWidthScore = GetDrawFormatStringWidth("%08d", scores[i]);
+			//strWidthLife = GetDrawFormatStringWidth("%04d", lifes[i]);
+			//strWidthScore = GetDrawFormatStringWidth("%08d", scores[i]);
 			DrawString(textPositions[i].lifePosX0, textPositions[i].lifePosY0, "Life:", color);
-			DrawFormatString(textPositions[i].lifePosX1 - strWidthLife, textPositions[i].lifePosY1, color, "%02d", lifes[i]);
+			DrawFormatString(textPositions[i].lifePosX1, textPositions[i].lifePosY1, color, "%04d", lifes[i]);
 			DrawString(textPositions[i].scorePosX0, textPositions[i].scorePosY0, "Score:", color);
-			DrawFormatString(textPositions[i].scorePosX1 - strWidthScore, textPositions[i].scorePosY1, color, "%08d", scores[i]);
+			DrawFormatString(textPositions[i].scorePosX1, textPositions[i].scorePosY1, color, "%08d", scores[i]);
 	}
 }

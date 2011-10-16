@@ -9,10 +9,10 @@ MovePatternUniformlyAcceleratedLinearMotion::MovePatternUniformlyAcceleratedLine
 	ay = _a*cos(theta);
 	frame = 0;
 }
-pair<double,double> MovePatternUniformlyAcceleratedLinearMotion::action(double x,double y){
-	pair<double,double> ret;
-	ret.first = x+vx+ax*frame;
-	ret.second = y+vy+ay*frame;
+
+void MovePatternUniformlyAcceleratedLinearMotion::action(MovingObject *owner){
+	double x0 = owner -> getHitRect().x;
+	double y0 = owner -> getHitRect().y;
+	owner -> setPosition(x0 + vx + ax * frame, y0 + vy + ay * frame);
 	frame++;
-	return ret;
 }

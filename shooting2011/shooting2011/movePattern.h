@@ -2,22 +2,22 @@
 #ifndef __MOVEPATTERN_H__
 #define __MOVEPATTERN_H__
 
+#include "movingObject.h"
+
+class MovingObject;
 
 class MovePattern{
 public:
-	virtual pair<double,double> action(double x,double y) {return pair<double, double> (0, 0);};
+	virtual void action(MovingObject *) {};
 	virtual ~MovePattern() {};
 	int frame;
 };
-
-
-
 
 class MovePatternUniformlyAcceleratedLinearMotion : public MovePattern{
 public:
 	double vx,vy,v,theta,ax,ay;
 	MovePatternUniformlyAcceleratedLinearMotion(double vx,double vy,double a = 0);
-	pair<double,double> action(double,double);
+	void action(MovingObject *);
 };
 
 typedef MovePatternUniformlyAcceleratedLinearMotion MovePatternStraight;  //nakao
@@ -29,11 +29,14 @@ public:
 	//íÜêSÇÃà íu
 	double posx,posy;
 	MovePatternLissajous(double,double,double,double,double,double,double,double);
-	pair<double,double> action(double,double);
+	void action(MovingObject *);
 };
 
 class MovePatternHero : public MovePattern{
 public:
-  pair<double,double> action(double,double);
+	int heroId;
+
+	MovePatternHero(int _heroId);
+	void action(MovingObject *);
 };
 #endif

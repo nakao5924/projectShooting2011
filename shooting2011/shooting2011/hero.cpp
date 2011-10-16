@@ -1,7 +1,7 @@
 #include "main.h"
 #include "hero.h"
 
-Hero::Hero(int _heroId, int dir){
+Hero::Hero(int _heroId, int direction){
   graphic = LoadGraph( "../graphic/Ball.png" );
 
   // Debug@neon
@@ -12,10 +12,10 @@ Hero::Hero(int _heroId, int dir){
   graphicRect = Rect( STAGE_WIDTH/2, STAGE_HEIGHT/2, 64, 64);
   hitRect = Rect( STAGE_WIDTH/2, STAGE_HEIGHT/2, 8, 8);
 
-  movePattern = new MovePatternHero();
+  movePattern = new MovePatternHero(_heroId);
 
 	//createFirePattern start///////////////////////////////////////////////////
-	firePattern=new FirePatternHero(5,_heroId,dir);
+	firePattern=new FirePatternHero(5, _heroId, direction);
 	//createFirePattern end/////////////////////////////////////////////////////
 
 	heroId = _heroId;

@@ -4,6 +4,8 @@
 #include "graphicPattern.h"
 #include "firePattern.h"
 
+class MovePattern;
+
 enum{
   INVALID,
   VALID,
@@ -14,11 +16,11 @@ enum{
 class MovingObject{
 protected:
   int graphic; //check
-  vector<GraphicPattern> graPattern;
+  deque<GraphicPattern> graPattern;
   Rect graphicRect;
   Rect hitRect;
-  MovePattern* movePattern;
-  FirePattern* firePattern;
+  MovePattern *movePattern;
+  FirePattern *firePattern;
 
 private:
   void move();
@@ -28,11 +30,12 @@ private:
 public:
   MovingObject();
   virtual ~MovingObject();
-  Rect getGraphicRect();
-  Rect getHitRect();
+  Rect getGraphicRect() const;
+  Rect getHitRect() const;
   void action();
   void draw();
-  int getStatus();
+  void setPosition(double, double);
+  int getStatus() const;
   void setStatus( int status);
 };
 

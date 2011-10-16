@@ -1,7 +1,7 @@
 //*
 #include<fstream>
 #include<sstream>
-#include <vector>
+#include <deque>
 #include <string>
 #include <map>
 using namespace std;
@@ -13,7 +13,7 @@ using namespace std;
 class Reader{
 	Reader();
 public:
-	static const vector<EnemyData*> readEnemyData(const string filename);
+	static const deque<EnemyData*> readEnemyData(const string filename);
 	
 };
 
@@ -28,7 +28,7 @@ static PatternComposer<_Ty>* making_object(PatternComposer<_Ty>*);
 
 
 
-const vector<EnemyData*> Reader::readEnemyData(const string filename){
+const deque<EnemyData*> Reader::readEnemyData(const string filename){
 	ifstream ifs(filename);
 	map<string,string> list; 
 	while(ifs>>format){
@@ -56,7 +56,7 @@ const vector<EnemyData*> Reader::readEnemyData(const string filename){
 		}
 	}
 	ifs.close();
-	vector<EnemyData*> enemylist;
+	deque<EnemyData*> enemylist;
 	string str;
 
 	while(ss>>str){
@@ -93,9 +93,9 @@ const MovePattern* making_basic_object<MovePattern>(){
 
 /*
 
-const vector<EnemyData*> Reader::readEnemyData(string filename){
+const deque<EnemyData*> Reader::readEnemyData(string filename){
 	default_ifs=ifstream(filename);
-	vector<EnemyData*> enemylist;
+	deque<EnemyData*> enemylist;
 	ifs=&default_ifs;
 	while(*ifs>>format){
 		if(format=="<enemy>"){

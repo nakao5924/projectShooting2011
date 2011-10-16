@@ -12,11 +12,11 @@ class Shooting{
   friend class ShootingAccessor;
   int gameClock;
   int fpsTimer;
-  vector<Hero *> heros;
-  vector<Enemy *> enemys;
-  vector<HeroBullet *> heroBullets;
-  vector<EnemyBullet *> enemyBullets;
-  vector<Input *> inputs;
+  deque<Hero *> heros;
+  deque<Enemy *> enemys;
+  deque<HeroBullet *> heroBullets;
+  deque<EnemyBullet *> enemyBullets;
+  deque<Input *> inputs;
   SystemData systemData;
 
   void calibrateFps();

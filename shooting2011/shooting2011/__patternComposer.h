@@ -25,7 +25,7 @@ PatternComposer<PatternType>::PatternComposer():isInitialized(false){}
 
 template<class PatternType>
 PatternComposer<PatternType>::~PatternComposer(){
-	for(typename vector<pair<int, PatternType *> >::iterator i = patterns.begin(); i != patterns.end(); ++i){
+	for(typename deque<pair<int, PatternType *> >::iterator i = patterns.begin(); i != patterns.end(); ++i){
 		delete i->second;
 	}
 }
@@ -55,13 +55,13 @@ pair<double, double> PatternComposer<PatternType>::action(double x, double y){
 }
 
 template<class PatternType>
-void PatternComposer<PatternType>::action(MovingObject *self){
+void PatternComposer<PatternType>::action(MovingObject *owner){
 	if(patterns.empty()){
 		return;
 	}
 	if(!isInitialized){
 		init();
 	}
-	currentPattern->second->action(self);
+	currentPattern->second->action(owner);
 	countUp();
 }

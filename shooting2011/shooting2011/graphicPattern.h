@@ -8,7 +8,7 @@
 
 #include "graphicResource.h"
 #include <string>
-#include <vector>
+#include <deque>
 
 using namespace std;
 
@@ -23,8 +23,8 @@ struct AnimePart {
  */
 class GraphicPattern {
   static GraphicResource res;  // リソース
-  vector<AnimePart> animation; // アニメーション情報
-  int current; // 現在表示する画像のインデックス(↑のvectorの)
+  deque<AnimePart> animation; // アニメーション情報
+  int current; // 現在表示する画像のインデックス(↑のdequeの)
   int frameCount; // 現在のパートにおける経過フレーム数
   bool repeatFlg; // アニメーションが終わった際に最初から繰り返し表示するか
                   // (falseの場合はAnimationの最後の画像を表示し続ければよい？)

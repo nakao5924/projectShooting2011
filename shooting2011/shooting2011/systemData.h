@@ -14,16 +14,16 @@ struct textPosition{
 };
 
 const textPosition textPositions[] = {
-  {610, 10, 794, 10, 610, 50, 794, 50},
-  {610, 160, 794, 160, 610, 200, 794, 200},
-  {610, 310, 794, 310, 610, 350, 794, 350},
-  {610, 460, 794, 460, 610, 500, 794, 500},
+  {610, 10, 756, 10, 610, 50, 720, 50},
+  {610, 160, 756, 160, 610, 200, 720, 200},
+  {610, 310, 756, 310, 610, 350, 720, 350},
+  {610, 460, 756, 460, 610, 500, 720, 500},
 };
 
 
 class SystemData {
-	vector<int> lifes;
-	vector<int> scores;
+	deque<int> lifes;
+	deque<int> scores;
 
 public:
 	int COLOR_BLACK;

@@ -7,7 +7,7 @@ class FirePattern{
 private:
 	virtual bool isFire()=0;
 public:
-	virtual void action(MovingObject *self)=0;
+	virtual void action(MovingObject *owner) = 0;
 	virtual ~FirePattern(){}
 };
 
@@ -19,7 +19,7 @@ class FirePatternAllRangeTimeRag : public FirePattern{
 	bool isFire();
 public:
 	FirePatternAllRangeTimeRag(double _dtheta,double _startTheta,double _v,int _interval);
-	void action(MovingObject *self);
+	void action(MovingObject *owner);
 	~FirePatternAllRangeTimeRag();
 };
 
@@ -28,7 +28,7 @@ private:
 	bool isFire();
 public:
 	FirePatternHero(int _interval,int _heroId,int _shotType);
-	void action(MovingObject *self);
+	void action(MovingObject *owner);
 	~FirePatternHero();
 
 	int shotType;
@@ -44,7 +44,7 @@ private:
 public:
 	FirePatternNone();
 	
-	void action(MovingObject *self);
+	void action(MovingObject *owner);
 	~FirePatternNone();
 };
 #endif

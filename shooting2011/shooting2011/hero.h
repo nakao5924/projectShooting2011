@@ -9,8 +9,9 @@ class Hero : public MovingObject{
 public:
 	int heroId;
 
-  Hero(int _heroId,int dir);
-  ~Hero();
+	Hero(int _heroId, int direction);
+	~Hero();
+
 //  int getPosx(){ return posx;}
 //  int getPosy(){ return posy;}
 //  void transitionState();

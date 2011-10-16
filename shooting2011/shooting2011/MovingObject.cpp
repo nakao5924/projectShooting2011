@@ -6,8 +6,8 @@ MovingObject::MovingObject(){
   status = VALID;
 }
 
-Rect MovingObject::getGraphicRect(){ return graphicRect; }
-Rect MovingObject::getHitRect(){ return hitRect; }
+Rect MovingObject::getGraphicRect() const { return graphicRect; }
+Rect MovingObject::getHitRect() const  { return hitRect; }
 
 void MovingObject::action(){
   move();
@@ -25,12 +25,14 @@ void MovingObject::draw(){
 }
 
 void MovingObject::move(){
-  pair<double,double> temp;
-  temp = movePattern->action(hitRect.x, hitRect.y);
-  graphicRect.x = temp.first;
-  graphicRect.y = temp.second;
-  hitRect.x = temp.first;
-  hitRect.y = temp.second;
+  movePattern->action(this);
+}
+
+void MovingObject::setPosition(double x, double y) {
+  graphicRect.x = x;
+  graphicRect.y = y;
+  hitRect.x = x;
+  hitRect.y = y;
 }
 
 void MovingObject::fire(){
@@ -39,7 +41,7 @@ void MovingObject::fire(){
 
 MovingObject::~MovingObject(){}
 
-int MovingObject::getStatus(){
+int MovingObject::getStatus() const{
   return status;
 }
 

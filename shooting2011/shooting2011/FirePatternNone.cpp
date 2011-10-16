@@ -12,7 +12,7 @@ bool FirePatternNone::isFire( ){
 	return false;
 }
 
-void FirePatternNone::action(MovingObject *self){	
+void FirePatternNone::action(MovingObject *owner){	
 }
 
 FirePatternNone::~FirePatternNone(){
