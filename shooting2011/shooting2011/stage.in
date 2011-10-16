@@ -1,0 +1,13 @@
+<make>
+movelr
+streight 1 0 time
+streight 0 1
+</make>
+<make>
+hoge
+movelr
+movelr
+<enemy>
+0 60 60 movelr fire
+</enemy>
+</make>

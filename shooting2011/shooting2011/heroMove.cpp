@@ -1,8 +1,11 @@
 #include "main.h"
 #include "movePattern.h"
+#include "shootingAccessor.h"
 
-pair<double,double> MovePatternHero::action( double posx, double posy){
-  if( CheckHitKey( KEY_INPUT_UP ) == 1 ) posy -= 3;
+
+pair<double,double> MovePatternHero::action(double posx, double posy){
+//	Input input = ShootingAccessor::getInput(0);
+	if( CheckHitKey( KEY_INPUT_UP ) == 1 ) posy -= 3;
 	if( CheckHitKey( KEY_INPUT_DOWN ) == 1 ) posy += 3;
 	if( CheckHitKey( KEY_INPUT_LEFT ) == 1 ) posx -= 3;
 	if( CheckHitKey( KEY_INPUT_RIGHT ) == 1 ) posx += 3;

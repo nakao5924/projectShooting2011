@@ -14,6 +14,7 @@ class Input {
 
 public:
 	Input();
+	~Input();
 	void getKeyInput();
 	bool up();
 	bool down();

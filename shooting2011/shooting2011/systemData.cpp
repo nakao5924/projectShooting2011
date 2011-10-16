@@ -12,14 +12,14 @@ void SystemData::addHero() {
 	scores.push_back(0);
 }
 
-void SystemData::addLife(int heroIndex, int dLife)
+void SystemData::addLife(int heroId, int dLife)
 {
-	lifes[heroIndex] += dLife;
+	lifes[heroId] += dLife;
 }
 
-void SystemData::addScore(int heroIndex, int dScore)
+void SystemData::addScore(int heroId, int dScore)
 {
-	scores[heroIndex] += dScore;
+	scores[heroId] += dScore;
 }
 
 

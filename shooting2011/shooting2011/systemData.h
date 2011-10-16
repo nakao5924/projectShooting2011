@@ -32,8 +32,8 @@ public:
 
 	SystemData();
 	void addHero();
-	void addScore(int heroIndex, int dScore);
-	void addLife(int heroIndex, int dLife);
+	void addScore(int heroId, int dScore);
+	void addLife(int heroId, int dLife);
 	void draw();
 };
 

@@ -1,10 +1,10 @@
-﻿2011/10/15 23:26:39 にビルドを開始しました。
+﻿2011/10/16 13:49:36 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "U:\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
-         "AlwaysCreate" が指定されたため "Debug\shooting2011.unsuccessfulbuild" を作成しています。
+         "Debug\shooting2011.unsuccessfulbuild" のタッチ タスクを実行しています。
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt enemy.cpp
-         enemy.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../dxlib /I./dxlib /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt heroMove.cpp
+         heroMove.cpp
        ManifestResourceCompile:
          すべての出力が最新のものです。
        Link:
@@ -28,6 +28,7 @@
          Debug\shootingAccessor.obj
          Debug\something.obj
          Debug\stage.obj
+         Debug\stageDate.obj
          Debug\straight.obj
          Debug\systemData.obj
        Manifest:
@@ -43,4 +44,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:10.91
+経過時間 00:00:12.61

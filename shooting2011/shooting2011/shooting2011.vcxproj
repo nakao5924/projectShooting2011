@@ -101,12 +101,15 @@
     <ClCompile Include="shootingAccessor.cpp" />
     <ClCompile Include="something.cpp" />
     <ClCompile Include="stage.cpp" />
+    <ClCompile Include="stageDate.cpp" />
     <ClCompile Include="straight.cpp" />
     <ClCompile Include="systemData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="attackPattern.h" />
     <ClInclude Include="background.h" />
+    <ClInclude Include="patternComposer.h" />
+    <ClInclude Include="__patternComposer.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="enemyBullet.h" />
     <ClInclude Include="firePattern.h" />
@@ -118,12 +121,16 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="movePattern.h" />
     <ClInclude Include="movingObject.h" />
+    <ClInclude Include="reader.h" />
     <ClInclude Include="rect.h" />
     <ClInclude Include="shooting.h" />
     <ClInclude Include="shootingAccessor.h" />
     <ClInclude Include="something.h" />
     <ClInclude Include="stageData.h" />
     <ClInclude Include="systemData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="stage.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

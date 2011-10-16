@@ -3,7 +3,7 @@
 #include "enemyBullet.h"
 
 EnemyBullet::EnemyBullet( double x, double y, MovePattern *mp,FirePattern *fp){
-  graphic = LoadGraph( "../graphic/heroBullet.bmp" ) ;
+  graphic = LoadGraph( "../graphic/enemyBullet0.bmp" ) ;
   graphicRect = Rect(x, y, 8, 8);
   hitRect = Rect(x, y, 4, 8);
   movePattern = mp;

@@ -1,8 +1,11 @@
+
+
 #ifndef __STAGEDATA_H__
 #define __STAGEDATA_H__
 #include"movePattern.h"
 #include"firePattern.h"
-const int ENEMY_NUM = 2;
+#include "patternComposer.h"
+extern const int ENEMY_NUM;
 struct EnemyData{
   int popUpTime;
   double posx, posy;
@@ -16,9 +19,5 @@ struct EnemyData{
 		fireType = fp;
 	}
 };
-
-const EnemyData enemyDatas[] = {
-	EnemyData(0,60,60,new MovePatternLissajous(160,160,100,0.06,0,50,0.1,0),new FirePatternAllRangeTimeRag(0.05,0,1,5)),
-	EnemyData(0,100,60,new MovePatternStraight(0,1),new FirePatternAllRangeTimeRag(0.05,0,1,5))
-};
+extern const EnemyData enemyDatas[];
 #endif

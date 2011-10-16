@@ -2,7 +2,7 @@
 #include "heroBullet.h"
 
 HeroBullet::HeroBullet( double x, double y,double vx,double vy, int id){
-  graphic = LoadGraph( "../graphic/heroBullet.bmp" ) ;
+  graphic = LoadGraph( "../graphic/heroBulletUp.bmp" ) ;
   graphicRect = Rect(x, y, 8, 8);
   hitRect = Rect(x, y, 4, 8);
 	movePattern = new MovePatternUniformlyAcceleratedLinearMotion(vx,vy,0);
