@@ -61,6 +61,7 @@ void PatternComposer<PatternType>::action(MovingObject *owner){
 	}
 	if(!isInitialized){
 		init();
+		isInitialized = true; // bug fix arai tabunhituyou
 	}
 	currentPattern->second->action(owner);
 	countUp();

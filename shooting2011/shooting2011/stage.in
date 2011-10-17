@@ -1,37 +1,243 @@
 <make>
-  movelr
-  streight 1 0 10
-  streight 0 1 10
+  zakomovedown
+  straight 0 3 -1
 </make>
 <make>
-  hoge
-  movelr
-  movelr
+  zakomoveup
+  straight 0 -3 -1
 </make>
 <make>
-  enemylist
-  <enemy>
-    0 60 60 movelr none 10
-  </enemy>
-  <enemy>
-    0 50 60 movelr none 10
-  </enemy>
-</make>
-enemylist
-<make>
-  lis
-  lissajous(160,160,100,0.06,0,50,0.1,0)10
+  zakomoveleft
+  straight -3 0 -1
 </make>
 <make>
-  arange
-  allrange 0.05 0 1 5 10
+  zakomoveright
+  straight 3 0 -1
 </make>
+
+<make>
+  zakomovedown2
+  straight 0 5 -1
+</make>
+<make>
+  zakomoveup2
+  straight 0 -5 -1
+</make>
+<make>
+  zakomoveleft2
+  straight -5 0 -1
+</make>
+<make>
+  zakomoveright2
+  straight 5 0 -1
+</make>
+
+<make>
+  stopanddown
+  straight 0 0 30
+  straight 0 10 -1
+</make>
+<make>
+  stopandup
+  straight 0 0 30
+  straight 0 -10 -1
+</make>
+<make>
+  stopandleft
+  straight 0 0 30
+  straight -10 0 -1
+</make>
+<make>
+  stopandright
+  straight 0 0 30
+  straight 10 0 -1
+</make>
+
+<make>
+  stopanddown
+  straight 0 0 30
+  straight 0 10 -1
+</make>
+<make>
+  stopandup
+  straight 0 0 30
+  straight 0 -10 -1
+</make>
+<make>
+  stopandleft
+  straight 0 0 30
+  straight -10 0 -1
+</make>
+<make>
+  stopandright
+  straight 0 0 30
+  straight 10 0 -1
+</make>
+
+<make>
+  time1
+  <add>180
+</make>
+<make>
+  time2
+  <add>360
+</make>
+<make>
+  time3
+  <add>540
+</make>
+<make>
+  time4
+  <add>720
+</make>
+<make>
+  time5
+  <add>900
+</make>
+<make>
+  time6
+  <add>1020
+</make>
+<make>
+  time7
+  <add>1140
+</make>
+<make>
+  time8
+  <add>1260
+</make>
+<make>
+  time9
+  <add>1320
+</make>
+<make>
+  _time1
+  0</add>
+</make>
+<make>
+  _time2
+  60</add>
+</make>
+<make>
+  _time3
+  120</add>
+</make>
+
+<comment>ここからメイン</comment>
 <enemy>
-  0 60 60 lis arange
+  (time1 _time1) 150 0 zakomovedown (none -1)
 </enemy>
 <enemy>
-  0 100 60 streight 0 1 10 arange
+  (time1 _time2) 300 0 zakomovedown (none -1)
 </enemy>
 <enemy>
-  0 60 100 movelr arange
+  (time1 _time3) 450 0 zakomovedown (none -1)
+</enemy>
+
+<enemy>
+  (time2  _time1) 0 150 zakomoveright (none -1)
+</enemy>
+<enemy>
+  (time2 _time2) 0 300 zakomoveright (none -1)
+</enemy>
+<enemy>
+  (time2 _time3) 0 450 zakomoveright (none -1)
+</enemy>
+
+<enemy>
+  (time3 _time1) 600 150 zakomoveleft (none -1)
+</enemy>
+<enemy>
+  (time3 _time2)600 300 zakomoveleft (none -1)
+</enemy>
+<enemy>
+  (time3 _time3) 600 450 zakomoveleft (none -1)
+</enemy>
+
+<enemy>
+  (time4 _time1) 150 600 zakomoveup (none -1)
+</enemy>
+<enemy>
+  (time4 _time2) 300 600 zakomoveup (none -1)
+</enemy>
+<enemy>
+  (time4 _time3) 450 600 zakomoveup (none -1)
+</enemy>
+
+<enemy>
+  (time5 _time1) rand(0 600) 0 zakomovedown2 (none -1)
+</enemy>
+<enemy>
+  (time5 _time2) rand(0 600) 0 zakomovedown2 (none -1)
+</enemy>
+
+<enemy>
+  (time6 _time1) 600 rand(0 600) zakomoveleft2 (none -1)
+</enemy>
+<enemy>
+  (time6 _time2) 600 rand(0 600) zakomoveleft2 (none -1)
+</enemy>
+
+<enemy>
+  (time7 _time1) rand(0 600) 600 zakomoveup2 (none -1)
+</enemy>
+<enemy>
+  (time7 _time2) rand(0 600) 600 zakomoveup2 (none -1)
+</enemy>
+
+<enemy>
+  (time8 _time1) 0 rand(0 600) zakomoveright2 (none -1)
+</enemy>
+<enemy>
+  (time8 _time2) 0 rand(0 600) zakomoveright2 (none -1)
+</enemy>
+
+<enemy>
+  (time9 _time1) 200 0 stopanddown (none -1)
+</enemy>
+<enemy>
+  (time9 _time1) 400 0 stopanddown (none -1)
+</enemy>
+<enemy>
+  (time9 _time1) 200 600  stopandup (none -1)
+</enemy>
+<enemy>
+  (time9 _time1) 400 600 stopandup (none -1)
+</enemy>
+<enemy>
+  (time9 _time1) 0 200 stopandright (none -1)
+</enemy>
+<enemy>
+  (time9 _time1) 0 400 stopandright (none -1)
+</enemy>
+<enemy>
+  (time9 _time1) 600 200 stopandleft (none -1)
+</enemy>
+<enemy>
+  (time9 _time1) 600 400 stopandleft (none -1)
+</enemy>
+
+<enemy>
+  (time9 _time2) 200 0 stopanddown (none -1)
+</enemy>
+<enemy>
+  (time9 _time2) 400 0 stopanddown (none -1)
+</enemy>
+<enemy>
+  (time9 _time2) 200 600  stopandup (none -1)
+</enemy>
+<enemy>
+  (time9 _time2) 400 600 stopandup (none -1)
+</enemy>
+<enemy>
+  (time9 _time2) 0 200 stopandright (none -1)
+</enemy>
+<enemy>
+  (time9 _time2) 0 400 stopandright (none -1)
+</enemy>
+<enemy>
+  (time9 _time2) 600 200 stopandleft (none -1)
+</enemy>
+<enemy>
+  (time9 _time2) 600 400 stopandleft (none -1)
 </enemy>

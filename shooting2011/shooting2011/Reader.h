@@ -6,6 +6,7 @@
 #include <deque>
 #include <string>
 #include <map>
+#include <time.h>
 using namespace std;
 #include"stageData.h"
 #include"movePattern.h"
@@ -69,6 +70,7 @@ public:
 
 
 const deque<EnemyData*> Reader::readEnemyData(const string filename){
+	srand((int)time(0));
 	ifstream ifs(filename);
 	string str="";
 	string str_sub;
@@ -82,6 +84,17 @@ const deque<EnemyData*> Reader::readEnemyData(const string filename){
 		else if(str_sub[i]=='<')str+=" <";
 		else if(str_sub[i]=='>')str+="> ";
 		else str+=str_sub[i];
+	}
+	ss=stringstream(str);
+	str="";
+	while(ss>>format){
+		if(format=="<comment>"){
+			while(ss>>str_sub){
+				if(str_sub=="</comment>"){break;}
+			}
+		}else{
+			str+=format+" ";
+		}
 	}
 	ss=stringstream(str);
 	str="";
@@ -109,9 +122,29 @@ const deque<EnemyData*> Reader::readEnemyData(const string filename){
 	str="";
 	while(ss>>format){
 		if(format=="rand"){
-			int min,max;
-			ss>>min>>max;
-			str+=min+GetRand(max-min);
+			double mi,ma;
+			ss>>mi>>ma;
+			stringstream ss_sub;
+			ss_sub<<(ma-mi)*(rand()%1000)/1000;
+			ss_sub>>format;
+			str+=format+" ";
+		}else{
+			str+=format+" ";
+		}
+	}
+	ss=stringstream(str);
+	str="";
+	while(ss>>format){
+		if(format=="<add>"){
+			int sum=0;
+			while(ss>>format){
+				if(format=="</add>")break;
+				sum+=atoi(format.c_str());
+			}
+			stringstream ss_sub;
+			ss_sub<<sum;
+			ss_sub>>format;
+			str+=format+" ";
 		}else{
 			str+=format+" ";
 		}
@@ -135,7 +168,7 @@ const deque<EnemyData*> Reader::readEnemyData(const string filename){
 
 template<>
 MovePattern *Reader::making_basic_object<MovePattern>(){
-	if(format=="streight"){
+	if(format=="straight"){
 		double x,y;
 		ss>>x>>y;
 		return new  MovePatternUniformlyAcceleratedLinearMotion(x,y);
