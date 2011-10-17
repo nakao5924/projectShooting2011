@@ -1,6 +1,7 @@
 #ifndef __SYSTEMDATA_H__
 #define __SYSTEMDATA_H__
 
+#include "Dxlib.h"
 struct textPosition{
   int lifePosX0;
   int lifePosY0;
@@ -35,6 +36,8 @@ public:
 	void addScore(int heroId, int dScore);
 	void addLife(int heroId, int dLife);
 	void draw();
+	string encode();
+	SystemData& decode(stringstream&);
 };
 
 #endif

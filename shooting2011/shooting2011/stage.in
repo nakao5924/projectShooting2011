@@ -20,7 +20,7 @@
 enemylist
 <make>
   lis
-  lissajous 160 160 100 0.06 0 50 0.1 0 10
+  lissajous(160,160,100,0.06,0,50,0.1,0)10
 </make>
 <make>
   arange

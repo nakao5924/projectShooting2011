@@ -1,7 +1,7 @@
 #include "main.h"
 #include "shooting.h"
 #include "shootingAccessor.h"
-
+#include "tag.h"
 Shooting::Shooting(){
   gameClock = 0;
   fpsTimer = GetNowCount();
@@ -40,19 +40,6 @@ void Shooting::popUp(){
   }
 }
 
-void Shooting::draw(){
-  // 画面を初期化(真っ黒にする)
-  ClearDrawScreen() ;
-
-  for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i]->draw();
-  for (int i=0; i<(int)heros.size(); i++) heros[i]->draw();
-  for (int i=0; i<(int)enemys.size(); i++) enemys[i]->draw();
-	for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->draw();
-  systemData.draw();
-
-  // 裏画面の内容を表画面にコピーする
-  ScreenFlip();
-}
 
 void Shooting::action(){
   popUp();
@@ -170,3 +157,64 @@ void Shooting::action(){
   draw();
 }
 
+
+void Shooting::draw(){
+  // 画面を初期化(真っ黒にする)
+  ClearDrawScreen() ;
+
+  for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i]->draw();
+  for (int i=0; i<(int)heros.size(); i++) heros[i]->draw();
+  for (int i=0; i<(int)enemys.size(); i++) enemys[i]->draw();
+	for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->draw();
+  systemData.draw();
+
+  // 裏画面の内容を表画面にコピーする
+  ScreenFlip();
+}
+
+
+string Shooting::encode(){
+	string str_re;
+	string str;
+	str="";
+	for (int i=0; i<(int)heroBullets.size(); i++) str+=heroBullets[i]->encode();
+	str_re+=tag::make_tag("HeroBullets",str);
+	str="";
+	for (int i=0; i<(int)heros.size(); i++) str+=heros[i]->encode();
+	str_re+=tag::make_tag("Hero",str);
+	str="";
+	for (int i=0; i<(int)enemys.size(); i++) str+=enemys[i]->encode();
+	str_re+=tag::make_tag("Enemy",str);
+	str="";
+	for (int i=0; i<(int)enemyBullets.size(); i++) str+=enemyBullets[i]->encode();
+	str_re+=tag::make_tag("EnemyBullets",str);
+	str="";
+	str+=systemData.encode();
+	str_re+=tag::make_tag("SystemData",str);
+	return str_re;
+}
+
+
+
+Shooting* Shooting::decode(string str){
+	Shooting* self=new Shooting(0);
+	stringstream ss(str);
+	string get;
+	get=tag::pop_tag("HeroBullets",ss);
+	stringstream ss_sub(get);
+	while(HeroBullet*obj=HeroBullet::decode<HeroBullet>(ss_sub))heroBullets.push_back(new HeroBullet());
+	get=tag::pop_tag("Hero",ss);
+	ss_sub.str(get);
+	while(1)heros.push_back(new Hero());
+	get=tag::pop_tag("Enemy",ss);
+	ss_sub.str(get);
+	while(1)enemys.push_back(new Enemy());
+	get=tag::pop_tag("EnemyBullets",ss);
+	ss_sub.str(get);
+	while(1)enemyBullets.push_back(new EnemyBullet());
+	get=tag::pop_tag("SystemData",ss);
+	ss_sub.str(get);
+	systemData.decode(ss);
+	return self;
+}
+//*/

@@ -25,8 +25,11 @@ class Shooting{
 
 public:
   Shooting();
+	Shooting(int HeroNum){}
   ~Shooting();
   void action();
+	string encode();
+	Shooting* decode(string);
 };
 
 #endif

@@ -3,7 +3,7 @@
 #include "movePattern.h"
 #include "graphicPattern.h"
 #include "firePattern.h"
-
+#include "tag.h"
 class MovePattern;
 
 enum{
@@ -37,6 +37,16 @@ public:
   void setPosition(double, double);
   int getStatus() const;
   void setStatus( int status);
+	string encode();
+	template<class _Obj>
+	static _Obj* decode(stringstream&ss){
+		string str=tag::pop_tag("Obj",ss);
+		if(str==""){
+			//Ž¸”s‚µ‚½‚Æ‚«
+			return NULL;
+		}
+		return(new _Obj());
+	}
 };
 
 

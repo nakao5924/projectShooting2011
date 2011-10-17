@@ -25,6 +25,7 @@ private:
 		int start_time;
 		double x,y;
 		ss>>start_time>>x>>y>>format;
+		
 		MovePattern *mp=making_object<MovePattern>(new PatternComposer<MovePattern>());
 		FirePattern *fp=making_object<FirePattern>(new PatternComposer<FirePattern>());
 		return(new EnemyData(start_time,x,y,mp,fp));
@@ -69,14 +70,28 @@ public:
 
 const deque<EnemyData*> Reader::readEnemyData(const string filename){
 	ifstream ifs(filename);
-	string str;
-	while(ifs>>format){
+	string str="";
+	string str_sub;
+	while(ifs>>str){
+		str_sub+=str+" ";
+	}
+	ifs.close();
+	str="";
+	for(size_t i=0;i<str_sub.size();i++){
+		if(str_sub[i]==','||str_sub[i]=='('||str_sub[i]==')')str+=" ";
+		else if(str_sub[i]=='<')str+=" <";
+		else if(str_sub[i]=='>')str+="> ";
+		else str+=str_sub[i];
+	}
+	ss=stringstream(str);
+	str="";
+	while(ss>>format){
 		if(format=="<make>"){
 			string name;
-			ifs>>name;
+			ss>>name;
 			list[name]="";
-			string str_sub;
-			while(ifs>>str_sub){
+			str_sub="";
+			while(ss>>str_sub){
 				if(str_sub=="</make>"){break;}
 				list[name]+=str_sub+" ";
 			}
@@ -84,12 +99,22 @@ const deque<EnemyData*> Reader::readEnemyData(const string filename){
 			str+=format+" ";
 		}
 	}
-	ifs.close();
 	ss=stringstream(str);
 	str="";
 	while(ss>>format){
 
 		str+=addnext(format);
+	}
+	ss=stringstream(str);
+	str="";
+	while(ss>>format){
+		if(format=="rand"){
+			int min,max;
+			ss>>min>>max;
+			str+=min+GetRand(max-min);
+		}else{
+			str+=format+" ";
+		}
 	}
 	ss=stringstream(str);
 	deque<EnemyData*> enemylist;

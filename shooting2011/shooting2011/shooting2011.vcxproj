@@ -96,6 +96,7 @@
     <ClCompile Include="lissajous.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="movingObject.cpp" />
+    <ClCompile Include="msgdump.cpp" />
     <ClCompile Include="rect.cpp" />
     <ClCompile Include="shooting.cpp" />
     <ClCompile Include="shootingAccessor.cpp" />
@@ -108,7 +109,9 @@
   <ItemGroup>
     <ClInclude Include="attackPattern.h" />
     <ClInclude Include="background.h" />
+    <ClInclude Include="msgdump.h" />
     <ClInclude Include="patternComposer.h" />
+    <ClInclude Include="tag.h" />
     <ClInclude Include="__patternComposer.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="enemyBullet.h" />

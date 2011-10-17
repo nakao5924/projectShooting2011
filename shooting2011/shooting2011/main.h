@@ -4,6 +4,7 @@
 
 #include <deque>
 #include <algorithm>
+#include <sstream>
 #include <cmath>
 #include "DxLib.h"
 #include "rect.h"

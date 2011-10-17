@@ -1,7 +1,8 @@
 #include "main.h"
 #include "systemData.h"
-
+#include"tag.h"
 SystemData::SystemData() {
+	
 	COLOR_BLACK = GetColor(0, 0, 0);
 	COLOR_GREY = GetColor(128, 255, 128);
 	COLOR_WHITE = GetColor(255, 255, 255);
@@ -43,4 +44,21 @@ void SystemData::draw() {
 			DrawString(textPositions[i].scorePosX0, textPositions[i].scorePosY0, "Score:", color);
 			DrawFormatString(textPositions[i].scorePosX1, textPositions[i].scorePosY1, color, "%08d", scores[i]);
 	}
+}
+string SystemData::encode(){
+	string str_re;
+	string str;
+	for(size_t i=0;i<lifes.size();i++)str+=lifes[i]+" ";
+	str_re+=tag::make_tag("lifes",str);
+	str="";
+	for(size_t i=0;i<lifes.size();i++)str+=scores[i]+" ";
+	str_re+=tag::make_tag("scores",str);
+	return(str_re);
+}
+
+SystemData& SystemData::decode(stringstream&ss){
+	string str=tag::pop_tag("lifes",ss);
+
+	str=tag::pop_tag("scores",ss);
+	return(*new SystemData());
 }

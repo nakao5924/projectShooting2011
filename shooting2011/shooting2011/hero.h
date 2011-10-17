@@ -8,7 +8,7 @@ class Hero : public MovingObject{
 
 public:
 	int heroId;
-
+	Hero(){}
 	Hero(int _heroId, int direction);
 	~Hero();
 

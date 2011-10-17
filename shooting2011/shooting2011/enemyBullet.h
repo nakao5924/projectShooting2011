@@ -6,6 +6,7 @@ class EnemyBullet : public MovingObject{
 private:
 
 public:
+	EnemyBullet(){}
   EnemyBullet( double x, double y, MovePattern *mp,FirePattern *fp);
   ~EnemyBullet();
 //  int getPosx(){ return posx;}
