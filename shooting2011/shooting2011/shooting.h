@@ -13,7 +13,7 @@ class Shooting{
   friend class ShootingAccessor;
   int gameClock;
   int fpsTimer;
-	deque<Stage *> stage;
+  deque<Stage *> stage;
   deque<Hero *> heros;
   deque<Enemy *> enemys;
   deque<HeroBullet *> heroBullets;
@@ -27,11 +27,11 @@ class Shooting{
 
 public:
   Shooting();
-	Shooting(int HeroNum){}
+  Shooting(int HeroNum){}
   ~Shooting();
   void action();
-	string encode();
-	Shooting* decode(string);
+  string encode();
+  Shooting* decode(string);
 };
 
 #endif

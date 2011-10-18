@@ -16,7 +16,7 @@ public:
   static void addHeroBullet(HeroBullet *);
   static void addEnemyBullet(EnemyBullet *);
   static void addEnemy(Enemy *);
-  static void addHero(Hero *, Input *input);
+  static void addHero(Hero *);
   static Input getInput(int heroIndex);
 };
 

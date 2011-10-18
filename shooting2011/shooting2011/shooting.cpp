@@ -8,10 +8,10 @@ Shooting::Shooting(){
   gameClock = 0;
   fpsTimer = GetNowCount();
   ShootingAccessor::setShooting(this);
-  ShootingAccessor::addHero(new Hero(0,2), new Input());
-  //ShootingAccessor::addHero(new Hero(1,1), new Input());
-  //ShootingAccessor::addHero(new Hero(2,2), new Input());
-  //ShootingAccessor::addHero(new Hero(3,3), new Input()); 
+  ShootingAccessor::addHero(new Hero(0,2));
+  //ShootingAccessor::addHero(new Hero(1,1));
+  //ShootingAccessor::addHero(new Hero(2,2));
+  //ShootingAccessor::addHero(new Hero(3,3)); 
 }
 
 Shooting::~Shooting(){
@@ -22,6 +22,9 @@ Shooting::~Shooting(){
     delete *i;
   }
   for(deque<HeroBullet *>::iterator i = heroBullets.begin(); i != heroBullets.end(); ++i){
+    delete *i;
+  }
+  for(deque<Input *>::iterator i = inputs.begin(); i != inputs.end(); ++i){
     delete *i;
   }
 }

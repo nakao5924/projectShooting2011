@@ -2,7 +2,15 @@
 #include "main.h"
 #include "input.h"
 
-Input::Input() {}
+Input::Input() {
+	isUp = false;
+	isDown = false;
+	isLeft = false;
+	isRight = false;
+	isButtonA = false;
+	isButtonB = false;
+	isButtonC = false;
+}
 
 Input::~Input() {}
 

@@ -21,9 +21,9 @@ void ShootingAccessor::addEnemy(Enemy *enemy){
   _shooting->enemys.push_back(enemy);
 }
 
-void ShootingAccessor::addHero(Hero *hero, Input *input){
+void ShootingAccessor::addHero(Hero *hero){
   _shooting->heros.push_back(hero);
-  _shooting->inputs.push_back(input);
+  _shooting->inputs.push_back(new Input());
   _shooting->systemData.addHero();
 }
 
