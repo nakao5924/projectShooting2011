@@ -164,12 +164,21 @@
     <ClInclude Include="tag.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="stage.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="reader_ref.in">
+      <Filter>リソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="stage.in">
       <Filter>リソース ファイル</Filter>
     </None>
     <None Include="1stage.in">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="test.in">
       <Filter>リソース ファイル</Filter>
     </None>
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿2011/10/18 4:54:25 にビルドを開始しました。
+﻿2011/10/18 12:35:57 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\arai\Desktop\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
          "AlwaysCreate" が指定されたため "Debug\shooting2011.unsuccessfulbuild" を作成しています。
@@ -17,4 +17,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:00.24
+経過時間 00:00:00.18

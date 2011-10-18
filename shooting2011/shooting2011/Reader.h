@@ -25,11 +25,12 @@ private:
 
 		int start_time;
 		double x,y;
-		ss>>start_time>>x>>y>>format;
-		
-		MovePattern *mp=making_object<MovePattern>(new PatternComposer<MovePattern>());
-		FirePattern *fp=making_object<FirePattern>(new PatternComposer<FirePattern>());
-		return(new EnemyData(start_time,x,y,mp,fp));
+		if(ss>>start_time>>x>>y>>format){
+			MovePattern *mp=making_object<MovePattern>(new PatternComposer<MovePattern>());
+			FirePattern *fp=making_object<FirePattern>(new PatternComposer<FirePattern>());
+			return(new EnemyData(start_time,x,y,mp,fp));
+		}
+		return NULL;
 	}
 
 	template<class _Ty>
@@ -38,9 +39,8 @@ private:
 		if(p==NULL)
 			return(pc);
 		int limit_time;
-		ss>>limit_time;
-		ss>>format;
-		return(making_object<_Ty>(pc->add(limit_time,p)));
+		if(ss>>limit_time>>format)return(making_object<_Ty>(pc->add(limit_time,p)));
+		return NULL;
 	}
 	template<class _Ty>
 	static _Ty* making_basic_object();
@@ -121,17 +121,50 @@ const deque<EnemyData*> Reader::readEnemyData(const string filename){
 	ss=stringstream(str);
 	str="";
 	while(ss>>format){
+		if(format=="<func>"){
+			map<string,string>func_list;
+			deque<string> str_list;
+			while(ss>>format){
+				if(format=="<_func>"){
+					break;
+				}
+				str_list.push_back(format);
+			}
+			for(size_t i=0;i<str_list.size();i++){
+				string value;
+				ss>>value;
+				func_list[str_list[i]]=value;
+			}
+			while(ss>>format){
+				if(format=="</func>"){
+					break;
+				}
+				map<string,string>::iterator it=func_list.find(format);
+				if(it!=func_list.end()){
+					str+=it->second+" ";
+				}else{
+					str+=format+" ";
+				}
+			}
+		}else{
+			str+=format+" ";
+		}
+	}
+	ss=stringstream(str);
+	str="";
+	while(ss>>format){
 		if(format=="rand"){
-			double mi,ma;
-			ss>>mi>>ma;
+			double min_val,max_val;
+			ss>>min_val>>max_val;
 			stringstream ss_sub;
-			ss_sub<<(ma-mi)*(rand()%1000)/1000;
+			ss_sub<<(max_val-min_val)*(rand()%1000)/1000;
 			ss_sub>>format;
 			str+=format+" ";
 		}else{
 			str+=format+" ";
 		}
 	}
+
 	ss=stringstream(str);
 	str="";
 	while(ss>>format){
@@ -150,8 +183,34 @@ const deque<EnemyData*> Reader::readEnemyData(const string filename){
 		}
 	}
 	ss=stringstream(str);
-	deque<EnemyData*> enemylist;
+	str="";
+	while(ss>>format){
+		if(format=="<if>"){
+			double in1,in2;
+			ss>>in1>>in2;
+			if(in1>in2){
+				while(ss>>format){
+					if(format=="</if>")break;
+					str+=format+" ";
+				}
+			}else{
+				while(ss>>format){
+					if(format=="</if>")break;
+					str+=format+" ";
+				}
+			}
+		}else{
+			str+=format+" ";
+		}
+	}
 
+
+
+	ss=stringstream(str);
+	deque<EnemyData*> enemylist;
+#ifndef _DEBUG_
+	if(format!="<endfile>")return(enemylist);
+#endif 
 	while(ss>>format){
 		if(format=="<enemy>"){
 			enemylist.push_back(get_enemy_data());

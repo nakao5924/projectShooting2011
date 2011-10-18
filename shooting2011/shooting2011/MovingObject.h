@@ -45,6 +45,9 @@ public:
 			//Ž¸”s‚µ‚½‚Æ‚«
 			return NULL;
 		}
+//		ss>>graphic;
+//		graphicRect.
+
 		return(new _Obj());
 	}
 };

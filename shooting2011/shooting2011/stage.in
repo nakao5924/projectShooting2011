@@ -75,6 +75,47 @@
 </make>
 
 <make>
+  stopanddownright
+  straight 0 0 30
+  straight 3.3 10 -1
+</make>
+<make>
+  stopanddownleft
+  straight 0 0 30
+  straight -3.3 10 -1
+</make>
+<make>
+  stopandupright
+  straight 0 0 30
+  straight 3.3 -10 -1
+</make>
+<make>
+  stopandupleft
+  straight 0 0 30
+  straight -3.3 -10 -1
+</make>
+<make>
+  stopandrightdown
+  straight 0 0 30
+  straight 10 3.3 -1
+</make>
+<make>
+  stopandrightup
+  straight 0 0 30
+  straight 10 -3.3 -1
+</make>
+<make>
+  stopandleftup
+  straight 0 0 30
+  straight -10 -3.3 -1
+</make>
+<make>
+  stopandleftdown
+  straight 0 0 30
+  straight -10 3.3 -1
+</make>
+
+<make>
   time1
   <add>180
 </make>
@@ -218,26 +259,26 @@
 </enemy>
 
 <enemy>
-  (time9 _time2) 200 0 stopanddown (none -1)
+  (time9 _time2) 200 0 stopanddownright (none -1)
 </enemy>
 <enemy>
-  (time9 _time2) 400 0 stopanddown (none -1)
+  (time9 _time2) 400 0 stopanddownleft (none -1)
 </enemy>
 <enemy>
-  (time9 _time2) 200 600  stopandup (none -1)
+  (time9 _time2) 200 600  stopandupright (none -1)
 </enemy>
 <enemy>
-  (time9 _time2) 400 600 stopandup (none -1)
+  (time9 _time2) 400 600 stopandupleft (none -1)
 </enemy>
 <enemy>
-  (time9 _time2) 0 200 stopandright (none -1)
+  (time9 _time2) 0 200 stopandrightdown (none -1)
 </enemy>
 <enemy>
-  (time9 _time2) 0 400 stopandright (none -1)
+  (time9 _time2) 0 400 stopandrightup (none -1)
 </enemy>
 <enemy>
-  (time9 _time2) 600 200 stopandleft (none -1)
+  (time9 _time2) 600 200 stopandleftdown (none -1)
 </enemy>
 <enemy>
-  (time9 _time2) 600 400 stopandleft (none -1)
+  (time9 _time2) 600 400 stopandleftup (none -1)
 </enemy>

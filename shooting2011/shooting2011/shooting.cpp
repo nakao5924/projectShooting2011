@@ -1,6 +1,7 @@
 #include "main.h"
 #include "shooting.h"
 #include "shootingAccessor.h"
+#include "stage.h"
 #include "tag.h"
 Shooting::Shooting(){
   gameClock = 0;

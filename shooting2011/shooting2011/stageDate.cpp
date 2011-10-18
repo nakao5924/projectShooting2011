@@ -1,7 +1,7 @@
 #include "main.h"
 #include "stageData.h"
 #include "reader.h"
-const deque<EnemyData*> enemyDatas=Reader::readEnemyData("stage.in");
+const deque<EnemyData*> enemyDatas=Reader::readEnemyData("test.in");
 const int ENEMY_NUM=enemyDatas.size();
 /*
 const EnemyData enemyDatas[] = {

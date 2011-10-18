@@ -111,6 +111,8 @@
     <ClInclude Include="background.h" />
     <ClInclude Include="msgdump.h" />
     <ClInclude Include="patternComposer.h" />
+    <ClInclude Include="reader_ref.in" />
+    <ClInclude Include="stage.h" />
     <ClInclude Include="tag.h" />
     <ClInclude Include="__patternComposer.h" />
     <ClInclude Include="enemy.h" />
@@ -133,8 +135,13 @@
     <ClInclude Include="systemData.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="1stage.in" />
-    <None Include="stage.in" />
+    <None Include="1stage.in">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="stage.in">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="test.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

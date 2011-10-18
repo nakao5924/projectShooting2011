@@ -7,11 +7,13 @@
 #include "heroBullet.h"
 #include "enemyBullet.h"
 #include "input.h"
+#include "stage.h"
 
 class Shooting{
   friend class ShootingAccessor;
   int gameClock;
   int fpsTimer;
+	deque<Stage *> stage;
   deque<Hero *> heros;
   deque<Enemy *> enemys;
   deque<HeroBullet *> heroBullets;

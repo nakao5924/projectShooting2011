@@ -52,6 +52,13 @@ void MovingObject::draw(){
 }
 
 string MovingObject::encode(){
-	string s;
-	return s;
+	stringstream ss;
+	ss<<graphic;
+	string str;
+	ss>>str;
+//	str+=graphicRect.encode();
+	
+		
+		
+	return tag::make_tag("Obj",str);
 }

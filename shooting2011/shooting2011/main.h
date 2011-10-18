@@ -1,7 +1,7 @@
 // all cpp files include "main.h" at first line !!
 #ifndef __MAIN_H__
 #define __MAIN_H__
-
+#define _DEBUG_
 #include <deque>
 #include <algorithm>
 #include <sstream>
