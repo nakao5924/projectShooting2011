@@ -11,9 +11,16 @@ EnemyBullet::EnemyBullet( double x, double y, MovePattern *mp,FirePattern *fp){
 }
 
 EnemyBullet::~EnemyBullet(){
-  delete movePattern;
 }
 
 bool EnemyBullet::isValid(){
   return isInStage( graphicRect);
+}
+
+void EnemyBullet::absorbDamage( int damage){
+  changeStatus( INVALID);
+}
+
+void EnemyBullet::statusShift(){
+  if (!isInStage( hitRect)) changeStatus( INVALID);
 }

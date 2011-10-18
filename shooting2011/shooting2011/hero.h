@@ -4,7 +4,7 @@
 #include "systemData.h"
 
 class Hero : public MovingObject{
-//  int fireWait;
+private:
 
 public:
 	int heroId;
@@ -12,9 +12,9 @@ public:
 	Hero(int _heroId, int direction);
 	~Hero();
 
-//  int getPosx(){ return posx;}
-//  int getPosy(){ return posy;}
-//  void transitionState();
+  void absorbDamage( int damage);
+  void statusShift();
+
 };
 
 #endif

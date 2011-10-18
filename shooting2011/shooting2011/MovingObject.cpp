@@ -3,15 +3,27 @@
 #include "shootingAccessor.h"
 
 MovingObject::MovingObject(){
+  attackPower = 1;
   status = VALID;
+  frameCount = 0;
 }
 
-Rect MovingObject::getGraphicRect() const { return graphicRect; }
-Rect MovingObject::getHitRect() const  { return hitRect; }
+const Rect& MovingObject::getGraphicRect() const { return graphicRect; }
+const Rect& MovingObject::getHitRect() const { return hitRect; }
+int MovingObject::getAttackPower() const { return attackPower; }
+Status MovingObject::getStatus() const { return status; }
+
+void MovingObject::changeStatus( Status _status){
+  frameCount = 0;
+  status = _status;
+}
 
 void MovingObject::action(){
-  move();
-  fire();
+  if (status == VALID){
+    move();
+    fire();
+  }
+  frameCount++;
 }
 
 
@@ -30,16 +42,10 @@ void MovingObject::fire(){
 	firePattern->action(this);
 }
 
-MovingObject::~MovingObject(){}
-
-int MovingObject::getStatus() const{
-  return status;
+MovingObject::~MovingObject(){
+  delete movePattern;
+  delete firePattern;
 }
-
-void MovingObject::setStatus( int _status){
-  status = _status;
-}
-
 
 void MovingObject::draw(){
   if (graPattern.empty()) {

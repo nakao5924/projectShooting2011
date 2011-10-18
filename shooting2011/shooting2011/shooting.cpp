@@ -3,6 +3,7 @@
 #include "shootingAccessor.h"
 #include "stage.h"
 #include "tag.h"
+#include "msgdump.h"
 Shooting::Shooting(){
   gameClock = 0;
   fpsTimer = GetNowCount();
@@ -67,87 +68,72 @@ void Shooting::action(){
   {
     // enemy & heroBullet
     for (int i=0; i<(int)enemys.size(); i++){
-      if (enemys[i]->getStatus() != VALID) continue;
       for (int j=0; j<(int)heroBullets.size(); j++){
+        if (enemys[i]->getStatus() != VALID) break;
         if (heroBullets[j]->getStatus() != VALID) continue;
         if (isHit( enemys[i]->getHitRect(), heroBullets[j]->getHitRect())){
-          enemys[i]->addHp(-1);
-          heroBullets[j]->setStatus( INVALID);
+          enemys[i]->absorbDamage( heroBullets[j]->getAttackPower());
+          heroBullets[j]->absorbDamage( enemys[i]->getAttackPower());
           systemData.addScore( heroBullets[j]->getHeroId(), 10);
         }
       }
     }
-
     // hero & enemyBullet
     for (int i=0; i<(int)heros.size(); i++){
-      if (heros[i]->getStatus() != VALID) continue;
       for (int j=0; j<(int)enemyBullets.size(); j++){
+        if (heros[i]->getStatus() != VALID) break;
         if (enemyBullets[j]->getStatus() != VALID) continue;
         if (isHit( heros[i]->getHitRect(), enemyBullets[j]->getHitRect())){
-          heros[i]->setStatus( EXPLOSION);
-          enemyBullets[j]->setStatus( INVALID);
+          heros[i]->absorbDamage( enemyBullets[j]->getAttackPower());
+          enemyBullets[j]->absorbDamage( heros[i]->getAttackPower());
+          systemData.addLife( i, -1);  // hero life -1        
         }
       }
     }
 
     //hero & enemy
     for (int i=0; i<(int)heros.size(); i++){
-      if (heros[i]->getStatus() != VALID) continue;
       for (int j=0; j<(int)enemys.size(); j++){
+        if (heros[i]->getStatus() != VALID) break;
         if (enemys[j]->getStatus() != VALID) continue;
         if (isHit( heros[i]->getHitRect(), enemys[j]->getHitRect())){
-          heros[i]->setStatus( EXPLOSION);
-          enemys[j]->addHp(-20);
+          heros[i]->absorbDamage( enemys[j]->getAttackPower());
+          enemys[j]->absorbDamage( heros[i]->getAttackPower());
+          systemData.addLife( i, -1);  // hero life -1  
         }
       }
     }
   }
 
-  // inStage? & enemy death
+  // status shift
   {
-    //enemy
-    for (int i=0; i<(int)enemys.size(); i++){
-      if( !isInStage( enemys[i]->getGraphicRect())) enemys[i]->setStatus( INVALID);
-      else if( enemys[i]->getHp() < 0) enemys[i]->setStatus( EXPLOSION);
-    }
-    //heroBullet
-    for (int i=0; i<(int)heroBullets.size(); i++){
-      if( !isInStage( heroBullets[i]->getGraphicRect())) heroBullets[i]->setStatus( INVALID);
-    }
-    //enemyBullet
-    for (int i=0; i<(int)enemyBullets.size(); i++){
-      if( !isInStage( enemyBullets[i]->getGraphicRect())) enemyBullets[i]->setStatus( INVALID);
-    }
+    for (int i=0; i<(int)heros.size(); i++) heros[i]->statusShift();
+    for (int i=0; i<(int)enemys.size(); i++) enemys[i]->statusShift();
+    for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i]->statusShift();
+    for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->statusShift();
   }
-
-  //status shift
+  //erase
   {
-    //hero
-    for (int i=0; i<(int)heros.size(); i++){
-      if( heros[i]->getStatus() == EXPLOSION || heros[i]->getStatus() == INVALID){
-        systemData.addLife( i, -1);
-        heros[i]->setStatus( REBIRTH);
-      } else if( heros[i]->getStatus() == REBIRTH){
-        heros[i]->setStatus( VALID);
-      }
-    }
     //enemy
     for (int i=0; i<(int)enemys.size(); i++){
-      if( enemys[i]->getStatus() == EXPLOSION || enemys[i]->getStatus() == INVALID){
+      if( enemys[i]->getStatus() == INVALID){
+        delete enemys[i];
         enemys.erase( enemys.begin()+i);
         i--;
       }
     }
     //heroBullet
     for (int i=0; i<(int)heroBullets.size(); i++){
-      if( heroBullets[i]->getStatus() == EXPLOSION || heroBullets[i]->getStatus() == INVALID){
+      if( heroBullets[i]->getStatus() == INVALID){
+        delete heroBullets[i];
         heroBullets.erase( heroBullets.begin()+i);
         i--;
       }
     }
     //enemyBullet
     for (int i=0; i<(int)enemyBullets.size(); i++){
-      if( enemyBullets[i]->getStatus() == EXPLOSION || enemyBullets[i]->getStatus() == INVALID){
+      if( enemyBullets[i]->getStatus() == INVALID){
+        delete enemyBullets[i];
         enemyBullets.erase( enemyBullets.begin()+i);
         i--;
       }
@@ -156,6 +142,7 @@ void Shooting::action(){
 
   calibrateFps();
   draw();
+
 }
 
 
@@ -168,6 +155,10 @@ void Shooting::draw(){
   for (int i=0; i<(int)enemys.size(); i++) enemys[i]->draw();
 	for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->draw();
   systemData.draw();
+
+  dxout << dxclr;
+  dxout << enemys.size() << dxendl;
+  dxout << heroBullets.size() << dxendl;
 
   // 裏画面の内容を表画面にコピーする
   ScreenFlip();

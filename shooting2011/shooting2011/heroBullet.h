@@ -11,6 +11,11 @@ public:
   ~HeroBullet();
   int getHeroId();
   bool isValid();
+  //status
+  Status status;
+  void absorbDamage( int damage);
+  void statusShift();
+
 };
 
 #endif

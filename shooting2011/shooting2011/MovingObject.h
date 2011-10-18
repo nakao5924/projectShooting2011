@@ -6,14 +6,14 @@
 #include "tag.h"
 class MovePattern;
 
-enum{
+enum Status{
   INVALID,
   VALID,
   EXPLOSION,
   REBIRTH
 };
 
-class MovingObject{
+class MovingObject : private NonCopyable{
 protected:
   int graphic; //check
   deque<GraphicPattern> graPattern;
@@ -21,22 +21,27 @@ protected:
   Rect hitRect;
   MovePattern *movePattern;
   FirePattern *firePattern;
+  //status
+  Status status;
+  int frameCount; //status ‚ª•Ï‚í‚Á‚Ä‚©‚ç‚ÌƒtƒŒ[ƒ€”
+  //status end
 
 private:
   void move();
   void fire();
-  int status;
+  int attackPower;
 
 public:
   MovingObject();
   virtual ~MovingObject();
-  Rect getGraphicRect() const;
-  Rect getHitRect() const;
+  const Rect& getGraphicRect() const;
+  const Rect& getHitRect() const;
+  int getAttackPower() const;
+  Status getStatus() const;
+  void changeStatus( Status _status);
   void action();
   void draw();
   void setPosition(double, double);
-  int getStatus() const;
-  void setStatus( int status);
 	string encode();
 	template<class _Obj>
 	static _Obj* decode(stringstream&ss){

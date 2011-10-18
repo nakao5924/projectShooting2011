@@ -1,5 +1,5 @@
-﻿2011/10/18 12:35:57 にビルドを開始しました。
-     1>ノード 2 上のプロジェクト "C:\Users\arai\Desktop\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
+﻿2011/10/19 2:41:04 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
          "AlwaysCreate" が指定されたため "Debug\shooting2011.unsuccessfulbuild" を作成しています。
        ClCompile:
@@ -13,8 +13,8 @@
        FinalizeBuildStatus:
          ファイル "Debug\shooting2011.unsuccessfulbuild" を削除しています。
          "Debug\shooting2011.lastbuildstate" のタッチ タスクを実行しています。
-     1>プロジェクト "C:\Users\arai\Desktop\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが完了しました。
+     1>プロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが完了しました。
 
 ビルドに成功しました。
 
-経過時間 00:00:00.18
+経過時間 00:00:00.40

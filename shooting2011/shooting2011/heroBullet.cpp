@@ -11,7 +11,6 @@ HeroBullet::HeroBullet( double x, double y,double vx,double vy, int id){
 }
 
 HeroBullet::~HeroBullet(){
-  delete movePattern;
 }
 
 bool HeroBullet::isValid(){
@@ -20,4 +19,12 @@ bool HeroBullet::isValid(){
 
 int HeroBullet::getHeroId(){
   return heroId;
+}
+
+void HeroBullet::absorbDamage( int damage){
+  changeStatus( INVALID);
+}
+
+void HeroBullet::statusShift(){
+  if (!isInStage( hitRect)) changeStatus( INVALID);
 }

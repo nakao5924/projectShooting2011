@@ -10,12 +10,12 @@ public:
 	Enemy(){}
 	int hp;
   int getHp();
-  void addHp( int d);
   Enemy( const EnemyData&);
   ~Enemy();
-//  int getPosx(){ return posx;}
-//  int getPosy(){ return posy;}
   bool isValid();
+  
+  void absorbDamage( int damage);
+  void statusShift();
 };
 
 #endif

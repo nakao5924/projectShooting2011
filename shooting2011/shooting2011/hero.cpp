@@ -23,24 +23,21 @@ Hero::Hero(int _heroId, int direction){
 }
 
 Hero::~Hero(){
-  delete movePattern;
 }
 
-/*
-bool Hero::fire(){
-//  if( fireWait == 0 && CheckHitKey( KEY_INPUT_Z) == 1){
-  if( CheckHitKey( KEY_INPUT_Z) == 1){
-//    fireWait = 8;
-    return true;
-  } else{
-    return false;
+void Hero::absorbDamage( int damage){
+  changeStatus( EXPLOSION);
+}
+
+void Hero::statusShift(){
+  if (status == VALID){
+  } else if (status == EXPLOSION){
+    if (frameCount > 10){
+      changeStatus( REBIRTH);
+    }
+  } else if (status == REBIRTH){
+    if (frameCount > 180){
+      changeStatus( VALID);
+    }
   }
 }
-*/
-
-/*
-void Hero::transitionState(){
-  if( fireWait>0) fireWait--;
-}
-*/
-

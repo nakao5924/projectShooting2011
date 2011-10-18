@@ -11,7 +11,6 @@ Enemy::Enemy( const EnemyData &data){
 }
 
 Enemy::~Enemy(){
-  delete movePattern;
 }
 
 bool Enemy::isValid(){
@@ -22,6 +21,21 @@ int Enemy::getHp(){
   return hp;
 }
 
-void Enemy::addHp( int d){
-  hp += d;
+void Enemy::absorbDamage( int damage){
+  hp -= damage;
+  if (hp < 0) changeStatus( EXPLOSION);
+}
+
+void Enemy::statusShift(){
+  if (status == VALID){
+    if (hp < 0) changeStatus( EXPLOSION);
+  } else if (status == EXPLOSION){
+    if (frameCount > 120){
+      changeStatus( INVALID);
+    }
+  }
+  /*
+  if (!isInStage( getHitRect())){
+    changeStatus( INVALID);
+  }*/
 }

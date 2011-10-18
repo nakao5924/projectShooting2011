@@ -9,9 +9,10 @@ public:
 	EnemyBullet(){}
   EnemyBullet( double x, double y, MovePattern *mp,FirePattern *fp);
   ~EnemyBullet();
-//  int getPosx(){ return posx;}
-//  int getPosy(){ return posy;}
   bool isValid();
+
+  void absorbDamage( int damage);
+  void statusShift();
 };
 
 #endif

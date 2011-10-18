@@ -26,7 +26,7 @@ DxLibOut &operator <<(DxLibOut &dlo, const DxLibEndLine &){
 }
 DxLibOut &operator <<(DxLibOut &dlo, const DxLibClear &){
 	static int BLACK = GetColor(0, 0, 0);
-	DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
+	//DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
 	_dumpCoordinateX = _dumpDefaultCoordinateX;
 	_dumpCoordinateY = _dumpDefaultCoordinateY;
 	return dlo;
