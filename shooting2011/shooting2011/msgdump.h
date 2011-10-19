@@ -2,7 +2,7 @@
 #define __MSGDUMP_H__
 
 #include <sstream>
-
+#include "graphicResource.h"
 extern int _dumpDefaultCoordinateX;
 extern int _dumpDefaultCoordinateY;
 extern int _dumpCoordinateX;
@@ -15,7 +15,7 @@ void msgDump(const T &value){
 	static int WHITE = GetColor(255, 255, 255);
 	ostringstream oss;
 	oss << value;
-	DrawFormatString(_dumpCoordinateX, _dumpCoordinateY, WHITE, "%s", oss.str().c_str());
+  res.drawstring<string>(_dumpCoordinateX, _dumpCoordinateY, oss.str(),WHITE);
 	_dumpCoordinateY += _dumpLineHeight;
 }
 
@@ -28,7 +28,7 @@ DxLibOut &operator <<(DxLibOut &dlo, const T &value){
 	static int WHITE = GetColor(255, 255, 255);
 	ostringstream oss;
 	oss << value;
-	DrawFormatString(_dumpCoordinateX, _dumpCoordinateY, WHITE, "%s", oss.str().c_str());
+  res.drawstring<string>(_dumpCoordinateX, _dumpCoordinateY, oss.str(),WHITE);
 	_dumpCoordinateX += _dumpCharWidth * static_cast<int>(oss.str().length());
 	return dlo;
 }
