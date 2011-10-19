@@ -90,6 +90,12 @@
     <ClCompile Include="msgdump.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="bomb.cpp">
+      <Filter>ソース ファイル\FirePatterns</Filter>
+    </ClCompile>
+    <ClCompile Include="decode.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -169,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="reader_ref.in">
       <Filter>リソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="decode.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

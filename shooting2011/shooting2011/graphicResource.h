@@ -26,11 +26,13 @@ public:
   int load(const string &path);
 
 	/////////////////////////bigin/encode////////////////////////////////
+	void drawgraph(const int x,const int y,int graphic,bool transflag);
 	void drawbox(int x1, int y1, int x2, int y2,int color,bool fillflag);
 	void drawline(int x1, int y1, int x2, int y2,int color);
 	template<class _Ty>void drawstring(int x,int y, _Ty str, int color){
-		ss<<"<drawstring>"<<x<<" "<<y<<" "<<str<<" "<<color<<"</drawstring>";
-/*		stringstream ss_sub;
+		ss<<" <drawstring> "<<x<<" "<<y<<" "<<str<<" "<<color<<" </drawstring> ";
+		/*
+		stringstream ss_sub;
 		ss_sub<<str;
 		string s;
 		ss_sub>>s;

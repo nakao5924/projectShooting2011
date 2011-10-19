@@ -32,25 +32,28 @@ int GraphicResource::load(const string &path) {
 
 
 //////////////////begin/encode//////////////////////////////////////
-
+void GraphicResource::drawgraph(const int x,const int y,int graphic,bool transflag){
+	ss<<" <drawgraph> "<<x<<" "<<y<<" "<<graphic<<" "<<transflag<<" <drawgraph> ";
+	//DrawGraph(x,y,graphic,transflag);
+}
 void GraphicResource::drawbox(int x1, int y1, int x2, int y2, int color, bool fillflag){
 	ss<<" <drawbox> "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" "<<fillflag<<" </drawbox> ";
-//	DrawBox(x1,y1,x2,y2,color,fillflag);
+	//DrawBox(x1,y1,x2,y2,color,fillflag);
 	
 }
 void GraphicResource::drawline(int x1, int y1, int x2, int y2, int color){
 	ss<<" <drawline> "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" </drawline> ";
-//	DrawLine(x1,y1,x2,y2,color);
+	//DrawLine(x1,y1,x2,y2,color);
 }
 void GraphicResource::initdraw(){
-	//ClearDrawScreen();
 
 	ss.str("");
+	//ClearDrawScreen();
 }
 void GraphicResource::draw(){
 	ss<<" <end> ";
 	Decode::draw(ss);
-//  ScreenFlip();
+  //ScreenFlip();
 
 }
 

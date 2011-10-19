@@ -1,0 +1,4 @@
+*.vsp
+*.csv
+*.bak
+Debug/

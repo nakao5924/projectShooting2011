@@ -26,10 +26,19 @@ void Decode::draw(stringstream&ss){
 	string format;
 	while(ss>>format){
 		if(format=="<drawbox>"){drawbox(ss);ss>>format;}
+		else if(format=="<drawgraph>"){drawgraph(ss);ss>>format;}
 		else if(format=="<drawline>"){drawline(ss);ss>>format;}
 		else if(format=="<drawstring>"){drawstring(ss);ss>>format;}
 		else if(format=="<end>")break;
 	}
 
   ScreenFlip();
+}
+
+void Decode::drawgraph(stringstream &ss){
+	//ss<<" <drawgraph> "<<x<<" "<<y<<" "<<graphic<<" "<<transflag<<" <drawgraph> ";
+	int x,y,graphic;
+	bool transflag;
+	ss>>x>>y>>graphic>>transflag;
+	DrawGraph(x,y,graphic,transflag);
 }

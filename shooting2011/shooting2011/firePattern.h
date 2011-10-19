@@ -50,7 +50,8 @@ public:
 	void action(MovingObject *owner);
 //	void vanishAction(MovingObject *owner);
 	~FirePatternNone();
-};/*
+};
+/*
 class FirePatternBomb : public FirePattern{
 private:
 	bool isFire();
@@ -61,6 +62,6 @@ public:
 	void vanishAction(MovingObject *owner);
 	~FirePatternBomb();
 //	void vanishAction(MovingObject *owner);
-//*/
 };
+//*/
 #endif

@@ -55,10 +55,10 @@ void MovingObject::setStatus( int _status){
 
 void MovingObject::draw(){
   if (graPattern.empty()) {
-    DrawGraph( static_cast<int>(SIDE_WIDTH + graphicRect.x - graphicRect.width/2), 
+    res.drawgraph( static_cast<int>(SIDE_WIDTH + graphicRect.x - graphicRect.width/2), 
       static_cast<int>(graphicRect.y - graphicRect.height/2), graphic, true);
   } else {
-    DrawGraph( static_cast<int>(SIDE_WIDTH + graphicRect.x - graphicRect.width/2), 
+		res.drawgraph( static_cast<int>(SIDE_WIDTH + graphicRect.x - graphicRect.width/2), 
       static_cast<int>(graphicRect.y - graphicRect.height/2), graPattern[0].getDrawImage(), true);
   }
 }

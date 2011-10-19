@@ -82,6 +82,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bomb.cpp" />
+    <ClCompile Include="decode.cpp" />
     <ClCompile Include="enemyBullet.cpp" />
     <ClCompile Include="allRangeTimeRag.cpp" />
     <ClCompile Include="FirePatternHero.cpp" />
@@ -109,6 +111,7 @@
   <ItemGroup>
     <ClInclude Include="attackPattern.h" />
     <ClInclude Include="background.h" />
+    <ClInclude Include="decode.h" />
     <ClInclude Include="msgdump.h" />
     <ClInclude Include="patternComposer.h" />
     <ClInclude Include="reader_ref.in" />
@@ -141,7 +144,9 @@
     <None Include="stage.in">
       <SubType>Designer</SubType>
     </None>
-    <None Include="test.in" />
+    <None Include="test.in">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

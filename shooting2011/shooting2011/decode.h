@@ -11,7 +11,7 @@ public:
 	static void drawbox(stringstream&ss);
 	static void drawline(stringstream&ss);
 	static void drawstring(stringstream&ss);
-	
+	static void drawgraph(stringstream&ss);
 
 
 };

@@ -1,66 +1,6 @@
-<make>
-movedown
-straight 0,10 10
-</make>
-
-<make>
-moveup
-straight 0,-10 10
-</make>
-
-<make>
-moveright
-straight 10,0 10
-</make>
-
-<make>
-moveleft
-straight -10,0 10
-</make>
-
-<make>
-none1
-none 10
-</make>
-
-<make>
-f1
-<func> time1,time2,point<_func> 
-</make>
-
-<make>
-_fdown
-<enemy>
-<add>time1,time2</add>,point,0,movedown,none1
-</enemy>
-</func>
-</make>
-
-<make>
-_fup
-<enemy>
-<add>time1,time2</add>,point,600,moveup,none1
-</enemy>
-</func>
-</make>
-<make>
-_fright
-<enemy>
-<add>time1,time2</add>,0,point,moveright,none1
-</enemy>
-</func>
-</make>
-<make>
-_fleft
-<enemy>
-<add>time1,time2</add>,600,point,moveleft,none1
-</enemy>
-</func>
-</make>
 
 
 
-<comment></comment>
 (f1 0, 0,100 _fdown)
 (f1 0,20,200 _fdown)
 (f1 0,40,300 _fdown)
@@ -109,9 +49,78 @@ _fleft
 (f1 450,60,400 _fleft)
 (f1 450,80,500 _fleft)
 
+
+<comment></comment>
+
+<make>
+  movedown
+  straight 0,10 10
+</make>
+
+<make>
+  moveup
+  straight 0,-10 10
+</make>
+
+<make>
+  moveright
+  straight 10,0 10
+</make>
+
+<make>
+  moveleft
+  straight -10,0 10
+</make>
+
+<make>
+  none1
+  none 10
+</make>
+
+<make>
+  f1
+  <func>
+    time1,time2,point<_func> 
+</make>
+
+<make>
+  _fdown
+  <enemy>
+    <add>time1,time2</add>,point,0,movedown,none1
+  </enemy>
+  </func>
+</make>
+
+<make>
+  _fup
+  <enemy>
+    <add>time1,time2</add>,point,600,moveup,none1
+  </enemy>
+  </func>
+</make>
+<make>
+  _fright
+  <enemy>
+    <add>time1,time2</add>,0,point,moveright,none1
+  </enemy>
+  </func>
+</make>
+<make>
+  _fleft
+  <enemy>
+    <add>time1,time2</add>,600,point,moveleft,none1
+  </enemy>
+  </func>
+</make>
+
 </end>
 
 
+
+
+
+
+<add>a , b c</add>
 
 
 
