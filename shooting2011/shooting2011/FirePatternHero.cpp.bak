@@ -47,8 +47,6 @@ void FirePatternHero::action(MovingObject *owner){
 		}
 	}
 }
-/*
-void FirePatternHero::vanishAction(MovingObject *owner){
-}//*/
+
 FirePatternHero::~FirePatternHero(){
 }

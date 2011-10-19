@@ -11,6 +11,7 @@ Enemy::Enemy( const EnemyData &data){
 }
 
 Enemy::~Enemy(){
+ // delete movePattern;
 }
 
 bool Enemy::isValid(){
@@ -40,3 +41,8 @@ void Enemy::statusShift(){
   }
   
 }
+/*
+void Enemy::vanishAction(){
+	firePattern->vanishAction(this);
+}
+//*/

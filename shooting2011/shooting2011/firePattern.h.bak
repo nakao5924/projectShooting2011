@@ -9,7 +9,6 @@ private:
 public:
 	virtual void action(MovingObject *owner) = 0;
 	virtual ~FirePattern(){}
-//	virtual void vanishAction(MovingObject *owner)=0;
 };
 
 class FirePatternAllRangeTimeRag : public FirePattern{
@@ -21,8 +20,6 @@ class FirePatternAllRangeTimeRag : public FirePattern{
 public:
 	FirePatternAllRangeTimeRag(double _dtheta,double _startTheta,double _v,int _interval);
 	void action(MovingObject *owner);
-//	void vanishAction(MovingObject *owner);
-
 	~FirePatternAllRangeTimeRag();
 };
 

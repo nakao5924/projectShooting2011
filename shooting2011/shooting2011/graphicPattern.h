@@ -22,7 +22,7 @@ struct AnimePart {
  * アニメーションを管理するためのクラス
  */
 class GraphicPattern {
-  static GraphicResource res;  // リソース
+ // static GraphicResource res;  // リソース
   deque<AnimePart> animation; // アニメーション情報
   int current; // 現在表示する画像のインデックス(↑のdequeの)
   int frameCount; // 現在のパートにおける経過フレーム数

@@ -66,18 +66,3 @@ void PatternComposer<PatternType>::action(MovingObject *owner){
 	currentPattern->second->action(owner);
 	countUp();
 }
-/*
-template<class PatternType>
-void PatternComposer<PatternType>::vanishAction(MovingObject *owner){
-	if(patterns.empty()){
-		return;
-	}
-	if(!isInitialized){
-		init();
-		isInitialized = true; // bug fix arai tabunhituyou
-	}
-	currentPattern->second->vanishAction(owner);
-	countUp();
-}
-
-//*/

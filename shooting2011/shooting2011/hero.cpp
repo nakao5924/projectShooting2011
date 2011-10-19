@@ -23,7 +23,9 @@ Hero::Hero(int _heroId, int direction){
 }
 
 Hero::~Hero(){
+  //delete movePattern;
 }
+
 
 void Hero::absorbDamage( int damage){
   changeStatus( EXPLOSION);
@@ -41,3 +43,22 @@ void Hero::statusShift(){
     }
   }
 }
+
+/*
+bool Hero::fire(){
+//  if( fireWait == 0 && CheckHitKey( KEY_INPUT_Z) == 1){
+  if( CheckHitKey( KEY_INPUT_Z) == 1){
+//    fireWait = 8;
+    return true;
+  } else{
+    return false;
+  }
+}
+*/
+
+/*
+void Hero::transitionState(){
+  if( fireWait>0) fireWait--;
+}
+*/
+

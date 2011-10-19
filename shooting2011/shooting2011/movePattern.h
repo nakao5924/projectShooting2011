@@ -10,6 +10,7 @@ class MovePattern{
 public:
 	virtual void action(MovingObject *) {};
 	virtual ~MovePattern() {};
+	//virtual void vanishAction(MovingObject *)=0;
 	int frame;
 };
 

@@ -1,34 +1,43 @@
-#include "MovingObject.h"
-#include "stageData.h"
+#include "main.h"
+#include "enemy.h"
 
 Enemy::Enemy( const EnemyData &data){
-  graphic = LoadGraph( "../graphic/Sikaku.png" );
-  posx = data.posx;
-  posy = data.posy;
-  mp = data.moveType;
-  size = 64;
+  graphic = LoadGraph( "../graphic/Hero0Down.bmp" );
+  graphicRect = Rect( data.posx, data.posy, 32, 32);
+  hitRect = Rect( data.posx, data.posy, 32, 32);
+  movePattern = data.moveType;
+	firePattern = data.fireType;
+  hp = 5;
 }
 
-void Enemy::move(){
-	pair<double,double> nextpos = pair<double,double>(mp->action(posx,posy));
-	posx = nextpos.first;
-	posy = nextpos.second;
-}
-
-void Enemy::fire(){
-	//ap->action();
-}
-
-void Enemy::action(){
-  move();
-  fire();
+Enemy::~Enemy(){
+ // delete movePattern;
 }
 
 bool Enemy::isValid(){
-  return isInStage( posx, posy, size);
+  return isInStage( graphicRect);
 }
 
-void Enemy::draw(){
-  DrawGraph( posx - size/2, posy - size/2, graphic, true);
+int Enemy::getHp(){
+  return hp;
 }
 
+void Enemy::absorbDamage( int damage){
+  hp -= damage;
+  if (hp < 0) changeStatus( EXPLOSION);
+}
+
+void Enemy::statusShift(){
+  if (status == VALID){
+    if (hp < 0) changeStatus( EXPLOSION);
+  } else if (status == EXPLOSION){
+    if (frameCount > 120){
+      changeStatus( INVALID);
+    }
+  }
+  
+  if (!isInStage( getHitRect())){
+    changeStatus( INVALID);
+  }
+  
+}

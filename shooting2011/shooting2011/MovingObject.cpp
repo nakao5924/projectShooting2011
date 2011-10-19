@@ -46,6 +46,12 @@ MovingObject::~MovingObject(){
   delete movePattern;
   delete firePattern;
 }
+/*
+void MovingObject::setStatus( int _status){
+  status = _status;
+}
+//*/
+
 
 void MovingObject::draw(){
   if (graPattern.empty()) {

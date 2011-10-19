@@ -29,8 +29,11 @@ protected:
 private:
   void move();
   void fire();
+  
   int attackPower;
-
+  /*
+  int status;
+//*/
 public:
   MovingObject();
   virtual ~MovingObject();
@@ -42,6 +45,10 @@ public:
   void action();
   void draw();
   void setPosition(double, double);
+  /*
+  int getStatus() const;
+  void setStatus( int status);
+  //*/
 	string encode();
 	template<class _Obj>
 	static _Obj* decode(stringstream&ss){

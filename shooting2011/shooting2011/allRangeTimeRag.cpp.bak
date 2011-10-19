@@ -25,10 +25,6 @@ void FirePatternAllRangeTimeRag::action(MovingObject *owner){
 		if(dtheta >= PI*2) dtheta-=PI*2;
 	}
 }
-/*
-void FirePatternAllRangeTimeRag::vanishAction(MovingObject *owner){
-}
-//*/
 FirePatternAllRangeTimeRag::~FirePatternAllRangeTimeRag(){
 	
 }

@@ -1,7 +1,7 @@
 #include "main.h"
 #include "graphicPattern.h"
 
-GraphicResource GraphicPattern::res;
+//GraphicResource GraphicPattern::res;
 
 GraphicPattern::GraphicPattern() {
   current = 0;

@@ -11,6 +11,7 @@ HeroBullet::HeroBullet( double x, double y,double vx,double vy, int id){
 }
 
 HeroBullet::~HeroBullet(){
+//  delete movePattern;
 }
 
 bool HeroBullet::isValid(){

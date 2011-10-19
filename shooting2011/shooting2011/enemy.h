@@ -10,8 +10,12 @@ public:
 	Enemy(){}
 	int hp;
   int getHp();
+  //void addHp( int d);
+//	void vanishAction();
   Enemy( const EnemyData&);
   ~Enemy();
+//  int getPosx(){ return posx;}
+//  int getPosy(){ return posy;}
   bool isValid();
   
   void absorbDamage( int damage);

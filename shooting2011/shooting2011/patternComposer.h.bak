@@ -20,7 +20,6 @@ public:
 	~PatternComposer();
 	PatternComposer<PatternType> *add(int frame, PatternType *pattern);
 	pair<double, double> action(double x, double y); // for MovePattern
-	void vanishAction(MovingObject*);//for FirePattern
 	void action(MovingObject *); // for FirePattern
 };
 

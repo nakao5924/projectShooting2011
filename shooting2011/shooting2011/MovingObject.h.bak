@@ -1,50 +1,62 @@
 #ifndef __MOVINGOBJECT_H__
 #define __MOVINGOBJECT_H__
-#include "main.h"
-#include "stageData.h"
-//class MovingObject{
-//}
+#include "movePattern.h"
+#include "graphicPattern.h"
+#include "firePattern.h"
+#include "tag.h"
+class MovePattern;
 
-class Hero{
-  int posx, posy;
-  int graphic;
-  int size;
-  int fireWait;
-
-public:
-  Hero();
-  int getPosx(){ return posx;};
-  int getPosy(){ return posy;};
-  void move();
-  bool fire();
-	void draw();
-  void transitionState();
+enum Status{
+  INVALID,
+  VALID,
+  EXPLOSION,
+  REBIRTH
 };
 
-class Enemy{
-  int posx, posy;
-  int graphic;
-  int size;
+class MovingObject : private NonCopyable{
+protected:
+  int graphic; //check
+  deque<GraphicPattern> graPattern;
+  Rect graphicRect;
+  Rect hitRect;
+  MovePattern *movePattern;
+  FirePattern *firePattern;
+  //status
+  Status status;
+  int frameCount; //status Ç™ïœÇÌÇ¡ÇƒÇ©ÇÁÇÃÉtÉåÅ[ÉÄêî
+  //status end
+
+private:
   void move();
   void fire();
+  int attackPower;
 
 public:
-  Enemy( const EnemyData&);
+  MovingObject();
+  virtual ~MovingObject();
+  const Rect& getGraphicRect() const;
+  const Rect& getHitRect() const;
+  int getAttackPower() const;
+  Status getStatus() const;
+  void changeStatus( Status _status);
   void action();
-	void draw();
-  bool isValid();
+  void draw();
+  void setPosition(double, double);
+	string encode();
+	template<class _Obj>
+	static _Obj* decode(stringstream&ss){
+		string str=tag::pop_tag("Obj",ss);
+		if(str==""){
+			//é∏îsÇµÇΩÇ∆Ç´
+			return NULL;
+		}
+//		ss>>graphic;
+//		graphicRect.
+
+		return(new _Obj());
+	}
 };
 
-class HeroBullet{
-  int posx, posy;
-  int graphic;
-  int size;
 
-public:
-  HeroBullet( int x, int y);
-  void move();
-	void draw();
-  bool isValid();
-};
 
 #endif
