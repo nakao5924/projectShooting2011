@@ -1,4 +1,9 @@
+*~
 *.vsp
 *.csv
 *.bak
+*.sdf
+*.suo
 Debug/
+ipch/
+dxlib/
