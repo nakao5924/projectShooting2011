@@ -86,7 +86,7 @@
     <ClCompile Include="bomb.cpp" />
     <ClCompile Include="client.cpp" />
     <ClCompile Include="connection.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="connect_test.cpp" />
     <ClCompile Include="decode.cpp" />
     <ClCompile Include="enemyBullet.cpp" />
     <ClCompile Include="allRangeTimeRag.cpp" />
@@ -100,6 +100,7 @@
     <ClCompile Include="heroMove.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="lissajous.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="main_bak.cpp" />
     <ClCompile Include="movingObject.cpp" />
     <ClCompile Include="msgdump.cpp" />

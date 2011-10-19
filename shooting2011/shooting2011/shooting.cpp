@@ -6,7 +6,7 @@
 #include "msgdump.h"
 Shooting::Shooting(){
   gameClock = 0;
-  fpsTimer = GetNowCount();
+  //fpsTimer = GetNowCount();
   ShootingAccessor::setShooting(this);
   ShootingAccessor::addHero(new Hero(0,2));
   //ShootingAccessor::addHero(new Hero(1,1));
@@ -28,7 +28,7 @@ Shooting::~Shooting(){
     delete *i;
   }
 }
-
+/*
 void Shooting::calibrateFps(){
   int term;
   term = GetNowCount()-fpsTimer;
@@ -36,7 +36,7 @@ void Shooting::calibrateFps(){
   fpsTimer = GetNowCount();
   return;
 }
-
+*/
 void Shooting::popUp(){
   for (int i=0; i<ENEMY_NUM; i++){
     if( enemyDatas[i]->popUpTime == gameClock){
@@ -185,7 +185,7 @@ void Shooting::action(){
     }
   }
 
-  calibrateFps();
+  //calibrateFps();
   draw();
 }
 
@@ -199,16 +199,16 @@ void Shooting::draw(){
   for (int i=0; i<(int)enemys.size(); i++) enemys[i]->draw();
 	for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->draw();
   systemData.draw();
-
+	/*
   dxout << dxclr;
   dxout << enemys.size() << dxendl;
   dxout << heroBullets.size() << dxendl;
-
+	*/
   // 裏画面の内容を表画面にコピーする
-	res.draw();
+	//res.draw();
 }
 
-
+/*
 string Shooting::encode(){
 	string str_re;
 	string str;

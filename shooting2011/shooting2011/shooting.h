@@ -12,7 +12,7 @@
 class Shooting{
   friend class ShootingAccessor;
   int gameClock;
-  int fpsTimer;
+  //int fpsTimer;
   deque<Stage *> stage;
   deque<Hero *> heros;
   deque<Enemy *> enemys;
@@ -21,7 +21,7 @@ class Shooting{
   deque<Input *> inputs;
   SystemData systemData;
 
-  void calibrateFps();
+  //void calibrateFps();
   void draw();
   void popUp();
 
@@ -30,8 +30,8 @@ public:
   Shooting(int HeroNum){}
   ~Shooting();
   void action();
-  string encode();
-  Shooting* decode(string);
+  //string encode();
+  //Shooting* decode(string);
 };
 
 #endif
