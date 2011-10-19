@@ -84,6 +84,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bomb.cpp" />
+    <ClCompile Include="client.cpp" />
+    <ClCompile Include="connection.cpp" />
+    <ClCompile Include="connect_test.cpp" />
     <ClCompile Include="decode.cpp" />
     <ClCompile Include="enemyBullet.cpp" />
     <ClCompile Include="allRangeTimeRag.cpp" />
@@ -98,9 +101,11 @@
     <ClCompile Include="input.cpp" />
     <ClCompile Include="lissajous.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="main_bak.cpp" />
     <ClCompile Include="movingObject.cpp" />
     <ClCompile Include="msgdump.cpp" />
     <ClCompile Include="rect.cpp" />
+    <ClCompile Include="server.cpp" />
     <ClCompile Include="shooting.cpp" />
     <ClCompile Include="shootingAccessor.cpp" />
     <ClCompile Include="something.cpp" />
@@ -112,10 +117,13 @@
   <ItemGroup>
     <ClInclude Include="attackPattern.h" />
     <ClInclude Include="background.h" />
+    <ClInclude Include="client.h" />
+    <ClInclude Include="connection.h" />
     <ClInclude Include="decode.h" />
     <ClInclude Include="msgdump.h" />
     <ClInclude Include="patternComposer.h" />
     <ClInclude Include="reader_ref.in" />
+    <ClInclude Include="server.h" />
     <ClInclude Include="stage.h" />
     <ClInclude Include="tag.h" />
     <ClInclude Include="__patternComposer.h" />
