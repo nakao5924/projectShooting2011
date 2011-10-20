@@ -13,7 +13,9 @@ class Shooting : private NonCopyable{
   friend class ShootingAccessor;
   int gameClock;
   //int fpsTimer;
-  deque<Stage *> stage;
+	int curStageNum; //0-index 0‚Ídummy
+
+  Stage *stage;
   deque<Hero *> heros;
   deque<Enemy *> enemys;
   deque<HeroBullet *> heroBullets;
@@ -23,7 +25,8 @@ class Shooting : private NonCopyable{
   void eraseMovingObject();
   void hitMovingObject();
 
-  //void calibrateFps();
+	bool isBeginStage();
+//  void calibrateFps();
   void draw();
   void popUp();
 

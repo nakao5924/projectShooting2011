@@ -1,8 +1,8 @@
 #include "main.h"
 #include "stageData.h"
 #include "reader.h"
-const deque<EnemyData*> enemyDatas=Reader::readEnemyData("test.in");
-const int ENEMY_NUM=enemyDatas.size();
+//const deque<EnemyData*> enemyDatas=Reader::readEnemyData("test.in");
+//const int ENEMY_NUM=enemyDatas.size();
 /*
 const EnemyData enemyDatas[] = {
 	EnemyData(0,60,60,new MovePatternLissajous(160,160,100,0.06,0,50,0.1,0),new FirePatternAllRangeTimeRag(0.05,0,1,5)),

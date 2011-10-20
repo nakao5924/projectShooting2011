@@ -21,4 +21,9 @@ bool isInStage( double x, double y, double w, double h);
 bool isInStage( const Rect& r);
 bool isHit( const Rect& r1, const Rect& r2);
 
+class NonConstructable : private NonCopyable{
+private:
+	NonConstructable();
+};
+
 #endif

@@ -72,7 +72,7 @@ big small
 
 //---------------------------------------------------------------
 //ファイルの構成
-//<enemy></ememy>
+//<enemy>imagefilename </ememy>
 //		...
 //<enemy></enemy>
 //<make>

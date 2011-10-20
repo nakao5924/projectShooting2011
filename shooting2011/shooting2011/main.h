@@ -2,7 +2,6 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 #define _DEBUG_
-#include <vector>
 #include <deque>
 #include <algorithm>
 #include <sstream>
@@ -12,6 +11,7 @@
 #include "DxLib.h"
 #include "rect.h"
 #include "something.h"
+#include "windows.h"
 using namespace std;
 
 const int WINDOW_WIDTH = 800;

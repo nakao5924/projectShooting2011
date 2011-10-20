@@ -11,7 +11,9 @@ Shooting::Shooting(){
   ShootingAccessor::addHero(new Hero(0,2));
   //ShootingAccessor::addHero(new Hero(1,1));
   //ShootingAccessor::addHero(new Hero(2,2));
-  //ShootingAccessor::addHero(new Hero(3,3)); 
+  //ShootingAccessor::addHero(new Hero(3,3));
+	curStageNum = 0;
+	stage = NULL;
 }
 
 Shooting::~Shooting(){
@@ -38,15 +40,23 @@ void Shooting::calibrateFps(){
 }
 */
 void Shooting::popUp(){
-  for (int i=0; i<ENEMY_NUM; i++){
+  /*for (int i=0; i<ENEMY_NUM; i++){
     if( enemyDatas[i]->popUpTime == gameClock){
       ShootingAccessor::addEnemy( new Enemy( *enemyDatas[i]));
     }
-  }
+  }*/
+	stage->popUp();
 }
 
+bool Shooting::isBeginStage(){
+	return curStageNum == 0 || !stage->isValid();
+}
 
 void Shooting::action(){
+	if(isBeginStage()){
+		delete stage;
+		stage = new Stage(++curStageNum);
+	}
   popUp();
   gameClock++;
 

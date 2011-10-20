@@ -8,7 +8,7 @@
 #include "input.h"
 // #include "enemyBullet.h"
 
-class ShootingAccessor{
+class ShootingAccessor : private NonConstructable{
 private:
   static Shooting *_shooting;
 public:

@@ -12,7 +12,7 @@ const int PORT = 12345;
 // SAKURA
 // const IPDATA SERVER_IP = {192, 168, 0, 100};
 // TMP
-const IPDATA SERVER_IP = {192, 168, 0, 253};
+const IPDATA SERVER_IP = {192, 168, 0, 124};
 
 const int CLIENT_NUM = 2;
 

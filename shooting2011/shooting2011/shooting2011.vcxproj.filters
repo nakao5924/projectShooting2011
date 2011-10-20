@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="リソース ファイル">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -19,8 +15,21 @@
     <Filter Include="ソース ファイル\FirePatterns">
       <UniqueIdentifier>{25018188-8c90-47ba-a0ff-ed808ad223a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\StageData">
+      <UniqueIdentifier>{1af588d8-548d-419f-a106-478c39259e2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\StageData\stage1">
+      <UniqueIdentifier>{4626bfe0-559c-4f7d-bd4b-fc404d964ba4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="hero.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -93,7 +102,7 @@
     <ClCompile Include="decode.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="connection.cpp">
+    <ClCompile Include="Reader.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="server.cpp">
@@ -102,13 +111,7 @@
     <ClCompile Include="client.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="main_bak.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="connect_test.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="connection.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -194,13 +197,13 @@
     <ClInclude Include="decode.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="connection.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="server.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="client.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="connection.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -208,11 +211,14 @@
     <None Include="stage.in">
       <Filter>リソース ファイル</Filter>
     </None>
-    <None Include="1stage.in">
-      <Filter>リソース ファイル</Filter>
+    <None Include="StageData\stage1\scene2.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
     </None>
-    <None Include="test.in">
-      <Filter>リソース ファイル</Filter>
+    <None Include="StageData\stage1\scene1.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
+    </None>
+    <None Include="scene3.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
     </None>
   </ItemGroup>
 </Project>

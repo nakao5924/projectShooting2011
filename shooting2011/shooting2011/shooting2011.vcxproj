@@ -86,7 +86,6 @@
     <ClCompile Include="bomb.cpp" />
     <ClCompile Include="client.cpp" />
     <ClCompile Include="connection.cpp" />
-    <ClCompile Include="connect_test.cpp" />
     <ClCompile Include="decode.cpp" />
     <ClCompile Include="enemyBullet.cpp" />
     <ClCompile Include="allRangeTimeRag.cpp" />
@@ -101,9 +100,9 @@
     <ClCompile Include="input.cpp" />
     <ClCompile Include="lissajous.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="main_bak.cpp" />
     <ClCompile Include="movingObject.cpp" />
     <ClCompile Include="msgdump.cpp" />
+    <ClCompile Include="Reader.cpp" />
     <ClCompile Include="rect.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="shooting.cpp" />
@@ -147,15 +146,12 @@
     <ClInclude Include="systemData.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="1stage.in">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="scene3.in" />
     <None Include="stage.in">
       <SubType>Designer</SubType>
     </None>
-    <None Include="test.in">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="StageData\stage1\scene1.in" />
+    <None Include="StageData\stage1\scene2.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

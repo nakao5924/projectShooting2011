@@ -2,12 +2,10 @@
 
 #ifndef __STAGEDATA_H__
 #define __STAGEDATA_H__
-#include <deque>
-using namespace std;
 #include"movePattern.h"
 #include"firePattern.h"
 #include "patternComposer.h"
-extern const int ENEMY_NUM;
+//extern const int ENEMY_NUM;
 struct EnemyData{
   int popUpTime;
   double posx, posy;
