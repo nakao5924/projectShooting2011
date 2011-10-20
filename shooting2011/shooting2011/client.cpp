@@ -6,28 +6,22 @@
 #include <fstream>
 #include "connection.h"
 
-ClientConnection::ClientConnection(const string &configFile){
-	ifstream ifs(configFile);
-	ifs >> _port;
-	ifs >> _ip.d1 >> _ip.d2 >> _ip.d3 >> _ip.d4;
-}
-ClientConnection::ClientConnection(int port, IPDATA ip):_port(port), _ip(ip){
-}
+ClientConnection::ClientConnection(int port, IPDATA ip):port_(port), ip_(ip){}
 void ClientConnection::assign(int port, IPDATA ip){
-	_port = port;
-	_ip = ip;
+	port_ = port;
+	ip_ = ip;
 }
 bool ClientConnection::connect(){
-	int netHandle = ConnectNetWork(_ip, _port);
+	int netHandle = ConnectNetWork(ip_, port_);
 	if(netHandle == -1){
 		return false;
 	}
-	_server.setNetHandle(netHandle);
+	server_.setNetHandle(netHandle);
 	return true;
 }
 int ClientConnection::send(const string &message){
-	return _server.send(message);
+	return server_.send(message);
 }
 int ClientConnection::receive(string &ret){
-	return _server.receive(ret);
+	return server_.receive(ret);
 }

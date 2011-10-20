@@ -45,6 +45,17 @@ void GraphicResource::drawline(int x1, int y1, int x2, int y2, int color){
 	ss<<" <drawline> "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" </drawline> ";
 	//DrawLine(x1,y1,x2,y2,color);
 }
+
+string GraphicResource::getMessages(){
+	ss << " <end> ";
+	return ss.str();
+}
+
+void GraphicResource::clear(){
+	ss.clear(stringstream::goodbit);
+	ss.str("");
+}
+
 void GraphicResource::initdraw(){
 
 	ss.str("");

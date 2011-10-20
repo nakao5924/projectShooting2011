@@ -39,6 +39,11 @@ public:
 		DrawString(x,y,s.c_str(),color);
 		//*/
 	}
+
+	string getMessages();
+
+	void clear();
+
 	void initdraw();
 
 	void draw();

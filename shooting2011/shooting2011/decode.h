@@ -6,6 +6,7 @@
 using namespace std;
 class Decode{
 public:
+	static void draw(const string &str);
 	static void draw(stringstream&ss);
 	static void initdraw();
 	static void drawbox(stringstream&ss);

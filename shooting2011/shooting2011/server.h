@@ -5,10 +5,10 @@
 
 #include "connection.h"
 
-class ServerConnection{
+class ServerConnection : private NonCopyable{
 private:
-	int _port;
-	vector<Connection> _clients;
+	int port_;
+	vector<Connection *> clients_;
 public:
 	ServerConnection(int port = -1);
 	bool startListen();

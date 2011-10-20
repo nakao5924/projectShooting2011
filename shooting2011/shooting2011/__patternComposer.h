@@ -39,22 +39,6 @@ PatternComposer<PatternType> *PatternComposer<PatternType>::add(int frame, Patte
 }
 
 template<class PatternType>
-pair<double, double> PatternComposer<PatternType>::action(double x, double y){
-	if(patterns.empty()){
-
-		
-		return make_pair(x, y);
-	}
-	if(!isInitialized){
-		init();
-		isInitialized = true;
-	}
-	pair<double, double> ret = currentPattern->second->action(x, y);
-	countUp();
-	return ret;
-}
-
-template<class PatternType>
 void PatternComposer<PatternType>::action(MovingObject *owner){
 	if(patterns.empty()){
 		return;
@@ -81,3 +65,22 @@ void PatternComposer<PatternType>::vanishAction(MovingObject *owner){
 }
 
 //*/
+/*
+template<class PatternType>
+ParallelPatternComposer<PatternType>::~ParallelPatternComposer(){
+	for(typename deque<PatternType *>::iterator i = patterns_.begin(); i != patterns_.end(); ++i){
+		delete *i;
+	}
+}
+*/
+template<class PatternType>
+ParallelPatternComposer<PatternType> *ParallelPatternComposer<PatternType>::add(PatternType *pattern){
+	patterns_.push_back(pattern);
+}
+
+template<class PatternType>
+void ParallelPatternComposer<PatternType>::action(MovingObject *owner){
+	for(size_t i = 0; i < patterns_.size(); ++i){
+		patterns_[i]->action(owner);
+	}
+}

@@ -3,13 +3,12 @@
 
 #include "connection.h"
 
-class ClientConnection{
+class ClientConnection : private NonCopyable{
 private:
-	int _port;
-	IPDATA _ip;
-	Connection _server;
+	int port_;
+	IPDATA ip_;
+	Connection server_;
 public:
-	ClientConnection(const string &configFile);
 	ClientConnection(int port, IPDATA ip);
 	void assign(int port, IPDATA ip);
 	bool connect();

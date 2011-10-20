@@ -2,9 +2,9 @@
 #define __COMPOSE_H__
 
 template<class PatternType>
-class PatternComposer : public PatternType{
-	// PatternType には MovePattern か FirePattern のみが入る
-	// GraphicPattern も入れられるようにしたいな (チラ
+class PatternComposer : public PatternType, private NonCopyable{
+	// PatternTypeが持つべきインターフェースは
+	//   void PatternType::action(MovionObject *);
 
 private:
 	deque<pair<int, PatternType *> > patterns;
@@ -19,9 +19,18 @@ public:
 	PatternComposer();
 	~PatternComposer();
 	PatternComposer<PatternType> *add(int frame, PatternType *pattern);
-	pair<double, double> action(double x, double y); // for MovePattern
-	void vanishAction(MovingObject*);//for FirePattern
-	void action(MovingObject *); // for FirePattern
+	//void vanishAction(MovingObject*);// for FirePattern
+	void action(MovingObject *);
+};
+
+template<class PatternType>
+class ParallelPatternComposer : public PatternType, private NonCopyable{
+private:
+	deque<PatternType *> patterns_;
+public:
+	~ParallelPatternComposer();
+	ParallelPatternComposer<PatternType> *add(PatternType *pattern);
+	void action(MovingObject *owner);
 };
 
 #include "__patternComposer.h"
