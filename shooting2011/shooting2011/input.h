@@ -23,6 +23,9 @@ public:
 	bool buttonA();
 	bool buttonB();
 	bool buttonC();
+
+	string encode();
+	void decode(const string &str);
 };
 
 #endif

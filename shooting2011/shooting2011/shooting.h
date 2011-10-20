@@ -32,6 +32,7 @@ public:
   Shooting(int HeroNum){}
   ~Shooting();
   void action();
+	void setInput(const vector<string> &messages);
   //string encode();
   //Shooting* decode(string);
 };

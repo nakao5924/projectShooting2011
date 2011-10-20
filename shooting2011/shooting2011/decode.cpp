@@ -21,6 +21,10 @@ void Decode::drawstring(stringstream&ss){
 void Decode::initdraw(){
 	ClearDrawScreen();
 }
+void Decode::draw(const string &str){
+	stringstream ss(str);
+	draw(ss);
+}
 void Decode::draw(stringstream&ss){
 	initdraw();
 	string format;

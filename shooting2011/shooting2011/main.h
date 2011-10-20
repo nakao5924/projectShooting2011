@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <sstream>
 #include <cmath>
+#include <cassert>
+#include <vector>
 #include "DxLib.h"
 #include "rect.h"
 #include "something.h"

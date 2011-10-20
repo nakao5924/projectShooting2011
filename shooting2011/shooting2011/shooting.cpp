@@ -221,6 +221,13 @@ void Shooting::draw(){
 	//res.draw();
 }
 
+void Shooting::setInput(const vector<string> &messages){
+	assert(messages.size() == inputs.size());
+	for(size_t i = 0; i < messages.size(); ++i){
+		inputs[i]->decode(messages[i]);
+	}
+}
+
 /*
 string Shooting::encode(){
 	string str_re;

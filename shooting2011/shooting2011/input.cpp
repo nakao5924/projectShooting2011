@@ -38,3 +38,20 @@ bool Input::buttonB() {return isButtonB;}
 
 bool Input::buttonC() {return isButtonC;}
 
+string Input::encode(){
+	bool *members[] = {&isUp, &isDown, &isLeft, &isRight, &isButtonA, &isButtonB, &isButtonC};
+	string result;
+	for(int i = 0; i < getArraySize(members); ++i){
+		result += (*members[i]) ? "1" : "0";
+	}
+	return result;
+}
+
+void Input::decode(const string &str){
+	bool *members[] = {&isUp, &isDown, &isLeft, &isRight, &isButtonA, &isButtonB, &isButtonC};
+	assert(getArraySize(members) <= static_cast<int>(str.length()));
+	for(int i = 0; i < getArraySize(members); ++i){
+		*members[i] = str[i] == '1';
+	}
+}
+

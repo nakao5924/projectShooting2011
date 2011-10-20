@@ -11,6 +11,11 @@ public:
   NonCopyable();
 };
 
+template<class T, int N>
+int getArraySize(T (&array_reference)[N]){
+  return N;
+}
+
 bool isInStage( double x, double y);
 bool isInStage( double x, double y, double w, double h);
 bool isInStage( const Rect& r);

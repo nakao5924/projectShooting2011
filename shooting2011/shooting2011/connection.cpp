@@ -36,11 +36,11 @@ int dummyGetDataLength(int netHandle){
 #define NetWorkRecv dummyRecv
 #define GetNetWorkDataLength dummyGetDataLength
 */
-int Connection::_getBase(){
+int Connection::getBase_(){
 	static int ret = 1 << (CHAR_BIT - 1);
 	return ret;
 }
-char Connection::_getDelimiter(){
+char Connection::getDelimiter_(){
 	static char ret = 0;
 	if(ret == 0){
 		++ret;
@@ -51,89 +51,90 @@ char Connection::_getDelimiter(){
 			}
 		}
 	}
-	assert(static_cast<unsigned char>(ret) >= _getBase());
+	assert(static_cast<unsigned char>(ret) >= getBase_());
 	return ret;
 }
 
-void Connection::_expandbuf(int newSize){
-	if(newSize <= _bufsize) return;
-	newSize = max(_bufsize * 2, newSize);
-	_bufsize = newSize;
-	delete[] _buf;
-	_buf = new char[_bufsize];
+void Connection::expandbuf_(int newSize){
+	if(newSize <= bufsize_) return;
+	newSize = max(bufsize_ * 2, newSize);
+	bufsize_ = newSize;
+	delete[] buf_;
+	buf_ = new char[bufsize_];
 }
-Connection::Connection():_netHandle(-1), _buf(NULL), _bufsize(0){}
-Connection::Connection(int netHandle):_netHandle(netHandle), _buf(NULL), _bufsize(0){}
+Connection::Connection():netHandle_(-1), buf_(NULL), bufsize_(0){}
+Connection::Connection(int netHandle):netHandle_(netHandle), buf_(NULL), bufsize_(0){}
 Connection::~Connection(){
-	delete[] _buf;
+	delete[] buf_;
 }
 void Connection::setNetHandle(int netHandle){
-	_netHandle = netHandle;
+	netHandle_ = netHandle;
 }
 
 int Connection::send(const string &str){
-	if(_netHandle == -1)return -1;
+	if(netHandle_ == -1)return -1;
 	assert(str.length() <= INT_MAX);
 	int length = static_cast<int>(str.length());
-	_expandbuf(length + 2);
+	expandbuf_(length + 2);
 	int pos = 0;
-	_buf[pos++] = _getDelimiter();
+	buf_[pos++] = getDelimiter_();
 	while(length > 0){
-		_buf[pos++] = static_cast<char>(length % _getBase());
-		length /= _getBase();
+		buf_[pos++] = static_cast<char>(length % getBase_());
+		length /= getBase_();
 	}
-	_buf[pos++] = _getDelimiter();
+	buf_[pos++] = getDelimiter_();
 	int header_length = pos;
-	if(NetWorkSend(_netHandle, static_cast<void *>(_buf), header_length) == -1){
+	if(NetWorkSend(netHandle_, static_cast<void *>(buf_), header_length) == -1){
 		return -1;
 	}
-	sprintf(_buf, "%s", str.c_str());
-	if(NetWorkSend(_netHandle, static_cast<void *>(_buf), static_cast<int>(str.length())) == -1){
+	sprintf(buf_, "%s", str.c_str());
+	if(NetWorkSend(netHandle_, static_cast<void *>(buf_), static_cast<int>(str.length())) == -1){
 		return -1;
 	}
 	return header_length + static_cast<int>(str.length());
 }
 
 int Connection::receive(string &ret){
-	if(_netHandle == -1){
+	if(netHandle_ == -1){
 		return -2;
 	}
-	int length = GetNetWorkDataLength(_netHandle);
-	_expandbuf(length);
-	if(NetWorkRecv(_netHandle, static_cast<void *>(_buf), length) == -1){
+	int length = GetNetWorkDataLength(netHandle_);
+	expandbuf_(length);
+	if(NetWorkRecv(netHandle_, static_cast<void *>(buf_), length) == -1){
 		return -2;
 	}
-	_receivebuf += string(_buf, length);
-	if(_receivebuf.empty()){
+	receivebuf_ += string(buf_, length);
+	if(receivebuf_.empty()){
 		return -1;
 	}
-	if(_receivebuf[0] != _getDelimiter()){
+	if(receivebuf_[0] != getDelimiter_()){
 		size_t i = 1;
-		while(i < _receivebuf.length() && _receivebuf[i] != _getDelimiter()){
+		while(i < receivebuf_.length() && receivebuf_[i] != getDelimiter_()){
 			++i;
 		}
-		_receivebuf = _receivebuf.substr(i);
+		receivebuf_ = receivebuf_.substr(i);
 	}
 	size_t i = 1;
 	size_t data_length = 0;
 	size_t base = 1;
 	while(true){
-		if(i >= _receivebuf.length()){
+		if(i >= receivebuf_.length()){
 			return -1;
 		}
-		if(_receivebuf[i] == _getDelimiter()){
+		if(receivebuf_[i] == getDelimiter_()){
 			break;
 		}
-		data_length += _receivebuf[i] * base;
-		base *= _getBase();
+		assert(receivebuf_[i] < getBase_());
+		data_length += receivebuf_[i] * base;
+		base *= getBase_();
 		++i;
 	}
 	
 	size_t header_length = i + 1;
-	if(_receivebuf.length() < header_length + data_length){
+	if(receivebuf_.length() < header_length + data_length){
 		return -1;
 	}
-	ret = _receivebuf.substr(header_length, data_length);
-	_receivebuf = _receivebuf.substr(header_length + data_length);
+	ret = receivebuf_.substr(header_length, data_length);
+	receivebuf_ = receivebuf_.substr(header_length + data_length);
 	return data_length;
 }

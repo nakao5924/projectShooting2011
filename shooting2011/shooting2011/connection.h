@@ -1,18 +1,18 @@
 #ifndef __CONNECTION_H__
 #define __CONNECTION_H__
 
-class Connection{
+class Connection : private NonCopyable{
 private:
-	static char _getDelimiter();
-	static int _getBase();
+	static char getDelimiter_();
+	static int getBase_();
 
-	int _netHandle;
+	int netHandle_;
 
-	char *_buf;
-	int _bufsize;
-	string _receivebuf;
+	char *buf_;
+	int bufsize_;
+	string receivebuf_;
 
-	void _expandbuf(int newSize);
+	void expandbuf_(int newSize);
 public:
 	Connection();
 	Connection(int netHandle);
