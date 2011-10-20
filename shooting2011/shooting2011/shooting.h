@@ -32,7 +32,7 @@ class Shooting : private NonCopyable{
 
 public:
   Shooting();
-  Shooting(int HeroNum){}
+  Shooting(int HeroNum);
   ~Shooting();
   void action();
 	void setInput(const vector<string> &messages);

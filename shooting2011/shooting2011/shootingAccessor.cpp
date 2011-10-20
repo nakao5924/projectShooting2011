@@ -2,32 +2,33 @@
 #include "shootingAccessor.h"
 #include "firePattern.h"
 
-Shooting *ShootingAccessor::_shooting;
+Shooting *ShootingAccessor::shooting_;
 
 void ShootingAccessor::setShooting(Shooting *shooting){
-  _shooting = shooting;
+  shooting_ = shooting;
 }
 
 void ShootingAccessor::addHeroBullet(HeroBullet *heroBullet){
-  _shooting->heroBullets.push_back(heroBullet);
+  shooting_->heroBullets.push_back(heroBullet);
 }
 
 
 void ShootingAccessor::addEnemyBullet(EnemyBullet *enemyBullet){
-  _shooting->enemyBullets.push_back(enemyBullet);
+  shooting_->enemyBullets.push_back(enemyBullet);
 }
 
 void ShootingAccessor::addEnemy(Enemy *enemy){
-  _shooting->enemys.push_back(enemy);
+  shooting_->enemys.push_back(enemy);
 }
 
 void ShootingAccessor::addHero(Hero *hero){
-  _shooting->heros.push_back(hero);
-  _shooting->inputs.push_back(new Input());
-  _shooting->systemData.addHero();
+  shooting_->heros.push_back(hero);
+  shooting_->inputs.push_back(new Input());
+  shooting_->systemData.addHero();
+	assert(shooting_->heros.size() == shooting_->inputs.size());
 }
 
 Input ShootingAccessor::getInput(int heroIndex)
 {
-	return *(_shooting->inputs[heroIndex]);
+	return *(shooting_->inputs[heroIndex]);
 }

@@ -5,10 +5,19 @@
 #include "tag.h"
 #include "msgdump.h"
 Shooting::Shooting(){
+	gameClock = 0;
+	ShootingAccessor::setShooting(this);
+	ShootingAccessor::addHero(new Hero(0, 2));
+	curStageNum = 0;
+	stage = NULL;
+}
+Shooting::Shooting(int heroNum){
   gameClock = 0;
   //fpsTimer = GetNowCount();
   ShootingAccessor::setShooting(this);
-  ShootingAccessor::addHero(new Hero(0,2));
+	for(int i = 0; i < heroNum; ++i){
+	  ShootingAccessor::addHero(new Hero(i, (i + 2) % 4));
+	}
   //ShootingAccessor::addHero(new Hero(1,1));
   //ShootingAccessor::addHero(new Hero(2,2));
   //ShootingAccessor::addHero(new Hero(3,3));
@@ -53,15 +62,17 @@ bool Shooting::isBeginStage(){
 }
 
 void Shooting::action(){
+	
 	if(isBeginStage()){
 		delete stage;
 		stage = new Stage(++curStageNum);
 	}
   popUp();
+	
   gameClock++;
 
   //begin getKeyInput test////////li
-  inputs[0]->getKeyInput();
+  //inputs[0]->getKeyInput();
   //end getKeyInput test////////
 
   // action
@@ -227,16 +238,12 @@ void Shooting::draw(){
   dxout << "hbSize_=_" << heroBullets.size() << dxendl;
   dxout << "ebSize_=_"<< enemyBullets.size() << dxendl;
 
+	dxout << "heros[0].x_=_"<< heros[0]->getHitRect().x << dxendl;
+	dxout << "heros[0].y_=_"<< heros[0]->getHitRect().y << dxendl;
+	dxout << "inputs[0]_=_" << inputs[0]->up() << inputs[0]->down() << inputs[0]->right() << inputs[0]->left() << inputs[0]->buttonA() << inputs[0]->buttonB() << inputs[0]->buttonC() << dxendl;
+
   // 裏画面の内容を表画面にコピーする
 	//res.draw();
-}
-
-// 古い仕様、soloplay_modeで使用されている。今度消す。
-void Shooting::setInput(const vector<string> &messages){
-	assert(messages.size() == inputs.size());
-	for(size_t i = 0; i < messages.size(); ++i){
-		inputs[i]->decode(messages[i]);
-	}
 }
 
 void Shooting::setInput(int clientId, string message){

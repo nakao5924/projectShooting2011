@@ -10,7 +10,7 @@
 
 class ShootingAccessor : private NonConstructable{
 private:
-  static Shooting *_shooting;
+  static Shooting *shooting_;
 public:
   static void setShooting(Shooting *);
   static void addHeroBullet(HeroBullet *);

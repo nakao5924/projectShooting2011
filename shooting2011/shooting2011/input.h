@@ -4,6 +4,10 @@
 
 class Input {
 	//int data_;
+	static const int WATCH_KEYS_NUM = 7;
+	static const int WATCH_KEYS[WATCH_KEYS_NUM];
+	string data_;
+	/*
 	bool isUp;
 	bool isDown;
 	bool isLeft;
@@ -11,21 +15,22 @@ class Input {
 	bool isButtonA;
 	bool isButtonB;
 	bool isButtonC;
+	*/
+	bool getKeyStatus_(int keyId)const;
 public:
 	Input();
 	~Input();
 	void getKeyInput();
-	bool up();
-	bool down();
-	bool left();
-	bool right();
-	bool buttonA();
-	bool buttonB();
-	bool buttonC();
+	bool up()const;
+	bool down()const;
+	bool left()const;
+	bool right()const;
+	bool buttonA()const;
+	bool buttonB()const;
+	bool buttonC()const;
 
-	string encode();
-	void decode(const string &str);
-  // 古い仕様。今度消す。
+	string encode()const;
+	void decode(const string &message);
   static string getEmptyMessage();
   void clear();
 };
