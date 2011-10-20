@@ -1,9 +1,7 @@
 #include "main.h"
 #include "something.h"
 
-NonCopyable::NonCopyable(){
-  ;
-};
+NonCopyable::NonCopyable(){};
 
 bool isInStage( double x, double y){
   return 0 <= x && x <= STAGE_WIDTH && 0 <= y && y <= STAGE_HEIGHT;

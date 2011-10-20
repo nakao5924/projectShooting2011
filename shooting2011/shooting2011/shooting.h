@@ -9,7 +9,7 @@
 #include "input.h"
 #include "stage.h"
 
-class Shooting{
+class Shooting : private NonCopyable{
   friend class ShootingAccessor;
   int gameClock;
   //int fpsTimer;
@@ -20,6 +20,8 @@ class Shooting{
   deque<EnemyBullet *> enemyBullets;
   deque<Input *> inputs;
   SystemData systemData;
+  void eraseMovingObject();
+  void hitMovingObject();
 
   //void calibrateFps();
   void draw();
