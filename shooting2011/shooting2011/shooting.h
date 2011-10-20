@@ -33,6 +33,8 @@ public:
   ~Shooting();
   void action();
 	void setInput(const vector<string> &messages);
+  void setInput(int clientId, string message);
+  void clearInput(int clientId);
   //string encode();
   //Shooting* decode(string);
 };

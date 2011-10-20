@@ -55,3 +55,13 @@ void Input::decode(const string &str){
 	}
 }
 
+// 古い仕様。soloplay_modeで利用される。今度消す。
+string Input::getEmptyMessage(){
+  return string(7, '0');
+}
+void Input::clear(){
+	bool *members[] = {&isUp, &isDown, &isLeft, &isRight, &isButtonA, &isButtonB, &isButtonC};
+	for(int i = 0; i < getArraySize(members); ++i){
+		*members[i] = false;
+	}
+}

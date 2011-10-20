@@ -3,7 +3,7 @@
 #define __INPUT_H__
 
 class Input {
-	int hoge;
+	//int data_;
 	bool isUp;
 	bool isDown;
 	bool isLeft;
@@ -11,7 +11,6 @@ class Input {
 	bool isButtonA;
 	bool isButtonB;
 	bool isButtonC;
-
 public:
 	Input();
 	~Input();
@@ -26,6 +25,9 @@ public:
 
 	string encode();
 	void decode(const string &str);
+  // 古い仕様。今度消す。
+  static string getEmptyMessage();
+  void clear();
 };
 
 #endif

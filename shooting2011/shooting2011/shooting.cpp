@@ -221,11 +221,20 @@ void Shooting::draw(){
 	//res.draw();
 }
 
+// 古い仕様、soloplay_modeで使用されている。今度消す。
 void Shooting::setInput(const vector<string> &messages){
 	assert(messages.size() == inputs.size());
 	for(size_t i = 0; i < messages.size(); ++i){
 		inputs[i]->decode(messages[i]);
 	}
+}
+
+void Shooting::setInput(int clientId, string message){
+  inputs[clientId]->decode(message);
+}
+
+void Shooting::clearInput(int clientId){
+  inputs[clientId]->clear();
 }
 
 /*
