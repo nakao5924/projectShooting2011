@@ -6,28 +6,38 @@
 #include "firePattern.h"
 #include "shootingAccessor.h"
 FirePatternHero::FirePatternHero(int _interval,int _heroId,int _shotType){
-  interval = 8;
-  heroId = _heroId;
-  shotType = _shotType;
-  curFrame = 0;
-  keyPushFlag = false;
+	interval = 8;
+	heroId = _heroId;
+	shotType = _shotType;
+	fireWait = 0;
+	keyPushFlag = false;
 }
 
 bool FirePatternHero::isFire() {
-  bool keyFlag = ( ShootingAccessor::getInput(heroId).buttonA() );
-  if(keyFlag){
-    if(!keyPushFlag){
-      keyPushFlag = true;
-      curFrame++;
-      return true;
-    }
-    else{
-      curFrame=(curFrame+1)%interval;
-      return !curFrame;
-    }
-  }
-  curFrame = 0;
-  return keyPushFlag=false;
+	bool keyFlag = ( ShootingAccessor::getInput(heroId).buttonA() );
+	if(--fireWait < 0){
+		fireWait = 0;
+	}
+	if(keyFlag && fireWait == 0){
+		fireWait = interval;
+		return true;
+	}
+	return false;
+	/*
+	if(keyFlag){
+		if(!keyPushFlag){
+			keyPushFlag = true;
+			curFrame++;
+			return true;
+		}
+		else{
+			curFrame=(curFrame+1)%interval;
+			return !curFrame;
+		}
+	}
+	curFrame = 0;
+	return keyPushFlag=false;
+	*/
 }
 
 void FirePatternHero::action(MovingObject *owner){

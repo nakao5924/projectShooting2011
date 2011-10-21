@@ -5,7 +5,8 @@
 #include "server.h"
 #include "client.h"
 #include "msgdump.h"
-#define SOLOPLAY_MODE
+//#define SOLOPLAY_MODE
+#define NETWORK_SOLOPLAY_MODE
 //#define SERVER_MODE
 //#define CLIENT_MODE
 
@@ -21,12 +22,13 @@ const IPDATA SERVER_IP = {127, 0, 0, 1};
 const int CLIENT_NUM = 1;
 
 void soloplay_main();
+void network_soloplay_main();
 void server_main();
 void client_main();
 
 // WinMain関数
 int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
-           LPSTR lpCmdLine, int nCmdShow )
+					 LPSTR lpCmdLine, int nCmdShow )
 {
   // 画面モードの設定
   ChangeWindowMode(true);
@@ -39,25 +41,28 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
   SetDrawScreen( DX_SCREEN_BACK );
 
 #ifdef SOLOPLAY_MODE
-  soloplay_main();
+	soloplay_main();
 #endif // SOLOPLAY_MODE
+#ifdef NETWORK_SOLOPLAY_MODE
+	network_soloplay_main();
+#endif // NETWORK_SOLOPLAY_MODE
 #ifdef SERVER_MODE
-  server_main();
+	server_main();
 #endif // SERVER_MODE
 #ifdef CLIENT_MODE
-  client_main();
+	client_main();
 #endif // CLIENT_MODE
 
-  DxLib_End();        // ＤＸライブラリ使用の終了処理
-  return 0;          // ソフトの終了
+  DxLib_End();				// ＤＸライブラリ使用の終了処理
+  return 0;					// ソフトの終了
 }
 
 #ifdef SOLOPLAY_MODE
 void soloplay_main(){
-  //画像読み込み
+	//画像読み込み
   graresource.initialize();
-  decoder.initialize();
-  static const int BLACK = GetColor(0, 0, 0);
+	decoder.initialize();
+	static const int BLACK = GetColor(0, 0, 0);
   static const int WHITE = GetColor(255, 255, 255);
   Shooting shooting(1);
   // 移動ルーチン
@@ -79,19 +84,14 @@ void soloplay_main(){
 
 #endif // _DEBUG_
 
-    //string clientMessage = graresource.getMessages();
-    //server.send(clientMessage);
-    vector<int> mess___ = graresource.getMessages();
-//    vector<int> vec;
-    //decoder.draw( vec);
-    decoder.draw( mess___);
-    graresource.clear();
-    int term;
-    term = GetNowCount()-fpsTimer;
+		decoder.draw(graresource.getMessages());
+		graresource.clear();
+	  int term;
+	  term = GetNowCount()-fpsTimer;
 
-    if(16-term>0){
-      Sleep(16-term);
-    }
+		if(16-term>0){
+			Sleep(16-term);
+		}
 
     fpsTimer = GetNowCount();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
@@ -103,10 +103,10 @@ void soloplay_main(){
   }
 }
 #endif // SOLOPLAY_MODE
-/*
-#ifdef SOLOPLAY_MODE
-void soloplay_main(){
-  //画像読み込み
+
+#ifdef NETWORK_SOLOPLAY_MODE
+void network_soloplay_main(){
+	//画像読み込み
   graresource.initialize();
   decoder.initialize();
   static const int BLACK = GetColor(0, 0, 0);
@@ -160,31 +160,31 @@ void soloplay_main(){
 
 #endif // _DEBUG_
 
-    //string clientMessage = graresource.getMessages();
-    //server.send(clientMessage);
-    string clientMessage = graresource.getMessages();
-    server.send(clientMessage);
+		//string clientMessage = graresource.getMessages();
+		//server.send(clientMessage);
+		vector<int> clientMessage = graresource.getMessages();
+		server.send(clientMessage);
 
-    graresource.clear();
-    int term;
-    term = GetNowCount()-fpsTimer;
+		graresource.clear();
+	  int term;
+	  term = GetNowCount()-fpsTimer;
 
-    if(16 - term > 0){
-      string clientMessage;
-      if(client.receive(clientMessage) >= 0){
-        while(client.receive(clientMessage) >= 0);
-        decoder.draw(clientMessage);
-      }
+		if(16 - term > 0){
+			vector<int> clientMessage;
+			if(client.receive(clientMessage) >= 0){
+				while(client.receive(clientMessage) >= 0);
+				decoder.draw(clientMessage);
+			}
 
-      term = GetNowCount()-fpsTimer;
+			term = GetNowCount()-fpsTimer;
 
 
-      if(16-term>0){
-        Sleep(16-term);
-      }
-    }
+			if(16-term>0){
+				Sleep(16-term);
+			}
+		}
 
-    fpsTimer = GetNowCount();
+	  fpsTimer = GetNowCount();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;
@@ -193,8 +193,7 @@ void soloplay_main(){
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
   }
 }
-#endif // SOLOPLAY_MODE
-*/
+#endif // NETWORK_SOLOPLAY_MODE
 
 #ifdef SERVER_MODE
 void server_main(){
@@ -225,13 +224,13 @@ void server_main(){
   // 移動ルーチン
   int fpsTimer = GetNowCount();
   while( 1 ){
-    string serverMessage;
-    /* // todo treat dead client
-    while(true){
-      int lostNetWork = GetLostNetWork();
-    }
-    */
-    for(int i = 0; i < server.size(); ++i){
+		string serverMessage;
+    // todo treat dead client
+    //while(true){
+    //  int lostNetWork = GetLostNetWork();
+    //}
+    
+		for(int i = 0; i < server.size(); ++i){
       if(server.receive(i, serverMessage) >= 0){
         while(server.receive(i, serverMessage) >= 0);
         // receive succssessed
@@ -246,7 +245,7 @@ void server_main(){
     // debug messages
     dxout << serverMessage << dxendl;
 
-    string clientMessage = graresource.getMessages();
+		vector<int> clientMessage = graresource.getMessages();
 
     DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
     DrawFormatString(60, 60, WHITE, "access: %d", server.size());
@@ -283,19 +282,19 @@ void client_main(){
   int fpsTimer = GetNowCount();
   Input input;
   while( 1 ){
-    input.getKeyInput();
-    client.send(input.encode());
-    string clientMessage;
-    if(client.receive(clientMessage) >= 0){
-      while(client.receive(clientMessage) >= 0);
-      decoder.draw(clientMessage);
-    }
-    int term;
-    term = GetNowCount()-fpsTimer;
-    if(8-term>0){
-      Sleep(8-term);
-    }
-    fpsTimer = GetNowCount();
+		input.getKeyInput();
+		client.send(input.encode());
+		vector<int> clientMessage;
+		if(client.receive(clientMessage) >= 0){
+			while(client.receive(clientMessage) >= 0);
+			decoder.draw(clientMessage);
+		}
+	  int term;
+	  term = GetNowCount()-fpsTimer;
+	  if(8-term>0){
+			Sleep(8-term);
+		}
+	  fpsTimer = GetNowCount();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;

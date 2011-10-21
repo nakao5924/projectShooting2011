@@ -33,11 +33,11 @@ public:
   void action(MovingObject *owner);
   ~FirePatternHero();
 
-  int shotType;
-  int interval;
-  int curFrame;
-  int heroId;
-  bool keyPushFlag;
+	int shotType;
+	int interval;
+	int fireWait;
+	int heroId;
+	bool keyPushFlag;
 };
 
 class FirePatternNone : public FirePattern{

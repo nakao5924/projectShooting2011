@@ -39,7 +39,24 @@ int ServerConnection::receive(int connection_id, string &ret){
   return clients_.at(connection_id)->receive(ret);
 }
 int ServerConnection::size()const{
-  return static_cast<int>(clients_.size());
+	return static_cast<int>(clients_.size());
+}
+
+int ServerConnection::send(vector<int> &message){
+	int result = 0;
+	for(int i = 0; i < size(); ++i){
+		int tmp = send(i, message);
+		if(tmp < 0){
+			result = tmp;
+		}
+	}
+	return result;
+}
+int ServerConnection::send(int connection_id, vector<int> &message){
+	return clients_.at(connection_id)->send(message);
+}
+int ServerConnection::receive(int connection_id, vector<int> &ret){
+	return clients_.at(connection_id)->receive(ret);
 }
 
 ServerConnection *ScreateServerConnection(int port, int clientNum){

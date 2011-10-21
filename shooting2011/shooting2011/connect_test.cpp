@@ -24,7 +24,28 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	string buf;
 
-	IPDATA ip = {192, 168, 0, 100};
+	IPDATA ip = {127, 0, 0, 1};
+	/ *
+	Connection c1(0), c2(0);
+
+	c1.send("c1: hello, c2.");
+	c2.receive(buf);
+
+	c2.send("c2: hello, c1!!");
+	c1.receive(buf);
+
+	c1.send("c1: test message1");
+	c1.send("c1: test message2");
+	c2.send("c2: test message1");
+	c2.send("c2: test message2");
+
+	c1.receive(buf);
+	c1.receive(buf);
+
+	c2.receive(buf);
+	c2.receive(buf);
+	* /
+	
 	ServerConnection server(12345);
 	ClientConnection client(12345, ip);
 
@@ -37,6 +58,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	server.endListen();
 	assert(server.size() == 1);
+
 
 	dxout << server.send(0, "server: hello, client!!") << dxendl;
 
@@ -67,7 +89,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	dxout << buf << dxendl;
 	dxout << server.receive(0, buf) << dxendl;
 	dxout << buf << dxendl;
-
+	
 	ScreenFlip();
 	WaitKey();
 
