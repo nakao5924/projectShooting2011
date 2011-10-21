@@ -78,9 +78,12 @@ Connection::Connection(int netHandle):netHandle_(netHandle){}
 void Connection::setNetHandle(int netHandle){
 	netHandle_ = netHandle;
 }
+int Connection::getNetHandle()const{
+	return netHandle_;
+}
 
 int Connection::send(int length, void *data){
-	if(netHandle_ == -1)return -1;
+	if(netHandle_ == -1)return -2;
 	int header_length = sendHeader_(length);
 	if(header_length < 0){
 		return header_length;

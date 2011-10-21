@@ -16,6 +16,7 @@ private:
 public:
 	Connection();
 	Connection(int netHandle);
+	int getNetHandle()const;
 	void setNetHandle(int netHandle);
 
 	// return value is:

@@ -1,3 +1,4 @@
+
 #include "main.h"
 #include "shooting.h"
 #include "graphicResource.h"
@@ -6,9 +7,9 @@
 #include "client.h"
 #include "msgdump.h"
 //#define SOLOPLAY_MODE
-#define NETWORK_SOLOPLAY_MODE
+//#define NETWORK_SOLOPLAY_MODE
 //#define SERVER_MODE
-//#define CLIENT_MODE
+#define CLIENT_MODE
 
 const int PORT = 12345;
 #ifdef CLIENT_MODE
@@ -100,14 +101,14 @@ void soloplay_main(){
       //}
       shooting->setInput(0, input.encode());
       shooting->action();
-      /*
-      if (SHOOTING) shooting.action();
-      else if (TITLE) {
-        drawTitle;
-      } else if (){
+      
+      //if (SHOOTING) shooting.action();
+      //else if (TITLE) {
+      //  drawTitle;
+      //} else if (){
 
-      }
-      */
+      //}
+      
 
 #ifdef _DEBUG_
 
@@ -204,7 +205,9 @@ void network_soloplay_main(){
   ServerConnection server(PORT);
   ClientConnection client(PORT, SERVER_IP);
   server.startListen();
-  client.connect();
+	if(!client.connect()){
+		exit(1);
+	}
   while(server.size() < CLIENT_NUM){
     DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
     DrawFormatString(60, 60, WHITE, "access: %d", server.size());
@@ -366,7 +369,9 @@ void client_main(){
   decoder.initialize();
 
   ClientConnection client(PORT, SERVER_IP);
-  client.connect();
+	if(!client.connect()){
+		exit(1);
+	}
 
   // ˆÚ“®ƒ‹[ƒ`ƒ“
   int fpsTimer = GetNowCount();
