@@ -55,70 +55,72 @@ char Connection::getDelimiter_(){
 	return ret;
 }
 
-void Connection::expandbuf_(int newSize){
-	if(newSize <= bufsize_) return;
-	newSize = max(bufsize_ * 2, newSize);
-	bufsize_ = newSize;
-	delete[] buf_;
-	buf_ = new char[bufsize_];
+int Connection::sendHeader_(int length){
+	sendbuf_.resize(0);
+	sendbuf_.push_back(getDelimiter_());
+	while(length > 0){
+		sendbuf_.push_back(static_cast<char>(length % getBase_()));
+		length /= getBase_();
+	}
+	sendbuf_.push_back(getDelimiter_());
+	assert(sendbuf_.size() <= INT_MAX);
+	int header_length = static_cast<int>(sendbuf_.size());
+	if(NetWorkSend(netHandle_, static_cast<void *>(&sendbuf_[0]), header_length) == -1){
+		return -1;
+	}
+	sendbuf_.resize(0);
+	return header_length;
 }
-Connection::Connection():netHandle_(-1), buf_(NULL), bufsize_(0){}
-Connection::Connection(int netHandle):netHandle_(netHandle), buf_(NULL), bufsize_(0){}
-Connection::~Connection(){
-	delete[] buf_;
-}
+
+Connection::Connection():netHandle_(-1){}
+Connection::Connection(int netHandle):netHandle_(netHandle){}
+
 void Connection::setNetHandle(int netHandle){
 	netHandle_ = netHandle;
 }
 
-int Connection::send(const string &str){
+int Connection::send(int length, void *data){
 	if(netHandle_ == -1)return -1;
-	assert(str.length() <= INT_MAX);
-	int length = static_cast<int>(str.length());
-	expandbuf_(length + 2);
-	int pos = 0;
-	buf_[pos++] = getDelimiter_();
-	while(length > 0){
-		buf_[pos++] = static_cast<char>(length % getBase_());
-		length /= getBase_();
+	int header_length = sendHeader_(length);
+	if(header_length < 0){
+		return header_length;
 	}
-	buf_[pos++] = getDelimiter_();
-	int header_length = pos;
-	if(NetWorkSend(netHandle_, static_cast<void *>(buf_), header_length) == -1){
+	if(NetWorkSend(netHandle_, data, length) == -1){
 		return -1;
 	}
-	sprintf(buf_, "%s", str.c_str());
-	if(NetWorkSend(netHandle_, static_cast<void *>(buf_), static_cast<int>(str.length())) == -1){
-		return -1;
-	}
-	return header_length + static_cast<int>(str.length());
+	return header_length + length;
 }
 
-int Connection::receive(string &ret){
+int Connection::receive(void *&ret){
 	if(netHandle_ == -1){
 		return -2;
 	}
 	int length = GetNetWorkDataLength(netHandle_);
-	expandbuf_(length);
-	if(NetWorkRecv(netHandle_, static_cast<void *>(buf_), length) == -1){
+	if(length < 0){
 		return -2;
+	}else if(length > 0){
+		assert(receivebuf_.size() <= INT_MAX);
+		int used_length = static_cast<int>(receivebuf_.size());
+		receivebuf_.resize(used_length + length);
+		if(NetWorkRecv(netHandle_, static_cast<void *>(&receivebuf_[used_length]), length) == -1){
+			return -2;
+		}
 	}
-	receivebuf_ += string(buf_, length);
 	if(receivebuf_.empty()){
 		return -1;
 	}
 	if(receivebuf_[0] != getDelimiter_()){
 		size_t i = 1;
-		while(i < receivebuf_.length() && receivebuf_[i] != getDelimiter_()){
+		while(i < receivebuf_.size() && receivebuf_[i] != getDelimiter_()){
 			++i;
 		}
-		receivebuf_ = receivebuf_.substr(i);
+		receivebuf_.erase(receivebuf_.begin(), receivebuf_.begin() + i);
 	}
 	size_t i = 1;
 	size_t data_length = 0;
 	size_t base = 1;
 	while(true){
-		if(i >= receivebuf_.length()){
+		if(i >= receivebuf_.size()){
 			return -1;
 		}
 		if(receivebuf_[i] == getDelimiter_()){
@@ -131,10 +133,43 @@ int Connection::receive(string &ret){
 	}
 	
 	size_t header_length = i + 1;
-	if(receivebuf_.length() < header_length + data_length){
+	if(receivebuf_.size() < header_length + data_length){
 		return -1;
 	}
-	ret = receivebuf_.substr(header_length, data_length);
-	receivebuf_ = receivebuf_.substr(header_length + data_length);
+	receive_returnbuf_.assign(receivebuf_.begin() + header_length, receivebuf_.begin() + header_length + data_length);
+	receivebuf_.erase(receivebuf_.begin(), receivebuf_.begin() + header_length + data_length);
+	ret = static_cast<void *>(&receive_returnbuf_[0]);
 	return data_length;
+}
+
+int Connection::send(const string &message){
+	assert(message.length() <= INT_MAX);
+	vector<char> buf(message.begin(), message.end());
+	return send(static_cast<int>(message.length()), static_cast<void *>(&buf[0]));
+}
+
+int Connection::receive(string &ret){
+	void *buf = NULL;
+	int tmp = receive(buf);
+	if(tmp < 0){
+		return tmp;
+	}
+	ret = string(static_cast<const char *>(buf), tmp);
+	return tmp;
+}
+
+int Connection::send(vector<int> &message){
+	assert(message.size() <= INT_MAX / sizeof(int));
+	return send(static_cast<int>(message.size() * sizeof(int)), static_cast<void *>(&message[0]));
+}
+
+int Connection::receive(vector<int> &ret){
+	void *buf = NULL;
+	int tmp = receive(buf);
+	if(tmp < 0){
+		return tmp;
+	}
+	assert(tmp % sizeof(int) == 0);
+	ret.assign(static_cast<int *>(buf), static_cast<int *>(buf) + tmp / sizeof(int));
+	return tmp;
 }

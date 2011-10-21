@@ -14,20 +14,20 @@ DxLibEndLine dxendl;
 DxLibClear dxclr;
 
 void msgDumpReset(){
-	static int BLACK = GetColor(0, 0, 0);
-	_dumpCoordinateY = 20;
-	graresource.drawbox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
+  static int BLACK = GetColor(0, 0, 0);
+  _dumpCoordinateY = 20;
+  graresource.drawbox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
 }
 
 DxLibOut &operator <<(DxLibOut &dlo, const DxLibEndLine &){
-	_dumpCoordinateX = _dumpDefaultCoordinateX;
-	_dumpCoordinateY += _dumpLineHeight;
-	return dlo;
+  _dumpCoordinateX = _dumpDefaultCoordinateX;
+  _dumpCoordinateY += _dumpLineHeight;
+  return dlo;
 }
 DxLibOut &operator <<(DxLibOut &dlo, const DxLibClear &){
-	static int BLACK = GetColor(0, 0, 0);
-	//DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
-	_dumpCoordinateX = _dumpDefaultCoordinateX;
-	_dumpCoordinateY = _dumpDefaultCoordinateY;
-	return dlo;
+  static int BLACK = GetColor(0, 0, 0);
+  //DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
+  _dumpCoordinateX = _dumpDefaultCoordinateX;
+  _dumpCoordinateY = _dumpDefaultCoordinateY;
+  return dlo;
 }

@@ -7,8 +7,8 @@ class Enemy : public MovingObject{
 private:
 
 public:
-	Enemy(){}
-	int hp;
+  Enemy(){}
+  int hp;
   int getHp();
   //void addHp( int d);
   Enemy( const EnemyData&);

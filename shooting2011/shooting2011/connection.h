@@ -3,32 +3,37 @@
 
 class Connection : private NonCopyable{
 private:
-	static char getDelimiter_();
-	static int getBase_();
+  static char getDelimiter_();
+  static int getBase_();
 
-	int netHandle_;
+  int netHandle_;
 
-	char *buf_;
-	int bufsize_;
-	string receivebuf_;
+	vector<char> sendbuf_;
+	vector<char> receivebuf_;
+	vector<char> receive_returnbuf_;
 
-	void expandbuf_(int newSize);
+	int sendHeader_(int length);
 public:
 	Connection();
 	Connection(int netHandle);
 	void setNetHandle(int netHandle);
-	~Connection();
 
 	// return value is:
 	//   error is occured in DxLib	: -1
 	//   else												: send data length
-	int send(const string &str);
+	int send(int length, void *data);
 
 	// return value is:
 	//   fail to receive perfect data	: -1
 	//   error is occured in DxLib		: -2
 	//   else													: data length
+	int receive(void *&ret);
+
+	int send(const string &message);
 	int receive(string &ret);
+
+	int send(vector<int> &message);
+	int receive(vector<int> &ret);
 };
 
 #endif // __CONNECTION_H__

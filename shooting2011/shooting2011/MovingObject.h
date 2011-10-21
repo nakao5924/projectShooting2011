@@ -32,7 +32,7 @@ public:
   void action();
   void draw();
   void setPosition(double, double);
-	Status getStatus();
+  Status getStatus();
   /*
   int getStatus() const;
   void setStatus( int status);

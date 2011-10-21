@@ -42,6 +42,6 @@ void Enemy::statusShift(){
 }
 /*
 void Enemy::vanishAction(){
-	firePattern->vanishAction(this);
+  firePattern->vanishAction(this);
 }
 //*/

@@ -8,36 +8,36 @@ class MovingObject;
 
 class MovePattern{
 public:
-	virtual void action(MovingObject *) {};
-	virtual ~MovePattern() {};
-	//virtual void vanishAction(MovingObject *)=0;
-	int frame;
+  virtual void action(MovingObject *) {};
+  virtual ~MovePattern() {};
+  //virtual void vanishAction(MovingObject *)=0;
+  int frame;
 };
 
 class MovePatternUniformlyAcceleratedLinearMotion : public MovePattern{
 public:
-	double vx,vy,v,theta,ax,ay;
-	MovePatternUniformlyAcceleratedLinearMotion(double vx,double vy,double a = 0);
-	void action(MovingObject *);
+  double vx,vy,v,theta,ax,ay;
+  MovePatternUniformlyAcceleratedLinearMotion(double vx,double vy,double a = 0);
+  void action(MovingObject *);
 };
 
 typedef MovePatternUniformlyAcceleratedLinearMotion MovePatternStraight;  //nakao
 
 class MovePatternLissajous : public MovePattern{
 public:
-	double ampx,freqx,deltax;
-	double ampy,freqy,deltay;
-	//中心の位置
-	double posx,posy;
-	MovePatternLissajous(double,double,double,double,double,double,double,double);
-	void action(MovingObject *);
+  double ampx,freqx,deltax;
+  double ampy,freqy,deltay;
+  //中心の位置
+  double posx,posy;
+  MovePatternLissajous(double,double,double,double,double,double,double,double);
+  void action(MovingObject *);
 };
 
 class MovePatternHero : public MovePattern{
 public:
-	int heroId;
+  int heroId;
 
-	MovePatternHero(int _heroId);
-	void action(MovingObject *);
+  MovePatternHero(int _heroId);
+  void action(MovingObject *);
 };
 #endif

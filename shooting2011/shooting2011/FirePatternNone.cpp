@@ -9,9 +9,9 @@ FirePatternNone::FirePatternNone(){
 }
 
 bool FirePatternNone::isFire( ){
-	return false;
+  return false;
 }
-void FirePatternNone::action(MovingObject *owner){	
+void FirePatternNone::action(MovingObject *owner){  
 }
 //void FirePatternNone::vanishAction(MovingObject *owner){}
 FirePatternNone::~FirePatternNone(){

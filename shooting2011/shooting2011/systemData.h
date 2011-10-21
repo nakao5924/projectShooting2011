@@ -23,20 +23,20 @@ const textPosition textPositions[] = {
 
 
 class SystemData {
-	deque<int> lifes;
-	deque<int> scores;
+  deque<int> lifes;
+  deque<int> scores;
 
 public:
-	int COLOR_BLACK;
-	int COLOR_GREY;
-	int COLOR_WHITE;
+  int COLOR_BLACK;
+  int COLOR_GREY;
+  int COLOR_WHITE;
 
-	SystemData();
-	void addHero();
-	void addScore(int heroId, int dScore);
-	void addLife(int heroId, int dLife);
+  SystemData();
+  void addHero();
+  void addScore(int heroId, int dScore);
+  void addLife(int heroId, int dLife);
   int getLife(int heroId);
-	void draw();
+  void draw();
 };
 
 #endif

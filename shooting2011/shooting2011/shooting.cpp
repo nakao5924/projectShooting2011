@@ -6,26 +6,26 @@
 #include "msgdump.h"
 
 Shooting::Shooting(){
-	gameClock = 0;
-	ShootingAccessor::setShooting(this);
-	ShootingAccessor::addHero(new Hero(0, 2));
-	curStageNum = 0;
-	stage = NULL;
+  gameClock = 0;
+  ShootingAccessor::setShooting(this);
+  ShootingAccessor::addHero(new Hero(0, 2));
+  curStageNum = 0;
+  stage = NULL;
   gameStatus = NOMAL;
 }
 Shooting::Shooting(int heroNum){
   gameClock = 0;
   //fpsTimer = GetNowCount();
   ShootingAccessor::setShooting(this);
-	for(int i = 0; i < heroNum; ++i){
-	  ShootingAccessor::addHero(new Hero(i, (i + 2) % 4));
+  for(int i = 0; i < heroNum; ++i){
+    ShootingAccessor::addHero(new Hero(i, (i + 2) % 4));
     systemData.addLife( i, 3);
-	}
+  }
   //ShootingAccessor::addHero(new Hero(1,1));
   //ShootingAccessor::addHero(new Hero(2,2));
   //ShootingAccessor::addHero(new Hero(3,3));
-	curStageNum = 0;
-	stage = NULL;
+  curStageNum = 0;
+  stage = NULL;
   gameStatus = NOMAL;
 }
 
@@ -58,25 +58,25 @@ void Shooting::popUp(){
       ShootingAccessor::addEnemy( new Enemy( *enemyDatas[i]));
     }
   }*/
-	stage->popUp();
+  stage->popUp();
 }
 
 bool Shooting::isBeginStage(){
-	return curStageNum == 0 || !stage->isValid();
+  return curStageNum == 0 || !stage->isValid();
 }
 
 void Shooting::nomalAction(){	
-	if(isBeginStage()){
-		delete stage;
-		stage = new Stage(++curStageNum);
-	}
+  if(isBeginStage()){
+    delete stage;
+    stage = new Stage(++curStageNum);
+  }
   popUp();
-	
+  
   gameClock++;
 
 
   // action
-	{
+  {
     for (int i=0; i<(int)heros.size(); i++) heros[i]->action();
     for (int i=0; i<(int)enemys.size(); i++) enemys[i]->action();
     for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i]->action();
@@ -272,7 +272,7 @@ void Shooting::draw(){
   for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i]->draw();
   for (int i=0; i<(int)heros.size(); i++) heros[i]->draw();
   for (int i=0; i<(int)enemys.size(); i++) enemys[i]->draw();
-	for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->draw();
+  for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->draw();
   systemData.draw();
 
 #ifdef _DEBUG_
@@ -295,9 +295,9 @@ void Shooting::draw(){
   dxout << "hbSize_=_" << heroBullets.size() << dxendl;
   dxout << "ebSize_=_"<< enemyBullets.size() << dxendl;
 
-	dxout << "heros[0].x_=_"<< heros[0]->getHitRect().x << dxendl;
-	dxout << "heros[0].y_=_"<< heros[0]->getHitRect().y << dxendl;
-	dxout << "inputs[0]_=_" << inputs[0]->up() << inputs[0]->down() << inputs[0]->right() << inputs[0]->left() << inputs[0]->buttonA() << inputs[0]->buttonB() << inputs[0]->buttonC() << dxendl;
+  dxout << "heros[0].x_=_"<< heros[0]->getHitRect().x << dxendl;
+  dxout << "heros[0].y_=_"<< heros[0]->getHitRect().y << dxendl;
+  dxout << "inputs[0]_=_" << inputs[0]->up() << inputs[0]->down() << inputs[0]->right() << inputs[0]->left() << inputs[0]->buttonA() << inputs[0]->buttonB() << inputs[0]->buttonC() << dxendl;
 #endif
 }
 
