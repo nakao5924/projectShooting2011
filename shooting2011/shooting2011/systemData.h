@@ -35,6 +35,7 @@ public:
 	void addHero();
 	void addScore(int heroId, int dScore);
 	void addLife(int heroId, int dLife);
+  int getLife(int heroId);
 	void draw();
 };
 

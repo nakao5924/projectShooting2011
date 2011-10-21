@@ -25,6 +25,9 @@ Hero::~Hero(){
   //delete movePattern;
 }
 
+int Hero::getHeroId(){
+  return heroId;
+}
 
 void Hero::absorbDamage( int damage){
   changeStatus( EXPLOSION);

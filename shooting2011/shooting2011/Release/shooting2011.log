@@ -1,0 +1,51 @@
+﻿2011/10/21 12:19:28 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
+     1>InitializeBuildStatus:
+         "AlwaysCreate" が指定されたため "Release\shooting2011.unsuccessfulbuild" を作成しています。
+       ClCompile:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Documents and Settings\Nakao\デスクトップ\work\shooting2011\dxlib" /I./dxlib /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+       Link:
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Documents and Settings\Nakao\デスクトップ\work\shooting2011\dxlib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\shooting2011.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.lib" /MACHINE:X86 Release\bomb.obj
+         Release\client.obj
+         Release\connection.obj
+         Release\decode.obj
+         Release\enemyBullet.obj
+         Release\allRangeTimeRag.obj
+         Release\FirePatternHero.obj
+         Release\FirePatternNone.obj
+         Release\graphicPattern.obj
+         Release\graphicResource.obj
+         Release\heroBullet.obj
+         Release\enemy.obj
+         Release\hero.obj
+         Release\heroMove.obj
+         Release\input.obj
+         Release\lissajous.obj
+         Release\main.obj
+         Release\movingObject.obj
+         Release\msgdump.obj
+         Release\pictureTable.obj
+         Release\reader.obj
+         Release\rect.obj
+         Release\server.obj
+         Release\shooting.obj
+         Release\shootingAccessor.obj
+         Release\something.obj
+         Release\stage.obj
+         Release\stageDate.obj
+         Release\straight.obj
+         Release\systemData.obj
+         コード生成しています。
+         コード生成が終了しました。
+         shooting2011.vcxproj -> C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.exe;#1" /manifest Release\shooting2011.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         ファイル "Release\shooting2011.unsuccessfulbuild" を削除しています。
+         "Release\shooting2011.lastbuildstate" のタッチ タスクを実行しています。
+     1>プロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:17.37

@@ -4,6 +4,7 @@
 #include "stage.h"
 #include "tag.h"
 #include "msgdump.h"
+
 Shooting::Shooting(){
 	gameClock = 0;
 	ShootingAccessor::setShooting(this);
@@ -17,6 +18,7 @@ Shooting::Shooting(int heroNum){
   ShootingAccessor::setShooting(this);
 	for(int i = 0; i < heroNum; ++i){
 	  ShootingAccessor::addHero(new Hero(i, (i + 2) % 4));
+    systemData.addLife( i, 3);
 	}
   //ShootingAccessor::addHero(new Hero(1,1));
   //ShootingAccessor::addHero(new Hero(2,2));
@@ -81,7 +83,7 @@ void Shooting::action(){
   }
 
   // hit
-  // “¯Žž‚É‚ ‚½‚Á‚½ê‡‚Ìˆ—‚Í‚Ç‚¤‚·‚éH ‚Ä‚«‚Æ‚¤
+  // “¯Žž‚É‚ ‚½‚Á‚½ê‡‚Ìˆ—‚Í‚Ç‚¤‚·‚éH
   hitMovingObject();
   
   // status shift
@@ -90,6 +92,16 @@ void Shooting::action(){
     for (int i=0; i<(int)enemys.size(); i++) enemys[i]->statusShift();
     for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i]->statusShift();
     for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->statusShift();
+  }
+
+  // hero death
+  {
+    for (int i=0; i<(int)heros.size(); i++){
+      if (heros[i]->getStatus() == REBIRTH && 
+        systemData.getLife( heros[i]->getHeroId()) <= 0){
+        heros[i]->changeStatus( INVALID);
+      }
+    }
   }
   //erase
   eraseMovingObject();
@@ -214,6 +226,7 @@ void Shooting::draw(){
 	for (int i=0; i<(int)enemyBullets.size(); i++) enemyBullets[i]->draw();
   systemData.draw();
 
+#ifdef _DEBUG_
   // FPS checker @nakao
   static int preFPS = 60;
   static int FPS = 0;
@@ -236,7 +249,7 @@ void Shooting::draw(){
 	dxout << "heros[0].x_=_"<< heros[0]->getHitRect().x << dxendl;
 	dxout << "heros[0].y_=_"<< heros[0]->getHitRect().y << dxendl;
 	dxout << "inputs[0]_=_" << inputs[0]->up() << inputs[0]->down() << inputs[0]->right() << inputs[0]->left() << inputs[0]->buttonA() << inputs[0]->buttonB() << inputs[0]->buttonC() << dxendl;
-
+#endif
 }
 
 void Shooting::setInput(int clientId, string message){

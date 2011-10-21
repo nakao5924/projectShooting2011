@@ -20,9 +20,6 @@ private:
   void fire();
   
   int attackPower;
-  /*
-  int status;
-//*/
 public:
   MovingObject();
   virtual ~MovingObject();

@@ -9,7 +9,9 @@ private:
 
 
 public:
+  // ‚¢‚Â‚©private‚ÉˆÚ‚µ‚Ü‚µ‚å‚¤@@nakao
 	int heroId;
+  int getHeroId();
 	Hero(){}
 	Hero(int _heroId, int direction);
 	~Hero();

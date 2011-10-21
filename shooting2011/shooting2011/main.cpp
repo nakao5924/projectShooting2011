@@ -5,16 +5,18 @@
 #include "server.h"
 #include "client.h"
 #include "msgdump.h"
-
 #define SOLOPLAY_MODE
-// #define SERVER_MODE
-// #define CLIENT_MODE
+//#define SERVER_MODE
+//#define CLIENT_MODE
 
 const int PORT = 12345;
+#ifdef CLIENT_MODE
 // SAKURA
-// const IPDATA SERVER_IP = {192, 168, 0, 100};
+const IPDATA SERVER_IP = {192, 168, 0, 100};
+#else
 // LOCALHOST
 const IPDATA SERVER_IP = {127, 0, 0, 1};
+#endif
 
 const int CLIENT_NUM = 1;
 
@@ -99,8 +101,12 @@ void soloplay_main(){
 	  }
     shooting.action();
 
+#ifdef _DEBUG_
+
 		// debug messages
 		dxout << serverMessage << dxendl;
+
+#endif // _DEBUG_
 
 		string clientMessage = graresource.getMessages();
 
