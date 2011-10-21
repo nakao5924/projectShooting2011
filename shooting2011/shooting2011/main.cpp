@@ -5,6 +5,7 @@
 #include "server.h"
 #include "client.h"
 #include "msgdump.h"
+#include "bufferManager.h"
 #define SOLOPLAY_MODE
 //#define SERVER_MODE
 //#define CLIENT_MODE

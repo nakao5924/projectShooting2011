@@ -1,18 +1,18 @@
 /**
  * graphicResource.h
  * @author upa
+ * @replace nakao
  */
 
 #ifndef __GRAPHICRESOURCE_H__
 #define __GRAPHICRESOURCE_H__
 
-#include <string>
-#include <map>
 #include "pictureTable.h"
 #include "main.h"
-using namespace std;
 
 class GraphicResource {
+//private:
+//  int *data;
 	stringstream ss;
 	PictureTable pt;
 public:
@@ -20,8 +20,8 @@ public:
   GraphicResource();
   void initialize();
 
-	/////////////////////////bigin/encode////////////////////////////////
 	int getID(string objectname){return pt.getID(objectname);}
+	/////////////////////////bigin/encode////////////////////////////////
 	void drawgraph(const int x,const int y,int graphic,bool transflag);
 	void drawanimation(const int x,const int y,const int framecount,const int&graphicID);
 	void drawbox(int x1, int y1, int x2, int y2,int color,bool fillflag);

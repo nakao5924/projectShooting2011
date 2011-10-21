@@ -1,4 +1,4 @@
-﻿2011/10/21 12:19:28 にビルドを開始しました。
+﻿2011/10/21 13:31:00 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
          "AlwaysCreate" が指定されたため "Release\shooting2011.unsuccessfulbuild" を作成しています。
@@ -48,4 +48,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:17.37
+経過時間 00:00:13.82

@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="background.h" />
+    <ClInclude Include="bufferManager.h" />
     <ClInclude Include="client.h" />
     <ClInclude Include="connection.h" />
     <ClInclude Include="decode.h" />
