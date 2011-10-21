@@ -21,12 +21,12 @@ enum Status{
   REBIRTH
 };
 enum TagCode{
-	DRAWGRAPH,
-	DRAWBOX,
-	DRAWLINE,
-	DRAWSTRING,
+  DRAWGRAPH,
+  DRAWBOX,
+  DRAWLINE,
+  DRAWSTRING,
   DRAWINT,
-	END
+  END
 };
 
 const int WINDOW_WIDTH = 800;

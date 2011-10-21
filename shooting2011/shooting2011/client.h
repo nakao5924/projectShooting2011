@@ -5,15 +5,15 @@
 
 class ClientConnection : private NonCopyable{
 private:
-	int port_;
-	IPDATA ip_;
-	Connection server_;
+  int port_;
+  IPDATA ip_;
+  Connection server_;
 public:
-	ClientConnection(int port, IPDATA ip);
-	void assign(int port, IPDATA ip);
-	bool connect();
-	int send(const string &message);
-	int receive(string &ret);
+  ClientConnection(int port, IPDATA ip);
+  void assign(int port, IPDATA ip);
+  bool connect();
+  int send(const string &message);
+  int receive(string &ret);
 };
 
 #endif // __CLIENT_H__

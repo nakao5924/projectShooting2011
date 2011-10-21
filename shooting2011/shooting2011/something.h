@@ -23,7 +23,7 @@ bool isHit( const Rect& r1, const Rect& r2);
 
 class NonConstructable : private NonCopyable{
 private:
-	NonConstructable();
+  NonConstructable();
 };
 
 #endif

@@ -26,7 +26,7 @@ void client_main();
 
 // WinMain関数
 int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
-					 LPSTR lpCmdLine, int nCmdShow )
+           LPSTR lpCmdLine, int nCmdShow )
 {
   // 画面モードの設定
   ChangeWindowMode(true);
@@ -39,32 +39,32 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
   SetDrawScreen( DX_SCREEN_BACK );
 
 #ifdef SOLOPLAY_MODE
-	soloplay_main();
+  soloplay_main();
 #endif // SOLOPLAY_MODE
 #ifdef SERVER_MODE
-	server_main();
+  server_main();
 #endif // SERVER_MODE
 #ifdef CLIENT_MODE
-	client_main();
+  client_main();
 #endif // CLIENT_MODE
 
-  DxLib_End();				// ＤＸライブラリ使用の終了処理
-  return 0;					// ソフトの終了
+  DxLib_End();        // ＤＸライブラリ使用の終了処理
+  return 0;          // ソフトの終了
 }
 
 #ifdef SOLOPLAY_MODE
 void soloplay_main(){
-	//画像読み込み
+  //画像読み込み
   graresource.initialize();
-	decoder.initialize();
-	static const int BLACK = GetColor(0, 0, 0);
+  decoder.initialize();
+  static const int BLACK = GetColor(0, 0, 0);
   static const int WHITE = GetColor(255, 255, 255);
   Shooting shooting(1);
   // 移動ルーチン
-	int fpsTimer = GetNowCount();
-	Input input;
+  int fpsTimer = GetNowCount();
+  Input input;
   while( 1 ){
-		input.getKeyInput();
+    input.getKeyInput();
     // todo treat dead client
     //while(true){
     //  int lostNetWork = GetLostNetWork();
@@ -74,26 +74,26 @@ void soloplay_main(){
 
 #ifdef _DEBUG_
 
-		// debug messages
-		//dxout << serverMessage << dxendl;
+    // debug messages
+    //dxout << serverMessage << dxendl;
 
 #endif // _DEBUG_
 
-		//string clientMessage = graresource.getMessages();
-		//server.send(clientMessage);
+    //string clientMessage = graresource.getMessages();
+    //server.send(clientMessage);
     vector<int> mess___ = graresource.getMessages();
 //    vector<int> vec;
     //decoder.draw( vec);
-		decoder.draw( mess___);
-		graresource.clear();
-	  int term;
-	  term = GetNowCount()-fpsTimer;
+    decoder.draw( mess___);
+    graresource.clear();
+    int term;
+    term = GetNowCount()-fpsTimer;
 
-		if(16-term>0){
-			Sleep(16-term);
-		}
+    if(16-term>0){
+      Sleep(16-term);
+    }
 
-	  fpsTimer = GetNowCount();
+    fpsTimer = GetNowCount();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;
@@ -106,42 +106,42 @@ void soloplay_main(){
 /*
 #ifdef SOLOPLAY_MODE
 void soloplay_main(){
-	//画像読み込み
+  //画像読み込み
   graresource.initialize();
-	decoder.initialize();
-	static const int BLACK = GetColor(0, 0, 0);
+  decoder.initialize();
+  static const int BLACK = GetColor(0, 0, 0);
   static const int WHITE = GetColor(255, 255, 255);
-	ServerConnection server(PORT);
-	ClientConnection client(PORT, SERVER_IP);
-	server.startListen();
-	client.connect();
-	while(server.size() < CLIENT_NUM){
-		DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
-		DrawFormatString(60, 60, WHITE, "access: %d", server.size());
-		ScreenFlip();
-		Sleep(10);
-		server.action();
+  ServerConnection server(PORT);
+  ClientConnection client(PORT, SERVER_IP);
+  server.startListen();
+  client.connect();
+  while(server.size() < CLIENT_NUM){
+    DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
+    DrawFormatString(60, 60, WHITE, "access: %d", server.size());
+    ScreenFlip();
+    Sleep(10);
+    server.action();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) exit(1) ;
 
     // もしＥＳＣキーが押されていたらループから抜ける
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) exit(1);
-	}
-	server.endListen();
+  }
+  server.endListen();
   Shooting shooting(CLIENT_NUM);
   // 移動ルーチン
-	int fpsTimer = GetNowCount();
-	Input input;
+  int fpsTimer = GetNowCount();
+  Input input;
   while( 1 ){
-		input.getKeyInput();
-		client.send(input.encode());
-		string serverMessage;
+    input.getKeyInput();
+    client.send(input.encode());
+    string serverMessage;
     // todo treat dead client
     //while(true){
     //  int lostNetWork = GetLostNetWork();
     //}
-		for(int i = 0; i < server.size(); ++i){
+    for(int i = 0; i < server.size(); ++i){
       if(server.receive(i, serverMessage) >= 0){
         while(server.receive(i, serverMessage) >= 0);
         // receive succssessed
@@ -150,41 +150,41 @@ void soloplay_main(){
         // receive failed
         shooting.clearInput(i);
       }
-	  }
+    }
     shooting.action();
 
 #ifdef _DEBUG_
 
-		// debug messages
-		dxout << serverMessage << dxendl;
+    // debug messages
+    dxout << serverMessage << dxendl;
 
 #endif // _DEBUG_
 
-		//string clientMessage = graresource.getMessages();
-		//server.send(clientMessage);
-		string clientMessage = graresource.getMessages();
-		server.send(clientMessage);
+    //string clientMessage = graresource.getMessages();
+    //server.send(clientMessage);
+    string clientMessage = graresource.getMessages();
+    server.send(clientMessage);
 
-		graresource.clear();
-	  int term;
-	  term = GetNowCount()-fpsTimer;
+    graresource.clear();
+    int term;
+    term = GetNowCount()-fpsTimer;
 
-		if(16 - term > 0){
-			string clientMessage;
-			if(client.receive(clientMessage) >= 0){
-				while(client.receive(clientMessage) >= 0);
-				decoder.draw(clientMessage);
-			}
+    if(16 - term > 0){
+      string clientMessage;
+      if(client.receive(clientMessage) >= 0){
+        while(client.receive(clientMessage) >= 0);
+        decoder.draw(clientMessage);
+      }
 
-			term = GetNowCount()-fpsTimer;
+      term = GetNowCount()-fpsTimer;
 
 
-			if(16-term>0){
-				Sleep(16-term);
-			}
-		}
+      if(16-term>0){
+        Sleep(16-term);
+      }
+    }
 
-	  fpsTimer = GetNowCount();
+    fpsTimer = GetNowCount();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;
@@ -201,37 +201,37 @@ void server_main(){
   graresource.initialize();
   static const int BLACK = GetColor(0, 0, 0);
   static const int WHITE = GetColor(255, 255, 255);
-	ServerConnection server(PORT);
-	server.startListen();
-	while(server.size() < CLIENT_NUM){
-		DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
-		DrawFormatString(60, 60, WHITE, "access: %d", server.size());
-		ScreenFlip();
-		Sleep(10);
-		server.action();
+  ServerConnection server(PORT);
+  server.startListen();
+  while(server.size() < CLIENT_NUM){
+    DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
+    DrawFormatString(60, 60, WHITE, "access: %d", server.size());
+    ScreenFlip();
+    Sleep(10);
+    server.action();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) exit(1) ;
 
     // もしＥＳＣキーが押されていたらループから抜ける
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) exit(1);
-	}
-	server.endListen();
-	DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
-	DrawFormatString(60, 60, WHITE, "access: %d", server.size());
-	DrawFormatString(60, 80, WHITE, "game start", server.size());
-	ScreenFlip();
+  }
+  server.endListen();
+  DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
+  DrawFormatString(60, 60, WHITE, "access: %d", server.size());
+  DrawFormatString(60, 80, WHITE, "game start", server.size());
+  ScreenFlip();
   Shooting shooting(CLIENT_NUM);
   // 移動ルーチン
-	int fpsTimer = GetNowCount();
+  int fpsTimer = GetNowCount();
   while( 1 ){
-		string serverMessage;
+    string serverMessage;
     /* // todo treat dead client
     while(true){
       int lostNetWork = GetLostNetWork();
     }
     */
-		for(int i = 0; i < server.size(); ++i){
+    for(int i = 0; i < server.size(); ++i){
       if(server.receive(i, serverMessage) >= 0){
         while(server.receive(i, serverMessage) >= 0);
         // receive succssessed
@@ -240,28 +240,28 @@ void server_main(){
         // receive failed
         shooting.clearInput(i);
       }
-	  }
+    }
     shooting.action();
 
-		// debug messages
-		dxout << serverMessage << dxendl;
+    // debug messages
+    dxout << serverMessage << dxendl;
 
-		string clientMessage = graresource.getMessages();
+    string clientMessage = graresource.getMessages();
 
-		DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
-		DrawFormatString(60, 60, WHITE, "access: %d", server.size());
-		DrawFormatString(60, 80, WHITE, "game start", server.size());
-		//DrawFormatString(60, 100, WHITE, clientMessage.c_str());
-		ScreenFlip();
+    DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
+    DrawFormatString(60, 60, WHITE, "access: %d", server.size());
+    DrawFormatString(60, 80, WHITE, "game start", server.size());
+    //DrawFormatString(60, 100, WHITE, clientMessage.c_str());
+    ScreenFlip();
 
-		server.send(clientMessage);
-	  graresource.clear();
-	  int term;
-	  term = GetNowCount()-fpsTimer;
-	  if(16-term>0){
-			Sleep(16-term);
-		}
-	  fpsTimer = GetNowCount();
+    server.send(clientMessage);
+    graresource.clear();
+    int term;
+    term = GetNowCount()-fpsTimer;
+    if(16-term>0){
+      Sleep(16-term);
+    }
+    fpsTimer = GetNowCount();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;
@@ -274,28 +274,28 @@ void server_main(){
 
 #ifdef CLIENT_MODE
 void client_main(){
-	decoder.initialize();
+  decoder.initialize();
 
-	ClientConnection client(PORT, SERVER_IP);
-	client.connect();
+  ClientConnection client(PORT, SERVER_IP);
+  client.connect();
 
   // 移動ルーチン
-	int fpsTimer = GetNowCount();
-	Input input;
+  int fpsTimer = GetNowCount();
+  Input input;
   while( 1 ){
-		input.getKeyInput();
-		client.send(input.encode());
-		string clientMessage;
-		if(client.receive(clientMessage) >= 0){
-			while(client.receive(clientMessage) >= 0);
-			decoder.draw(clientMessage);
-		}
-	  int term;
-	  term = GetNowCount()-fpsTimer;
-	  if(8-term>0){
-			Sleep(8-term);
-		}
-	  fpsTimer = GetNowCount();
+    input.getKeyInput();
+    client.send(input.encode());
+    string clientMessage;
+    if(client.receive(clientMessage) >= 0){
+      while(client.receive(clientMessage) >= 0);
+      decoder.draw(clientMessage);
+    }
+    int term;
+    term = GetNowCount()-fpsTimer;
+    if(8-term>0){
+      Sleep(8-term);
+    }
+    fpsTimer = GetNowCount();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;

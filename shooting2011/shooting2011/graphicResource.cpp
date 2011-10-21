@@ -8,7 +8,7 @@ GraphicResource::GraphicResource() {}
   
 void GraphicResource::initialize(){
   data.resize(0);
-	pt.initialize();
+  pt.initialize();
 }
 
 GraphicResource::~GraphicResource(){}
@@ -20,7 +20,7 @@ void GraphicResource::drawgraph(const int x,const int y,int graphic,bool transfl
   data.push_back( y);
   data.push_back( graphic);
   data.push_back( (int)transflag);
-	//DrawGraph(x,y,graphic,transflag);
+  //DrawGraph(x,y,graphic,transflag);
 }
 void GraphicResource::drawbox(int x1, int y1, int x2, int y2, int color, bool fillflag){
   data.push_back( DRAWBOX);
@@ -30,8 +30,8 @@ void GraphicResource::drawbox(int x1, int y1, int x2, int y2, int color, bool fi
   data.push_back( y2);
   data.push_back( color);
   data.push_back( (int)fillflag);
-	//DrawBox(x1,y1,x2,y2,color,fillflag);
-	
+  //DrawBox(x1,y1,x2,y2,color,fillflag);
+  
 }
 void GraphicResource::drawline(int x1, int y1, int x2, int y2, int color){
   data.push_back( DRAWLINE);
@@ -40,7 +40,7 @@ void GraphicResource::drawline(int x1, int y1, int x2, int y2, int color){
   data.push_back( x2);
   data.push_back( y2);
   data.push_back( color);
-	//DrawLine(x1,y1,x2,y2,color);
+  //DrawLine(x1,y1,x2,y2,color);
 }
 
 void GraphicResource::drawstring(int x,int y, string str, int color){
@@ -64,7 +64,7 @@ void GraphicResource::drawint(int x,int y, int num, int color){
 
 vector<int> GraphicResource::getMessages(){
   data.push_back( END);
-	return data;
+  return data;
   data.pop_back();
 }
 
@@ -73,38 +73,38 @@ void GraphicResource::clear(){
 }
 
 void GraphicResource::drawanimation(const int x,const int y,const int framecount,const int&graphicID){
-	this->drawgraph(x-pt.gethalfsize_x(graphicID),y-pt.gethalfsize_y(graphicID),pt.getanimation(graphicID,framecount),true);
+  this->drawgraph(x-pt.gethalfsize_x(graphicID),y-pt.gethalfsize_y(graphicID),pt.getanimation(graphicID,framecount),true);
 }
 
 /*
 //////////////////begin/encode//////////////////////////////////////
 void GraphicResource::drawgraph(const int x,const int y,int graphic,bool transflag){
-	ss<<" "<<DRAWGRAPH<<" "<<x<<" "<<y<<" "<<graphic<<" "<<transflag<<" "<<DRAWGRAPH<<" ";
-	//DrawGraph(x,y,graphic,transflag);
+  ss<<" "<<DRAWGRAPH<<" "<<x<<" "<<y<<" "<<graphic<<" "<<transflag<<" "<<DRAWGRAPH<<" ";
+  //DrawGraph(x,y,graphic,transflag);
 }
 void GraphicResource::drawbox(int x1, int y1, int x2, int y2, int color, bool fillflag){
-	ss<<" "<<DRAWBOX<<" "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" "<<fillflag<<" "<<DRAWBOX<<" ";
-	//DrawBox(x1,y1,x2,y2,color,fillflag);
-	
+  ss<<" "<<DRAWBOX<<" "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" "<<fillflag<<" "<<DRAWBOX<<" ";
+  //DrawBox(x1,y1,x2,y2,color,fillflag);
+  
 }
 void GraphicResource::drawline(int x1, int y1, int x2, int y2, int color){
-	ss<<" "<<DRAWLINE<<" "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" "<<DRAWLINE<<" ";
-	//DrawLine(x1,y1,x2,y2,color);
+  ss<<" "<<DRAWLINE<<" "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" "<<DRAWLINE<<" ";
+  //DrawLine(x1,y1,x2,y2,color);
 }
 
 string GraphicResource::getMessages(){
-	ss << " "<<END<<" ";
-	return ss.str();
+  ss << " "<<END<<" ";
+  return ss.str();
 }
 
 void GraphicResource::clear(){
-	static const string emptystring;
-	ss.clear(stringstream::goodbit);
-	ss.str(emptystring);
+  static const string emptystring;
+  ss.clear(stringstream::goodbit);
+  ss.str(emptystring);
 }
 
 void GraphicResource::drawanimation(const int x,const int y,const int framecount,const int&graphicID){
-	this->drawgraph(x-pt.gethalfsize_x(graphicID),y-pt.gethalfsize_y(graphicID),pt.getanimation(graphicID,framecount),true);
+  this->drawgraph(x-pt.gethalfsize_x(graphicID),y-pt.gethalfsize_y(graphicID),pt.getanimation(graphicID,framecount),true);
 }
 
 ////////////////////end/encode///////////////////////////////////

@@ -25,10 +25,10 @@ void ShootingAccessor::addHero(Hero *hero){
   shooting_->heros.push_back(hero);
   shooting_->inputs.push_back(new Input());
   shooting_->systemData.addHero();
-	assert(shooting_->heros.size() == shooting_->inputs.size());
+  assert(shooting_->heros.size() == shooting_->inputs.size());
 }
 
 Input ShootingAccessor::getInput(int heroIndex)
 {
-	return *(shooting_->inputs[heroIndex]);
+  return *(shooting_->inputs[heroIndex]);
 }
