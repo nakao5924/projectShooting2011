@@ -7,7 +7,6 @@ class Hero : public MovingObject{
 	
 private:
 
-//  int fireWait;
 
 public:
 	int heroId;
@@ -17,10 +16,6 @@ public:
 
   void absorbDamage( int damage);
   void statusShift();
-
-//  int getPosx(){ return posx;}
-//  int getPosy(){ return posy;}
-//  void transitionState();
 };
 
 #endif

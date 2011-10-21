@@ -29,7 +29,8 @@ private:
 		if(ss>>start_time>>x>>y>>format){
 			MovePattern *mp=making_object<MovePattern>(new PatternComposer<MovePattern>());
 			FirePattern *fp=making_object<FirePattern>(new PatternComposer<FirePattern>());
-			return(new EnemyData(start_time,x,y,mp,fp));
+			GraphicPattern *gp=new GraphicPattern("enemy1up64");
+			return(new EnemyData(start_time,x,y,mp,fp,gp));
 		}
 		return NULL;
 	}

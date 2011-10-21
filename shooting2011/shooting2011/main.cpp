@@ -1,6 +1,7 @@
 #include "main.h"
 #include "shooting.h"
 #include "graphicResource.h"
+#include "decode.h"
 #include "server.h"
 #include "client.h"
 #include "msgdump.h"
@@ -50,6 +51,9 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 }
 
 void soloplay_main(){
+	//画像読み込み
+  graresource.initialize();
+	decoder.initialize();
 	static const int BLACK = GetColor(0, 0, 0);
   static const int WHITE = GetColor(255, 255, 255);
 	ServerConnection server(PORT);
@@ -98,11 +102,11 @@ void soloplay_main(){
 		// debug messages
 		dxout << serverMessage << dxendl;
 
-		string clientMessage = res.getMessages();
+		string clientMessage = graresource.getMessages();
 
 		server.send(clientMessage);
 
-		res.clear();
+		graresource.clear();
 	  int term;
 	  term = GetNowCount()-fpsTimer;
 
@@ -110,13 +114,12 @@ void soloplay_main(){
 			string clientMessage;
 			if(client.receive(clientMessage) >= 0){
 				while(client.receive(clientMessage) >= 0);
-				Decode::draw(clientMessage);
+				decoder.draw(clientMessage);
 			}
 
 			term = GetNowCount()-fpsTimer;
 
-			// 空関数。呼ぶ必要はない。
-			//res.initdraw();
+
 			if(16-term>0){
 				Sleep(16-term);
 			}
@@ -133,6 +136,7 @@ void soloplay_main(){
 }
 
 void server_main(){
+  graresource.initialize();
   static const int BLACK = GetColor(0, 0, 0);
   static const int WHITE = GetColor(255, 255, 255);
 	ServerConnection server(PORT);
@@ -180,7 +184,7 @@ void server_main(){
 		// debug messages
 		dxout << serverMessage << dxendl;
 
-		string clientMessage = res.getMessages();
+		string clientMessage = graresource.getMessages();
 
 		DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
 		DrawFormatString(60, 60, WHITE, "access: %d", server.size());
@@ -189,11 +193,9 @@ void server_main(){
 		ScreenFlip();
 
 		server.send(clientMessage);
-	  res.clear();
+	  graresource.clear();
 	  int term;
 	  term = GetNowCount()-fpsTimer;
-		// 空関数。呼ぶ必要はない。
-		//res.initdraw();
 	  if(16-term>0){
 			Sleep(16-term);
 		}
@@ -208,6 +210,8 @@ void server_main(){
 }
 
 void client_main(){
+	decoder.initialize();
+
 	ClientConnection client(PORT, SERVER_IP);
 	client.connect();
 
@@ -220,7 +224,7 @@ void client_main(){
 		string clientMessage;
 		if(client.receive(clientMessage) >= 0){
 			while(client.receive(clientMessage) >= 0);
-			Decode::draw(clientMessage);
+			decoder.draw(clientMessage);
 		}
 	  int term;
 	  term = GetNowCount()-fpsTimer;

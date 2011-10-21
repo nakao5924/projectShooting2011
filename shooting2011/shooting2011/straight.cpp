@@ -11,8 +11,10 @@ MovePatternUniformlyAcceleratedLinearMotion::MovePatternUniformlyAcceleratedLine
 }
 
 void MovePatternUniformlyAcceleratedLinearMotion::action(MovingObject *owner){
-	double x0 = owner -> getHitRect().x;
-	double y0 = owner -> getHitRect().y;
-	owner -> setPosition(x0 + vx + ax * frame, y0 + vy + ay * frame);
-	frame++;
+	if(owner->getStatus()==VALID){
+		double x0 = owner -> getHitRect().x;
+		double y0 = owner -> getHitRect().y;
+		owner -> setPosition(x0 + vx + ax * frame, y0 + vy + ay * frame);
+		frame++;
+	}
 }

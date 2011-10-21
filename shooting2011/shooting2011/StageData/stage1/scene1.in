@@ -1,134 +1,417 @@
-<hoge> 1000 <hoge>
-
-
-(f1 0, 0,100 _fdown)
-(f1 0,20,200 _fdown)
-(f1 0,40,300 _fdown)
-(f1 0,60,400 _fdown)
-(f1 0,80,500 _fdown)
-
-(f1 100, 0,100 _fup)
-(f1 100,20,200 _fup)
-(f1 100,40,300 _fup)
-(f1 100,60,400 _fup)
-(f1 100,80,500 _fup)
-
-(f1 200, 0,100 _fright)
-(f1 200,20,200 _fright)
-(f1 200,40,300 _fright)
-(f1 200,60,400 _fright)
-(f1 200,80,500 _fright)
-
-(f1 300, 0,100 _fleft)
-(f1 300,20,200 _fleft)
-(f1 300,40,300 _fleft)
-(f1 300,60,400 _fleft)
-(f1 300,80,500 _fleft)
-
-(f1 450, 0,100 _fdown)
-(f1 450,20,200 _fdown)
-(f1 450,40,300 _fdown)
-(f1 450,60,400 _fdown)
-(f1 450,80,500 _fdown)
-
-(f1 450, 0,500 _fup)
-(f1 450,20,400 _fup)
-(f1 450,40,300 _fup)
-(f1 450,60,200 _fup)
-(f1 450,80,100 _fup)
-
-(f1 450, 0,500 _fright)
-(f1 450,20,400 _fright)
-(f1 450,40,300 _fright)
-(f1 450,60,200 _fright)
-(f1 450,80,100 _fright)
-
-(f1 450, 0,100 _fleft)
-(f1 450,20,200 _fleft)
-(f1 450,40,300 _fleft)
-(f1 450,60,400 _fleft)
-(f1 450,80,500 _fleft)
-
-
-<comment></comment>
+<maxframe> 3000 </maxframe>
 
 <make>
-  movedown
-  straight 0,10 10
+  bombdown
+  straight 0 3 -1
+</make>
+<make>
+  bombup
+  straight 0 -3 -1
+</make>
+<make>
+  bombleft
+  straight -3 0 -1
+</make>
+<make>
+  bombright
+  straight 3 0 -1
 </make>
 
 <make>
-  moveup
-  straight 0,-10 10
+  zakomovedown
+  straight 0 5 -1
+</make>
+<make>
+  zakomoveup
+  straight 0 -5 -1
+</make>
+<make>
+  zakomoveleft
+  straight -5 0 -1
+</make>
+<make>
+  zakomoveright
+  straight 5 0 -1
 </make>
 
 <make>
-  moveright
-  straight 10,0 10
+  zakomovedown2
+  straight 0 8 -1
+</make>
+<make>
+  zakomoveup2
+  straight 0 -8 -1
+</make>
+<make>
+  zakomoveleft2
+  straight -8 0 -1
+</make>
+<make>
+  zakomoveright2
+  straight 8 0 -1
 </make>
 
 <make>
-  moveleft
-  straight -10,0 10
+  stopanddown
+  straight 0 0 30
+  straight 0 10 -1
+</make>
+<make>
+  stopandup
+  straight 0 0 30
+  straight 0 -10 -1
+</make>
+<make>
+  stopandleft
+  straight 0 0 30
+  straight -10 0 -1
+</make>
+<make>
+  stopandright
+  straight 0 0 30
+  straight 10 0 -1
 </make>
 
 <make>
-  none1
-  none 10
+  stopanddownleft
+  straight 0 0 30
+  straight -1.8 9 -1
+</make>
+<make>
+  stopanddownright
+  straight 0 0 30
+  straight 1.8 9 -1
+</make>
+<make>
+  stopandupleft
+  straight 0 0 30
+  straight -1.8 -9 -1
+</make>
+<make>
+  stopandupright
+  straight 0 0 30
+  straight 1.8 -9 -1
+</make>
+<make>
+  stopandrightup
+  straight 0 0 30
+  straight 9 1.8 -1
+</make>
+<make>
+  stopandrightdown
+  straight 0 0 30
+  straight 9 -1.8 -1
+</make>
+<make>
+  stopandleftup
+  straight 0 0 30
+  straight -9 1.8 -1
+</make>
+<make>
+  stopandleftdown
+  straight 0 0 30
+  straight -9 -1.8 -1
 </make>
 
 <make>
-  f1
-  <func>
-    time1,time2,point<_func> 
+  time1
+  <add>180
+</make>
+<make>
+  time2
+  <add>360
+</make>
+<make>
+  time3
+  <add>540
+</make>
+<make>
+  time4
+  <add>720
+</make>
+<make>
+  time4-1
+  <add>900
+</make>
+<make>
+  time5
+  <add>1020
+</make>
+<make>
+  time6
+  <add>1140
+</make>
+<make>
+  time7
+  <add>1260
+</make>
+<make>
+  time8
+  <add>1380
+</make>
+<make>
+  time9
+  <add>1500
+</make>
+<make>
+  time10
+  <add>1560
+</make>
+<make>
+  _time1
+  0</add>
+</make>
+<make>
+  _time2
+  30</add>
+</make>
+<make>
+  _time3
+  60</add>
+</make>
+<make>
+  _time4
+  90</add>
+</make>
+<make>
+  _time5
+  120</add>
 </make>
 
 <make>
-  _fdown
-  <enemy> hoge
-    <add>time1,time2</add>,point,0,movedown,none1
-  </enemy>
-  </func>
-</make>
-
-<make>
-  _fup
-  <enemy> hoge
-    <add>time1,time2</add>,point,600,moveup,none1
-  </enemy>
-  </func>
-</make>
-<make> 
-  _fright
-  <enemy> hoge
-    <add>time1,time2</add>,0,point,moveright,none1
-  </enemy>
-  </func>
+  _time12
+  0</add>
 </make>
 <make>
-  _fleft
-  <enemy> hoge
-
-    <add>time1,time2</add>,600,point,moveleft,none1
-  </enemy>
-  </func>
+  _time22
+  60</add>
+</make>
+<make>
+  _time32
+  120</add>
 </make>
 
-</end>
+<comment>ここからメイン</comment>
+<enemy> <picture>Hero0.bmp</picture>
+  (time1 _time1) 100 0 zakomovedown (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time1 _time2) 300 0 zakomovedown (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time1 _time3) 500 0 zakomovedown (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time1 _time4) 200 0 zakomovedown (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time1 _time5) 400 0 zakomovedown (none -1)
+</enemy>
+
+<enemy> <picture>Hero0.bmp</picture>
+  (time2  _time1) 0 100 zakomoveright (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time2 _time2) 0 300 zakomoveright (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time2 _time3) 0 500 zakomoveright (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time2 _time4) 0 200 zakomoveright (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time2 _time5) 0 400 zakomoveright (none -1)
+</enemy>
+
+<enemy> <picture>Hero0.bmp</picture>
+  (time3 _time1) 600 100 zakomoveleft (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time3 _time2)600 300 zakomoveleft (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time3 _time3) 600 500 zakomoveleft (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time3 _time4)600 200 zakomoveleft (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time3 _time5) 600 400 zakomoveleft (none -1)
+</enemy>
+
+<enemy> <picture>Hero0.bmp</picture>
+  (time4 _time1) 100 600 zakomoveup (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time4 _time2) 300 600 zakomoveup (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time4 _time3) 500 600 zakomoveup (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time4 _time4) 200 600 zakomoveup (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time4 _time5) 400 600 zakomoveup (none -1)
+</enemy>
+
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time4-1 _time1) 300 0 bombdown (bomb 0.3 15 -1) 
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time4-1 _time1) 300 600 bombup (bomb 0.3 15 -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time4-1 _time1) 0 300 bombright (bomb 0.3 15 -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time4-1 _time1) 600 300 bombleft (bomb 0.3 15 -1)
+</enemy>
+
+<enemy> <picture>Hero0.bmp</picture>
+  (time5 _time1) rand(0 600) 0 zakomovedown2 (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time5 _time2) rand(0 600) 0 zakomovedown2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time5 _time3) rand(0 600) 0 zakomovedown2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time5 _time4) rand(0 600) 0 zakomovedown2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time5 _time5) rand(0 600) 0 zakomovedown2 (none -1)
+</enemy>
+
+<enemy> <picture>Hero0.bmp</picture>
+  (time6 _time1) 600 rand(0 600) zakomoveleft2 (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time6 _time2) 600 rand(0 600) zakomoveleft2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time6 _time3) 600 rand(0 600) zakomoveleft2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time6 _time4) 600 rand(0 600) zakomoveleft2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time6 _time5) 600 rand(0 600) zakomoveleft2 (none -1)
+</enemy>
+
+<enemy> <picture>Hero0.bmp</picture>
+  (time7 _time1) rand(0 600) 600 zakomoveup2 (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time7 _time2) rand(0 600) 600 zakomoveup2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time7 _time3) rand(0 600) 600 zakomoveup2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time7 _time4) rand(0 600) 600 zakomoveup2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time7 _time5) rand(0 600) 600 zakomoveup2 (none -1)
+</enemy>
 
 
+<enemy> <picture>Hero0.bmp</picture>
+  (time8 _time1) 0 rand(0 600) zakomoveright2 (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time8 _time2) 0 rand(0 600) zakomoveright2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time8 _time3) 0 rand(0 600) zakomoveright2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time8 _time4) 0 rand(0 600) zakomoveright2 (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time8 _time5) 0 rand(0 600) zakomoveright2 (none -1)
+</enemy>
 
+<enemy> <picture>Hero0.bmp</picture>
+  (time9 _time1) 200 0 stopanddown (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time9 _time1) 400 0 stopanddown (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time9 _time1) 200 600  stopandup (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time9 _time1) 400 600 stopandup (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time9 _time1) 600 200 stopandleft (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time9 _time1) 600 400 stopandleft (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time9 _time1) 0 200 stopandright (none -1)
+</enemy>
+<enemy> <picture>Hero0.bmp</picture>
+  (time9 _time1) 0 400 stopandright (none -1)
+</enemy>
 
-
-
-<add>a , b c</add>
-
-
-
-
-
-
-
-
-
-
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time10 _time1) 200 0 stopanddownright (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time10 _time1) 400 0 stopanddownleft (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time10 _time1) 200 600  stopandupright (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time10 _time1) 400 600 stopandupleft (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time10 _time1) 600 200 stopandleftdown (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time10 _time1) 600 400 stopandleftup (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time10 _time1) 0 200 stopandrightdown (none -1)
+</enemy>
+<enemy>
+  <picture>Hero0.bmp</picture>
+  (time10 _time1) 0 400 stopandrightup (none -1)
+</enemy>

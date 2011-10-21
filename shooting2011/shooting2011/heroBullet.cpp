@@ -1,21 +1,26 @@
 #include "main.h"
 #include "heroBullet.h"
-
+#include "firePattern.h"
+#include "movePattern.h"
+#include "graphicPattern.h"
 HeroBullet::HeroBullet( double x, double y,double vx,double vy, int id){
-  graphic = LoadGraph( "../graphic/HeroBullet3Up.bmp" ) ;
-  graphicRect = Rect(x, y, 8, 8);
   hitRect = Rect(x, y, 4, 8);
 	movePattern = new MovePatternUniformlyAcceleratedLinearMotion(vx,vy,0);
 	firePattern = new FirePatternNone();
+	string str="HeroBullet";
+	stringstream ss;
+	ss<<str<<id;
+	ss>>str;
+	this->graPattern=new GraphicPattern(str);
+
   heroId = id;
 }
 
 HeroBullet::~HeroBullet(){
-//  delete movePattern;
 }
 
 bool HeroBullet::isValid(){
-  return isInStage( graphicRect);
+  return isInStage( hitRect);
 }
 
 int HeroBullet::getHeroId(){

@@ -16,7 +16,7 @@ DxLibClear dxclr;
 void msgDumpReset(){
 	static int BLACK = GetColor(0, 0, 0);
 	_dumpCoordinateY = 20;
-	res.drawbox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
+	graresource.drawbox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
 }
 
 DxLibOut &operator <<(DxLibOut &dlo, const DxLibEndLine &){

@@ -71,9 +71,6 @@ void Shooting::action(){
 	
   gameClock++;
 
-  //begin getKeyInput test////////li
-  //inputs[0]->getKeyInput();
-  //end getKeyInput test////////
 
   // action
 	{
@@ -210,8 +207,6 @@ void Shooting::eraseMovingObject(){
 }
 
 void Shooting::draw(){
-  // 画面を初期化(真っ黒にする)
-  res.initdraw();
 
   for (int i=0; i<(int)heroBullets.size(); i++) heroBullets[i]->draw();
   for (int i=0; i<(int)heros.size(); i++) heros[i]->draw();
@@ -242,8 +237,6 @@ void Shooting::draw(){
 	dxout << "heros[0].y_=_"<< heros[0]->getHitRect().y << dxendl;
 	dxout << "inputs[0]_=_" << inputs[0]->up() << inputs[0]->down() << inputs[0]->right() << inputs[0]->left() << inputs[0]->buttonA() << inputs[0]->buttonB() << inputs[0]->buttonC() << dxendl;
 
-  // 裏画面の内容を表画面にコピーする
-	//res.draw();
 }
 
 void Shooting::setInput(int clientId, string message){
@@ -253,50 +246,3 @@ void Shooting::setInput(int clientId, string message){
 void Shooting::clearInput(int clientId){
   inputs[clientId]->clear();
 }
-
-/*
-string Shooting::encode(){
-	string str_re;
-	string str;
-	str="";
-	for (int i=0; i<(int)heroBullets.size(); i++) str+=heroBullets[i]->encode();
-	str_re+=tag::make_tag("HeroBullets",str);
-	str="";
-	for (int i=0; i<(int)heros.size(); i++) str+=heros[i]->encode();
-	str_re+=tag::make_tag("Hero",str);
-	str="";
-	for (int i=0; i<(int)enemys.size(); i++) str+=enemys[i]->encode();
-	str_re+=tag::make_tag("Enemy",str);
-	str="";
-	for (int i=0; i<(int)enemyBullets.size(); i++) str+=enemyBullets[i]->encode();
-	str_re+=tag::make_tag("EnemyBullets",str);
-	str="";
-	str+=systemData.encode();
-	str_re+=tag::make_tag("SystemData",str);
-	return str_re;
-}
-
-
-
-Shooting* Shooting::decode(string str){
-	Shooting* self=new Shooting(0);
-	stringstream ss(str);
-	string get;
-	get=tag::pop_tag("HeroBullets",ss);
-	stringstream ss_sub(get);
-	while(HeroBullet*obj=HeroBullet::decode<HeroBullet>(ss_sub))heroBullets.push_back(new HeroBullet());
-	get=tag::pop_tag("Hero",ss);
-	ss_sub.str(get);
-	while(1)heros.push_back(new Hero());
-	get=tag::pop_tag("Enemy",ss);
-	ss_sub.str(get);
-	while(1)enemys.push_back(new Enemy());
-	get=tag::pop_tag("EnemyBullets",ss);
-	ss_sub.str(get);
-	while(1)enemyBullets.push_back(new EnemyBullet());
-	get=tag::pop_tag("SystemData",ss);
-	ss_sub.str(get);
-	systemData.decode(ss);
-	return self;
-}
-//*/

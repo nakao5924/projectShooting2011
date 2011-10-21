@@ -51,7 +51,7 @@ bool SceneNormal::isValid(){
 	return curFrame<maxFrame;
 }
 void SceneNormal::popUp(){
-	while(index<enemyList.size() && curFrame == enemyList[index]->popUpTime){
+	while(index<(int)enemyList.size() && curFrame == enemyList[index]->popUpTime){
 		ShootingAccessor::addEnemy(new Enemy( *enemyList[index]));
 		enemyList[index++]=NULL;
 	}

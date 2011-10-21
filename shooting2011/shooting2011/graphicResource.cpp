@@ -2,30 +2,17 @@
 #include "graphicResource.h"
 
 
-GraphicResource res=GraphicResource();  // リソース
+GraphicResource graresource=GraphicResource();  // リソース
 
 // コンストラクタ
 GraphicResource::GraphicResource() {
-};
+}
+void GraphicResource::initialize(){
+	pt.initialize();
+}
+GraphicResource::~GraphicResource(){}
 
-// mapから画像のidを取ってくる forceFlgがtrueなら存在しなければロードも行う
-int GraphicResource::get(const string &path) {
-  return this->get(path, false);
-};
 
-int GraphicResource::get(const string &path, bool forceFlg) {
-  int id = this->graphics[path];
-  return !id ? (forceFlg ? this->load(path) : -1) : id;
-};
-
-int GraphicResource::load(const string &path) {
-  int id = LoadGraph(path.c_str());
-  pair<string, int> val;
-  val.first = path;
-  val.second = id;
-  this->graphics.insert(val);
-  return id;
-};
 
 
 
@@ -33,48 +20,33 @@ int GraphicResource::load(const string &path) {
 
 //////////////////begin/encode//////////////////////////////////////
 void GraphicResource::drawgraph(const int x,const int y,int graphic,bool transflag){
-	ss<<" <drawgraph> "<<x<<" "<<y<<" "<<graphic<<" "<<transflag<<" <drawgraph> ";
+	ss<<" "<<DRAWGRAPH<<" "<<x<<" "<<y<<" "<<graphic<<" "<<transflag<<" "<<DRAWGRAPH<<" ";
 	//DrawGraph(x,y,graphic,transflag);
 }
 void GraphicResource::drawbox(int x1, int y1, int x2, int y2, int color, bool fillflag){
-	ss<<" <drawbox> "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" "<<fillflag<<" </drawbox> ";
+	ss<<" "<<DRAWBOX<<" "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" "<<fillflag<<" "<<DRAWBOX<<" ";
 	//DrawBox(x1,y1,x2,y2,color,fillflag);
 	
 }
 void GraphicResource::drawline(int x1, int y1, int x2, int y2, int color){
-	ss<<" <drawline> "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" </drawline> ";
+	ss<<" "<<DRAWLINE<<" "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<" "<<color<<" "<<DRAWLINE<<" ";
 	//DrawLine(x1,y1,x2,y2,color);
 }
 
 string GraphicResource::getMessages(){
-	ss << " <end> ";
+	ss << " "<<END<<" ";
 	return ss.str();
 }
 
 void GraphicResource::clear(){
+	static const string emptystring;
 	ss.clear(stringstream::goodbit);
-	ss.str("");
+	ss.str(emptystring);
 }
 
-void GraphicResource::initdraw(){
-
-	ss.str("");
-	//ClearDrawScreen();
+void GraphicResource::drawanimation(const int x,const int y,const int framecount,const int&graphicID){
+	this->drawgraph(x-pt.gethalfsize_x(graphicID),y-pt.gethalfsize_y(graphicID),pt.getanimation(graphicID,framecount),true);
 }
-void GraphicResource::draw(){
-	ss<<" <end> ";
-	Decode::draw(ss);
-  //ScreenFlip();
-
-}
-
-
-
-
-
-
-
-
 
 
 

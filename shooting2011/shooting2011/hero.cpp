@@ -1,15 +1,9 @@
 #include "main.h"
 #include "hero.h"
-
+#include "movePattern.h"
+#include "firePattern.h"
+#include "graphicPattern.h"
 Hero::Hero(int _heroId, int direction){
-  graphic = LoadGraph( "../graphic/Ball.png" );
-
-  // Debug@neon
-  GraphicPattern pattern;
-  graPattern.push_back(pattern);
-  graPattern[0].testFunc();
-  
-  graphicRect = Rect( STAGE_WIDTH/2, STAGE_HEIGHT/2, 64, 64);
   hitRect = Rect( STAGE_WIDTH/2, STAGE_HEIGHT/2, 8, 8);
 
   movePattern = new MovePatternHero(_heroId);
@@ -17,6 +11,11 @@ Hero::Hero(int _heroId, int direction){
 	//createFirePattern start///////////////////////////////////////////////////
 	firePattern=new FirePatternHero(5, _heroId, direction);
 	//createFirePattern end/////////////////////////////////////////////////////
+	string str="Hero";
+	stringstream ss;
+	ss<<str<<_heroId;
+	ss>>str;
+	this->graPattern=new GraphicPattern(str);
 
 	heroId = _heroId;
 //  fireWait = 0;

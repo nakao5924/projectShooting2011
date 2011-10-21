@@ -1,6 +1,9 @@
 #include "main.h"
 #include "movingObject.h"
 #include "shootingAccessor.h"
+#include "movePattern.h"
+#include "graphicPattern.h"
+#include "firePattern.h"
 
 MovingObject::MovingObject(){
   attackPower = 1;
@@ -8,10 +11,11 @@ MovingObject::MovingObject(){
   frameCount = 0;
 }
 
-const Rect& MovingObject::getGraphicRect() const { return graphicRect; }
 const Rect& MovingObject::getHitRect() const { return hitRect; }
 int MovingObject::getAttackPower() const { return attackPower; }
 Status MovingObject::getStatus() const { return status; }
+
+int MovingObject::getframeCount(){return (frameCount);}
 
 void MovingObject::changeStatus( Status _status){
   frameCount = 0;
@@ -19,10 +23,8 @@ void MovingObject::changeStatus( Status _status){
 }
 
 void MovingObject::action(){
-  if (status == VALID){
-    move();
-    fire();
-  }
+  move();
+  fire();
   frameCount++;
 }
 
@@ -32,10 +34,12 @@ void MovingObject::move(){
 }
 
 void MovingObject::setPosition(double x, double y) {
-  graphicRect.x = x;
-  graphicRect.y = y;
   hitRect.x = x;
   hitRect.y = y;
+}
+
+Status MovingObject::getStatus(){
+	return status;
 }
 
 void MovingObject::fire(){
@@ -54,23 +58,5 @@ void MovingObject::setStatus( int _status){
 
 
 void MovingObject::draw(){
-  if (graPattern.empty()) {
-    res.drawgraph( static_cast<int>(SIDE_WIDTH + graphicRect.x - graphicRect.width/2), 
-      static_cast<int>(graphicRect.y - graphicRect.height/2), graphic, true);
-  } else {
-		res.drawgraph( static_cast<int>(SIDE_WIDTH + graphicRect.x - graphicRect.width/2), 
-      static_cast<int>(graphicRect.y - graphicRect.height/2), graPattern[0].getDrawImage(), true);
-  }
-}
-
-string MovingObject::encode(){
-	stringstream ss;
-	ss<<graphic;
-	string str;
-	ss>>str;
-//	str+=graphicRect.encode();
-	
-		
-		
-	return tag::make_tag("Obj",str);
+	if(graPattern)graPattern->action(this);
 }

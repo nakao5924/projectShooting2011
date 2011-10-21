@@ -2,11 +2,10 @@
 #include "enemy.h"
 
 Enemy::Enemy( const EnemyData &data){
-  graphic = LoadGraph( "../graphic/Hero0Down.bmp" );
-  graphicRect = Rect( data.posx, data.posy, 32, 32);
   hitRect = Rect( data.posx, data.posy, 32, 32);
   movePattern = data.moveType;
-	firePattern = data.fireType;
+  firePattern = data.fireType;
+  graPattern=data.graType;
   hp = 5;
 }
 
@@ -15,7 +14,7 @@ Enemy::~Enemy(){
 }
 
 bool Enemy::isValid(){
-  return isInStage( graphicRect);
+  return isInStage( hitRect);
 }
 
 int Enemy::getHp(){

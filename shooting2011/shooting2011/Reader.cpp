@@ -1,8 +1,9 @@
 #include "main.h"
-#include "Reader.h"
-
+#include "reader.h"
+#include "graphicPattern.h"
 SceneNormal* Reader::readEnemyData(const string filename){
 	srand((int)time(0));
+	list.clear();
 	ifstream ifs(filename);
 	string str="";
 	int maxframe;
@@ -148,7 +149,7 @@ SceneNormal* Reader::readEnemyData(const string filename){
 #endif 
 	while(ss>>format){
 		if(format=="<enemy>"){
-			ss>>format;
+			ss>>format>>format>>format;
 			enemylist.push_back(get_enemy_data());
 			while(format!="</enemy>")ss>>format;
 		}
@@ -185,7 +186,12 @@ FirePattern *Reader::making_basic_object<FirePattern>(){
 	}else if(format=="allrange"){
 		double dtheta,startTheta,v;int interval;
 		ss>>dtheta>>startTheta>>v>>interval;
-		return new FirePatternAllRangeTimeRag(dtheta,startTheta,v,interval);
+		return new FirePatternAllRangeTimeRag(dtheta,startTheta,v,interval,graresource.getID("EnemyBullet"));
+	}
+	else if(format=="bomb"){
+		double d_theta,vv;
+		ss>>d_theta>>vv;
+		return new FirePatternBomb(d_theta,vv,graresource.getID("EnemyBullet"));
 	}
 	return(NULL);
 }

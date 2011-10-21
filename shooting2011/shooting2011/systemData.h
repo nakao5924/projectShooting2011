@@ -36,8 +36,6 @@ public:
 	void addScore(int heroId, int dScore);
 	void addLife(int heroId, int dLife);
 	void draw();
-	string encode();
-	SystemData& decode(stringstream&);
 };
 
 #endif

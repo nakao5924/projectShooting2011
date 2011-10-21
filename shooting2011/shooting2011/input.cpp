@@ -66,25 +66,10 @@ bool Input::buttonB()const{ return getKeyStatus_(5); } // {return isButtonB;}
 bool Input::buttonC()const{ return getKeyStatus_(6); } // {return isButtonC;}
 
 string Input::encode()const{
-	/*
-	bool *members[] = {&isUp, &isDown, &isLeft, &isRight, &isButtonA, &isButtonB, &isButtonC};
-	string result;
-	for(int i = 0; i < getArraySize(members); ++i){
-		result += (*members[i]) ? "1" : "0";
-	}
-	return result;
-	*/
 	return data_;
 }
 
 void Input::decode(const string &message){
-	/*
-	bool *members[] = {&isUp, &isDown, &isLeft, &isRight, &isButtonA, &isButtonB, &isButtonC};
-	assert(getArraySize(members) <= static_cast<int>(str.length()));
-	for(int i = 0; i < getArraySize(members); ++i){
-		*members[i] = str[i] == '1';
-	}
-	*/
 	assert(data_.length() == message.length());
 	data_ = message;
 }
@@ -94,11 +79,5 @@ string Input::getEmptyMessage(){
 }
 
 void Input::clear(){
-	/*
-	bool *members[] = {&isUp, &isDown, &isLeft, &isRight, &isButtonA, &isButtonB, &isButtonC};
-	for(int i = 0; i < getArraySize(members); ++i){
-		*members[i] = false;
-	}
-	*/
 	data_ = getEmptyMessage();
 }

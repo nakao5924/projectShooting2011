@@ -1,11 +1,8 @@
 #ifndef __STAGE_H__
 #define __STAGE_H__
-#include"background.h"
 #include "enemy.h"
+#include "background.h"
 class Scene :private NonCopyable{
-	BackGround bg;
-	int curFrame,maxFrame,index;
-	deque<EnemyData *> enemyList;
 public:
 	virtual void popUp()=0;
 	virtual bool isValid()=0;

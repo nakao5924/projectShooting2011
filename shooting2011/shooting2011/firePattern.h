@@ -2,14 +2,14 @@
 #define __FIREPATTERN_H__
 
 class MovingObject;
-
+class GraphicPattern;
 class FirePattern{
 private:
 	virtual bool isFire() = 0;
 public:
+	int graphicID;
 	virtual void action(MovingObject *owner) = 0;
 	virtual ~FirePattern(){}
-//	virtual void vanishAction(MovingObject *owner)=0;
 };
 
 class FirePatternAllRangeTimeRag : public FirePattern{
@@ -19,9 +19,8 @@ class FirePatternAllRangeTimeRag : public FirePattern{
 	int curFrame;
 	bool isFire();
 public:
-	FirePatternAllRangeTimeRag(double _dtheta,double _startTheta,double _v,int _interval);
+	FirePatternAllRangeTimeRag(double _dtheta,double _startTheta,double _v,int _interval,int _graphicID);
 	void action(MovingObject *owner);
-//	void vanishAction(MovingObject *owner);
 
 	~FirePatternAllRangeTimeRag();
 };
@@ -32,7 +31,6 @@ private:
 public:
 	FirePatternHero(int _interval,int _heroId,int _shotType);
 	void action(MovingObject *owner);
-//	void vanishAction(MovingObject *owner);
 	~FirePatternHero();
 
 	int shotType;
@@ -48,20 +46,17 @@ private:
 public:
 	FirePatternNone();
 	void action(MovingObject *owner);
-//	void vanishAction(MovingObject *owner);
 	~FirePatternNone();
 };
-/*
+
 class FirePatternBomb : public FirePattern{
 private:
 	bool isFire();
 	double dtheta,v;
+	bool first;
 public:
-	FirePatternBomb(double _dtheta,double _v);
+	FirePatternBomb(double _dtheta,double _v,int graphicID);
 	void action(MovingObject *owner);
-	void vanishAction(MovingObject *owner);
 	~FirePatternBomb();
-//	void vanishAction(MovingObject *owner);
 };
-//*/
 #endif

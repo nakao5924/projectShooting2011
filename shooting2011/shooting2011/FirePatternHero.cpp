@@ -6,7 +6,7 @@
 #include "firePattern.h"
 #include "shootingAccessor.h"
 FirePatternHero::FirePatternHero(int _interval,int _heroId,int _shotType){
-	interval = 1;//_interval;
+	interval = 8;//_interval;
 	heroId = _heroId;
 	shotType = _shotType;
 	curFrame = 0;
@@ -31,7 +31,7 @@ bool FirePatternHero::isFire() {
 }
 
 void FirePatternHero::action(MovingObject *owner){
-	if(isFire()){
+	if(isFire() && owner->getStatus()==VALID){
 		Rect r = owner->getHitRect();
 		if(shotType==0){
 			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,-8,0,heroId));//up

@@ -7,7 +7,7 @@ private:
 
 public:
 	EnemyBullet(){}
-  EnemyBullet( double x, double y, MovePattern *mp,FirePattern *fp);
+  EnemyBullet( double x, double y, MovePattern *mp,FirePattern *fp,GraphicPattern *gp);
   ~EnemyBullet();
   bool isValid();
 

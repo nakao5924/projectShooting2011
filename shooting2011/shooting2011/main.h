@@ -14,6 +14,20 @@
 #include "windows.h"
 using namespace std;
 
+enum Status{
+  INVALID,
+  VALID,
+  EXPLOSION,
+  REBIRTH
+};
+enum TagCode{
+	DRAWGRAPH,
+	DRAWBOX,
+	DRAWLINE,
+	DRAWSTRING,
+	END
+};
+
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
 const int STAGE_WIDTH = 600;

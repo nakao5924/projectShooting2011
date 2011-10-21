@@ -18,8 +18,10 @@ MovePatternLissajous::MovePatternLissajous( double x,double y,
 }
 
 void MovePatternLissajous::action(MovingObject *owner){
-	double x = ampx*sin(freqx*frame+deltax)+posx;
-	double y = ampy*sin(freqy*frame+deltay)+posy;
-	owner -> setPosition(x, y);
-	++frame;
+	if(owner->getStatus()==VALID){
+		double x = ampx*sin(freqx*frame+deltax)+posx;
+		double y = ampy*sin(freqy*frame+deltay)+posy;
+		owner -> setPosition(x, y);
+		++frame;
+	}
 }

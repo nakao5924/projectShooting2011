@@ -2,12 +2,11 @@
 #include "movingObject.h"
 #include "enemyBullet.h"
 
-EnemyBullet::EnemyBullet( double x, double y, MovePattern *mp,FirePattern *fp){
-  graphic = LoadGraph( "../graphic/EnemyBullet0Down.bmp" ) ;
-  graphicRect = Rect(x, y, 8, 8);
+EnemyBullet::EnemyBullet( double x, double y, MovePattern *mp, FirePattern *fp, GraphicPattern *gp){
   hitRect = Rect(x, y, 4, 8);
   movePattern = mp;
 	firePattern = fp;
+	graPattern = gp;
 }
 
 EnemyBullet::~EnemyBullet(){
@@ -15,7 +14,7 @@ EnemyBullet::~EnemyBullet(){
 }
 
 bool EnemyBullet::isValid(){
-  return isInStage( graphicRect);
+  return isInStage( hitRect);
 }
 
 void EnemyBullet::absorbDamage( int damage){
