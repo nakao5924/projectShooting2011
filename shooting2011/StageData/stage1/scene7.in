@@ -1,0 +1,33 @@
+<maxframe> 1000 </maxframe>
+<comment> 1000 </comment>
+<make>
+  self
+  createself 60 3 1 -1
+</make>
+
+<make>
+  zakomovedown
+  straight 0 5 -1
+</make>
+
+<make>
+  time1
+  <add>180
+</make>
+<make>
+  _time1
+  0</add>
+</make>
+
+<comment>ここからメイン</comment>
+<enemy> <picture>araiup32</picture>
+  (time1 _time1) 300 0 3 zakomovedown self
+</enemy>
+<enemy>
+  <picture>araiup32</picture>
+  (time1 _time1) 100 0 3 zakomovedown self
+</enemy>
+<enemy>
+  <picture>araiup32</picture>
+  (time1 _time1) 500 0 3 zakomovedown self
+</enemy>

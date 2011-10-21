@@ -8,6 +8,8 @@
 #include <cmath>
 #include <cassert>
 #include <vector>
+#include <map>
+#include <fstream>
 #include "DxLib.h"
 #include "rect.h"
 #include "something.h"
@@ -21,12 +23,12 @@ enum Status{
   REBIRTH
 };
 enum TagCode{
-  DRAWGRAPH,
-  DRAWBOX,
-  DRAWLINE,
-  DRAWSTRING,
+	DRAWGRAPH,
+	DRAWBOX,
+	DRAWLINE,
+	DRAWSTRING,
   DRAWINT,
-  END
+	END
 };
 
 enum Mode{

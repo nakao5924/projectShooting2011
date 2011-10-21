@@ -16,13 +16,13 @@ class MovingObject;
 using namespace std;
 
 class GraphicPattern:public MovingObject{
-  int graphicID;
+	int graphicID;
 public:
-  void action(MovingObject*);
-  GraphicPattern();
-  GraphicPattern(int ID);
-  GraphicPattern(string str);
-  ~GraphicPattern(){}
+	void action(MovingObject*);
+	GraphicPattern();
+	GraphicPattern(int ID);
+	GraphicPattern(string str);
+	~GraphicPattern(){}
 };
 
 #endif

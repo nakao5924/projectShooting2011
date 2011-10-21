@@ -1,0 +1,309 @@
+<maxframe> 0 </maxframe>
+<comment> 2500 </comment>
+
+<make>
+  circle1
+  circle <mul>PI 1.5</mul> 200 -0.01 120
+  straight -5 0 -1
+</make>
+<make>
+  circle2
+  circle <mul> PI 1.0 </mul> 200 -0.01 120
+  straight 0 5 -1
+</make>
+<make>
+  circle3
+  circle <mul> PI 0.5 </mul> 200 -0.01 120
+  straight 5 0 -1
+</make>
+<make>
+  circle4
+  circle <mul> PI 0 </mul> 200 -0.01 120
+  straight 0 -5 -1
+</make>
+
+<make>
+  circle5
+  circle <mul>PI 1.0</mul> 200 0.01 120
+  straight 0 -5 -1
+</make>
+<make>
+  circle6
+  circle <mul> PI 1.5 </mul> 200 0.01 120
+  straight 5 0 -1
+</make>
+<make>
+  circle7
+  circle <mul> PI 0 </mul> 200 0.01 120
+  straight 0 5 -1
+</make>
+<make>
+  circle8
+  circle <mul> PI 0.5 </mul> 200 0.01 120
+  straight -5 0 -1
+</make>
+
+<make>
+  zakomovedown
+  straight 0 8 -1
+</make>
+<make>
+  zakomoveup
+  straight 0 -8 -1
+</make>
+<make>
+  zakomoveleft
+  straight -8 0 -1
+</make>
+<make>
+  zakomoveright
+  straight 8 0 -1
+</make>
+
+<make>
+  aimed1
+  aimedRandom 40 3 1 -1
+</make>
+
+<make>
+  time1
+  <add>100
+</make>
+<make>
+  time2
+  <add>300
+</make>
+<make>
+  time3
+  <add>500
+</make>
+<make>
+  time4
+  <add>700
+</make>
+<make>
+  time5
+  <add>1240
+</make>
+
+<make>
+  _time1
+  0</add>
+</make>
+<make>
+  _time2
+  60</add>
+</make>
+<make>
+  _time3
+  120</add>
+</make>
+<make>
+  _time4
+  180</add>
+</make>
+<make>
+  _time5
+  240</add>
+</make>
+<make>
+  _time6
+  300</add>
+</make>
+<make>
+  _time7
+  360</add>
+</make>
+<make>
+  _time8
+  420</add>
+</make>
+<make>
+  _time9
+  480</add>
+</make>
+
+<make>
+  _time12
+  0</add>
+</make>
+<make>
+  _time22
+  60</add>
+</make>
+<make>
+  _time32
+  120</add>
+</make>
+
+<comment>ここからメイン</comment>
+
+<enemy> <picture>yamazakidown32</picture>
+  (time1 _time1) 200 0 3 circle1 aimed1
+</enemy>
+<enemy> <picture>yamazakidown32</picture>
+  (time1 _time1) 0 400 3 circle2 aimed1
+</enemy>
+<enemy> <picture>yamazakidown32</picture>
+  (time1 _time1) 400 600 3 circle3 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time1 _time1) 600 200 3 circle4 aimed1
+</enemy>
+
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time2 _time1) 0 200 3 circle5 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time2 _time1) 400 0 3 circle6 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time2 _time1) 600 400 3 circle7 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time2 _time1) 200 600 3 circle8 aimed1
+</enemy>
+
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time3 _time1) 0 200 3 circle5 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time3 _time1) 400 0 3 circle6 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time3 _time1) 600 400 3 circle7 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time3 _time1) 200 600 3 circle8 aimed1
+</enemy>
+
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time3 _time1) 200 0 3 circle1 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time3 _time1) 0 400 3 circle2 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time3 _time1) 400 600 3 circle3 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time3 _time1) 600 200 3 circle4 aimed1
+</enemy>
+
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time1) 0 0 1 zakomovedown aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time2) 0 600 1 zakomoveright aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time3) 600 600 1 zakomoveup aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time4) 600 0 1 zakomoveleft aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time5) 0 0 1 zakomovedown aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time6) 0 600 1 zakomoveright aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time7) 600 600 1 zakomoveup aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time8) 600 0 1 zakomoveleft aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time9) 0 0 1 zakomovedown aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time10) 0 600 1 zakomoveright aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time11) 600 600 1 zakomoveup aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time4 _time12) 600 0 1 zakomoveleft aimed1
+</enemy>
+
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time5 _time1) 0 0 1 zakomovedown aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time5 _time1) 0 600 1 zakomoveright aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time5 _time1) 600 600 1 zakomoveup aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time5 _time1) 600 0 1 zakomoveleft aimed1
+</enemy>
+
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time5 _time2) 0 0 1 zakomovedown aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time5 _time2) 0 600 1 zakomoveright aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time5 _time2) 600 600 1 zakomoveup aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time5 _time2) 600 0 1 zakomoveleft aimed1
+</enemy>
+
+<enemy>
+  <picture>littleboy</picture>
+  (time5 _time3) 0 0 1 zakomovedown (bomb 0.3 15 -1)
+</enemy>
+<enemy>
+  <picture>littleboy</picture>
+  (time5 _time3) 0 600 1 zakomoveright (bomb 0.3 15 -1)
+</enemy>
+<enemy>
+  <picture>littleboy</picture>
+  (time5 _time3) 600 600 1 zakomoveup (bomb 0.3 15 -1)
+</enemy>
+<enemy>
+  <picture>littleboy</picture>
+  (time5 _time3) 600 0 1 zakomoveleft (bomb 0.3 15 -1)
+</enemy>
+  <enemy>
+    <picture>enemydefault32</picture>
+    (time5 _time4) 300 0 40 (straight 0 3 100) (straight 0 0 -1) (none 100) (allrange 0.3 0 15 6 -1)
+  </enemy>
+<endfile>

@@ -12,11 +12,11 @@ extern int _dumpLineHeight;
 
 template<class T>
 void msgDump(const T &value){
-  static int WHITE = GetColor(255, 255, 255);
-  ostringstream oss;
-  oss << value;
+	static int WHITE = GetColor(255, 255, 255);
+	ostringstream oss;
+	oss << value;
   graresource.drawstring<string>(_dumpCoordinateX, _dumpCoordinateY, oss.str(),WHITE);
-  _dumpCoordinateY += _dumpLineHeight;
+	_dumpCoordinateY += _dumpLineHeight;
 }
 
 extern class DxLibOut{} dxout;
@@ -25,12 +25,12 @@ extern class DxLibClear{} dxclr;
 
 template<class T>
 DxLibOut &operator <<(DxLibOut &dlo, const T &value){
-  static int WHITE = GetColor(255, 255, 255);
-  ostringstream oss;
-  oss << value;
+	static int WHITE = GetColor(255, 255, 255);
+	ostringstream oss;
+	oss << value;
   graresource.drawstring(_dumpCoordinateX, _dumpCoordinateY, oss.str(),WHITE);
-  _dumpCoordinateX += _dumpCharWidth * static_cast<int>(oss.str().length());
-  return dlo;
+	_dumpCoordinateX += _dumpCharWidth * static_cast<int>(oss.str().length());
+	return dlo;
 }
 DxLibOut &operator <<(DxLibOut &dlo, const DxLibEndLine &);
 DxLibOut &operator <<(DxLibOut &dlo, const DxLibClear &);

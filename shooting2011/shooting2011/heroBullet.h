@@ -6,7 +6,7 @@ class HeroBullet : public MovingObject{
 private:
   int heroId;
 public:
-  HeroBullet(){}
+	HeroBullet(){}
   HeroBullet( double x, double y, double vx,double vy, int heroId);
   ~HeroBullet();
   int getHeroId();

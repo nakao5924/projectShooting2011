@@ -5,8 +5,8 @@
 EnemyBullet::EnemyBullet( double x, double y, MovePattern *mp, FirePattern *fp, GraphicPattern *gp){
   hitRect = Rect(x, y, 4, 8);
   movePattern = mp;
-  firePattern = fp;
-  graPattern = gp;
+	firePattern = fp;
+	graPattern = gp;
 }
 
 EnemyBullet::~EnemyBullet(){

@@ -25,7 +25,6 @@ int ClientConnection::send(const string &message){
 	assert(connected_);
 	return server_.send(message);
 }
-
 int ClientConnection::receive(string &ret){
 	assert(connected_);
 	return server_.receive(ret);

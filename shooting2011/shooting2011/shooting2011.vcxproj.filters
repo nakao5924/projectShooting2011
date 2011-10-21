@@ -25,9 +25,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="ソース ファイル\testcode">
-      <UniqueIdentifier>{03008c9a-b23b-4c98-8fca-bc6536272cf7}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -120,14 +117,17 @@
     <ClCompile Include="reader.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="main_bak.cpp">
-      <Filter>ソース ファイル\testcode</Filter>
+    <ClCompile Include="aimedRandom.cpp">
+      <Filter>ソース ファイル\FirePatterns</Filter>
     </ClCompile>
-    <ClCompile Include="connect_test.cpp">
-      <Filter>ソース ファイル\testcode</Filter>
+    <ClCompile Include="circle.cpp">
+      <Filter>ソース ファイル\MovePatterns</Filter>
     </ClCompile>
-    <ClCompile Include="server_test.cpp">
-      <Filter>ソース ファイル\testcode</Filter>
+    <ClCompile Include="nway.cpp">
+      <Filter>ソース ファイル\FirePatterns</Filter>
+    </ClCompile>
+    <ClCompile Include="increase.cpp">
+      <Filter>ソース ファイル\FirePatterns</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +225,36 @@
   <ItemGroup>
     <None Include="stage.in">
       <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\StageData\stage1\scene2.1.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
+    </None>
+    <None Include="..\StageData\stage1\scene3.1.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
+    </None>
+    <None Include="explosion.in">
+      <Filter>リソース ファイル\StageData</Filter>
+    </None>
+    <None Include="..\StageData\stage1\scene1.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
+    </None>
+    <None Include="..\StageData\stage1\scene2.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
+    </None>
+    <None Include="..\StageData\stage1\scene3.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
+    </None>
+    <None Include="..\StageData\stage1\scene4.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
+    </None>
+    <None Include="..\StageData\stage1\scene5.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
+    </None>
+    <None Include="..\StageData\stage1\scene6.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
+    </None>
+    <None Include="..\StageData\stage1\scene7.in">
+      <Filter>リソース ファイル\StageData\stage1</Filter>
     </None>
   </ItemGroup>
 </Project>

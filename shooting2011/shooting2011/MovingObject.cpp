@@ -39,11 +39,11 @@ void MovingObject::setPosition(double x, double y) {
 }
 
 Status MovingObject::getStatus(){
-  return status;
+	return status;
 }
 
 void MovingObject::fire(){
-  firePattern->action(this);
+	firePattern->action(this);
 }
 
 MovingObject::~MovingObject(){
@@ -58,5 +58,5 @@ void MovingObject::setStatus( int _status){
 
 
 void MovingObject::draw(){
-  if(graPattern)graPattern->action(this);
+	if(graPattern)graPattern->action(this);
 }

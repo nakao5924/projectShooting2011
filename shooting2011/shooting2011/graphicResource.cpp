@@ -1,6 +1,7 @@
 #include "main.h"
 #include "graphicResource.h"
 
+
 GraphicResource graresource=GraphicResource();  // リソース
 
 // コンストラクタ
@@ -8,9 +9,8 @@ GraphicResource::GraphicResource() {}
   
 void GraphicResource::initialize(){
   data.resize(0);
-  pt.initialize();
+	pt.initialize();
 }
-
 GraphicResource::~GraphicResource(){}
 
 //encode start
@@ -32,6 +32,7 @@ void GraphicResource::drawbox(int x1, int y1, int x2, int y2, int color, bool fi
   data.push_back( color);
   data.push_back( (int)fillflag);
   //DrawBox(x1,y1,x2,y2,color,fillflag);
+
 }
 void GraphicResource::drawline(int x1, int y1, int x2, int y2, int color){
   data.push_back( DRAWLINE);
@@ -75,4 +76,3 @@ void GraphicResource::clear(){
 void GraphicResource::drawanimation(const int x,const int y, const int &graphicID, const int &animationIdx){
   this->drawgraph(x-pt.gethalfsize_x(graphicID),y-pt.gethalfsize_y(graphicID), graphicID, animationIdx,true);
 }
-

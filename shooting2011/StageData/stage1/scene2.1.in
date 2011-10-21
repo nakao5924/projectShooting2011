@@ -1,0 +1,67 @@
+<maxframe> 0 </maxframe>
+
+<make>
+  circle1
+  circle PI 100 -0.01 -1
+</make>
+
+<make>
+  nway1
+  nway 20 4 5 -1 0.1 -1
+</make>
+
+<make>
+  aimed1
+  none 10
+  aimedRandom 20 10 1 -1 
+</make>
+
+<make>
+  time1
+  <add>180
+</make>
+
+<make>
+  _time1
+  0</add>
+</make>
+<make>
+  _time2
+  30</add>
+</make>
+<make>
+  _time3
+  60</add>
+</make>
+<make>
+  _time4
+  90</add>
+</make>
+<make>
+  _time5
+  120</add>
+</make>
+
+<make>
+  _time12
+  0</add>
+</make>
+<make>
+  _time22
+  60</add>
+</make>
+<make>
+  _time32
+  120</add>
+</make>
+
+<comment>ここからメイン</comment>
+<enemy>
+  <picture>yamazakidown32</picture>
+  2000 300 200 circle1 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  0 300 200 circle1 nway1
+</enemy>
+

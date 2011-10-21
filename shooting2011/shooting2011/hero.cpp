@@ -8,16 +8,16 @@ Hero::Hero(int _heroId, int direction){
 
   movePattern = new MovePatternHero(_heroId);
 
-  //createFirePattern start///////////////////////////////////////////////////
-  firePattern=new FirePatternHero(5, _heroId, direction);
-  //createFirePattern end/////////////////////////////////////////////////////
-  string str="Hero";
-  stringstream ss;
-  ss<<str<<_heroId;
-  ss>>str;
-  this->graPattern=new GraphicPattern(str);
+	//createFirePattern start///////////////////////////////////////////////////
+	firePattern=new FirePatternHero(5, _heroId, direction);
+	//createFirePattern end/////////////////////////////////////////////////////
+	string str="hero";
+	stringstream ss;
+	ss<<str<<_heroId;
+	ss>>str;
+	this->graPattern=new GraphicPattern(str);
 
-  heroId = _heroId;
+	heroId = _heroId;
 //  fireWait = 0;
 }
 

@@ -3,10 +3,10 @@
 
 class Connection : private NonCopyable{
 private:
-  static char getDelimiter_();
-  static int getBase_();
+	static char getDelimiter_();
+	static int getBase_();
 
-  int netHandle_;
+	int netHandle_;
 
 	vector<char> sendbuf_;
 	vector<char> receivebuf_;

@@ -67,7 +67,7 @@ int Connection::sendHeader_(int length){
 	int header_length = static_cast<int>(sendbuf_.size());
 	if(NetWorkSend(netHandle_, static_cast<void *>(&sendbuf_[0]), header_length) == -1){
 		return -1;
-	}
+}
 	sendbuf_.resize(0);
 	return header_length;
 }

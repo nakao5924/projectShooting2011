@@ -68,8 +68,7 @@ void Decode::draw( const vector<int>& data){
 }
 
 void Decode::initialize(){
-  pt=PictureTable();
-  pt.initialize();
+	pt=PictureTable();
+	pt.initialize();
 }
-
 Decode decoder;

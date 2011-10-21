@@ -1,0 +1,128 @@
+<hoge> 1000 <hoge>
+
+
+(f1 0, 0,100 _fdown)
+(f1 0,20,200 _fdown)
+(f1 0,40,300 _fdown)
+(f1 0,60,400 _fdown)
+(f1 0,80,500 _fdown)
+  
+(f1 100, 0,100 _fup)
+(f1 100,20,200 _fup)
+(f1 100,40,300 _fup)
+(f1 100,60,400 _fup)
+(f1 100,80,500 _fup)
+
+(f1 200, 0,100 _fright)
+(f1 200,20,200 _fright)
+(f1 200,40,300 _fright)
+(f1 200,60,400 _fright)
+(f1 200,80,500 _fright)
+
+(f1 300, 0,100 _fleft)
+(f1 300,20,200 _fleft)
+(f1 300,40,300 _fleft)
+(f1 300,60,400 _fleft)
+(f1 300,80,500 _fleft)
+
+(f1 450, 0,100 _fdown)
+(f1 450,20,200 _fdown)
+(f1 450,40,300 _fdown)
+(f1 450,60,400 _fdown)
+(f1 450,80,500 _fdown)
+
+(f1 450, 0,500 _fup)
+(f1 450,20,400 _fup)
+(f1 450,40,300 _fup)
+(f1 450,60,200 _fup)
+(f1 450,80,100 _fup)
+
+(f1 450, 0,500 _fright)
+(f1 450,20,400 _fright)
+(f1 450,40,300 _fright)
+(f1 450,60,200 _fright)
+(f1 450,80,100 _fright)
+
+(f1 450, 0,100 _fleft)
+(f1 450,20,200 _fleft)
+(f1 450,40,300 _fleft)
+(f1 450,60,400 _fleft)
+(f1 450,80,500 _fleft)
+
+
+<comment></comment>
+
+<make>
+  movedown
+  straight 0,10 10
+</make>
+
+<make>
+  moveup
+  straight 0,-10 10
+</make>
+
+<make>
+  moveright
+  straight 10,0 10
+</make>
+
+<make>
+  moveleft
+  straight -10,0 10
+</make>
+
+<make>
+  none1
+  none 10
+</make>
+
+<make>
+  f1
+  <func>
+    time1,time2,point<_func> 
+</make>
+
+<make>
+  _fdown
+  <enemy> <picture>hoge</picture>
+    <add>time1,time2</add>,point,0,movedown,none1
+  </enemy>
+  </func>
+</make>
+
+<make>
+  _fup
+  <enemy> <picture>hoge</picture>
+    <add>time1,time2</add>,point,600,moveup,none1
+  </enemy>
+  </func>
+</make>
+<make> 
+  _fright
+  <enemy> <picture>hoge</picture>
+    <add>time1,time2</add>,0,point,moveright,none1
+  </enemy>
+  </func>
+</make>
+<make>
+  _fleft
+  <enemy> <picture>hoge</picture>
+
+    <add>time1,time2</add>,600,point,moveleft,none1
+  </enemy>
+  </func>
+</make>
+
+</end>
+
+
+
+
+
+
+
+
+
+
+

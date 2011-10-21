@@ -5,11 +5,11 @@
 #include "pictureTable.h"
 using namespace std;
 class Decode{
-  PictureTable pt;
+	PictureTable pt;
 public:
-  Decode(){}
-  ~Decode(){}
-  void initialize();
+	Decode(){}
+	~Decode(){}
+	void initialize();
   void drawbox( const vector<int>& data, int& pos);
   void drawline( const vector<int>& data, int& pos);
   void drawstring( const vector<int>& data, int& pos);

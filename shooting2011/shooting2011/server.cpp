@@ -43,14 +43,14 @@ int ServerConnection::findClientFromNetHandle_(int netHandle)const{
 
 ServerConnection::ServerConnection(int port):port_(port), status(WAIT_CONNECTION_MODE){}
 bool ServerConnection::startListen(){
-  return PreparationListenNetWork(port_) == -1;
+	return PreparationListenNetWork(port_) == -1;
 }
 bool ServerConnection::endListen(){
-  return StopListenNetWork() == -1;
+	return StopListenNetWork() == -1;
 }
 void ServerConnection::acceptNewConnection(){
-  int netHandle = GetNewAcceptNetWork();
-  if(netHandle != -1){
+	int netHandle = GetNewAcceptNetWork();
+	if(netHandle != -1){
 		Connection *newConnection = new Connection(netHandle);
 		int tmp;
 		IPDATA ip;
@@ -79,8 +79,8 @@ void ServerConnection::acceptNewConnection(){
 			delete newConnection;
 			CloseNetWork(netHandle);
 			break;
-		}
-  }
+	}
+}
 }
 void ServerConnection::checkLostConnection(){
 	int lostHandle;
@@ -99,20 +99,20 @@ void ServerConnection::setWaitConnectionMode(){
 }
 
 int ServerConnection::send(const string &str){
-  int result = 0;
+	int result = 0;
   for(int i = 0; i < getClientNum(); ++i){
-    int tmp = send(i, str);
-    if(tmp < 0){
-      result = tmp;
-    }
-  }
-  return result;
+		int tmp = send(i, str);
+		if(tmp < 0){
+			result = tmp;
+		}
+	}
+	return result;
 }
 int ServerConnection::send(int connection_id, const string &str){
-  return clients_.at(connection_id)->send(str);
+	return clients_.at(connection_id)->send(str);
 }
 int ServerConnection::receive(int connection_id, string &ret){
-  return clients_.at(connection_id)->receive(ret);
+	return clients_.at(connection_id)->receive(ret);
 }
 int ServerConnection::getClientNum()const{
 	return static_cast<int>(clients_.size());
@@ -136,21 +136,21 @@ int ServerConnection::receive(int connection_id, vector<int> &ret){
 }
 
 ServerConnection *ScreateServerConnection(int port, int clientNum){
-  static const int BLACK = GetColor(0, 0, 0);
-  static const int WHITE = GetColor(0, 0, 0);
-  ServerConnection *result = new ServerConnection(port);
-  result->startListen();
+	static const int BLACK = GetColor(0, 0, 0);
+	static const int WHITE = GetColor(0, 0, 0);
+	ServerConnection *result = new ServerConnection(port);
+	result->startListen();
   while(result->getClientNum() < clientNum){
     result->getClientNum();
-    DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
+		DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
     DrawFormatString(60, 60, WHITE, "access: %d", result->getClientNum());
-    ScreenFlip();
-    Sleep(10);
+		ScreenFlip();
+		Sleep(10);
     if( ProcessMessage() < 0 ) break ;
-    if( CheckHitKey( KEY_INPUT_ESCAPE ) ){
-      return NULL;
-    }
-  }
-  result->endListen();
-  return result;
+		if( CheckHitKey( KEY_INPUT_ESCAPE ) ){
+			return NULL;
+		}
+	}
+	result->endListen();
+	return result;
 }

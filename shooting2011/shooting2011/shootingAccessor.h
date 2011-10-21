@@ -18,6 +18,7 @@ public:
   static void addEnemy(Enemy *);
   static void addHero(Hero *);
   static Input getInput(int heroIndex);
+	static deque<pair<double,double> > getHeroPos();
 };
 
 #endif // __SHOOTINGACCESSOR_H__

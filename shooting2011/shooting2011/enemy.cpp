@@ -6,7 +6,15 @@ Enemy::Enemy( const EnemyData &data){
   movePattern = data.moveType;
   firePattern = data.fireType;
   graPattern=data.graType;
-  hp = 5;
+	hp = data.hp;
+}
+
+Enemy::Enemy(double x,double y,MovePattern *mp,FirePattern *fp,GraphicPattern *gp,int _hp){
+	hitRect = Rect(x,y,32,32);
+	movePattern = mp;
+	firePattern = fp;
+	graPattern = gp;
+	hp = _hp;
 }
 
 Enemy::~Enemy(){
@@ -23,12 +31,12 @@ int Enemy::getHp(){
 
 void Enemy::absorbDamage( int damage){
   hp -= damage;
-  if (hp < 0) changeStatus( EXPLOSION);
+  if (hp <= 0) changeStatus( EXPLOSION);
 }
 
 void Enemy::statusShift(){
   if (status == VALID){
-    if (hp < 0) changeStatus( EXPLOSION);
+    if (hp <= 0) changeStatus( EXPLOSION);
   } else if (status == EXPLOSION){
     if (frameCount > 120){
       changeStatus( INVALID);
@@ -42,6 +50,6 @@ void Enemy::statusShift(){
 }
 /*
 void Enemy::vanishAction(){
-  firePattern->vanishAction(this);
+	firePattern->vanishAction(this);
 }
 //*/

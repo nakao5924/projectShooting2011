@@ -1,52 +1,74 @@
-﻿2011/10/21 15:51:58 にビルドを開始しました。
-     1>ノード 2 上のプロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
-     1>InitializeBuildStatus:
+﻿2011/10/21 13:10:20 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\arai\Desktop\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット)。
+     1>PrepareForBuild:
+         ディレクトリ "C:\Users\arai\Desktop\shooting2011\Release\" を作成しています。
+       InitializeBuildStatus:
          "AlwaysCreate" が指定されたため "Release\shooting2011.unsuccessfulbuild" を作成しています。
        ClCompile:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Documents and Settings\Nakao\デスクトップ\work\shooting2011\dxlib" /I./dxlib /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt graphicResource.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Documents and Settings\Nakao\デスクトップ\work\shooting2011\dxlib" /I./dxlib /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt bomb.cpp client.cpp connection.cpp decode.cpp enemyBullet.cpp allRangeTimeRag.cpp FirePatternHero.cpp FirePatternNone.cpp graphicPattern.cpp graphicResource.cpp heroBullet.cpp enemy.cpp hero.cpp heroMove.cpp input.cpp lissajous.cpp main.cpp movingObject.cpp msgdump.cpp pictureTable.cpp reader.cpp rect.cpp server.cpp shooting.cpp shootingAccessor.cpp something.cpp stage.cpp stageDate.cpp straight.cpp systemData.cpp
+         bomb.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         client.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         connection.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         decode.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\pictureTable.h(3): fatal error C1083: include ファイルを開けません。'Dxlib.h': No such file or directory
+         enemyBullet.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         allRangeTimeRag.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         FirePatternHero.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         FirePatternNone.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         graphicPattern.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
          graphicResource.cpp
-     1>graphicResource.cpp(51): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-       Link:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Documents and Settings\Nakao\デスクトップ\work\shooting2011\dxlib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\shooting2011.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.lib" /MACHINE:X86 Release\bomb.obj
-         Release\client.obj
-         Release\connection.obj
-         Release\decode.obj
-         Release\enemyBullet.obj
-         Release\allRangeTimeRag.obj
-         Release\FirePatternHero.obj
-         Release\FirePatternNone.obj
-         Release\graphicPattern.obj
-         Release\graphicResource.obj
-         Release\heroBullet.obj
-         Release\enemy.obj
-         Release\hero.obj
-         Release\heroMove.obj
-         Release\input.obj
-         Release\lissajous.obj
-         Release\main.obj
-         Release\movingObject.obj
-         Release\msgdump.obj
-         Release\pictureTable.obj
-         Release\reader.obj
-         Release\rect.obj
-         Release\server.obj
-         Release\shooting.obj
-         Release\shootingAccessor.obj
-         Release\something.obj
-         Release\stage.obj
-         Release\stageDate.obj
-         Release\straight.obj
-         Release\systemData.obj
-         コード生成しています。
-         コード生成が終了しました。
-         shooting2011.vcxproj -> C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.exe
-       Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\Release\shooting2011.exe;#1" /manifest Release\shooting2011.exe.intermediate.manifest
-       FinalizeBuildStatus:
-         ファイル "Release\shooting2011.unsuccessfulbuild" を削除しています。
-         "Release\shooting2011.lastbuildstate" のタッチ タスクを実行しています。
-     1>プロジェクト "C:\cygwin\home\Nakao\github\projectShooting2011\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが完了しました。
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         heroBullet.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         enemy.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         hero.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         heroMove.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         input.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         lissajous.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         main.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         movingObject.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         msgdump.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         pictureTable.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         コンパイル中...
+         reader.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         rect.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         server.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         shooting.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         shootingAccessor.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         something.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         stage.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         stageDate.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         straight.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+         systemData.cpp
+     1>c:\users\arai\desktop\shooting2011\shooting2011\main.h(11): fatal error C1083: include ファイルを開けません。'DxLib.h': No such file or directory
+     1>プロジェクト "C:\Users\arai\Desktop\shooting2011\shooting2011\shooting2011.vcxproj" (build ターゲット) のビルドが終了しました -- 失敗。
 
-ビルドに成功しました。
+ビルドに失敗しました。
 
-経過時間 00:00:17.45
+経過時間 00:00:15.96

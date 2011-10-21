@@ -1,26 +1,26 @@
 //上に書いてあるものの方が強い
 
 <comment>
-  [...]
+	[...]
 </comment>
 
-//  [...]がコメントアウトされる。
+//	[...]がコメントアウトされる。
 
 
 <made>
-  label
-  [...]
+	label
+	[...]
 </made>
 
-//  別の場所で
-//  labelと書いたらそこに[...]がそのまま展開される。
+//	別の場所で
+//	labelと書いたらそこに[...]がそのまま展開される。
 
 
-  
+	
 <func> label1, label2, ... <_func>value1, value2, ...
 [...]
 </func>
-//  [...]の中だけlabelをhogeに置き換える。
+//	[...]の中だけlabelをhogeに置き換える。
 //<func><_func><func><func> </func>[...]</func>は[...]に文字を書いていない場合のみ正しく動く。
 
 
@@ -30,7 +30,7 @@ rand(min_val,max_val)
 //minからmaxまでの乱数を得る。
 
 <add>
-  1,-5,...,10
+	1,-5,...,10
 </add>
 //挟まれた数字すべてが足しあわされる。
 
@@ -38,8 +38,8 @@ rand(min_val,max_val)
 big small
 [...]
 </if>
-//  big>smallだったとき[...]が展開される。
-//  <if>1,0<if>1,0 hoge</if></if>は未実装。
+//	big>smallだったとき[...]が展開される。
+//	<if>1,0<if>1,0 hoge</if></if>は未実装。
 
 
 <endfile>
@@ -73,7 +73,7 @@ big small
 //---------------------------------------------------------------
 //ファイルの構成
 //<enemy>imagefilename </ememy>
-//    ...
+//		...
 //<enemy></enemy>
 //<make>
 //</make>
@@ -81,3 +81,10 @@ big small
 //という順序で書いたほうがエラー時に軽くてすみます。
 //
 //
+<enemy>
+<picture> name </picture>
+starttime
+moveobj
+fireobj
+hp
+

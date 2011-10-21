@@ -14,7 +14,7 @@ private:
   friend class ShootingAccessor;
   int gameClock;
   //int fpsTimer;
-  int curStageNum; //0-index 0‚Ídummy
+	int curStageNum; //0-index 0‚Ídummy
 
   Stage *stage;
   deque<Hero *> heros;
@@ -26,7 +26,7 @@ private:
   void eraseMovingObject();
   void hitMovingObject();
 
-  bool isBeginStage();
+	bool isBeginStage();
   void draw();
   void popUp();
 
@@ -48,7 +48,7 @@ public:
   Shooting(int HeroNum);
   ~Shooting();
   void action();
-  void setInput(const vector<string> &messages);
+	void setInput(const vector<string> &messages);
   void setInput(int clientId, string message);
   void clearInput(int clientId);
   bool isValid();
