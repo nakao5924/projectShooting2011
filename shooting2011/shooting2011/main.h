@@ -25,6 +25,7 @@ enum TagCode{
 	DRAWBOX,
 	DRAWLINE,
 	DRAWSTRING,
+  DRAWINT,
 	END
 };
 

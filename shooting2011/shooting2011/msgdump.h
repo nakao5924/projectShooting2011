@@ -28,7 +28,7 @@ DxLibOut &operator <<(DxLibOut &dlo, const T &value){
 	static int WHITE = GetColor(255, 255, 255);
 	ostringstream oss;
 	oss << value;
-  graresource.drawstring<string>(_dumpCoordinateX, _dumpCoordinateY, oss.str(),WHITE);
+  graresource.drawstring(_dumpCoordinateX, _dumpCoordinateY, oss.str(),WHITE);
 	_dumpCoordinateX += _dumpCharWidth * static_cast<int>(oss.str().length());
 	return dlo;
 }

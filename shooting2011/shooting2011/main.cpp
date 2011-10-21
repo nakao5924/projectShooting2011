@@ -5,7 +5,6 @@
 #include "server.h"
 #include "client.h"
 #include "msgdump.h"
-#include "bufferManager.h"
 #define SOLOPLAY_MODE
 //#define SERVER_MODE
 //#define CLIENT_MODE
@@ -53,6 +52,59 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
   return 0;					// ソフトの終了
 }
 
+#ifdef SOLOPLAY_MODE
+void soloplay_main(){
+	//画像読み込み
+  graresource.initialize();
+	decoder.initialize();
+	static const int BLACK = GetColor(0, 0, 0);
+  static const int WHITE = GetColor(255, 255, 255);
+  Shooting shooting(1);
+  // 移動ルーチン
+	int fpsTimer = GetNowCount();
+	Input input;
+  while( 1 ){
+		input.getKeyInput();
+    // todo treat dead client
+    //while(true){
+    //  int lostNetWork = GetLostNetWork();
+    //}
+    shooting.setInput(0, input.encode());
+    shooting.action();
+
+#ifdef _DEBUG_
+
+		// debug messages
+		//dxout << serverMessage << dxendl;
+
+#endif // _DEBUG_
+
+		//string clientMessage = graresource.getMessages();
+		//server.send(clientMessage);
+    vector<int> mess___ = graresource.getMessages();
+//    vector<int> vec;
+    //decoder.draw( vec);
+		decoder.draw( mess___);
+		graresource.clear();
+	  int term;
+	  term = GetNowCount()-fpsTimer;
+
+		if(16-term>0){
+			Sleep(16-term);
+		}
+
+	  fpsTimer = GetNowCount();
+    // Windows 特有の面倒な処理をＤＸライブラリにやらせる
+    // -1 が返ってきたらループを抜ける
+    if( ProcessMessage() < 0 ) break ;
+
+    // もしＥＳＣキーが押されていたらループから抜ける
+    if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
+  }
+}
+#endif // SOLOPLAY_MODE
+/*
+#ifdef SOLOPLAY_MODE
 void soloplay_main(){
 	//画像読み込み
   graresource.initialize();
@@ -85,11 +137,10 @@ void soloplay_main(){
 		input.getKeyInput();
 		client.send(input.encode());
 		string serverMessage;
-    /* // todo treat dead client
-    while(true){
-      int lostNetWork = GetLostNetWork();
-    }
-    */
+    // todo treat dead client
+    //while(true){
+    //  int lostNetWork = GetLostNetWork();
+    //}
 		for(int i = 0; i < server.size(); ++i){
       if(server.receive(i, serverMessage) >= 0){
         while(server.receive(i, serverMessage) >= 0);
@@ -109,8 +160,9 @@ void soloplay_main(){
 
 #endif // _DEBUG_
 
+		//string clientMessage = graresource.getMessages();
+		//server.send(clientMessage);
 		string clientMessage = graresource.getMessages();
-
 		server.send(clientMessage);
 
 		graresource.clear();
@@ -141,7 +193,10 @@ void soloplay_main(){
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
   }
 }
+#endif // SOLOPLAY_MODE
+*/
 
+#ifdef SERVER_MODE
 void server_main(){
   graresource.initialize();
   static const int BLACK = GetColor(0, 0, 0);
@@ -215,7 +270,9 @@ void server_main(){
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
   }
 }
+#endif // SERVER_MODE
 
+#ifdef CLIENT_MODE
 void client_main(){
 	decoder.initialize();
 
@@ -247,3 +304,4 @@ void client_main(){
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
   }
 }
+#endif // CLIENT_MODE

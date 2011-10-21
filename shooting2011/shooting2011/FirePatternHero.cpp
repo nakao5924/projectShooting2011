@@ -6,7 +6,7 @@
 #include "firePattern.h"
 #include "shootingAccessor.h"
 FirePatternHero::FirePatternHero(int _interval,int _heroId,int _shotType){
-	interval = 8;//_interval;
+	interval = 8;
 	heroId = _heroId;
 	shotType = _shotType;
 	curFrame = 0;
