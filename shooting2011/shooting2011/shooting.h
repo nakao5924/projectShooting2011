@@ -10,9 +10,9 @@
 #include "stage.h"
 
 class Shooting : private NonCopyable{
+private:
   friend class ShootingAccessor;
   int gameClock;
-  //int fpsTimer;
 	int curStageNum; //0-index 0ÇÕdummy
 
   Stage *stage;
@@ -26,9 +26,21 @@ class Shooting : private NonCopyable{
   void hitMovingObject();
 
 	bool isBeginStage();
-//  void calibrateFps();
   void draw();
   void popUp();
+
+  // èÛë‘ëJà⁄
+  enum{
+    NOMAL,
+    GAME_OVER,
+    GAME_CLEAR,
+    FIN
+  };
+
+  int gameStatus;
+  void nomalAction();
+  void gameOverAction();
+  void gameClearAction();
 
 public:
   Shooting();
@@ -38,6 +50,7 @@ public:
 	void setInput(const vector<string> &messages);
   void setInput(int clientId, string message);
   void clearInput(int clientId);
+  bool isValid();
   //string encode();
   //Shooting* decode(string);
 };

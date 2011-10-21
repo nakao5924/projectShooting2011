@@ -5,7 +5,6 @@
 #include "server.h"
 #include "client.h"
 #include "msgdump.h"
-#include "bufferManager.h"
 #define SOLOPLAY_MODE
 //#define SERVER_MODE
 //#define CLIENT_MODE
@@ -53,6 +52,184 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
   return 0;					// ソフトの終了
 }
 
+#ifdef SOLOPLAY_MODE
+void soloplay_main(){
+  Input input;
+  Mode status = TITLE;
+
+  graresource.initialize();
+  decoder.initialize();
+  Shooting *shooting;
+  int fpsTimer = GetNowCount();
+
+  while (true){
+    if (status == TITLE){
+      input.getKeyInput();
+      if (input.buttonA()){
+        status = SELECT;
+      }
+  	  ClearDrawScreen();
+      // 後で差し替える　nakao
+      DrawString( 100, 100, "TITLE", WHITE, GREY);
+      //DrawGraph( 0, 0, "TITLE.bmp", false);
+      ScreenFlip();
+    } else if (status == SELECT){
+      input.getKeyInput();
+      if (input.buttonA()){
+        shooting = new Shooting(1);
+        status = SHOOTING;
+      } else if (input.buttonB()){
+        status = TITLE;
+      }
+  	  ClearDrawScreen();
+      // 後で差し替える　nakao
+      DrawString( 100, 100, "SELECT", WHITE, GREY);
+      DrawString( 100, 200, "If push button A, game start.", WHITE, GREY);
+      DrawString( 100, 300, "If push button B, back to title.", WHITE, GREY);
+      ScreenFlip();
+    } else if (status == SHOOTING){
+   		input.getKeyInput();
+      // todo treat dead client
+      //while(true){
+      //  int lostNetWork = GetLostNetWork();
+      //}
+      shooting->setInput(0, input.encode());
+      shooting->action();
+      /*
+      if (SHOOTING) shooting.action();
+      else if (TITLE) {
+        drawTitle;
+      } else if (){
+
+      }
+      */
+
+#ifdef _DEBUG_
+
+		  // debug messages
+		  //dxout << serverMessage << dxendl;
+
+#endif // _DEBUG_
+
+		  //string clientMessage = graresource.getMessages();
+		  //server.send(clientMessage);
+      vector<int> mess___ = graresource.getMessages();
+		  decoder.draw( mess___);
+		  graresource.clear();
+	    int term;
+	    term = GetNowCount()-fpsTimer;
+
+		  if(16-term>0){
+  			Sleep(16-term);
+		  }
+
+	    fpsTimer = GetNowCount();
+      if (!shooting->isValid()){
+        delete shooting;
+        status = SELECT;
+      }
+
+    } else {
+      assert( false && "solo main");
+    }
+    // Windows 特有の面倒な処理をＤＸライブラリにやらせる
+    // -1 が返ってきたらループを抜ける
+    if( ProcessMessage() < 0 ) break ;
+
+    // もしＥＳＣキーが押されていたらループから抜ける
+    if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
+  }
+}
+#endif // SOLOPLAY_MODE
+
+/*
+// WinMain関数
+int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
+					 LPSTR lpCmdLine, int nCmdShow )
+{
+  // 画面モードの設定
+  ChangeWindowMode(true);
+  SetGraphMode( WINDOW_WIDTH, WINDOW_HEIGHT, 16 ) ;
+
+  // ＤＸライブラリ初期化処理
+  if( DxLib_Init() == -1 ) return -1;
+
+  // グラフィックの描画先を裏画面にセット
+  SetDrawScreen( DX_SCREEN_BACK );
+
+#ifdef SOLOPLAY_MODE
+	soloplay_main();
+#endif // SOLOPLAY_MODE
+#ifdef SERVER_MODE
+	server_main();
+#endif // SERVER_MODE
+#ifdef CLIENT_MODE
+	client_main();
+#endif // CLIENT_MODE
+
+  DxLib_End();				// ＤＸライブラリ使用の終了処理
+  return 0;					// ソフトの終了
+}
+
+
+#ifdef SOLOPLAY_MODE
+void soloplay_main(){
+	//画像読み込み
+  graresource.initialize();
+  decoder.initialize();
+	static const int BLACK = GetColor(0, 0, 0);
+  static const int WHITE = GetColor(255, 255, 255);
+  Shooting shooting(1);
+  // 移動ルーチン
+	int fpsTimer = GetNowCount();
+	Input input;
+  while( 1 ){
+		input.getKeyInput();
+    // todo treat dead client
+    //while(true){
+    //  int lostNetWork = GetLostNetWork();
+    //}
+    shooting.setInput(0, input.encode());
+    shooting.action();
+
+//    if (SHOOTING) shooting.action();
+//    else if (TITLE) {
+//      drawTitle;
+//    } else if (){
+
+//    }
+
+#ifdef _DEBUG_
+
+		// debug messages
+		//dxout << serverMessage << dxendl;
+
+#endif // _DEBUG_
+
+		//string clientMessage = graresource.getMessages();
+		//server.send(clientMessage);
+    vector<int> mess___ = graresource.getMessages();
+		decoder.draw( mess___);
+		graresource.clear();
+	  int term;
+	  term = GetNowCount()-fpsTimer;
+
+		if(16-term>0){
+			Sleep(16-term);
+		}
+
+	  fpsTimer = GetNowCount();
+    // Windows 特有の面倒な処理をＤＸライブラリにやらせる
+    // -1 が返ってきたらループを抜ける
+    if( ProcessMessage() < 0 ) break ;
+
+    // もしＥＳＣキーが押されていたらループから抜ける
+    if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
+  }
+}
+#endif // SOLOPLAY_MODE
+/*
+#ifdef SOLOPLAY_MODE
 void soloplay_main(){
 	//画像読み込み
   graresource.initialize();
@@ -85,11 +262,10 @@ void soloplay_main(){
 		input.getKeyInput();
 		client.send(input.encode());
 		string serverMessage;
-    /* // todo treat dead client
-    while(true){
-      int lostNetWork = GetLostNetWork();
-    }
-    */
+    // todo treat dead client
+    //while(true){
+    //  int lostNetWork = GetLostNetWork();
+    //}
 		for(int i = 0; i < server.size(); ++i){
       if(server.receive(i, serverMessage) >= 0){
         while(server.receive(i, serverMessage) >= 0);
@@ -109,8 +285,9 @@ void soloplay_main(){
 
 #endif // _DEBUG_
 
+		//string clientMessage = graresource.getMessages();
+		//server.send(clientMessage);
 		string clientMessage = graresource.getMessages();
-
 		server.send(clientMessage);
 
 		graresource.clear();
@@ -141,7 +318,9 @@ void soloplay_main(){
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
   }
 }
+#endif // SOLOPLAY_MODE
 
+#ifdef SERVER_MODE
 void server_main(){
   graresource.initialize();
   static const int BLACK = GetColor(0, 0, 0);
@@ -172,10 +351,10 @@ void server_main(){
   while( 1 ){
 		string serverMessage;
     /* // todo treat dead client
-    while(true){
-      int lostNetWork = GetLostNetWork();
-    }
-    */
+//    while(true){
+//      int lostNetWork = GetLostNetWork();
+//    }
+
 		for(int i = 0; i < server.size(); ++i){
       if(server.receive(i, serverMessage) >= 0){
         while(server.receive(i, serverMessage) >= 0);
@@ -215,7 +394,9 @@ void server_main(){
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
   }
 }
+#endif // SERVER_MODE
 
+#ifdef CLIENT_MODE
 void client_main(){
 	decoder.initialize();
 
@@ -247,3 +428,5 @@ void client_main(){
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
   }
 }
+#endif // CLIENT_MODE
+*/

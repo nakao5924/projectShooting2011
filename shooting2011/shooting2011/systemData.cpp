@@ -37,7 +37,9 @@ void SystemData::draw() {
 	for(int i=0; i<(int)lifes.size(); i++) {
 			//strWidthLife = GetDrawFormatStringWidth("%04d", lifes[i]);
 			//strWidthScore = GetDrawFormatStringWidth("%08d", scores[i]);
-			graresource.drawstring<int>(textPositions[i].lifePosX1, textPositions[i].lifePosY1, lifes[i], color);
-			graresource.drawstring<int>(textPositions[i].scorePosX1, textPositions[i].scorePosY1, scores[i],color);
+    graresource.drawint( textPositions[i].lifePosX1, textPositions[i].lifePosY1, lifes[i], color);
+    graresource.drawint( textPositions[i].scorePosX1, textPositions[i].scorePosY1, scores[i],color);
+//			graresource.drawstring<int>(textPositions[i].lifePosX1, textPositions[i].lifePosY1, lifes[i], color);
+			//graresource.drawstring<int>(textPositions[i].scorePosX1, textPositions[i].scorePosY1, scores[i],color);
 	}
 }

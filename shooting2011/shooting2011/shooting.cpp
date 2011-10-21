@@ -11,6 +11,7 @@ Shooting::Shooting(){
 	ShootingAccessor::addHero(new Hero(0, 2));
 	curStageNum = 0;
 	stage = NULL;
+  gameStatus = NOMAL;
 }
 Shooting::Shooting(int heroNum){
   gameClock = 0;
@@ -25,6 +26,7 @@ Shooting::Shooting(int heroNum){
   //ShootingAccessor::addHero(new Hero(3,3));
 	curStageNum = 0;
 	stage = NULL;
+  gameStatus = NOMAL;
 }
 
 Shooting::~Shooting(){
@@ -63,8 +65,7 @@ bool Shooting::isBeginStage(){
 	return curStageNum == 0 || !stage->isValid();
 }
 
-void Shooting::action(){
-	
+void Shooting::nomalAction(){	
 	if(isBeginStage()){
 		delete stage;
 		stage = new Stage(++curStageNum);
@@ -107,6 +108,54 @@ void Shooting::action(){
   eraseMovingObject();
 
   //calibrateFps();
+  //draw();
+}
+
+void Shooting::gameOverAction(){
+  //Ç¢Ç¬Ç©ç∑Çµë÷Ç¶ÇÈ nakao
+//  static const int gameOverGraphId = graresource.getID( "gameOver");
+//  graresource.drawgraph( 0, 0, gameOverGraphId, false);
+  graresource.drawstring( 100, 100, "game over", WHITE);
+}
+
+void Shooting::gameClearAction(){
+  //Ç¢Ç¬Ç©ç∑Çµë÷Ç¶ÇÈ nakao
+//  static const int gameClearGraphId = graresource.getID( "gameClear");
+//  graresource.drawgraph( 0, 0, gameClearGraphId, false);
+  graresource.drawstring( 100, 100, "game clear", WHITE);
+}
+
+void Shooting::action(){
+  static int frameCount = 0;
+  frameCount++;
+
+  if (gameStatus == NOMAL) nomalAction();
+  else if (gameStatus == GAME_OVER) gameOverAction();
+  else if (gameStatus == GAME_CLEAR) gameClearAction();
+  else if (gameStatus == FIN) assert( false && "shooting action. status is fin.");
+  else assert( false && "shooting action");
+
+  // status shift
+  if (gameStatus == NOMAL){
+    bool gameOverFlag = true;
+    for (int i=0; i<heros.size(); i++){
+      if (heros[i]->getStatus() != INVALID) {
+        gameOverFlag = false;
+        break;
+      }
+    }
+    if (gameOverFlag){
+      frameCount = 0;
+      gameStatus = GAME_OVER;
+    } else if (!stage->isValid()){
+      frameCount = 0;
+      gameStatus = GAME_CLEAR;
+    }
+  } else if (GAME_OVER){
+    if (frameCount >= 180) gameStatus = FIN;
+  } else if (GAME_CLEAR){
+    if (frameCount >= 180) gameStatus = FIN;
+  }
   draw();
 }
 
@@ -258,4 +307,8 @@ void Shooting::setInput(int clientId, string message){
 
 void Shooting::clearInput(int clientId){
   inputs[clientId]->clear();
+}
+
+bool Shooting::isValid(){
+  return gameStatus != FIN;
 }
