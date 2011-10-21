@@ -5,20 +5,17 @@
 #include "pictureTable.h"
 using namespace std;
 class Decode{
-	PictureTable pt;
+  PictureTable pt;
 public:
 	Decode(){}
 	~Decode(){}
 	void initialize();
-	void draw(stringstream&ss);
-	void initdraw();
-	void drawbox(stringstream&ss);
-	void drawline(stringstream&ss);
-	void drawstring(stringstream&ss);
-	void drawgraph(stringstream&ss);
-	void draw(const string&str);
-
-
+	void drawbox( const vector<int>& data, int& pos);
+	void drawline( const vector<int>& data, int& pos);
+	void drawstring( const vector<int>& data, int& pos);
+	void drawgraph( const vector<int>& data, int& pos);
+	void drawint( const vector<int>& data, int& pos);
+	void draw( const vector<int>& data);
 };
 extern Decode decoder;
 #endif

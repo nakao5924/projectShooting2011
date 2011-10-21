@@ -11,9 +11,8 @@
 #include "main.h"
 
 class GraphicResource {
-//private:
-//  int *data;
-	stringstream ss;
+private:
+  vector<int> data;
 	PictureTable pt;
 public:
 	~GraphicResource();
@@ -26,11 +25,10 @@ public:
 	void drawanimation(const int x,const int y,const int framecount,const int&graphicID);
 	void drawbox(int x1, int y1, int x2, int y2,int color,bool fillflag);
 	void drawline(int x1, int y1, int x2, int y2,int color);
-	template<class _Ty>void drawstring(int x,int y, _Ty str, int color){
-		ss<<" "<<DRAWSTRING<<" "<<x<<" "<<y<<" "<<str<<" "<<color<<" "<<DRAWSTRING<<" ";
-	}
+  void drawstring(int x,int y, string str, int color);
+  void drawint(int x, int y, int num, int color);
 
-	string getMessages();
+	vector<int> getMessages();
 	void clear();
 //////////////////////////end/encode////////////////////////////////////
 };
