@@ -31,7 +31,7 @@ int SystemData::getLife( int heroId){
 void SystemData::draw() {
   // replace @nakao
   static const int backGroundSystemId = graresource.getID( "systemBg");
-  graresource.drawgraph( 600, 0, backGroundSystemId, false);
+  graresource.drawgraph( 600, 0, backGroundSystemId, 0, false);
   int color = COLOR_WHITE;
 
   for(int i=0; i<(int)lifes.size(); i++) {

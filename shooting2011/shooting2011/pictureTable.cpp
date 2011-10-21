@@ -74,3 +74,15 @@ int PictureTable::getanimation(int tableIdx,int animIdx){
     return decode_table[tableIdx][animIdx];
   }
 }
+
+int PictureTable::decode(int tableIdx, int animationIdx){
+  int animsize;
+  if ((animsize = decode_table[tableIdx].size()) == 1) {
+    return decode_table[tableIdx][0];
+  }
+  return decode_table[tableIdx][animationIdx % animsize];
+}
+
+int PictureTable::encode(string str){
+  return graphic_encode_table[str];
+}

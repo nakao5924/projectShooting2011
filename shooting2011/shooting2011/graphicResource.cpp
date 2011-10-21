@@ -14,13 +14,14 @@ void GraphicResource::initialize(){
 GraphicResource::~GraphicResource(){}
 
 //encode start
-void GraphicResource::drawgraph(const int x,const int y,int graphic,bool transflag){
+void GraphicResource::drawgraph(const int x,const int y,int tableIdx,int animationIdx,bool transflag){
   data.push_back( DRAWGRAPH);
   data.push_back( x);
   data.push_back( y);
-  data.push_back( graphic);
+  data.push_back( tableIdx);
+  data.push_back( animationIdx);
   data.push_back( (int)transflag);
-  //DrawGraph(x,y,graphic,transflag);
+  //DrawGraph(x,y,tableIdx,animationIdx,transflag);
 }
 void GraphicResource::drawbox(int x1, int y1, int x2, int y2, int color, bool fillflag){
   data.push_back( DRAWBOX);
@@ -72,8 +73,8 @@ void GraphicResource::clear(){
   data.resize(0);
 }
 
-void GraphicResource::drawanimation(const int x,const int y,const int framecount,const int&graphicID){
-  this->drawgraph(x-pt.gethalfsize_x(graphicID),y-pt.gethalfsize_y(graphicID),pt.getanimation(graphicID,framecount),true);
+void GraphicResource::drawanimation(const int x,const int y, const int &graphicID, const int &animationIdx){
+  this->drawgraph(x-pt.gethalfsize_x(graphicID),y-pt.gethalfsize_y(graphicID), graphicID, animationIdx,true);
 }
 
 /*

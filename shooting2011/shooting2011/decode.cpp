@@ -31,10 +31,10 @@ void Decode::drawstring( const vector<int>& data, int& pos){
 }
 
 void Decode::drawgraph( const vector<int>& data, int& pos){
-//  DrawGraph(x,y,pt.decode(graphic),transflag);
-  int temp[4];
-  for (int i=0; i<4; i++) temp[i] = data[pos++];
-  DrawGraph( temp[0], temp[1], pt.decode(temp[2]), (bool)temp[3]);
+//  DrawGraph(x,y,pt.decode(tableIdx, animationIdx),transflag);
+  int temp[5];
+  for (int i=0; i<5; i++) temp[i] = data[pos++];
+  DrawGraph( temp[0], temp[1], pt.decode(temp[2],temp[3]), (bool)temp[4]);
 }
 
 void Decode::drawint( const vector<int>& data, int& pos){
