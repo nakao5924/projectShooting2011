@@ -33,6 +33,7 @@ private:
   // èÛë‘ëJà⁄
   enum{
     NOMAL,
+    GAME_SELECT,
     GAME_OVER,
     GAME_CLEAR,
     FIN
@@ -41,7 +42,12 @@ private:
   int gameStatus;
   void nomalAction();
   void gameOverAction();
+  void gameSelectAction();
   void gameClearAction();
+
+  vector<bool> isSelected;
+  vector<int> heroDirections;
+
 
 public:
   Shooting();

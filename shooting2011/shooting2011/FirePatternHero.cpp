@@ -13,6 +13,10 @@ FirePatternHero::FirePatternHero(int _interval,int _heroId,int _shotType){
 	keyPushFlag = false;
 }
 
+void FirePatternHero::setDirection( int dir){
+  shotType = dir;
+}
+
 bool FirePatternHero::isFire() {
 	bool keyFlag = ( ShootingAccessor::getInput(heroId).buttonA() );
 	if(--fireWait < 0){
@@ -44,16 +48,16 @@ void FirePatternHero::action(MovingObject *owner){
 	if(isFire() && owner->getStatus()==VALID){
 		Rect r = owner->getHitRect();
 		if(shotType==0){
-			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,-10,0,heroId));//up
+			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,0,-10,heroId));//up
 		}
 		else if(shotType==1){
-			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,10,0,heroId));//down
+			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,10,0,heroId));//right
 		}
 		else if(shotType==2){
-			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,0,-10,heroId));//left
+			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,0,10,heroId));//down
 		}
 		else if(shotType==3){
-			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,0,10,heroId));//right
+			ShootingAccessor::addHeroBullet( new HeroBullet(r.x,r.y,-10,0,heroId));//left
 		}
 	}
 }

@@ -6,8 +6,8 @@
 #include "client.h"
 #include "msgdump.h"
 #include <iostream>
-//#define SOLOPLAY_MODE
-#define NETWORK_SOLOPLAY_MODE
+#define SOLOPLAY_MODE
+//#define NETWORK_SOLOPLAY_MODE
 //#define SERVER_MODE
 // #define CLIENT_MODE
 
@@ -170,17 +170,26 @@ void soloplay_main(){
   decoder.initialize();
   static const int BLACK = GetColor(0, 0, 0);
   static const int WHITE = GetColor(255, 255, 255);
-  Shooting shooting(1);
+  static const int playerNum = 4;
+  Shooting shooting(playerNum);
   // à⁄ìÆÉãÅ[É`Éì
   int fpsTimer = GetNowCount();
   Input input;
+
+  ClearDrawScreen();
+  const static int titleGraph = LoadGraph( "../graphic/ShootingTitle.jpg");
+  DrawGraph( 0, 0, titleGraph, false);
+  ScreenFlip();
+  Sleep( 3000);
   while( 1 ){
     input.getKeyInput();
     // todo treat dead client
     //while(true){
     //  int lostNetWork = GetLostNetWork();
     //}
-    shooting.setInput(0, input.encode());
+    for(int i = 0; i < playerNum; ++i){
+      shooting.setInput(i, input.encode());
+    }
     shooting.action();
 
 #ifdef _DEBUG_

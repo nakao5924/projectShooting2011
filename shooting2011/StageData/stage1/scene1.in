@@ -1,5 +1,7 @@
-ï»¿<maxframe> 0 </maxframe>
-<frame>1700</frame>
+
+<file>
+<stagetime> 1700 </stagetime>
+<comment> 1700 </comment>
 <make>
   bombdown
   straight 0 3 -1
@@ -191,7 +193,7 @@
   120</add>
 </make>
 
-<comment>ã“ã“ã‹ã‚‰ãƒ¡ã‚¤ãƒ³</comment>
+<comment>‚±‚±‚©‚çƒƒCƒ“</comment>
 <enemy> <picture>yamazakidown32</picture>
   (time1 _time1) 100 0 3 zakomovedown (none -1)
 </enemy>

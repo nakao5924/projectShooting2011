@@ -4,14 +4,14 @@
 #include "systemData.h"
 
 class Hero : public MovingObject{
-	
 private:
-
+  int direction;
 
 public:
   // ‚¢‚Â‚©private‚ÉˆÚ‚µ‚Ü‚µ‚å‚¤@@nakao
 	int heroId;
   int getHeroId();
+  void setDirection( int dir);
 	Hero(){}
 	Hero(int _heroId, int direction);
 	~Hero();
