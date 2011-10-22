@@ -221,18 +221,18 @@ FirePattern *Reader::making_basic_object<FirePattern>(){
 	}else if(format=="allrange"){
 		double dtheta,startTheta,v;int interval;
 		ss>>dtheta>>startTheta>>v>>interval;
-		return new FirePatternAllRangeTimeRag(dtheta,startTheta,v,interval,graresource.getID("enemybullet0none16"));
+		return new FirePatternAllRangeTimeRag(dtheta,startTheta,v,interval,graresource.getID("bulletbluenone16"));
 	}
 	else if(format=="bomb"){
 		double d_theta,vv;
 		ss>>d_theta>>vv;
-		return new FirePatternBomb(d_theta,vv,graresource.getID("enemybullet0none16"));
+		return new FirePatternBomb(d_theta,vv,graresource.getID("bulletwhitenone16"));
 	}
 	else if(format=="aimedRandom"){
 		int interval,n;
 		double v;
 		ss>>interval>>v>>n;
-		return new FirePatternAimedRandom(interval,n,v,graresource.getID("enemybullet0none16"));
+		return new FirePatternAimedRandom(interval,n,v,graresource.getID("bulletgreennone16"));
 	}
 	else if(format=="nway"){
 		int interval,n;
