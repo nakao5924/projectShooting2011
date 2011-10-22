@@ -85,7 +85,7 @@
 
 <make>
   _fdown
-  <enemy> <picture>bulletbluenone16.bmp</picture>
+  <enemy> <picture>bulletbluenone16</picture>
     <add>time1,time2</add>,point,0,movedown,none1
   </enemy>
   </func>
@@ -93,21 +93,21 @@
 
 <make>
   _fup
-  <enemy> <picture>bulletbluenone16.bmp</picture>
+  <enemy> <picture>bulletbluenone16</picture>
     <add>time1,time2</add>,point,600,moveup,none1
   </enemy>
   </func>
 </make>
 <make> 
   _fright
-  <enemy> <picture>bulletbluenone16.bmp</picture>
+  <enemy> <picture>bulletbluenone16</picture>
     <add>time1,time2</add>,0,point,moveright,none1
   </enemy>
   </func>
 </make>
 <make>
   _fleft
-  <enemy> <picture>bulletbluenone16.bmp</picture>
+  <enemy> <picture>bulletbluenone16</picture>
 
     <add>time1,time2</add>,600,point,moveleft,none1
   </enemy>

@@ -238,7 +238,7 @@ FirePattern *Reader::making_basic_object<FirePattern>(){
 		int interval,n;
 		double v,dir,dtheta;
 		ss>>interval>>n>>v>>dir>>dtheta;
-		return new FirePatternNway(interval,n,v,dir,dtheta,graresource.getID("enemybullet0none16"));
+		return new FirePatternNway(interval,n,v,dir,dtheta,graresource.getID("bulletbluenone16"));
 	}
 	else if(format=="createself"){
 		int interval,hp;

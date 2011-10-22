@@ -109,7 +109,7 @@
   (time1 _time1) 600 608 1 zakomove (none -1)
 </enemy>
 
-<enemy> <picture>littleboy32</picture>
+<enemy> <picture>littleboyup32</picture>
   (time1 _time2) 600 0 1 zakomove  (bomb 0.3 15 -1)
 </enemy>
 <enemy> <picture>araidown32</picture>
@@ -124,7 +124,7 @@
 <enemy> <picture>araidown32</picture>
   (time1 _time2) 600 128 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>littleboy32</picture>
+<enemy> <picture>littleboyup32</picture>
   (time1 _time2) 600 160 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy> <picture>araidown32</picture>
@@ -147,7 +147,7 @@
 <enemy> <picture>araidown32</picture>
   (time1 _time2) 600 352 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>littleboy32</picture>
+<enemy> <picture>littleboyup32</picture>
   (time1 _time2) 600 384 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy> <picture>araidown32</picture>
@@ -162,7 +162,7 @@
 <enemy> <picture>araidown32</picture>
   (time1 _time2) 600 512 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>littleboy32</picture>
+<enemy> <picture>littleboyup32</picture>
   (time1 _time2) 600 544 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy> <picture>araidown32</picture>
@@ -173,7 +173,7 @@
 </enemy>
 
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3) 600 0 1 zakomove  (bomb 0.3 15 -1)
 </enemy>
 <enemy>
@@ -193,7 +193,7 @@
   (time1 _time3) 600 128 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3) 600 160 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 
@@ -203,7 +203,7 @@
 </enemy>
 
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3) 600 224 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
@@ -211,7 +211,7 @@
   (time1 _time3) 600 256 1 zakomove (none -1)
 </enemy>
  <enemy>
- <picture>littleboy32</picture>
+ <picture>littleboyup32</picture>
    (time1 _time3) 600 288 1 zakomove (bomb 0.3 15 -1)
  </enemy>
 <enemy>
@@ -223,7 +223,7 @@
   (time1 _time3) 600 352 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3) 600 384 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
@@ -244,7 +244,7 @@
 </enemy>
 <comment>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3) 600 544 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 
@@ -260,84 +260,84 @@
 </comment>
 <comment>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 0 1 zakomove  (bomb 0.3 15 -1)
 </enemy>
 
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 32 1 zakomove(bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 64 1 zakomove (bomb 0.3 15 -1)
 </enemy>
  </comment>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 96 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 128 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 160 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 192 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 224 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 256 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 288 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 320 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 352 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 384 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 416 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 448 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 480 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 512 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 544 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-    <picture>littleboy32</picture>
+    <picture>littleboyup32</picture>
     (time1 _time4) 600 576 1 zakomove (bomb 0.3 15 -1)
  </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4) 600 608 1 zakomove (bomb 0.3 15 -1)
 </enemy>

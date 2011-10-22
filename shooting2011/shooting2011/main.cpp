@@ -9,7 +9,7 @@
 //#define SOLOPLAY_MODE
 #define NETWORK_SOLOPLAY_MODE
 //#define SERVER_MODE
-//#define CLIENT_MODE
+// #define CLIENT_MODE
 
 int PORT = 12345;
 #ifdef CLIENT_MODE
@@ -242,12 +242,16 @@ void network_soloplay_main(){
     // もしＥＳＣキーが押されていたらループから抜ける
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) exit(1);
 	}
-	server.endListen();
   Shooting shooting(CLIENT_NUM);
   // 移動ルーチン
 	int fpsTimer = GetNowCount();
 	Input input;
+	int playerNum = server.getClientNum();
   while( 1 ){
+
+		//server.acceptNewConnection();
+		//server.checkLostConnection();
+
 		input.getKeyInput();
 		client.send(input.encode());
 		string serverMessage;
@@ -308,6 +312,7 @@ void network_soloplay_main(){
     // もしＥＳＣキーが押されていたらループから抜ける
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
   }
+	server.endListen();
 }
 #endif // NETWORK_SOLOPLAY_MODE
 
@@ -391,6 +396,61 @@ void server_main(){
 
 #ifdef CLIENT_MODE
 void client_main(){
+  static Mode status = UNCONNECTED;
+	ClientConnection client(PORT, SERVER_IP);
+	Input input;
+	decoder.initialize();
+
+	while(!client.connect()){
+	  ClearDrawScreen();
+	  const static int titleGraph = LoadGraph( "../graphic/ShootingTitle.jpg");
+	  DrawGraph( 0, 0, titleGraph, false);
+	  DrawString( 300, 500, "Now connecting", WHITE);
+		ScreenFlip();
+		int lastTry = GetNowCount();
+		while(GetNowCount() - lastTry < 1000){
+			Sleep(20);
+
+			// Windows 特有の面倒な処理をＤＸライブラリにやらせる
+	    // -1 が返ってきたらループを抜ける
+	    if( ProcessMessage() < 0 ) exit(0);
+  
+	    // もしＥＳＣキーが押されていたらループから抜ける
+	    if( CheckHitKey( KEY_INPUT_ESCAPE ) ) exit(0);
+		}
+	}
+  status = CONNECTED;
+
+  // 移動ルーチン
+	int fpsTimer = GetNowCount();
+  while( 1 ){
+    input.getKeyInput();
+	  client.send(input.encode());
+	  vector<int> clientMessage;
+	  if(client.receive(clientMessage) >= 0){
+  		while(client.receive(clientMessage) >= 0);
+		  decoder.draw(clientMessage);
+	  }
+	  int term;
+	  term = GetNowCount()-fpsTimer;
+	  if(8-term>0){
+  		Sleep(8-term);
+	  }
+	  fpsTimer = GetNowCount();
+  
+    // Windows 特有の面倒な処理をＤＸライブラリにやらせる
+    // -1 が返ってきたらループを抜ける
+    if( ProcessMessage() < 0 ) break ;
+  
+    // もしＥＳＣキーが押されていたらループから抜ける
+    if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
+  }
+}
+#endif // CLIENT_MODE
+
+// client_main は未テストです。以下の client_main_backup は消さないように！
+#ifdef CLIENT_MODE
+void client_main_backup(){
   static Mode status = UNCONNECTED;
 	decoder.initialize();
 

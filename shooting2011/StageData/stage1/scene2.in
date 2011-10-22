@@ -287,19 +287,19 @@
 </enemy>
 
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time5 _time3) 0 0 1 zakomovedown (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time5 _time3) 0 600 1 zakomoveright (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time5 _time3) 600 600 1 zakomoveup (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy32</picture>
+  <picture>littleboyup32</picture>
   (time5 _time3) 600 0 1 zakomoveleft (bomb 0.3 15 -1)
 </enemy>
   <enemy>
