@@ -200,9 +200,6 @@
     <ClInclude Include="stage.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="reader_ref.in">
-      <Filter>リソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="decode.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -221,40 +218,5 @@
     <ClInclude Include="background.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="stage.in">
-      <Filter>リソース ファイル</Filter>
-    </None>
-    <None Include="..\StageData\stage1\scene2.1.in">
-      <Filter>リソース ファイル\StageData\stage1</Filter>
-    </None>
-    <None Include="..\StageData\stage1\scene3.1.in">
-      <Filter>リソース ファイル\StageData\stage1</Filter>
-    </None>
-    <None Include="explosion.in">
-      <Filter>リソース ファイル\StageData</Filter>
-    </None>
-    <None Include="..\StageData\stage1\scene1.in">
-      <Filter>リソース ファイル\StageData\stage1</Filter>
-    </None>
-    <None Include="..\StageData\stage1\scene2.in">
-      <Filter>リソース ファイル\StageData\stage1</Filter>
-    </None>
-    <None Include="..\StageData\stage1\scene3.in">
-      <Filter>リソース ファイル\StageData\stage1</Filter>
-    </None>
-    <None Include="..\StageData\stage1\scene4.in">
-      <Filter>リソース ファイル\StageData\stage1</Filter>
-    </None>
-    <None Include="..\StageData\stage1\scene5.in">
-      <Filter>リソース ファイル\StageData\stage1</Filter>
-    </None>
-    <None Include="..\StageData\stage1\scene6.in">
-      <Filter>リソース ファイル\StageData\stage1</Filter>
-    </None>
-    <None Include="..\StageData\stage1\scene7.in">
-      <Filter>リソース ファイル\StageData\stage1</Filter>
-    </None>
   </ItemGroup>
 </Project>

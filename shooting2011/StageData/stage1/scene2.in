@@ -1,4 +1,4 @@
-<maxframe> 0 </maxframe>
+<maxframe> 2500 </maxframe>
 <comment> 2500 </comment>
 
 <make>
@@ -138,26 +138,26 @@
 
 <comment>ここからメイン</comment>
 
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakileft32</picture>
   (time1 _time1) 200 0 3 circle1 aimed1
 </enemy>
 <enemy> <picture>yamazakidown32</picture>
   (time1 _time1) 0 400 3 circle2 aimed1
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiright32</picture>
   (time1 _time1) 400 600 3 circle3 aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time1 _time1) 600 200 3 circle4 aimed1
 </enemy>
 
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time2 _time1) 0 200 3 circle5 aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time2 _time1) 400 0 3 circle6 aimed1
 </enemy>
 <enemy>
@@ -165,29 +165,12 @@
   (time2 _time1) 600 400 3 circle7 aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time2 _time1) 200 600 3 circle8 aimed1
 </enemy>
 
 <enemy>
-  <picture>yamazakidown32</picture>
-  (time3 _time1) 0 200 3 circle5 aimed1
-</enemy>
-<enemy>
-  <picture>yamazakidown32</picture>
-  (time3 _time1) 400 0 3 circle6 aimed1
-</enemy>
-<enemy>
-  <picture>yamazakidown32</picture>
-  (time3 _time1) 600 400 3 circle7 aimed1
-</enemy>
-<enemy>
-  <picture>yamazakidown32</picture>
-  (time3 _time1) 200 600 3 circle8 aimed1
-</enemy>
-
-<enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time3 _time1) 200 0 3 circle1 aimed1
 </enemy>
 <enemy>
@@ -195,12 +178,29 @@
   (time3 _time1) 0 400 3 circle2 aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time3 _time1) 400 600 3 circle3 aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time3 _time1) 600 200 3 circle4 aimed1
+</enemy>
+
+<enemy>
+  <picture>yamazakiup32</picture>
+  (time3 _time1) 0 200 3 circle5 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakiright32</picture>
+  (time3 _time1) 400 0 3 circle6 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakidown32</picture>
+  (time3 _time1) 600 400 3 circle7 aimed1
+</enemy>
+<enemy>
+  <picture>yamazakileft32</picture>
+  (time3 _time1) 200 600 3 circle8 aimed1
 </enemy>
 
 <enemy>
@@ -208,15 +208,15 @@
   (time4 _time1) 0 0 1 zakomovedown aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time4 _time2) 0 600 1 zakomoveright aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time4 _time3) 600 600 1 zakomoveup aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time4 _time4) 600 0 1 zakomoveleft aimed1
 </enemy>
 <enemy>
@@ -224,15 +224,15 @@
   (time4 _time5) 0 0 1 zakomovedown aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time4 _time6) 0 600 1 zakomoveright aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time4 _time7) 600 600 1 zakomoveup aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time4 _time8) 600 0 1 zakomoveleft aimed1
 </enemy>
 <enemy>
@@ -240,15 +240,15 @@
   (time4 _time9) 0 0 1 zakomovedown aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time4 _time10) 0 600 1 zakomoveright aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time4 _time11) 600 600 1 zakomoveup aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time4 _time12) 600 0 1 zakomoveleft aimed1
 </enemy>
 
@@ -257,15 +257,15 @@
   (time5 _time1) 0 0 1 zakomovedown aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time5 _time1) 0 600 1 zakomoveright aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time5 _time1) 600 600 1 zakomoveup aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time5 _time1) 600 0 1 zakomoveleft aimed1
 </enemy>
 
@@ -274,15 +274,15 @@
   (time5 _time2) 0 0 1 zakomovedown aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time5 _time2) 0 600 1 zakomoveright aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time5 _time2) 600 600 1 zakomoveup aimed1
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time5 _time2) 600 0 1 zakomoveleft aimed1
 </enemy>
 
@@ -304,6 +304,6 @@
 </enemy>
   <enemy>
     <picture>enemydefault32</picture>
-    (time5 _time4) 300 0 40 (straight 0 3 100) (straight 0 0 -1) (none 100) (allrange 0.3 0 15 6 -1)
+    (time5 _time4) 300 0 40 (straight 0 3 100) (straight 0 0 900) (straight 0 3 -1) (none 100) (allrange 0.3 0 15 6 900) (none -1)
   </enemy>
 <endfile>

@@ -210,57 +210,57 @@
   (time1 _time5) 400 0 3 zakomovedown (none -1)
 </enemy>
 
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiright32</picture>
   (time2  _time1) 0 100 3 zakomoveright (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiright32</picture>
   (time2 _time2) 0 300 3 zakomoveright (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiright32</picture>
   (time2 _time3) 0 500 3 zakomoveright (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time2 _time4) 0 200 3 zakomoveright (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time2 _time5) 0 400 3 zakomoveright (none -1)
 </enemy>
 
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakileft32</picture>
   (time3 _time1) 600 100 3 zakomoveleft (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakileft32</picture>
   (time3 _time2)600 300 3 zakomoveleft (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakileft32</picture>
   (time3 _time3) 600 500 3 zakomoveleft (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time3 _time4)600 200 3 zakomoveleft (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time3 _time5) 600 400 3 zakomoveleft (none -1)
 </enemy>
 
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiup32</picture>
   (time4 _time1) 100 600 3 zakomoveup (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiup32</picture>
   (time4 _time2) 300 600 3 zakomoveup (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiup32</picture>
   (time4 _time3) 500 600 3 zakomoveup (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time4 _time4) 200 600 3 zakomoveup (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time4 _time5) 400 600 3 zakomoveup (none -1)
 </enemy>
 
@@ -300,61 +300,61 @@
   (time5 _time5) rand(0 600) 0 3 zakomovedown2 (none -1)
 </enemy>
 
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakileft32</picture>
   (time6 _time1) 600 rand(0 600) 3 zakomoveleft2 (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakileft32</picture>
   (time6 _time2) 600 rand(0 600) 3 zakomoveleft2 (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time6 _time3) 600 rand(0 600) 3 zakomoveleft2 (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time6 _time4) 600 rand(0 600) 3 zakomoveleft2 (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time6 _time5) 600 rand(0 600) 3 zakomoveleft2 (none -1)
 </enemy>
 
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiup32</picture>
   (time7 _time1) rand(0 600) 600 3 zakomoveup2 (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiup32</picture>
   (time7 _time2) rand(0 600) 600 3 zakomoveup2 (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time7 _time3) rand(0 600) 600 3 zakomoveup2 (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time7 _time4) rand(0 600) 600 3 zakomoveup2 (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time7 _time5) rand(0 600) 600 3 zakomoveup2 (none -1)
 </enemy>
 
 
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiright32</picture>
   (time8 _time1) 0 rand(0 600) 3 zakomoveright2 (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiright32</picture>
   (time8 _time2) 0 rand(0 600) 3 zakomoveright2 (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time8 _time3) 0 rand(0 600) 3 zakomoveright2 (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time8 _time4) 0 rand(0 600) 3 zakomoveright2 (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time8 _time5) 0 rand(0 600) 3 zakomoveright2 (none -1)
 </enemy>
 
@@ -364,22 +364,22 @@
 <enemy> <picture>yamazakidown32</picture>
   (time9 _time1) 400 0 3 stopanddown (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiup32</picture>
   (time9 _time1) 200 600 3 stopandup (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiup32</picture>
   (time9 _time1) 400 600 3 stopandup (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakileft32</picture>
   (time9 _time1) 600 200 3 stopandleft (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakileft32</picture>
   (time9 _time1) 600 400 3 stopandleft (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiright32</picture>
   (time9 _time1) 0 200 3 stopandright (none -1)
 </enemy>
-<enemy> <picture>yamazakidown32</picture>
+<enemy> <picture>yamazakiright32</picture>
   (time9 _time1) 0 400 3 stopandright (none -1)
 </enemy>
 
@@ -392,26 +392,26 @@
   (time10 _time1) 400 0 3 stopanddownleft (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time10 _time1) 200 600 3 stopandupright (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiup32</picture>
   (time10 _time1) 400 600 3 stopandupleft (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time10 _time1) 600 200 3 stopandleftdown (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakileft32</picture>
   (time10 _time1) 600 400 3 stopandleftup (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time10 _time1) 0 200 3 stopandrightdown (none -1)
 </enemy>
 <enemy>
-  <picture>yamazakidown32</picture>
+  <picture>yamazakiright32</picture>
   (time10 _time1) 0 400 3 stopandrightup (none -1)
 </enemy>

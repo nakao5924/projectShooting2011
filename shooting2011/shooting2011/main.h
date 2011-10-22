@@ -2,6 +2,7 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 #define _DEBUG_
+#undef _DEBUG_
 #include <deque>
 #include <algorithm>
 #include <sstream>

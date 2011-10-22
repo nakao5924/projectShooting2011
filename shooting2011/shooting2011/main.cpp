@@ -5,21 +5,22 @@
 #include "server.h"
 #include "client.h"
 #include "msgdump.h"
-#define SOLOPLAY_MODE
-//#define NETWORK_SOLOPLAY_MODE
+#include <iostream>
+//#define SOLOPLAY_MODE
+#define NETWORK_SOLOPLAY_MODE
 //#define SERVER_MODE
-#define CLIENT_MODE
+//#define CLIENT_MODE
 
-const int PORT = 12345;
+int PORT = 12345;
 #ifdef CLIENT_MODE
 // SAKURA
-const IPDATA SERVER_IP = {192, 168, 0, 100};
+IPDATA SERVER_IP = {192, 168, 0, 100};
 #else
 // LOCALHOST
-const IPDATA SERVER_IP = {127, 0, 0, 1};
+IPDATA SERVER_IP = {127, 0, 0, 1};
 #endif
 
-const int CLIENT_NUM = 1;
+int CLIENT_NUM = 1;
 
 void soloplay_main();
 void network_soloplay_main();
@@ -30,6 +31,20 @@ void client_main();
 int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 					 LPSTR lpCmdLine, int nCmdShow )
 {
+	ifstream ifs("../config/default.conf");
+
+	int tmp;
+	ifs >> PORT;
+	ifs >> tmp;
+	SERVER_IP.d1 = tmp;
+	ifs >> tmp;
+	SERVER_IP.d2 = tmp;
+	ifs >> tmp;
+	SERVER_IP.d3 = tmp;
+	ifs >> tmp;
+	SERVER_IP.d4 = tmp;
+	ifs >> CLIENT_NUM;
+
   // 画面モードの設定
   ChangeWindowMode(true);
   SetGraphMode( WINDOW_WIDTH, WINDOW_HEIGHT, 16 ) ;
@@ -39,6 +54,7 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
   // グラフィックの描画先を裏画面にセット
   SetDrawScreen( DX_SCREEN_BACK );
+  SetMainWindowText( "Bullet of the Chaos");
 
 #ifdef SOLOPLAY_MODE
 	soloplay_main();
@@ -184,7 +200,9 @@ void soloplay_main(){
     }
 
     fpsTimer = GetNowCount();
-    // Windows 特有の面倒な処理をＤＸライブラリにやらせる
+
+		if (!shooting.isValid()) break;		
+		// Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;
 
@@ -199,20 +217,24 @@ void network_soloplay_main(){
 	//画像読み込み
   graresource.initialize();
 	decoder.initialize();
-	static const int BLACK = GetColor(0, 0, 0);
-  static const int WHITE = GetColor(255, 255, 255);
 	ServerConnection server(PORT);
 	ClientConnection client(PORT, SERVER_IP);
 	server.startListen();
+  ClearDrawScreen();
+  const static int titleGraph = LoadGraph( "../graphic/ShootingTitle.jpg");
+  DrawGraph( 0, 0, titleGraph, false);
+  ScreenFlip();
+
 	if(!client.connect()){
 		exit(1);
 	}
-	while(server.size() < CLIENT_NUM){
-		DrawBox(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, 1);
-		DrawFormatString(60, 60, WHITE, "access: %d", server.size());
-		ScreenFlip();
+	while(server.getClientNum() < CLIENT_NUM){
+    ClearDrawScreen();
+    DrawGraph( 0, 0, titleGraph, false);
+		DrawFormatString(300, 500, WHITE, "access: %d", server.getClientNum());
+    ScreenFlip();
 		Sleep(10);
-		server.action();
+		server.acceptNewConnection();
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) exit(1) ;
@@ -233,7 +255,7 @@ void network_soloplay_main(){
     //while(true){
     //  int lostNetWork = GetLostNetWork();
     //}
-		for(int i = 0; i < server.size(); ++i){
+		for(int i = 0; i < server.getClientNum(); ++i){
       if(server.receive(i, serverMessage) >= 0){
         while(server.receive(i, serverMessage) >= 0);
         // receive succssessed
@@ -277,6 +299,8 @@ void network_soloplay_main(){
 		}
 
 	  fpsTimer = GetNowCount();
+
+		if (!shooting.isValid()) break;
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;
@@ -353,6 +377,8 @@ void server_main(){
 			Sleep(16-term);
 		}
 	  fpsTimer = GetNowCount();
+
+		if (!shooting.isValid()) break;
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;
@@ -365,34 +391,47 @@ void server_main(){
 
 #ifdef CLIENT_MODE
 void client_main(){
+  static Mode status = UNCONNECTED;
 	decoder.initialize();
 
 	ClientConnection client(PORT, SERVER_IP);
+  ClearDrawScreen();
+  const static int titleGraph = LoadGraph( "../graphic/ShootingTitle.jpg");
+  DrawGraph( 0, 0, titleGraph, false);
+  DrawString( 300, 500, "Now connecting", WHITE);
+  ScreenFlip();
 	if(!client.connect()){
+    ClearDrawScreen();
+    DrawString( 200, 500, "Connect failed. Please set up server first.", WHITE);
+    DrawString( 200, 550, "Shutdown.", WHITE);
+    ScreenFlip();
+    Sleep( 7000);
 		exit(1);
 	}
+  status = CONNECTED;
 
   // 移動ルーチン
 	int fpsTimer = GetNowCount();
 	Input input;
   while( 1 ){
-		input.getKeyInput();
-		client.send(input.encode());
-		vector<int> clientMessage;
-		if(client.receive(clientMessage) >= 0){
-			while(client.receive(clientMessage) >= 0);
-			decoder.draw(clientMessage);
-		}
+    input.getKeyInput();
+	  client.send(input.encode());
+	  vector<int> clientMessage;
+	  if(client.receive(clientMessage) >= 0){
+  		while(client.receive(clientMessage) >= 0);
+		  decoder.draw(clientMessage);
+	  }
 	  int term;
 	  term = GetNowCount()-fpsTimer;
 	  if(8-term>0){
-			Sleep(8-term);
-		}
+  		Sleep(8-term);
+	  }
 	  fpsTimer = GetNowCount();
+  
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;
-
+  
     // もしＥＳＣキーが押されていたらループから抜ける
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) break;
   }

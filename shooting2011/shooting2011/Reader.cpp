@@ -163,9 +163,9 @@ SceneNormal* Reader::readEnemyData(const string filename){
 
 	ss=stringstream(str);
 	deque<EnemyData*> enemylist;
-#ifndef _DEBUG_
-	if(format!="<endfile>")return(enemylist);
-#endif 
+//#ifndef _DEBUG_
+//	if(format!="<endfile>")return(enemylist);
+//#endif 
 	while(ss>>format){
 		if(format=="<enemy>"){
 			ss>>format;

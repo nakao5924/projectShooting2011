@@ -18,7 +18,7 @@ Shooting::Shooting(int heroNum){
   ShootingAccessor::setShooting(this);
 	for(int i = 0; i < heroNum; ++i){
 	  ShootingAccessor::addHero(new Hero(i, (i + 2) % 4));
-    systemData.addLife( i, 3);
+    systemData.addLife( i, 10);
 	}
   //ShootingAccessor::addHero(new Hero(1,1));
   //ShootingAccessor::addHero(new Hero(2,2));
@@ -106,6 +106,9 @@ void Shooting::nomalAction(){
   //erase
   eraseMovingObject();
 
+	static const int gameBackGraphId = graresource.getID("background");
+  graresource.drawgraph(0,0,gameBackGraphId,0,false);
+
   //calibrateFps();
   //draw();
 }
@@ -114,6 +117,7 @@ void Shooting::gameOverAction(){
   //‚¢‚Â‚©·‚µ‘Ö‚¦‚é nakao
 //  static const int gameOverGraphId = graresource.getID( "gameOver");
 //  graresource.drawgraph( 0, 0, gameOverGraphId, false);
+	SetFontSize(70);
   graresource.drawstring( 100, 100, "game over", WHITE);
 }
 
@@ -121,6 +125,7 @@ void Shooting::gameClearAction(){
   //‚¢‚Â‚©·‚µ‘Ö‚¦‚é nakao
 //  static const int gameClearGraphId = graresource.getID( "gameClear");
 //  graresource.drawgraph( 0, 0, gameClearGraphId, false);
+	SetFontSize(70);
   graresource.drawstring( 100, 100, "game clear", WHITE);
 }
 
@@ -150,12 +155,12 @@ void Shooting::action(){
       frameCount = 0;
       gameStatus = GAME_CLEAR;
     }
+		draw();
   } else if (GAME_OVER){
     if (frameCount >= 180) gameStatus = FIN;
   } else if (GAME_CLEAR){
     if (frameCount >= 180) gameStatus = FIN;
   }
-  draw();
 }
 
 void Shooting::hitMovingObject(){
