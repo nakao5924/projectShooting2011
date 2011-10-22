@@ -242,7 +242,7 @@ void network_soloplay_main(){
     // もしＥＳＣキーが押されていたらループから抜ける
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) exit(1);
 	}
-  Shooting shooting(CLIENT_NUM);
+  Shooting *shooting = new Shooting(CLIENT_NUM);
   // 移動ルーチン
 	int fpsTimer = GetNowCount();
 	Input input;
@@ -263,13 +263,13 @@ void network_soloplay_main(){
       if(server.receive(i, serverMessage) >= 0){
         while(server.receive(i, serverMessage) >= 0);
         // receive succssessed
-        shooting.setInput(i, serverMessage);
+        shooting->setInput(i, serverMessage);
       }else{
         // receive failed
-        shooting.clearInput(i);
+        shooting->clearInput(i);
       }
 	  }
-    shooting.action();
+    shooting->action();
 
 #ifdef _DEBUG_
 
@@ -304,7 +304,10 @@ void network_soloplay_main(){
 
 	  fpsTimer = GetNowCount();
 
-		if (!shooting.isValid()) break;
+		if (!shooting->isValid()) {
+			delete shooting;
+			shooting = new Shooting(CLIENT_NUM);
+		}
     // Windows 特有の面倒な処理をＤＸライブラリにやらせる
     // -1 が返ってきたらループを抜ける
     if( ProcessMessage() < 0 ) break ;
