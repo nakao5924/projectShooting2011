@@ -1,5 +1,6 @@
-<maxframe> 0 </maxframe>
-<frame>1700</frame>
+<file>
+<stagetime> 1700 </stagetime>
+<comment> 1700 </comment>
 <make>
   bombdown
   straight 0 3 -1
@@ -191,7 +192,7 @@
   120</add>
 </make>
 
-<comment>„Åì„Åì„Åã„Çâ„É°„Ç§„É≥</comment>
+<comment>Ç±Ç±Ç©ÇÁÉÅÉCÉì</comment>
 <enemy> <picture>yamazakidown32</picture>
   (time1 _time1) 100 0 3 zakomovedown (none -1)
 </enemy>
@@ -265,19 +266,19 @@
 </enemy>
 
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time4-1 _time1) 300 0 1 bombdown (bomb 0.3 15 -1) 
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time4-1 _time1) 300 600 1 bombup (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time4-1 _time1) 0 300 1 bombright (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time4-1 _time1) 600 300 1 bombleft (bomb 0.3 15 -1)
 </enemy>
 

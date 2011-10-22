@@ -1,13 +1,21 @@
 #include "main.h"
 #include "reader.h"
 #include "graphicPattern.h"
+
 SceneNormal* Reader::readEnemyData(const string filename){
 	srand((int)time(0));
 	list.clear();
 	ifstream ifs(filename);
-	string str="";
-	int maxframe;
-	ifs>>str>>maxframe>>str;
+
+	string str;
+	ifs>>str;
+	ifs>>str;
+	deque<EnemyData*> enemyData;
+//	if(str!="<file>")return new SceneNormal(enemyData,0);
+	int stagetime;
+	if(str=="<stagetime>"){
+		ifs>>stagetime>>str;
+	}
 	str="";
 	string str_sub;
 	while(ifs>>str){
@@ -39,13 +47,15 @@ SceneNormal* Reader::readEnemyData(const string filename){
 	str="";
 	while(ss>>format){
 		if(format=="<make>"){
-			string name;
+			string name;//label
 			ss>>name;
-			list[name]="";
-			str_sub="";
-			while(ss>>str_sub){
-				if(str_sub=="</make>"){break;}
-				list[name]+=str_sub+" ";
+			list[name]=" <__make__> ";
+			while(ss>>format){
+				if(format=="</make>"){
+					list[name]+=" </__make__> ";
+					break;
+				}
+				list[name]+=format+" ";
 			}
 		}else{
 			str+=format+" ";
@@ -57,33 +67,50 @@ SceneNormal* Reader::readEnemyData(const string filename){
 
 		str+=addnext(format);
 	}
-	ss=stringstream(str);
+	stringstream ss_sub=stringstream(str);
 	str="";
-	while(ss>>format){
-		if(format=="<func>"){
-			map<string,string>func_list;
-			deque<string> str_list;
-			while(ss>>format){
-				if(format=="<_func>"){
-					break;
+	list.clear();
+	while(ss_sub>>format){
+		if(format=="<__make__>"){
+			ss_sub>>format;
+			deque<string> argument_list;
+			string body_list;
+			if(format=="<arg>"){
+				while(ss_sub>>format){
+					if(format=="</arg>"){
+						ss_sub>>format;
+						break;
+					}
+					argument_list.push_back(format);
 				}
-				str_list.push_back(format);
 			}
-			for(size_t i=0;i<str_list.size();i++){
-				string value;
-				ss>>value;
-				func_list[str_list[i]]=value;
+			if(format=="<body>"){
+				while(ss_sub>>format){
+					if(format=="</body>"){
+						ss_sub>>format;
+						break;
+					}
+					body_list+=format+" ";
+				}
+			}else{
+				body_list+=format+" ";
+				while(ss_sub>>format){
+					if(format=="</__make__>"){
+						break;
+					}
+					body_list+=format+" ";
+				}
 			}
+			if(format=="</__make__>"){
+				for(size_t i=0;i<argument_list.size();i++){
+					ss_sub>>format;
+					list[argument_list[i]]=format;
+				}
+			}
+			ss=stringstream(body_list);
 			while(ss>>format){
-				if(format=="</func>"){
-					break;
-				}
-				map<string,string>::iterator it=func_list.find(format);
-				if(it!=func_list.end()){
-					str+=it->second+" ";
-				}else{
-					str+=format+" ";
-				}
+
+				str+=addnext(format);
 			}
 		}else{
 			str+=format+" ";
@@ -103,6 +130,7 @@ SceneNormal* Reader::readEnemyData(const string filename){
 			str+=format+" ";
 		}
 	}
+
 	ss=stringstream(str);
 	str="";
 	while(ss>>format){
@@ -163,28 +191,22 @@ SceneNormal* Reader::readEnemyData(const string filename){
 
 	ss=stringstream(str);
 	deque<EnemyData*> enemylist;
-//#ifndef _DEBUG_
-//	if(format!="<endfile>")return(enemylist);
-//#endif 
 	while(ss>>format){
 		if(format=="<enemy>"){
-			ss>>format;
-			string pictureId;
-			if(format=="<picture>"){
-				ss>>pictureId>>format;
-				ss>>format;
-			}else{pictureId="";}
-			enemylist.push_back(get_enemy_data(pictureId));
-			if(format!="</enemy>")
-				return new SceneNormal(enemylist,maxframe);
+			string picture;
+			ss>>format>>picture>>format>>format;
+			enemylist.push_back(get_enemy_data(picture));
+			while(format!="</enemy>")
+				return(new SceneNormal(enemylist,stagetime));
 		}
 	
 	
 	}
 
-	return(new SceneNormal(enemylist,maxframe));
- }
-
+	return(new SceneNormal(enemylist,stagetime));
+}
+		
+	
 
 
 
@@ -214,6 +236,8 @@ MovePattern *Reader::making_basic_object<MovePattern>(){
 	}
 	return(NULL);
 }
+
+
 template<>
 FirePattern *Reader::making_basic_object<FirePattern>(){
 	if(format=="none"){
@@ -221,24 +245,24 @@ FirePattern *Reader::making_basic_object<FirePattern>(){
 	}else if(format=="allrange"){
 		double dtheta,startTheta,v;int interval;
 		ss>>dtheta>>startTheta>>v>>interval;
-		return new FirePatternAllRangeTimeRag(dtheta,startTheta,v,interval,graresource.getID("enemybullet0none16"));
+		return new FirePatternAllRangeTimeRag(dtheta,startTheta,v,interval,graresource.getID("bulletbluenone16"));
 	}
 	else if(format=="bomb"){
 		double d_theta,vv;
 		ss>>d_theta>>vv;
-		return new FirePatternBomb(d_theta,vv,graresource.getID("enemybullet0none16"));
+		return new FirePatternBomb(d_theta,vv,graresource.getID("bulletwhitenone16"));
 	}
 	else if(format=="aimedRandom"){
 		int interval,n;
 		double v;
 		ss>>interval>>v>>n;
-		return new FirePatternAimedRandom(interval,n,v,graresource.getID("enemybullet0none16"));
+		return new FirePatternAimedRandom(interval,n,v,graresource.getID("bulletgreennone16"));
 	}
 	else if(format=="nway"){
 		int interval,n;
 		double v,dir,dtheta;
 		ss>>interval>>n>>v>>dir>>dtheta;
-		return new FirePatternNway(interval,n,v,dir,dtheta,graresource.getID("enemybullet0none16"));
+		return new FirePatternNway(interval,n,v,dir,dtheta,graresource.getID("bulletbluenone16"));
 	}
 	else if(format=="createself"){
 		int interval,hp;

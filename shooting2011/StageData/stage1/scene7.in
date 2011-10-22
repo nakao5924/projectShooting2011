@@ -1,4 +1,5 @@
-<maxframe> 1000 </maxframe>
+<file>
+<stagetime> 1000 </stagetime>
 <comment> 1000 </comment>
 <make>
   self
@@ -19,7 +20,7 @@
   0</add>
 </make>
 
-<comment>ã“ã“ã‹ã‚‰ãƒ¡ã‚¤ãƒ³</comment>
+<comment>‚±‚±‚©‚çƒƒCƒ“</comment>
 <enemy> <picture>araiup32</picture>
   (time1 _time1) 300 0 3 zakomovedown self
 </enemy>

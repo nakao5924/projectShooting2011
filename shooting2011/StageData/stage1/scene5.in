@@ -1,4 +1,5 @@
-<maxframe> 0 </maxframe>
+<file>
+<stagetime> 500 </stagetime>
 <comment>500 </comment>
 <make>
   zakomove
@@ -43,294 +44,294 @@
   120</add>
 </make>
 
-<comment>„Åì„Åì„Åã„Çâ„É°„Ç§„É≥</comment>
-<enemy> <picture>araidown32.bmp</picture>
+<comment>Ç±Ç±Ç©ÇÁÉÅÉCÉì</comment>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   0 600 1 zakomove  (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   32 600 1 zakomove(none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   64 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   96 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   128 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   160 600 1 zakomove(none -1)
 </enemy>
 <comment>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   192 600 1 zakomove (none -1)
 </enemy>
  </comment>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   224 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   256 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   288 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   320 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   352 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   384 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   416 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   448 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   480 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   512 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   544 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   576 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time1)   608 600 1 zakomove (none -1)
 </enemy>
 
-<enemy> <picture>littleboy</picture>
+<enemy> <picture>littleboyup32</picture>
   (time1 _time2)   0 600 1 zakomove  (bomb 0.3 15 -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   32 600 1 zakomove(none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   64 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   96 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   128 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>littleboy</picture>
+<enemy> <picture>littleboyup32</picture>
   (time1 _time2)   160 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   192 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   224 600 1 zakomove (none -1)
 </enemy>
 <comment>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   256 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   288 600 1 zakomove (none -1)
 </enemy>
 </comment>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   320 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   352 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>littleboy</picture>
+<enemy> <picture>littleboyup32</picture>
   (time1 _time2)   384 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   416 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   448 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   480 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   512 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>littleboy</picture>
+<enemy> <picture>littleboyup32</picture>
   (time1 _time2)   544 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   576 600 1 zakomove (none -1)
 </enemy>
-<enemy> <picture>araidown32.bmp</picture>
+<enemy> <picture>araidown32</picture>
   (time1 _time2)   608 600 1 zakomove (none -1)
 </enemy>
 
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3)   0 600 1 zakomove  (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   32 600 1 zakomove(none -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   64 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   96 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   128 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3)   160 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   192 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3)   224 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   256 600 1 zakomove (none -1)
 </enemy>
  <enemy>
- <picture>littleboy</picture>
+ <picture>littleboyup32</picture>
    (time1 _time3)   288 600 1 zakomove (bomb 0.3 15 -1)
  </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   320 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   352 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3)   384 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <comment>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   416 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   448 600 1 zakomove (none -1)
 </enemy>
 </comment>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   480 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   512 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time3)   544 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   576 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>araidown32.bmp</picture>
+  <picture>araidown32</picture>
   (time1 _time3)   608 600 1 zakomove (none -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   0 600 1 zakomove  (bomb 0.3 15 -1)
 </enemy>
 <comment>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   32 600 1 zakomove(bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   64 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
  </comment>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   96 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   128 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   160 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   192 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   224 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   256 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   288 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   320 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   352 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   384 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   416 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   448 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   480 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   512 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   544 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-    <picture>littleboy</picture>
+    <picture>littleboyup32</picture>
     (time1 _time4)   576 600 1 zakomove (bomb 0.3 15 -1)
  </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time1 _time4)   608 600 1 zakomove (bomb 0.3 15 -1)
 </enemy>

@@ -8,10 +8,13 @@ HeroBullet::HeroBullet( double x, double y,double vx,double vy, int id){
 	movePattern = new MovePatternUniformlyAcceleratedLinearMotion(vx,vy,0);
 	firePattern = new FirePatternNone();
  	//string str="herobulletup8";
- 	string str="HeroBullet";
-	stringstream ss;
-	ss<<str<<(id + 2) % 4;
-	ss>>str;
+
+  string dirTmp;
+  if (vx < 0) dirTmp = "left";
+  if (vx > 0) dirTmp = "right";
+  if (vy < 0) dirTmp = "up";
+  if (vy > 0) dirTmp = "down";
+ 	string str = string("herobullet") + dirTmp + string("8");
 	this->graPattern=new GraphicPattern(str);
 
   heroId = id;

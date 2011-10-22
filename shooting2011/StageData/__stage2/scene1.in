@@ -1,0 +1,16 @@
+﻿<file>
+<stagetime> 500 </stagetime>
+
+
+<make>
+  func1
+  <arg> time x y hp</arg>
+  <body>
+    <enemy>
+      <picture>yamazakidown32</picture>
+    time x y hp(straight 0 3 -1) (none -1)</enemy>
+  </body>
+</make>
+
+<comment>ここからメイン</comment>
+func1 5 6 7 8

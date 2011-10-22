@@ -10,7 +10,9 @@ Shooting::Shooting(){
 	ShootingAccessor::addHero(new Hero(0, 2));
 	curStageNum = 0;
 	stage = NULL;
-  gameStatus = NOMAL;
+  gameStatus = GAME_SELECT;
+  isSelected.resize( 4, 0);
+  heroDirections.resize( 4, 0);
 }
 Shooting::Shooting(int heroNum){
   gameClock = 0;
@@ -25,7 +27,9 @@ Shooting::Shooting(int heroNum){
   //ShootingAccessor::addHero(new Hero(3,3));
 	curStageNum = 0;
 	stage = NULL;
-  gameStatus = NOMAL;
+  gameStatus = GAME_SELECT;
+  isSelected.resize( 4, 0);
+  heroDirections.resize( 4, 0);
 }
 
 Shooting::~Shooting(){
@@ -129,6 +133,83 @@ void Shooting::gameClearAction(){
   graresource.drawstring( 100, 100, "game clear", WHITE);
 }
 
+void Shooting::gameSelectAction(){
+  static bool first = true;
+  static const int selectGraphId = graresource.getID( "selectImg");
+  static vector<string> DIR(4);// = {"up", "right", "down", "left"};
+  static vector<vector<int> > selectHeroGraphId(4, vector<int>(4));
+  static vector<int> selectedGraphId( 4);
+
+  static const int zenpoId = graresource.getID( "zenpoFront");
+  static const int uhoId = graresource.getID( "uhoRight");
+  static const int kohoId = graresource.getID( "kohoRear");
+  static const int sahoId = graresource.getID( "sahoLeft");
+  if (first){
+    selectedGraphId[0] = graresource.getID( "ready0");
+    selectedGraphId[1] = graresource.getID( "ready1");
+    selectedGraphId[2] = graresource.getID( "ready2");
+    selectedGraphId[3] = graresource.getID( "ready3");
+    first = false;
+    // 0:up, 1:right, 2:down, 3:left
+    DIR[0] = "up";
+    DIR[1] = "right";
+    DIR[2] = "down";
+    DIR[3] = "left";
+
+    for (int i=0; i<4; i++){
+      for (int j=0; j<4; j++){
+        string graphicFileName = string("selectHero") + string(1,(i+'0')) + DIR[j];
+        selectHeroGraphId[i][j] = graresource.getID( graphicFileName);
+      }
+    }
+  }
+
+  //vector<Input*>
+  // 0:up, 1:right, 2:down, 3:left
+  for (int hId = 0; hId < (int)heros.size(); hId++){
+    if (inputs[hId]->up()){
+      heroDirections[hId] = 0;
+    } else if (inputs[hId]->right()){
+      heroDirections[hId] = 1;
+    } else if (inputs[hId]->down()){
+      heroDirections[hId] = 2;
+    } else if (inputs[hId]->left()){
+      heroDirections[hId] = 3;
+    } else if (inputs[hId]->buttonA()){
+      isSelected[hId] = true;
+    } else if (inputs[hId]->buttonB()){
+      isSelected[hId] = false;
+    }
+  }
+
+  graresource.drawgraph( 0, 0, selectGraphId, 0, false);
+  const static int shgPosX[4] = {50,450,50,450};
+  const static int shgPosY[4] = {0,0,300,300};
+  for (int i=0; i<(int)heros.size(); i++){
+    graresource.drawgraph( shgPosX[i], shgPosY[i], 
+      selectHeroGraphId[i][heroDirections[i]], 0, true);
+  }
+
+
+  const static int namePosX[4] = {200,600,200,600};
+  const static int namePosY[4] = {150,150,450,450};
+  for (int i=0; i<4; i++){
+    if (heroDirections[i]==0) graresource.drawgraph( namePosX[i], namePosY[i], zenpoId, 0, true);
+    if (heroDirections[i]==1) graresource.drawgraph( namePosX[i], namePosY[i], uhoId, 0, true);
+    if (heroDirections[i]==2) graresource.drawgraph( namePosX[i], namePosY[i], kohoId, 0, true);
+    if (heroDirections[i]==3) graresource.drawgraph( namePosX[i], namePosY[i], sahoId, 0, true);
+  }
+
+  const static int sgPosX[4] = {0,400,0,400};
+  const static int sgPosY[4] = {0,0,300,300};
+  for (int i=0; i<(int)heros.size(); i++){
+    if (isSelected[i]){
+      graresource.drawgraph( sgPosX[i], sgPosY[i], 
+        selectedGraphId[i], 0, true);
+    }
+  }
+}
+
 void Shooting::action(){
   static int frameCount = 0;
   frameCount++;
@@ -136,11 +217,25 @@ void Shooting::action(){
   if (gameStatus == NOMAL) nomalAction();
   else if (gameStatus == GAME_OVER) gameOverAction();
   else if (gameStatus == GAME_CLEAR) gameClearAction();
+  else if (gameStatus == GAME_SELECT) gameSelectAction();
   else if (gameStatus == FIN) assert( false && "shooting action. status is fin.");
   else assert( false && "shooting action");
 
   // status shift
-  if (gameStatus == NOMAL){
+  if (gameStatus == GAME_SELECT){
+    bool flag = true;
+    for (int i=0; i<heros.size(); i++) {
+      if (!isSelected[i]) flag = false;
+    }
+    if (flag){
+      gameStatus = NOMAL;
+      frameCount = 0;
+
+      for (int i=0; i<(int)heros.size(); i++){
+        heros[i]->setDirection( heroDirections[i]);
+      }
+    }
+  } else if (gameStatus == NOMAL){
     bool gameOverFlag = true;
     for (int i=0; i<heros.size(); i++){
       if (heros[i]->getStatus() != INVALID) {

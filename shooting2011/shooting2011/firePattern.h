@@ -32,6 +32,7 @@ public:
 	FirePatternHero(int _interval,int _heroId,int _shotType);
 	void action(MovingObject *owner);
 	~FirePatternHero();
+  void setDirection( int dir);
 
 	int shotType;
 	int interval;

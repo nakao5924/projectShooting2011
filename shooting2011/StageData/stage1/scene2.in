@@ -1,4 +1,5 @@
-<maxframe> 2500 </maxframe>
+<file>
+<stagetime> 2500 </stagetime>
 <comment> 2500 </comment>
 
 <make>
@@ -136,7 +137,7 @@
   120</add>
 </make>
 
-<comment>„Åì„Åì„Åã„Çâ„É°„Ç§„É≥</comment>
+<comment>Ç±Ç±Ç©ÇÁÉÅÉCÉì</comment>
 
 <enemy> <picture>yamazakileft32</picture>
   (time1 _time1) 200 0 3 circle1 aimed1
@@ -287,19 +288,19 @@
 </enemy>
 
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time5 _time3) 0 0 1 zakomovedown (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time5 _time3) 0 600 1 zakomoveright (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time5 _time3) 600 600 1 zakomoveup (bomb 0.3 15 -1)
 </enemy>
 <enemy>
-  <picture>littleboy</picture>
+  <picture>littleboyup32</picture>
   (time5 _time3) 600 0 1 zakomoveleft (bomb 0.3 15 -1)
 </enemy>
   <enemy>
