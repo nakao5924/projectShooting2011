@@ -1,5 +1,4 @@
-<file>
-<stagetime> 2500 </stagetime>
+ï»¿<maxframe> 2500 </maxframe>
 <comment> 2500 </comment>
 
 <make>
@@ -137,7 +136,7 @@
   120</add>
 </make>
 
-<comment>‚±‚±‚©‚çƒƒCƒ“</comment>
+<comment>ã“ã“ã‹ã‚‰ãƒ¡ã‚¤ãƒ³</comment>
 
 <enemy> <picture>yamazakileft32</picture>
   (time1 _time1) 200 0 3 circle1 aimed1

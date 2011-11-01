@@ -121,7 +121,7 @@ void Shooting::gameOverAction(){
   //Ç¢Ç¬Ç©ç∑Çµë÷Ç¶ÇÈ nakao
 //  static const int gameOverGraphId = graresource.getID( "gameOver");
 //  graresource.drawgraph( 0, 0, gameOverGraphId, false);
-	SetFontSize(70);
+	//SetFontSize(70);
   graresource.drawstring( 100, 100, "game over", WHITE);
 }
 
@@ -129,7 +129,7 @@ void Shooting::gameClearAction(){
   //Ç¢Ç¬Ç©ç∑Çµë÷Ç¶ÇÈ nakao
 //  static const int gameClearGraphId = graresource.getID( "gameClear");
 //  graresource.drawgraph( 0, 0, gameClearGraphId, false);
-	SetFontSize(70);
+	//SetFontSize(70);
   graresource.drawstring( 100, 100, "game clear", WHITE);
 }
 

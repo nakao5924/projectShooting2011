@@ -1,5 +1,4 @@
-<file>
-<stagetime> 500 </stagetime>
+Ôªø<maxframe> 0 </maxframe>
 <comment> 500 </comment>
 <make>
   zakomovedown
@@ -44,11 +43,7 @@
   120</add>
 </make>
 
-<<<<<<< HEAD
 <comment>„Åì„Åì„Åã„Çâ„É°„Ç§„É≥</comment>
-=======
-<comment>Ç±Ç±Ç©ÇÁÉÅÉCÉì</comment>
->>>>>>> 7104208565d55cc62f5d27cf93f681b0e724d05e
 <enemy> <picture>araidown32</picture>
   (time1 _time1) 0 0 1 zakomovedown  (none -1)
 </enemy>

@@ -58,11 +58,11 @@ void Hero::absorbDamage( int damage){
 void Hero::statusShift(){
   if (status == VALID){
   } else if (status == EXPLOSION){
-    if (frameCount > 10){
+    if (frameCount > 104){
       changeStatus( REBIRTH);
     }
   } else if (status == REBIRTH){
-    if (frameCount > 180){
+    if (frameCount > 60){
       changeStatus( VALID);
     }
   }

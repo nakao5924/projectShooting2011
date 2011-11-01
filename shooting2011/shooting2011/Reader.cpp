@@ -1,21 +1,13 @@
 #include "main.h"
 #include "reader.h"
 #include "graphicPattern.h"
-
 SceneNormal* Reader::readEnemyData(const string filename){
 	srand((int)time(0));
 	list.clear();
 	ifstream ifs(filename);
-
-	string str;
-	ifs>>str;
-	ifs>>str;
-	deque<EnemyData*> enemyData;
-//	if(str!="<file>")return new SceneNormal(enemyData,0);
-	int stagetime;
-	if(str=="<stagetime>"){
-		ifs>>stagetime>>str;
-	}
+	string str="";
+	int maxframe;
+	ifs>>str>>maxframe>>str;
 	str="";
 	string str_sub;
 	while(ifs>>str){
@@ -47,15 +39,13 @@ SceneNormal* Reader::readEnemyData(const string filename){
 	str="";
 	while(ss>>format){
 		if(format=="<make>"){
-			string name;//label
+			string name;
 			ss>>name;
-			list[name]=" <__make__> ";
-			while(ss>>format){
-				if(format=="</make>"){
-					list[name]+=" </__make__> ";
-					break;
-				}
-				list[name]+=format+" ";
+			list[name]="";
+			str_sub="";
+			while(ss>>str_sub){
+				if(str_sub=="</make>"){break;}
+				list[name]+=str_sub+" ";
 			}
 		}else{
 			str+=format+" ";
@@ -67,50 +57,33 @@ SceneNormal* Reader::readEnemyData(const string filename){
 
 		str+=addnext(format);
 	}
-	stringstream ss_sub=stringstream(str);
+	ss=stringstream(str);
 	str="";
-	list.clear();
-	while(ss_sub>>format){
-		if(format=="<__make__>"){
-			ss_sub>>format;
-			deque<string> argument_list;
-			string body_list;
-			if(format=="<arg>"){
-				while(ss_sub>>format){
-					if(format=="</arg>"){
-						ss_sub>>format;
-						break;
-					}
-					argument_list.push_back(format);
-				}
-			}
-			if(format=="<body>"){
-				while(ss_sub>>format){
-					if(format=="</body>"){
-						ss_sub>>format;
-						break;
-					}
-					body_list+=format+" ";
-				}
-			}else{
-				body_list+=format+" ";
-				while(ss_sub>>format){
-					if(format=="</__make__>"){
-						break;
-					}
-					body_list+=format+" ";
-				}
-			}
-			if(format=="</__make__>"){
-				for(size_t i=0;i<argument_list.size();i++){
-					ss_sub>>format;
-					list[argument_list[i]]=format;
-				}
-			}
-			ss=stringstream(body_list);
+	while(ss>>format){
+		if(format=="<func>"){
+			map<string,string>func_list;
+			deque<string> str_list;
 			while(ss>>format){
-
-				str+=addnext(format);
+				if(format=="<_func>"){
+					break;
+				}
+				str_list.push_back(format);
+			}
+			for(size_t i=0;i<str_list.size();i++){
+				string value;
+				ss>>value;
+				func_list[str_list[i]]=value;
+			}
+			while(ss>>format){
+				if(format=="</func>"){
+					break;
+				}
+				map<string,string>::iterator it=func_list.find(format);
+				if(it!=func_list.end()){
+					str+=it->second+" ";
+				}else{
+					str+=format+" ";
+				}
 			}
 		}else{
 			str+=format+" ";
@@ -130,7 +103,6 @@ SceneNormal* Reader::readEnemyData(const string filename){
 			str+=format+" ";
 		}
 	}
-
 	ss=stringstream(str);
 	str="";
 	while(ss>>format){
@@ -191,22 +163,28 @@ SceneNormal* Reader::readEnemyData(const string filename){
 
 	ss=stringstream(str);
 	deque<EnemyData*> enemylist;
+//#ifndef _DEBUG_
+//	if(format!="<endfile>")return(enemylist);
+//#endif 
 	while(ss>>format){
 		if(format=="<enemy>"){
-			string picture;
-			ss>>format>>picture>>format>>format;
-			enemylist.push_back(get_enemy_data(picture));
-			while(format!="</enemy>")
-				return(new SceneNormal(enemylist,stagetime));
+			ss>>format;
+			string pictureId;
+			if(format=="<picture>"){
+				ss>>pictureId>>format;
+				ss>>format;
+			}else{pictureId="";}
+			enemylist.push_back(get_enemy_data(pictureId));
+			if(format!="</enemy>")
+				return new SceneNormal(enemylist,maxframe);
 		}
 	
 	
 	}
 
-	return(new SceneNormal(enemylist,stagetime));
-}
-		
-	
+	return(new SceneNormal(enemylist,maxframe));
+ }
+
 
 
 
@@ -236,8 +214,6 @@ MovePattern *Reader::making_basic_object<MovePattern>(){
 	}
 	return(NULL);
 }
-
-
 template<>
 FirePattern *Reader::making_basic_object<FirePattern>(){
 	if(format=="none"){

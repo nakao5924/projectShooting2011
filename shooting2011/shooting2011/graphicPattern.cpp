@@ -11,6 +11,7 @@ GraphicPattern::GraphicPattern(int _graphicID){
 GraphicPattern::GraphicPattern(){
 }
 void GraphicPattern::action(MovingObject* mo){
+	static const int interval=20;
   static const int explosionID=graresource.getID("explosion");
 	switch(mo->getStatus()){
 	case INVALID:
@@ -19,9 +20,10 @@ void GraphicPattern::action(MovingObject* mo){
     graresource.drawanimation((int)mo->getHitRect().x,(int)mo->getHitRect().y,graphicID, mo->getframeCount());
 		return;
 	case EXPLOSION:
-    graresource.drawanimation((int)mo->getHitRect().x,(int)mo->getHitRect().y,explosionID, mo->getframeCount());
+    graresource.drawanimation((int)mo->getHitRect().x,(int)mo->getHitRect().y,explosionID, (int)mo->getframeCount()/3);
 		return;
 	case REBIRTH:
+    if( mo->getframeCount()%interval>interval/2)graresource.drawanimation((int)mo->getHitRect().x,(int)mo->getHitRect().y,graphicID, mo->getframeCount());
 
 		return;
 	default:

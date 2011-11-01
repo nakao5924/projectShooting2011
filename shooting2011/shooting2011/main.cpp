@@ -6,10 +6,10 @@
 #include "client.h"
 #include "msgdump.h"
 #include <iostream>
-#define SOLOPLAY_MODE
-//#define NETWORK_SOLOPLAY_MODE
+//#define SOLOPLAY_MODE
+#define NETWORK_SOLOPLAY_MODE
 //#define SERVER_MODE
-// #define CLIENT_MODE
+//#define CLIENT_MODE
 
 int PORT = 12345;
 #ifdef CLIENT_MODE
@@ -251,7 +251,7 @@ void network_soloplay_main(){
     // ‚à‚µ‚d‚r‚bƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚çƒ‹[ƒv‚©‚ç”²‚¯‚é
     if( CheckHitKey( KEY_INPUT_ESCAPE ) ) exit(1);
 	}
-  Shooting *shooting = new Shooting(CLIENT_NUM);
+  Shooting *shooting= new Shooting(CLIENT_NUM);
   // ˆÚ“®ƒ‹[ƒ`ƒ“
 	int fpsTimer = GetNowCount();
 	Input input;
@@ -313,7 +313,7 @@ void network_soloplay_main(){
 
 	  fpsTimer = GetNowCount();
 
-		if (!shooting->isValid()) {
+		if (!shooting->isValid()){
 			delete shooting;
 			shooting = new Shooting(CLIENT_NUM);
 		}
