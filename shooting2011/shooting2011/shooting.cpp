@@ -2,7 +2,6 @@
 #include "shooting.h"
 #include "shootingAccessor.h"
 #include "stage.h"
-#include "tag.h"
 #include "msgdump.h"
 Shooting::Shooting(){
 	gameClock = 0;
@@ -224,7 +223,7 @@ void Shooting::action(){
   // status shift
   if (gameStatus == GAME_SELECT){
     bool flag = true;
-    for (int i=0; i<heros.size(); i++) {
+    for (size_t i=0; i<heros.size(); i++) {
       if (!isSelected[i]) flag = false;
     }
     if (flag){
@@ -237,7 +236,7 @@ void Shooting::action(){
     }
   } else if (gameStatus == NOMAL){
     bool gameOverFlag = true;
-    for (int i=0; i<heros.size(); i++){
+    for (size_t i=0; i<heros.size(); i++){
       if (heros[i]->getStatus() != INVALID) {
         gameOverFlag = false;
         break;

@@ -68,8 +68,8 @@ int PictureTable::getID(string str){
 }
 
 int PictureTable::getanimation(int tableIdx,int animIdx){
-  if (decode_table[tableIdx].size() <= animIdx) {
-    return decode_table[tableIdx][0];
+  if (decode_table[tableIdx].size() == 1) {
+    return decode_table[tableIdx][decode_table[tableIdx].size()-1];
   } else {
     return decode_table[tableIdx][animIdx];
   }

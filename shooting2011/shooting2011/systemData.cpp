@@ -1,6 +1,5 @@
 #include "main.h"
 #include "systemData.h"
-#include"tag.h"
 #include "graphicResource.h"
 SystemData::SystemData() {
 	

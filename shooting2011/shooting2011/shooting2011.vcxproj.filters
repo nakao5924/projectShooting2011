@@ -194,9 +194,6 @@
     <ClInclude Include="msgdump.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="tag.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="stage.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>

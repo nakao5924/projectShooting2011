@@ -128,7 +128,6 @@
     <ClInclude Include="pictureTable.h" />
     <ClInclude Include="server.h" />
     <ClInclude Include="stage.h" />
-    <ClInclude Include="tag.h" />
     <ClInclude Include="__patternComposer.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="enemyBullet.h" />

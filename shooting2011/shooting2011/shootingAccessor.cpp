@@ -35,7 +35,7 @@ Input ShootingAccessor::getInput(int heroIndex)
 deque<pair<double,double> > ShootingAccessor::getHeroPos()
 {
 	deque<pair<double,double> > ret;
-	for(int i=0;i<shooting_->heros.size();i++){
+	for(size_t i=0;i<shooting_->heros.size();i++){
 		Rect r=shooting_->heros[i]->getHitRect();
 		ret.push_back(pair<double,double>(r.x,r.y));
 	}
