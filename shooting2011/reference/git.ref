@@ -1,0 +1,68 @@
+現在の状態のcommitについて。
+　ファイルが増えるディレクトリが増えた場合
+　　git add name
+　　　git add ./とか
+　　　ただし空のディレクトリは保存できないようです。
+　　git commit -a -m "message"
+　ファイルが増えていない場合
+　　変更されたファイルの明示しての方法。
+　　　git add name
+　　　git commit -m "message"
+　　自動検知方法。
+　　　git commit -a "message"
+　　　　これで十分
+最新の状態を取ってくるとき
+　普通にpullしてくると手元の.gitが書き換えようとします。（これ以上のことはしない
+　　このときサーバ側の.gitの構造と手元の.gitの構造が異なっている場合
+　　異なっている部分についてマージをしてくださいと言われます。
+　　　gitでマージする場合
+　　　　pullしたときに記述したbranchnameの最新の状態について、サーバの最新の状態と手元の最新の状態のdiffをとってくれます。
+　　　　普通にpullしてdiffをとれば。
+　　　　　.gitの構造はサーバ側の構造になり、現在のディレクトリには異なっている部分を表記した物が生成されらしい。
+　　　　　　←細かいことは未確認。
+　　　変更していない場合
+　　　　commitせずにpullしてしまった場合
+　　　　　pullしてきて構造が変わっていないのでマージしてくださいといわれない
+　　　　　このときHEADの位置が変わらないと思うので（一度resetした後だと自分が試した限りでは）
+　　　　　git reset --hard ~ (~はあがっているデータのcommitの値をとってきてください。→nakao5924/projectShooting2011の最新のcommitのところ。
+　　　　　　git reset --hard b54ea92211　とか。
+　　　　普通にやる場合
+　　　　　とりあえずcommitしてpull
+　　　　　　サーバのと自分のbranchの構造を異ならせてgit diffをとればHEADは最新の状態に移動してくれます。
+　　　その他のマージ方法
+　　　　手元のデータを.git以外退避してしまう。
+　　　　git pull origin branchname
+　　　　　git pull origin masterとか。
+　　　　rm ~~(~~は変わった可能性のある部分すべて/確実なのはignore,submoduleに登録されていない物＋.git以外をすべて消す。）
+　　　　　これはgitの管理下におかれていないフォルダについての更新は行われないため。
+　　　　　追加でdxlib関連はsubmoduleにすべきだが当面同じことなので保留。
+　　　　　sub レポジトリについては不明。
+　　　　git reset --hard ~ (~はあがっているデータのcommitの値をとってきてください。→nakao5924/projectShooting2011の最新のcommitのところ。
+　　　　　git reset --hard b54ea92211　とか。
+　　　　何らかの方法でマージする。
+
+今までの変更などを無視して無理やり上げるとき
+　git push --force url branchname
+　　git push --force origin masterとか
+上げてしまった状態の削除
+　git push --force origin HEAD^:branchname
+　　git push --force origin HEAD^:masterとか
+　もっと細かく消す場合(過去の一部分とか)
+　　git rebase -i HEAD~2
+　　　←動作未確認。
+　　git push origin +master 
+自分のHEADの動きを確認したいとき
+　git reflog
+HEAD以下の状態の確認
+　git log
+resetについて
+　.gitの存在してるディレクトリについては再帰的に同じコマンドが走る。
+　--hard
+　　管理下におかれているすべてのディレクトリについて完全に書き換えHEADを動かす。
+　--mixed
+　　デフォルト。ファイルの存在の有無以外。つまり現在存在しているものについて書き直す。
+　--soft
+　　何も書き換えずにHEADを動かす。
+
+
+

@@ -25,6 +25,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="リソース ファイル\reference">
+      <UniqueIdentifier>{114a2f21-7527-4da6-9d56-f7094b775906}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -215,5 +218,13 @@
     <ClInclude Include="background.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\reference\git.ref">
+      <Filter>リソース ファイル\reference</Filter>
+    </None>
+    <None Include="..\reference\specification.ref">
+      <Filter>リソース ファイル\reference</Filter>
+    </None>
   </ItemGroup>
 </Project>
