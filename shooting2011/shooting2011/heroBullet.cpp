@@ -16,7 +16,8 @@ HeroBullet::HeroBullet( double x, double y,double vx,double vy, int id){
   if (vy > 0) dirTmp = "down";
  	string str = string("herobullet") + dirTmp + string("8");
 	this->graPattern=new GraphicPattern(str);
-
+	static const int sound_id=graresource.get_sound_id("HeroBullet");
+	graresource.playsound(sound_id);
   heroId = id;
 }
 

@@ -36,7 +36,21 @@ void Decode::drawgraph( const vector<int>& data, int& pos){
   for (int i=0; i<5; i++) temp[i] = data[pos++];
   DrawGraph( temp[0], temp[1], pt.decode(temp[2],temp[3]), (bool)temp[4]);
 }
-
+void Decode::playmusic(const vector<int>& data, int&pos){
+	int temp = data[pos++];
+	PlaySoundMem(mt.decode(temp),DX_PLAYTYPE_BACK);
+}
+void Decode::playloopmusic(const vector<int>& data, int&pos){
+	int temp = data[pos++];
+	PlaySoundMem(mt.decode(temp),DX_PLAYTYPE_LOOP);
+}
+void Decode::stopallmusic(const vector<int>& data, int&pos){
+	StopMusic();
+}
+void Decode::stopmusic(const vector<int>& data, int&pos){
+	int temp = data[pos++];
+	StopSoundMem(mt.decode(temp));
+}
 void Decode::drawint( const vector<int>& data, int& pos){
   int x, y, color, num;
   x = data.at(pos++);
@@ -61,6 +75,10 @@ void Decode::draw( const vector<int>& data){
     else if (tag == DRAWSTRING){ drawstring( data, pos);}
     else if (tag == DRAWINT){ drawint( data, pos);}
     else if (tag == DRAWGRAPH){ drawgraph( data, pos);}
+    else if (tag == PLAYMUSIC){ playmusic( data, pos);}
+    else if (tag == PLAYLOOPMUSIC){ playloopmusic( data, pos);}
+    else if (tag == STOPMUSIC){ stopmusic( data, pos);}
+    else if (tag == STOPALLMUSIC){ stopallmusic( data, pos);}
     else assert(false && "decode: unknown tag");
   }
 
@@ -68,7 +86,7 @@ void Decode::draw( const vector<int>& data){
 }
 
 void Decode::initialize(){
-	pt=PictureTable();
 	pt.initialize();
+	mt.initialize();
 }
 Decode decoder;

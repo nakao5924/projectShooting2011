@@ -4,6 +4,8 @@
 #include "reader.h"
 
 Stage::Stage(int stageNum){
+	//‰¹Šy‚ð—¬‚·
+	graresource.playloopsound("background");
 	stringstream ss;
 	ss<<stageNum;
 	string snum;

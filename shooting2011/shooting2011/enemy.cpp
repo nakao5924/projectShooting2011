@@ -38,7 +38,7 @@ void Enemy::statusShift(){
   if (status == VALID){
     if (hp <= 0) changeStatus( EXPLOSION);
   } else if (status == EXPLOSION){
-    if (frameCount > 120){
+    if (frameCount > 104){
       changeStatus( INVALID);
     }
   }

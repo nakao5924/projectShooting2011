@@ -10,10 +10,27 @@ GraphicResource::GraphicResource() {}
 void GraphicResource::initialize(){
   data.resize(0);
 	pt.initialize();
+	mt.initialize();
 }
 GraphicResource::~GraphicResource(){}
 
+
 //encode start
+void GraphicResource::playsound(const int id){
+	data.push_back(PLAYMUSIC);
+	data.push_back(id);
+}
+void GraphicResource::playloopsound(const int id){
+	data.push_back(PLAYLOOPMUSIC);
+	data.push_back(id);
+}
+void GraphicResource::stopallsound(){
+	data.push_back(STOPALLMUSIC);
+}
+void GraphicResource::stopsound(const int id){
+	data.push_back(STOPMUSIC);
+	data.push_back(id);
+}
 void GraphicResource::drawgraph(const int x,const int y,int tableIdx,int animationIdx,bool transflag){
   data.push_back( DRAWGRAPH);
   data.push_back( x);
@@ -49,7 +66,7 @@ void GraphicResource::drawstring(int x,int y, string str, int color){
   data.push_back( x);
   data.push_back( y);
   data.push_back( (int)str.size());
-  for (int i=0; i<str.size(); i++){
+  for (size_t i=0; i<str.size(); i++){
     data.push_back( (int)str[i]);
   }
   data.push_back( color);

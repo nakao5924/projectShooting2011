@@ -3,7 +3,7 @@
 
 
 GraphicPattern::GraphicPattern(string str){
-	graphicID=graresource.getID(str);
+	graphicID=graresource.get_graphic_id(str);
 }
 GraphicPattern::GraphicPattern(int _graphicID){
 	graphicID=_graphicID;
@@ -12,7 +12,7 @@ GraphicPattern::GraphicPattern(){
 }
 void GraphicPattern::action(MovingObject* mo){
 	static const int interval=20;
-  static const int explosionID=graresource.getID("explosion");
+  static const int explosionID=graresource.get_graphic_id("explosion");
 	switch(mo->getStatus()){
 	case INVALID:
 		return;

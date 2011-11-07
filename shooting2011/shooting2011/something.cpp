@@ -19,3 +19,8 @@ bool isHit( const Rect& r1, const Rect& r2){
   return (abs(r1.x - r2.x)*2 < (r1.width + r2.width)) &&
     (abs(r1.y - r2.y)*2 < (r1.height + r2.height));
 }
+bool isHit(const Round &left,const Round &right){
+	return((left.x-right.x)*(left.x-right.x)+
+		(left.x-right.x)*(left.x-right.x)<
+		(left.r+right.r)*(left.r+right.r));
+}

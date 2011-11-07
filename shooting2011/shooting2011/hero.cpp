@@ -24,6 +24,10 @@ Hero::Hero(int _heroId, int dir){
   direction = 0;
 //  fireWait = 0;
 }
+void Hero::add_delta(){
+	hitRect.x+=delta_x;
+	hitRect.y+=delta_y;
+}
 
 Hero::~Hero(){
   //delete movePattern;
@@ -50,7 +54,6 @@ void Hero::setDirection( int dir){
 int Hero::getHeroId(){
   return heroId;
 }
-
 void Hero::absorbDamage( int damage){
   changeStatus( EXPLOSION);
 }

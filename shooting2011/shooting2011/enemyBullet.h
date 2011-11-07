@@ -10,8 +10,8 @@ public:
   EnemyBullet( double x, double y, MovePattern *mp,FirePattern *fp,GraphicPattern *gp);
   ~EnemyBullet();
   bool isValid();
-
-  void absorbDamage( int damage);
+	
+	void absorbDamage( int damage);
   void statusShift();
 };
 

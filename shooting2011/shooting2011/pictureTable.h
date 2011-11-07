@@ -1,5 +1,5 @@
-#ifndef __PICTURE_READER_H__
-#define __PICTURE_READER_H__
+#ifndef __PICTURE_TABLE_H__
+#define __PICTURE_TABLE_H__
 #include"Dxlib.h"
 #include <map>
 #include <string>
@@ -16,7 +16,7 @@ class PictureTable{
 public:
   ~PictureTable(){InitGraph();};
   PictureTable(){};
-	int getID(string str);
+	int get_graphic_id(string str);
 	void initialize(){load_all_graphics("../graphic/");}
   int getanimation(int tableIdx,int animIdx);
   int gethalfsize_x(int graphicID){return half_size_table[graphicID].first;};

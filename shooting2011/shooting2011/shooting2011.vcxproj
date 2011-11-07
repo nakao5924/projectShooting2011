@@ -105,6 +105,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="movingObject.cpp" />
     <ClCompile Include="msgdump.cpp" />
+    <ClCompile Include="musicTable.cpp" />
     <ClCompile Include="nway.cpp" />
     <ClCompile Include="pictureTable.cpp" />
     <ClCompile Include="reader.cpp" />
@@ -124,9 +125,12 @@
     <ClInclude Include="connection.h" />
     <ClInclude Include="decode.h" />
     <ClInclude Include="msgdump.h" />
+    <ClInclude Include="musicTable.h" />
     <ClInclude Include="patternComposer.h" />
     <ClInclude Include="pictureTable.h" />
+    <ClInclude Include="round.h" />
     <ClInclude Include="server.h" />
+    <ClInclude Include="shape.h" />
     <ClInclude Include="stage.h" />
     <ClInclude Include="__patternComposer.h" />
     <ClInclude Include="enemy.h" />

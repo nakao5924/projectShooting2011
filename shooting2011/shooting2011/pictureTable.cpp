@@ -63,7 +63,7 @@ void PictureTable::load_all_graphics(string dir){
 }
 
 
-int PictureTable::getID(string str){
+int PictureTable::get_graphic_id(string str){
 	return graphic_encode_table[str];
 }
 
@@ -80,9 +80,16 @@ int PictureTable::decode(int tableIdx, int animationIdx){
   if ((animsize = decode_table[tableIdx].size()) == 1) {
     return decode_table[tableIdx][0];
   }
-  return decode_table[tableIdx][animationIdx % animsize];
+	else if(animationIdx<animsize){
+		return decode_table[tableIdx][animationIdx];
+	}else{
+		//インデックスを超えた場合は最後の画像を描画
+		return decode_table[tableIdx][animsize-1];
+	}
+	//ループ時
+  //return decode_table[tableIdx][animationIdx % animsize];
 }
-	
+
 int PictureTable::encode(string str){
   return graphic_encode_table[str];
 }

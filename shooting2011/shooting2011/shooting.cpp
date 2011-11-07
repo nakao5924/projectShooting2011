@@ -109,7 +109,7 @@ void Shooting::nomalAction(){
   //erase
   eraseMovingObject();
 
-	static const int gameBackGraphId = graresource.getID("background");
+	static const int gameBackGraphId = graresource.get_graphic_id("background");
   graresource.drawgraph(0,0,gameBackGraphId,0,false);
 
   //calibrateFps();
@@ -118,7 +118,7 @@ void Shooting::nomalAction(){
 
 void Shooting::gameOverAction(){
   //Ç¢Ç¬Ç©ç∑Çµë÷Ç¶ÇÈ nakao
-//  static const int gameOverGraphId = graresource.getID( "gameOver");
+//  static const int gameOverGraphId = graresource.get_graphic_id( "gameOver");
 //  graresource.drawgraph( 0, 0, gameOverGraphId, false);
 	//SetFontSize(70);
   graresource.drawstring( 100, 100, "game over", WHITE);
@@ -126,7 +126,7 @@ void Shooting::gameOverAction(){
 
 void Shooting::gameClearAction(){
   //Ç¢Ç¬Ç©ç∑Çµë÷Ç¶ÇÈ nakao
-//  static const int gameClearGraphId = graresource.getID( "gameClear");
+//  static const int gameClearGraphId = graresource.get_graphic_id( "gameClear");
 //  graresource.drawgraph( 0, 0, gameClearGraphId, false);
 	//SetFontSize(70);
   graresource.drawstring( 100, 100, "game clear", WHITE);
@@ -134,20 +134,20 @@ void Shooting::gameClearAction(){
 
 void Shooting::gameSelectAction(){
   static bool first = true;
-  static const int selectGraphId = graresource.getID( "selectImg");
+  static const int selectGraphId = graresource.get_graphic_id( "selectImg");
   static vector<string> DIR(4);// = {"up", "right", "down", "left"};
   static vector<vector<int> > selectHeroGraphId(4, vector<int>(4));
   static vector<int> selectedGraphId( 4);
 
-  static const int zenpoId = graresource.getID( "zenpoFront");
-  static const int uhoId = graresource.getID( "uhoRight");
-  static const int kohoId = graresource.getID( "kohoRear");
-  static const int sahoId = graresource.getID( "sahoLeft");
+  static const int zenpoId = graresource.get_graphic_id( "zenpoFront");
+  static const int uhoId = graresource.get_graphic_id( "uhoRight");
+  static const int kohoId = graresource.get_graphic_id( "kohoRear");
+  static const int sahoId = graresource.get_graphic_id( "sahoLeft");
   if (first){
-    selectedGraphId[0] = graresource.getID( "ready0");
-    selectedGraphId[1] = graresource.getID( "ready1");
-    selectedGraphId[2] = graresource.getID( "ready2");
-    selectedGraphId[3] = graresource.getID( "ready3");
+    selectedGraphId[0] = graresource.get_graphic_id( "ready0");
+    selectedGraphId[1] = graresource.get_graphic_id( "ready1");
+    selectedGraphId[2] = graresource.get_graphic_id( "ready2");
+    selectedGraphId[3] = graresource.get_graphic_id( "ready3");
     first = false;
     // 0:up, 1:right, 2:down, 3:left
     DIR[0] = "up";
@@ -158,7 +158,7 @@ void Shooting::gameSelectAction(){
     for (int i=0; i<4; i++){
       for (int j=0; j<4; j++){
         string graphicFileName = string("selectHero") + string(1,(i+'0')) + DIR[j];
-        selectHeroGraphId[i][j] = graresource.getID( graphicFileName);
+        selectHeroGraphId[i][j] = graresource.get_graphic_id( graphicFileName);
       }
     }
   }
@@ -258,6 +258,40 @@ void Shooting::action(){
 }
 
 void Shooting::hitMovingObject(){
+	//upa 
+	//hero & hero
+	//*
+	{
+		//âüÇµçáÇ§íºåaheroÇ…à⁄Ç∑Ç◊Ç´Ç©Ç‡
+		static const int push_range=10;
+		//ÉoÉlåWêî
+		static const double strength=0.5;
+	  for(size_t i = 0; i < heros.size(); i++){
+			heros[i]->delta_x=0;
+			heros[i]->delta_y=0;
+		}
+		double distance;
+		for(size_t i = 0; i < heros.size(); i++){
+			for(size_t j = i + 1; j < heros.size(); j++){
+				double distance_x = heros[i]->getHitRect().x - heros[j]->getHitRect().x;
+				double distance_y = heros[i]->getHitRect().y - heros[j]->getHitRect().y;
+				if((distance=push_range*push_range-(distance_x*distance_x+distance_y*distance_y))>0){
+					//distance>0Ç¬Ç‹ÇËÇ©Ç≥Ç»Ç¡ÇƒÇ¢ÇÈÇ∆Ç´
+					double factor=strength*sqrt(distance)/(sqrt(distance_x*distance_x+distance_y*distance_y) + 1e-8);
+					heros[i]->delta_x+=distance_x*factor;
+					heros[i]->delta_y+=distance_y*factor;
+					heros[j]->delta_x-=distance_x*factor;
+					heros[j]->delta_y-=distance_y*factor;
+				}
+			}
+		}
+		//heroìØémÇÃè’ìÀÇÃâeãøÇîΩâf
+		for(size_t i = 0; i < heros.size(); i++){
+			heros[i]->add_delta();
+		}
+	}
+	//*/
+
   // nakao
   // enemy & heroBullet ï™äÑìùé°Ç…ÇÊÇÈçÇë¨âªversion
   // rectSizeÇÕ64ÇÆÇÁÇ¢ÅA48Ç©ÇÁ128Ç†ÇΩÇËÇ‹Ç≈

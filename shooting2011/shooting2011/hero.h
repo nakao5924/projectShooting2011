@@ -6,16 +6,19 @@
 class Hero : public MovingObject{
 private:
   int direction;
-
 public:
   // ‚¢‚Â‚©private‚ÉˆÚ‚µ‚Ü‚µ‚å‚¤@@nakao
 	int heroId;
+	double delta_x;
+	double delta_y;
+	void add_delta();
   int getHeroId();
+	const Round& get_pushed_round();
   void setDirection( int dir);
 	Hero(){}
 	Hero(int _heroId, int direction);
 	~Hero();
-
+	
   void absorbDamage( int damage);
   void statusShift();
 };
